@@ -3,6 +3,8 @@
 - Old Works: https://github.com/Ruslan-Aliyev/
 - CAD Works: https://www.instagram.com/altinruslan/
 
+---
+
 - Copy to Clipboard by using Button https://jsfiddle.net/atabegaslan/015xsyjn/
 - Accordion using BootStrap https://jsfiddle.net/atabegaslan/n36cxnah/
 - Accordion using jQuery https://jsfiddle.net/atabegaslan/74b4ysxu/
@@ -27,3 +29,4 @@
 - ThreeJS: https://jsfiddle.net/atabegaslan/zesfyvx3/3/
 - AutoSuggest: https://jsfiddle.net/atabegaslan/6f7rpgLw/34/
 - Number Base converter: https://jsfiddle.net/atabegaslan/dzajoskn/4/
+- jQuery UI Drag Drop n Snap: https://jsfiddle.net/atabegaslan/j7web6yp/3/
