@@ -18,7 +18,7 @@
 |   | WebView & Email  | WebView & Email  | WebView & Email  |   |
 |   |   |   |   |   |
 
-- RetroFit 1.9 and 2.0 Comparison: 
+- RetroFit 1.9 and 2.0 Comparison: https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/RetroFit1n2diff
 - RetroFit 1.9 and 2.0 Comparison (detailed): https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Retrofit2.pdf
 - Example Server PHP: https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/movie.php
 - HTTP libraries comparison: https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20Development%20-%20HTTP%20Libraries.md
@@ -64,102 +64,124 @@
 
 - Install & Delete Android Studio: https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Uninstall%20Android%20Completely.pdf
 - USB Debug: https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Phone%20for%20USB%20Debug.md
-- Thread options: https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20Thread%20Options%20ALL.pdf
 - Storage Options:
   - https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/How%20to%20get%20the%20each%20directory%20path.pdf
+  - eg: Write to SD Card folder:
+    ```java
+    File sdCard = Environment.getExternalStorageDirectory();
+    File dir = new File (sdCard.getAbsolutePath() + "/dir1/dir2");
+    dir.mkdirs();
+    File file = new File(dir, "filename");
+    FileOutputStream f = new FileOutputStream(file);
+    ```
   - https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20External%20Storage.pdf
   - ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20storage%20options.jpg)
-- AndroidX:
-```
-android.* : packages that are bundled with the Android operating system
-androidx.* : packages that are packaged with your app's APK
-https://stackoverflow.com/questions/51280090/what-is-androidx
 
-The AndroidX library contains the existing support library and also includes the latest Jetpack components.
-https://developer.android.com/topic/libraries/support-library
+## Threads:
 
-Jetpack comprises the androidx.* package libraries
-https://developer.android.com/jetpack
+Options: https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20Thread%20Options%20ALL.pdf   
+Coroutine, RxJava, Executor, AsyncTask (bad): do work on background thread.   
+CoroutineScope: group similar coroutines into a "category".  
 
-you may also see libraries in the androidx.* package that are not included in Jetpack.
-https://stackoverflow.com/questions/50251658/what-exactly-is-android-jetpack
+## AndroidX:
 
-So Jetpack is made of androidx.*
-Jetpack is a subset of androidx.*
-androidx.* = support libs + Jetpack
-```
+android.* : packages that are bundled with the Android operating system  
+androidx.* : packages that are packaged with your app's APK  
+https://stackoverflow.com/questions/51280090/what-is-androidx  
 
-- Misc
-```
-Lock Screen Orientation - in manifest: android:screenOrientation="portrait"
+The AndroidX library contains the existing support library and also includes the latest Jetpack components.  
+https://developer.android.com/topic/libraries/support-library  
 
-Display quality:
+Jetpack comprises the androidx.* package libraries  
+https://developer.android.com/jetpack  
 
-https://www.youtube.com/watch?v=3tzEcB-GOKI
-https://www.youtube.com/watch?v=JiTn9wsiGsc
+you may also see libraries in the androidx.* package that are not included in Jetpack.  
+https://stackoverflow.com/questions/50251658/what-exactly-is-android-jetpack  
 
-https://www.gizbot.com/how-to/tips-tricks/how-to-find-your-phone-s-screen-density-value-043500.html
-https://blog.prototypr.io/designing-for-multiple-screen-densities-on-android-5fba8afe7ead
-https://stackoverflow.com/questions/2025282/what-is-the-difference-between-px-dip-dp-and-sp#:~:text=The%20conversion%20of%20dp%20units,on%20screens%20with%20different%20densities.&text=dp%20is%20dip%20.
-https://stackoverflow.com/questions/18077325/scale-image-to-fill-imageview-width-and-keep-aspect-ratio
-https://stackoverflow.com/questions/7506230/set-position-size-of-ui-element-as-percentage-of-screen-size
+So Jetpack is made of androidx.*  
+Jetpack is a subset of androidx.*  
+androidx.* = support libs + Jetpack  
 
-<string-array name="xxx"><item>string1</item> can be used in strings.xml to store a long array. Java arrays are used to store short arrays.
+## Display quality:
 
-Terminology:
-ViewGroup is subclass of View. Views can hold Views and ViewGroups
-ViewGroups are Layouts
-Widgets extends View. Widgets are eg Button, TextView, etc...
+- https://www.youtube.com/watch?v=3tzEcB-GOKI
+- https://www.youtube.com/watch?v=JiTn9wsiGsc
+- https://www.gizbot.com/how-to/tips-tricks/how-to-find-your-phone-s-screen-density-value-043500.html
+- https://blog.prototypr.io/designing-for-multiple-screen-densities-on-android-5fba8afe7ead
+- https://stackoverflow.com/questions/2025282/what-is-the-difference-between-px-dip-dp-and-sp#:~:text=The%20conversion%20of%20dp%20units,on%20screens%20with%20different%20densities.&text=dp%20is%20dip%20.
+- https://stackoverflow.com/questions/18077325/scale-image-to-fill-imageview-width-and-keep-aspect-ratio
+- https://stackoverflow.com/questions/7506230/set-position-size-of-ui-element-as-percentage-of-screen-size
 
-Components:
+## OS:
 
-App components are the essential building blocks of an Android app.
-Each component is an entry point through which the system or a user can enter your app.
-Some components depend on others.
+Just like Java runs on JVM, Android runs on Dalvik VM.   
+Android's DexCode is like Java ByteCode  
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/OS.jpg)  
 
-There are four different types of app components:
-Activities - With UI, foreground.
-Services - Can block, same thread. No UI, Background. Can spawn a new thread within a
-service. Used for eg polling, play music, DB CRUD.
-Thread - Don't block. Foreground or background. Preferably use if delay is >=2s. (If >5s, OS will prompt to kill)
-Broadcast receivers - Listen for an broadcast intent (like the phone ringing, or an SMS is received)
-Content providers - In front of DB/storage.
+## Build variants:
 
-Intent: A messaging object. It requests an action to be performed by another app component.
-Intent Filter: Tells app's components (eg activity) which intent to respond to. 
-Other apps can potentially start that activity with the right intent.
-https://stackoverflow.com/questions/6578051/what-is-an-intent-in-android/1
+Build Type: debug, release  
+Flavour: eg: Free, paid  
+Build variants: Build Types & Flavours.  
 
-Explicit intent - Component to Component.
-Implicit intent - Component into another app, eg send mail.
-Pending intent - Component into another app. The other app can exec it in the future, even if the calling component is gone. The other app exec it with the same permissions.
+- https://wajahatkarim.com/2018/04/difference-between-build-type-flavour-and-build-variant-in-android/
+- https://developer.android.com/studio/build/build-variants
 
-IntentService - related to Service on a different thread.
+## Components:
 
-Coroutine, RxJava, Executor, AsyncTask (bad): do work on background thread. 
-CoroutineScope: group similar coroutines into a "category"
+App components are the essential building blocks of an Android app.  
+Each component is an entry point through which the system or a user can enter your app.  
+Some components depend on others.  
 
-OS:
+### There are four different types of app components:  
+1. Activities - With UI, foreground.  
+2. Services - Can block, same thread. No UI, Background. Can spawn a new thread within a service. Used for eg polling, play music, DB CRUD.
+3. Thread - Don't block. Foreground or background. Preferably use if delay is >=2s. (If >5s, OS will prompt to kill)
+4. Broadcast receivers - Listen for an broadcast intent (like the phone ringing, or an SMS is received)
 
-Just like Java runs on JVM, Android runs on Dalvik VM. 
-Android's DexCode is like Java ByteCode
+Content providers - In front of DB/storage.  
 
-HAXM: Hardware Accelerated Execution Manager, accelerates emulator. 
+### Intent:  
+Intent: A messaging object. It requests an action to be performed by another app component.  
+Intent Filter: Tells app's components (eg activity) which intent to respond to.   
+Other apps can potentially start that activity with the right intent.  
+https://stackoverflow.com/questions/6578051/what-is-an-intent-in-android/1  
 
-DexGuard and ProGuard are for obfuscation
-https://www.guardsquare.com/en/blog/proguard-vs-dexguard
+- Explicit intent - Component to Component.
+- Implicit intent - Component into another app, eg send mail.
+- Pending intent - Component into another app. The other app can exec it in the future, even if the calling component is gone. The other app exec it with the same permissions.
 
-Build variants:
+IntentService - related to Service on a different thread.   
+https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20IntentService.pdf
 
-Build Type: debug, release
-Flavour: Free, paid
-Build variants: Build Types & Flavours.
+## Lifecycle:
 
-https://wajahatkarim.com/2018/04/difference-between-build-type-flavour-and-build-variant-in-android/
-https://developer.android.com/studio/build/build-variants
-```
-![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/OS.jpg)
+### Activity: 
+
+- ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20Activity%20Life%20Cycle%201.png)
+- ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20Activity%20Life%20Cycle%202.jpg)
+
+### Fragment: 
+
+## View
+
+### Terminology:
+ViewGroup is subclass of View. Views can hold Views and ViewGroups.   
+ViewGroups are Layouts.  
+Widgets extends View. Widgets are eg Button, TextView, etc...  
+
+### Misc:
+Lock Screen Orientation - in `manifest`: `android:screenOrientation="portrait"`   
+`<string-array name="xxx"><item>string1</item>` can be used in `strings.xml` to store a long array. Java arrays are used to store short arrays.   
+
+## Obfuscation:
+DexGuard and ProGuard are for obfuscation   
+https://www.guardsquare.com/en/blog/proguard-vs-dexguard   
+
+## Versions:
+
 ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20versions.png)
 
-![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20Activity%20Life%20Cycle%201.png)
-![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20Activity%20Life%20Cycle%202.jpg)
+## HAXM: 
+
+Hardware Accelerated Execution Manager, accelerates emulator. 
