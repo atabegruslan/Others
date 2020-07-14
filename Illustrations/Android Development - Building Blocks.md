@@ -75,20 +75,27 @@
 
 # Necessary Basics
 
-- Install & Delete Android Studio: https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Uninstall%20Android%20Completely.pdf
-- USB Debug: https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Phone%20for%20USB%20Debug.md
-- Storage Options:
-  - https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/How%20to%20get%20the%20each%20directory%20path.pdf
-  - eg: Write to SD Card folder:
-    ```java
-    File sdCard = Environment.getExternalStorageDirectory();
-    File dir = new File (sdCard.getAbsolutePath() + "/dir1/dir2");
-    dir.mkdirs();
-    File file = new File(dir, "filename");
-    FileOutputStream f = new FileOutputStream(file);
-    ```
-  - https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20External%20Storage.pdf
-  - ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20storage%20options.jpg)
+## Install & Delete Android Studio: 
+
+- https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Uninstall%20Android%20Completely.pdf
+
+## USB Debug: 
+
+- https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Phone%20for%20USB%20Debug.md
+
+## Storage Options:
+
+- https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/How%20to%20get%20the%20each%20directory%20path.pdf
+- eg: Write to SD Card folder:
+```java
+File sdCard = Environment.getExternalStorageDirectory();
+File dir = new File (sdCard.getAbsolutePath() + "/dir1/dir2");
+dir.mkdirs();
+File file = new File(dir, "filename");
+FileOutputStream f = new FileOutputStream(file);
+```
+- https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20External%20Storage.pdf
+- ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20storage%20options.jpg)
 
 ## Threads:
 
