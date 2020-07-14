@@ -195,6 +195,24 @@ Widgets extends View. Widgets are eg Button, TextView, etc...
 Lock Screen Orientation - in `manifest`: `android:screenOrientation="portrait"`   
 `<string-array name="xxx"><item>string1</item>` can be used in `strings.xml` to store a long array. Java arrays are used to store short arrays.   
 
+### Layout Types:
+
+Linear Layout - forms
+
+Relative Layout - all view pos rel to each other
+  
+Table Layout - table. Cant scroll
+
+GridView - two-dimensional, scrollable grid. Thumbnail gallery. Adapter pull content into this view
+
+ListView - scrollable items. eg menu. Adapter pull content into this view
+
+AbsoluteLayout enables you to specify the exact location of its children.
+
+FrameLayout is a placeholder on screen that you can use to display a single view.
+
+TabLayout - 1 activity many panes
+
 ## Obfuscation:
 DexGuard and ProGuard are for obfuscation   
 https://www.guardsquare.com/en/blog/proguard-vs-dexguard   
