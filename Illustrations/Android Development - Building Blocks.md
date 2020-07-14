@@ -54,9 +54,17 @@
 
 ## Flutter
 
-- https://www.youtube.com/playlist?list=PLlxmoA0rQ-Lw6tAs2fGFuXGP13-dWdKsB
-- https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ 
-- https://resocoder.com/2019/06/19/chopper-retrofit-for-flutter-basics/
+- Tutorials
+  - https://www.youtube.com/playlist?list=PLlxmoA0rQ-Lw6tAs2fGFuXGP13-dWdKsB
+  - https://www.youtube.com/playlist?list=PLUbFnGajtZlX9ubiLzYz_cw92esraiIBi
+  - https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ 
+- Documentations
+  - https://flutter.dev/docs/get-started/codelab
+  - https://flutter.dev/docs/cookbook
+  - https://flutter.dev/docs
+- Useful Libraries
+  - https://resocoder.com/2019/07/14/chopper-retrofit-for-flutter-3-converters-built-value-integration/
+  - https://resocoder.com/2019/06/19/chopper-retrofit-for-flutter-basics/
 
 ## React Native
 
