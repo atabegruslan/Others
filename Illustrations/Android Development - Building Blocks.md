@@ -6,17 +6,22 @@
 |   | ActionBar  | [ActionBar](https://github.com/Ruslan-Aliyev/Kotlin_Android_AppBar)  |   |   |
 |   | RecyclerView  | [RecyclerView](https://github.com/Ruslan-Aliyev/Kotlin_Android_RecyclerView)  | RecyclerView  |   |
 |   | RecyclerView & Search  | [RecyclerView & Search](https://github.com/Ruslan-Aliyev/Kotlin_Android_RecyclerView_Search)  | RecyclerView & Search  |   |
-|   | RecyclerView & RetroFit  | [RecyclerView & RetroFit](https://github.com/Ruslan-Aliyev/Kotlin_Android_RecyclerView_RetroFit2)  | RecyclerView & Chopper  |   |
+|   | [RetroFit 1.9 Get](https://github.com/Ruslan-Aliyev/Android-Retrofit2Get) , [RetroFit 2.0 Get](https://github.com/Ruslan-Aliyev/Android-RetrofitGet)  | [RecyclerView & RetroFit](https://github.com/Ruslan-Aliyev/Kotlin_Android_RecyclerView_RetroFit2)  | RecyclerView & Chopper  |   |
 |   | RecyclerView & RetroFit & MultiMedia  | [RecyclerView & RetroFit & MultiMedia](https://github.com/Ruslan-Aliyev/Kotlin_Android_RecyclerView_RetroFit2_and_Images)  |   |   |
 |   | HTTP Requests with Auth  | HTTP Requests with Auth  | HTTP Requests with Auth  |   |
-|   | OkHttp  | OkHttp  |   |   |
-|   | Volley  | Volley  | DIO  |   |
+|   | [OkHttp3 Get](https://github.com/Ruslan-Aliyev/Android-OkHttp3Get) , [OkHttp3 Post MultiPart](https://github.com/Ruslan-Aliyev/Android-OkHttp3PostMultiPart)  | OkHttp3  |   |   |
+|   | [Volley](https://github.com/Ruslan-Aliyev/Android-Volley-Get)  | Volley  | DIO  |   |
 |   | Speech  | [Speech](https://github.com/Ruslan-Aliyev/Kotlin_Android_Speech)  | Speech  |   |
 |   | Google Android Maps API  | [Map](https://github.com/Ruslan-Aliyev/Kotlin_Android_Google_Maps_API)  |   |   |
 |   | Cloud Messaging  | [FCM](https://github.com/Ruslan-Aliyev/Kotlin_Android_FCM)  |   |   |
 |   | Social Media Signup  | Social Media Signup  |   |   |
-|   | WebView & Email  | WebView & Email  | WebView & Email  |   |
-|   |   |   |   |   |
+|   | WebView & Email  | [WebView & Email](https://github.com/Ruslan-Aliyev/Kotlin_Android_Feedback)  | WebView & Email  |   |
+|   | [Device Admin](https://github.com/Ruslan-Aliyev/Android-DeviceAdmin)  |   |   |   |
+|   | [Service](https://github.com/Ruslan-Aliyev/Android-Service)  |   |   |   |
+|   | [Thread](https://github.com/Ruslan-Aliyev/Android-Thread)  |   |   |   |
+|   | [HotSpot](https://github.com/Ruslan-Aliyev/Android-HotSpot)  |   |   |   |
+|   | [InApp Purchase](https://github.com/Ruslan-Aliyev/Android-InApp-Purchase)  |   |   |   |
+|   | [Google Analytics](https://github.com/Ruslan-Aliyev/Android-GoogleAnalytics)  |   |   |   |
 
 - RetroFit 1.9 and 2.0 Comparison: https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/RetroFit1n2diff
 - RetroFit 1.9 and 2.0 Comparison (detailed): https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Retrofit2.pdf
@@ -82,6 +87,7 @@
 Options: https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20Thread%20Options%20ALL.pdf   
 Coroutine, RxJava, Executor, AsyncTask (bad): do work on background thread.   
 CoroutineScope: group similar coroutines into a "category".  
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/CoRoutine.PNG)
 
 ## AndroidX:
 
