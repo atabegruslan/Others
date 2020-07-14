@@ -133,6 +133,13 @@ androidx.* = support libs + Jetpack
 - https://stackoverflow.com/questions/18077325/scale-image-to-fill-imageview-width-and-keep-aspect-ratio
 - https://stackoverflow.com/questions/7506230/set-position-size-of-ui-element-as-percentage-of-screen-size
 
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/DisplayQuality1.JPG)
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/DisplayQuality2.JPG)
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/DisplayQuality3.JPG)
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/DisplayQuality4.JPG)
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/DisplayQuality5.JPG)
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/DisplayQuality6.JPG)
+
 ## OS:
 
 Just like Java runs on JVM, Android runs on Dalvik VM.   
@@ -160,20 +167,34 @@ Some components depend on others.
 3. Thread - Don't block. Foreground or background. Preferably use if delay is >=2s. (If >5s, OS will prompt to kill)
 4. Broadcast receivers - Listen for an broadcast intent (like the phone ringing, or an SMS is received)
 
+![Phone convo recorder](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/BC_Receiver_1%20-%20Phone%20convo%20recorder.jpg)
+
+![Old GcmReceiver](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/BC_Receiver_2%20-%20Old%20GcmReceiver.JPG)
+
 Content providers - In front of DB/storage.  
 
 ### Intent:  
+
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/What%20Intents%20can%20do.jpg)   
+
 Intent: A messaging object. It requests an action to be performed by another app component.  
 Intent Filter: Tells app's components (eg activity) which intent to respond to.   
 Other apps can potentially start that activity with the right intent.  
 https://stackoverflow.com/questions/6578051/what-is-an-intent-in-android/1  
 
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Implicit%20n%20Explicit%20Intent%20purpose.JPG)
+
 - Explicit intent - Component to Component.
 - Implicit intent - Component into another app, eg send mail.
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Implicit%20Intent%20purpose.JPG)
 - Pending intent - Component into another app. The other app can exec it in the future, even if the calling component is gone. The other app exec it with the same permissions.
 
 IntentService - related to Service on a different thread.   
 https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20IntentService.pdf
+
+## Context:
+
+https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20Context.pdf
 
 ## Lifecycle:
 
@@ -191,8 +212,18 @@ ViewGroup is subclass of View. Views can hold Views and ViewGroups.
 ViewGroups are Layouts.  
 Widgets extends View. Widgets are eg Button, TextView, etc...  
 
-### Misc:
+### Orientation:
+
 Lock Screen Orientation - in `manifest`: `android:screenOrientation="portrait"`   
+
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/screen_orientation.JPG)
+
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/screen_orientation2.JPG)
+
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/screen_orientation3.JPG)
+
+### Strings:
+
 `<string-array name="xxx"><item>string1</item>` can be used in `strings.xml` to store a long array. Java arrays are used to store short arrays.   
 
 ### Layout Types:
