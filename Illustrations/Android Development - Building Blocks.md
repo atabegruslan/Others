@@ -33,6 +33,7 @@
 ## Concept
 
 - https://www.youtube.com/playlist?list=PLlxmoA0rQ-LyCGSSD_nuPAmXDSR_FU0RR (beginner)
+- https://medium.com/@CodyEngel/4-ways-to-implement-onclicklistener-on-android-9b956cbd2928
 - https://www.youtube.com/playlist?list=PLlxmoA0rQ-LyVuVR1LFvpR1K8A0HsIBYx (Jetpack)
 - https://www.youtube.com/playlist?list=PLgCYzUzKIBE8M2SMSIEZ6jJepG6qD0ugX (Jetpack)
 - https://www.youtube.com/playlist?list=PLgCYzUzKIBE-1BsxlQTIPF7B95ey34jUF (advanced)
