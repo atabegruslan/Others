@@ -14,7 +14,7 @@
 | Speech  | [Speech](https://github.com/Ruslan-Aliyev/Kotlin_Android_Speech)  | Speech  |   |
 | Google Android Maps API  | [Map](https://github.com/Ruslan-Aliyev/Kotlin_Android_Google_Maps_API)  |   |   |
 | Cloud Messaging  | [FCM](https://github.com/Ruslan-Aliyev/Kotlin_Android_FCM)  |   |   |
-| Social Media Signup  | Social Media Signup  |   |   |
+| Social Media Signup  | [Google SignIn](https://github.com/Ruslan-Aliyev/Kotlin_Android_Google_SignIn) , [FB SignIn](https://github.com/Ruslan-Aliyev/Kotlin_Android_FB_SignIn)  |   |   |
 | WebView & Email  | [WebView & Email](https://github.com/Ruslan-Aliyev/Kotlin_Android_Feedback)  | WebView & Email  |   |
 | [Device Admin](https://github.com/Ruslan-Aliyev/Android-DeviceAdmin)  |   |   |   |
 | [Service](https://github.com/Ruslan-Aliyev/Android-Service)  |   |   |   |
