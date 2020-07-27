@@ -96,7 +96,7 @@ File file = new File(dir, "filename");
 FileOutputStream f = new FileOutputStream(file);
 ```
 - https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20External%20Storage.pdf
-- ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Android%20storage%20options.jpg)
+- ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/Android/Android%20storage%20options.jpg)
 
 ## Threads:
 
