@@ -77,3 +77,10 @@ sudo service apache2 restart
 - https://www.tecmint.com/install-apache-web-server-in-a-docker-container/amp/
 - https://www.geeksforgeeks.org/setup-web-server-over-docker-container-in-linux/amp/
 - https://www.tutorialspoint.com/docker/building_web_server_docker_file.htm
+
+---
+
+# Directory permissions
+
+- https://www.digitalocean.com/community/questions/proper-permissions-for-web-server-s-directory
+- https://serverfault.com/questions/357108/what-permissions-should-my-website-files-folders-have-on-a-linux-webserver
