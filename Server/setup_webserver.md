@@ -6,7 +6,9 @@ If you don't have a real server, you can use VirtualBox: https://github.com/atab
 
 ## The setup
 
-https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04
+Follow this remote LAMP installation tutorial: https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04
+
+Just for comparison, this is how you install LAMP when you are at the computer: https://howtoubuntu.org/how-to-install-lamp-on-ubuntu
 
 Doing this, make sure the virtual machine can access internet
 
@@ -29,7 +31,35 @@ You will see the default index page. You can edit this by `vim /var/www/html/ind
 
 ### PhpMyAdmin
 
+https://www.phpmyadmin.net/downloads/  
+
+Unzipping the download and moving it to `/var/www/html/phpmyadmin` is sufficient for you to see http://127.0.0.1:8000/phpmyadmin
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04#step-2-%E2%80%94-adjusting-user-authentication-and-privileges
+
 ### Switch PHP versions
+
+https://thishosting.rocks/install-php-on-ubuntu/ 
+
+```
+sudo update-alternatives --set php /usr/bin/php7.0 
+sudo update-alternatives --set phar /usr/bin/phar7.0 
+sudo update-alternatives --set phar.phar /usr/bin/phar.phar7.0 
+sudo update-alternatives --set phpize /usr/bin/phpize7.0 
+sudo update-alternatives --set php-config /usr/bin/php-config7.0 
+sudo a2dismod php7.1 
+sudo a2enmod php7.0 
+sudo service apache2 restart 
+
+sudo update-alternatives --set php /usr/bin/php7.1 
+sudo update-alternatives --set phar /usr/bin/phar7.1 
+sudo update-alternatives --set phar.phar /usr/bin/phar.phar7.1 
+sudo update-alternatives --set phpize /usr/bin/phpize7.1 
+sudo update-alternatives --set php-config /usr/bin/php-config7.1 
+sudo a2dismod php7.0 
+sudo a2enmod php7.1 
+sudo service apache2 restart 
+```
 
 ## Other tutorials
 
