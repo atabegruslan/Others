@@ -42,7 +42,7 @@ For many sites:
 ```
 vagrant up
 vagrant ssh
-composer global require larval/installer
+composer global require laravel/installer
 laravel new project
 ```
 
