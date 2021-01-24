@@ -80,6 +80,10 @@ sudo service apache2 restart
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/WebServer%20Docker%20setup.jpg)
 
+## With Kubernetes
+
+- https://www.youtube.com/watch?v=7bA0gTroJjw
+
 ---
 
 # Directory permissions
