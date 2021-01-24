@@ -36,7 +36,7 @@ databases:
 
 For many sites:
 
-![]()
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/homestead_many_sites.png)
 
 4. In terminal again:
 ```
