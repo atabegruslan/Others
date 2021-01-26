@@ -195,10 +195,6 @@ https://tecadmin.net/install-gulp-js-on-ubuntu/
 
 https://linuxize.com/post/how-to-install-yarn-on-ubuntu-18-04/
 
-#### Yarn
-
-https://linuxize.com/post/how-to-install-yarn-on-ubuntu-18-04/
-
 ### Repository SSH Keys
 
 https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
