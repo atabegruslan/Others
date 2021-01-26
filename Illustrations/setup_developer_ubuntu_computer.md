@@ -2,9 +2,9 @@
 
 https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#the-setup
 
-## User and web server run with the same permissions
+## For the easy of localhost development
 
-For the easy of localhost development
+1. User and web server run with the same permissions
 
 https://askubuntu.com/questions/733193/give-web-sever-directory-fullpermission  
 
