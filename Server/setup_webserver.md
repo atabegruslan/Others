@@ -63,17 +63,37 @@ To check that you installed MySQL server correctly:
 
 #### Install MySQL Client - PhpMyAdmin
 
+1. After you install MySQL Server, you have to enter the mysql shell as root, create a new user and give it a password.
+
+Now you can log into mysql shell by running `mysql -u sammy -p`, and enter "password" when password is prompted.
+
+```
+sudo mysql
+mysql> CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'password';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'sammy'@'localhost' WITH GRANT OPTION;
+```
+
 ##### 'Cheap' way
 
-1. After you install MySQL Server, you have to enter the mysql shell as root, create a new user and give it a password.
 2. Download the `.zip` from https://www.phpmyadmin.net/downloads/  
 3. Unzip the downloaded `.zip`, rename it to `phpmyadmin` and move it into `/var/www/html/`
 4. This is sufficient for you to access http://127.0.0.1/phpmyadmin
 5. You can then use the username and password of the newly created mysql user (step 1)
+6. Visit http://localhost/phpmyadmin and login with "sammy / password"
 
 ##### Proper way
 
 https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04
+
+2. Run these commands:
+```
+sudo apt update
+sudo apt install phpmyadmin php-mbstring php-gettext
+sudo phpenmod mbstring
+sudo systemctl restart apache2
+```
+
+3. Visit http://localhost/phpmyadmin and login with "sammy / password"
 
 #### Uninstall MySQL Server
 
