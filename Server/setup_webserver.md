@@ -151,6 +151,10 @@ echo '<?php phpinfo(); ?>' >> info.php
 
 ### Install other minor things
 
+#### Git  
+
+https://www.liquidweb.com/kb/install-git-ubuntu-16-04-lts/  
+
 #### CURL  
 
 `sudo apt install curl`
@@ -176,6 +180,28 @@ sudo n 8.15.0
 2. https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally 
 
 Node: Tutorial 2 above: Manually change npm's default directory. Later on you don't need to run node & npm under sudo  
+
+#### Composer  
+
+`sudo apt install composer`
+
+#### Gulp 
+
+https://tecadmin.net/install-gulp-js-on-ubuntu/
+
+`sudo npm install -g gulp` 
+
+#### Yarn
+
+https://linuxize.com/post/how-to-install-yarn-on-ubuntu-18-04/
+
+#### Yarn
+
+https://linuxize.com/post/how-to-install-yarn-on-ubuntu-18-04/
+
+### Repository SSH Keys
+
+https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
 
 ## Other tutorials
 
