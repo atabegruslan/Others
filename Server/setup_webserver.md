@@ -149,6 +149,34 @@ touch info.php
 echo '<?php phpinfo(); ?>' >> info.php
 ```
 
+### Install other minor things
+
+#### CURL  
+
+`sudo apt install curl`
+
+#### Node
+
+https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/#install-node-js-from-thenodesource-repository
+
+##### Uninstall Node
+
+https://www.journaldev.com/27373/install-uninstall-nodejs-ubuntu
+
+##### Change Node versions 
+
+```
+npm install -g npm@6.4.1 
+sudo npm cache clean -f 
+sudo npm install -g n 
+sudo n 8.15.0 
+```
+
+1. https://www.abeautifulsite.net/how-to-upgrade-or-downgrade-nodejs-using-npm 
+2. https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally 
+
+Node: Tutorial 2 above: Manually change npm's default directory. Later on you don't need to run node & npm under sudo  
+
 ## Other tutorials
 
 - https://www.youtube.com/watch?v=hVNWkAK70UQ
