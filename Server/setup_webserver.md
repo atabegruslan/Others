@@ -38,7 +38,7 @@ Visit http://127.0.0.1:8000/
 
 You can edit the default index page. by `vim /var/www/html/index.html`
 
-### Install MySQL
+### Install MySQL Server
 
 ```
 # Install MySQL
@@ -61,9 +61,31 @@ To check that you installed MySQL server correctly:
 
 - If you can enter mysql shell by running `sudo mysql`, then you installed MySQL server correctly.
 
+#### Install MySQL Client - PhpMyAdmin
+
+##### 'Cheap' way
+
+1. After you install MySQL Server, you have to enter the mysql shell as root, create a new user and give it a password.
+2. Download the `.zip` from https://www.phpmyadmin.net/downloads/  
+3. Unzip the downloaded `.zip`, rename it to `phpmyadmin` and move it into `/var/www/html/`
+4. This is sufficient for you to access http://127.0.0.1/phpmyadmin
+5. You can then use the username and password of the newly created mysql user (step 1)
+
+##### Proper way
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04
+
 #### Uninstall MySQL Server
 
 https://askubuntu.com/questions/172514/how-do-i-uninstall-mysql
+
+```
+sudo systemctl stop mysql
+sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
+sudo rm -rf /etc/mysql /var/lib/mysql
+sudo apt autoremove
+sudo apt autoclean
+```
 
 ### Install PHP
 
@@ -117,16 +139,6 @@ cd /var/www/html
 touch info.php
 echo '<?php phpinfo(); ?>' >> info.php
 ```
-
-### PhpMyAdmin
-
-https://www.phpmyadmin.net/downloads/  
-
-Unzipping the download and moving it to `/var/www/html/phpmyadmin` is sufficient for you to see http://127.0.0.1:8000/phpmyadmin
-
-Or you can do it the proper way: https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04
-
-https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04#step-2-%E2%80%94-adjusting-user-authentication-and-privileges
 
 ## Other tutorials
 
