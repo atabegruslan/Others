@@ -39,6 +39,8 @@ https://www.phpmyadmin.net/downloads/
 
 Unzipping the download and moving it to `/var/www/html/phpmyadmin` is sufficient for you to see http://127.0.0.1:8000/phpmyadmin
 
+Or you can do it the proper way: https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04
+
 https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04#step-2-%E2%80%94-adjusting-user-authentication-and-privileges
 
 ### Switch PHP versions
