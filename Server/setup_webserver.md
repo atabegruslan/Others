@@ -10,7 +10,9 @@ Follow this remote LAMP installation tutorial: https://www.digitalocean.com/comm
 
 Just for comparison, this is how you install LAMP when you are at the computer: https://howtoubuntu.org/how-to-install-lamp-on-ubuntu
 
-Note: to install specific versions of PHP (now 7.4) - do something like this: https://www.colinodell.com/blog/201911/how-to-install-php-74
+Note: to install specific versions of PHP (now 7.4) - do something like this: 
+- https://www.colinodell.com/blog/201911/how-to-install-php-74
+- https://stackoverflow.com/questions/40815984/how-to-install-all-required-php-extensions-for-laravel/40816033#40816033
 
 Doing this, make sure the virtual machine can access internet
 
