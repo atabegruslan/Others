@@ -78,7 +78,6 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 ```
 sudo apt update
 sudo apt install phpmyadmin
-sudo phpenmod mbstring
 sudo systemctl restart apache2
 ```
 
