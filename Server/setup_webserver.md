@@ -57,15 +57,17 @@ mysql_secure_installation
 # Answer: {your new MySQL password for root}
 ```
 
-#### Uninstall MySQL Server
-
-https://askubuntu.com/questions/172514/how-do-i-uninstall-mysql
-
 To check that you installed MySQL server correctly:
 
 - If you can enter mysql shell by running `sudo mysql`, then you installed MySQL server correctly.
 
+#### Uninstall MySQL Server
+
+https://askubuntu.com/questions/172514/how-do-i-uninstall-mysql
+
 ### Install PHP
+
+https://thishosting.rocks/install-php-on-ubuntu/ 
 
 `sudo apt install php-pear php-fpm php-dev php-zip php-curl php-xmlrpc php-gd php-mysql php-mbstring php-xml libapache2-mod-php`
 
@@ -82,9 +84,27 @@ sudo apt install php7.4
 sudo apt-get install php7.4-cli php7.4-fpm php7.4-bcmath php7.4-curl php7.4-gd php7.4-intl php7.4-json php7.4-mbstring php7.4-mysql php7.4-opcache php7.4-sqlite3 php7.4-xml php7.4-zip
 ```
 
-#### Switching between PHP versions
+#### Switch PHP versions
 
+```
+sudo update-alternatives --set php /usr/bin/php7.0 
+sudo update-alternatives --set phar /usr/bin/phar7.0 
+sudo update-alternatives --set phar.phar /usr/bin/phar.phar7.0 
+sudo update-alternatives --set phpize /usr/bin/phpize7.0 
+sudo update-alternatives --set php-config /usr/bin/php-config7.0 
+sudo a2dismod php7.1 
+sudo a2enmod php7.0 
+sudo service apache2 restart 
 
+sudo update-alternatives --set php /usr/bin/php7.1 
+sudo update-alternatives --set phar /usr/bin/phar7.1 
+sudo update-alternatives --set phar.phar /usr/bin/phar.phar7.1 
+sudo update-alternatives --set phpize /usr/bin/phpize7.1 
+sudo update-alternatives --set php-config /usr/bin/php-config7.1 
+sudo a2dismod php7.0 
+sudo a2enmod php7.1 
+sudo service apache2 restart 
+```
 
 To check that you installed PHP correctly:
 
@@ -107,30 +127,6 @@ Unzipping the download and moving it to `/var/www/html/phpmyadmin` is sufficient
 Or you can do it the proper way: https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04
 
 https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04#step-2-%E2%80%94-adjusting-user-authentication-and-privileges
-
-### Switch PHP versions
-
-https://thishosting.rocks/install-php-on-ubuntu/ 
-
-```
-sudo update-alternatives --set php /usr/bin/php7.0 
-sudo update-alternatives --set phar /usr/bin/phar7.0 
-sudo update-alternatives --set phar.phar /usr/bin/phar.phar7.0 
-sudo update-alternatives --set phpize /usr/bin/phpize7.0 
-sudo update-alternatives --set php-config /usr/bin/php-config7.0 
-sudo a2dismod php7.1 
-sudo a2enmod php7.0 
-sudo service apache2 restart 
-
-sudo update-alternatives --set php /usr/bin/php7.1 
-sudo update-alternatives --set phar /usr/bin/phar7.1 
-sudo update-alternatives --set phar.phar /usr/bin/phar.phar7.1 
-sudo update-alternatives --set phpize /usr/bin/phpize7.1 
-sudo update-alternatives --set php-config /usr/bin/php-config7.1 
-sudo a2dismod php7.0 
-sudo a2enmod php7.1 
-sudo service apache2 restart 
-```
 
 ## Other tutorials
 
