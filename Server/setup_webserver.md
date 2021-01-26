@@ -10,11 +10,9 @@ Follow this remote LAMP installation tutorial: https://www.digitalocean.com/comm
 
 Just for comparison, this is how you install LAMP when you are at the computer: https://howtoubuntu.org/how-to-install-lamp-on-ubuntu
 
-Note: to install specific versions of PHP (now 7.4) - do something like this: 
-- https://www.colinodell.com/blog/201911/how-to-install-php-74
-- https://stackoverflow.com/questions/40815984/how-to-install-all-required-php-extensions-for-laravel/40816033#40816033
+While doing this, make sure the virtual machine can access internet.
 
-Doing this, make sure the virtual machine can access internet
+### Install Apache
 
 ```
 # Install Apache
@@ -27,11 +25,78 @@ ufw app info "Apache Full"
 ufw allow in "Apache Full"
 ```
 
+To check that you installed Apache server correctly:
+
+- You get the `/var/www/html/index.html` directory
+- You can see http://127.0.0.1/
+
+#### If with virtual machine / port-forwarding
+
 On virtual box -> the virtual machine -> settings -> network -> NAT -> Port forwarding: match 127.0.0.1:8000 to {virtual_machine_ip}:80
 
 Visit http://127.0.0.1:8000/
 
-You will see the default index page. You can edit this by `vim /var/www/html/index.html`
+You can edit the default index page. by `vim /var/www/html/index.html`
+
+### Install MySQL
+
+```
+# Install MySQL
+sudo su
+apt install mysql-server
+mysql_secure_installation
+
+# Would you like to setup VALIDATE PASSWORD component?
+# Answer: Y
+
+# Which levels of password validation policy (0 = LOW, 1 = MEDIUM and 2 = STRONG)?
+# Answer: 2
+
+# New password:
+# Re-enter new password:
+# Answer: {your new MySQL password for root}
+```
+
+#### Uninstall MySQL Server
+
+https://askubuntu.com/questions/172514/how-do-i-uninstall-mysql
+
+To check that you installed MySQL server correctly:
+
+- If you can enter mysql shell by running `sudo mysql`, then you installed MySQL server correctly.
+
+### Install PHP
+
+`sudo apt install php-pear php-fpm php-dev php-zip php-curl php-xmlrpc php-gd php-mysql php-mbstring php-xml libapache2-mod-php`
+
+#### Install specific PHP versions
+
+- https://www.colinodell.com/blog/201911/how-to-install-php-74
+- https://stackoverflow.com/questions/40815984/how-to-install-all-required-php-extensions-for-laravel/40816033#40816033
+
+```
+sudo apt install -y software-properties-common
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+sudo apt install php7.4
+sudo apt-get install php7.4-cli php7.4-fpm php7.4-bcmath php7.4-curl php7.4-gd php7.4-intl php7.4-json php7.4-mbstring php7.4-mysql php7.4-opcache php7.4-sqlite3 php7.4-xml php7.4-zip
+```
+
+#### Switching between PHP versions
+
+
+
+To check that you installed PHP correctly:
+
+- If running `php -v` returns you the PHP version number, then you installed PHP correctly.
+- You can also use `php -i | grep php.ini` to find out the correct `php.ini`
+- Then you can create a PHP info page and visit http://127.0.0.1/info.php to see all the PHP info.
+```
+sudo su
+cd /var/www/html
+touch info.php
+echo '<?php phpinfo(); ?>' >> info.php
+```
 
 ### PhpMyAdmin
 
