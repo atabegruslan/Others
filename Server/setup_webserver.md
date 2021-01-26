@@ -44,17 +44,6 @@ You can edit the default index page. by `vim /var/www/html/index.html`
 # Install MySQL
 sudo su
 apt install mysql-server
-mysql_secure_installation
-
-# Would you like to setup VALIDATE PASSWORD component?
-# Answer: Y
-
-# Which levels of password validation policy (0 = LOW, 1 = MEDIUM and 2 = STRONG)?
-# Answer: 2
-
-# New password:
-# Re-enter new password:
-# Answer: {your new MySQL password for root}
 ```
 
 To check that you installed MySQL server correctly:
@@ -73,7 +62,7 @@ mysql> CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'password';
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'sammy'@'localhost' WITH GRANT OPTION;
 ```
 
-##### 'Cheap' way
+##### 'Cheap' way (Don't use this way when setting up actual server)
 
 2. Download the `.zip` from https://www.phpmyadmin.net/downloads/  
 3. Unzip the downloaded `.zip`, rename it to `phpmyadmin` and move it into `/var/www/html/`
@@ -88,7 +77,7 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 2. Run these commands:
 ```
 sudo apt update
-sudo apt install phpmyadmin php-mbstring php-gettext
+sudo apt install phpmyadmin
 sudo phpenmod mbstring
 sudo systemctl restart apache2
 ```
