@@ -112,7 +112,14 @@ https://linuxize.com/post/how-to-install-sublime-text-3-on-ubuntu-18-04/
 
 ### PHPStorm
 
-Open 'Ubuntu Software' and install from there.
+- Open 'Ubuntu Software' and install from there.
+- Or via terminal: https://linuxtips.us/install-phpstorm-ubuntu-20-04/
+
+To short-circuit the trial limit:
+
+- Delete the Home directory > .config > JetBrains > PphStormXXXX.X > eval folder
+- In file: Home directory > .config > JetBrains > PphStormXXXX.X > options > other.xml , remove `<property name="evl.blahblah"/>`
+- Delete the Home directory > .java > .userPrefs > jetbrains > phpstorm
 
 ### Chrome  
 
