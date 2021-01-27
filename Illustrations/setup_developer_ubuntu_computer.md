@@ -113,7 +113,7 @@ https://linuxize.com/post/how-to-install-sublime-text-3-on-ubuntu-18-04/
 ### PHPStorm
 
 - Open 'Ubuntu Software' and install from there.
-- Or via terminal: https://linuxtips.us/install-phpstorm-ubuntu-20-04/
+- Or via terminal: https://www.linuxbabe.com/desktop-linux/install-phpstorm-ubuntu-15-10
 
 To short-circuit the trial limit:
 
