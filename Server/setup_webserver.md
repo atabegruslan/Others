@@ -4,7 +4,9 @@
 
 If you don't have a real server, you can use VirtualBox: https://github.com/atabegruslan/Others/blob/master/Virtual/terminal_into_virtual.md
 
-## The setup
+--- 
+
+## Setup Web Server (old fashioned way)
 
 Follow this remote LAMP installation tutorial: https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04
 
@@ -198,18 +200,18 @@ https://linuxize.com/post/how-to-install-yarn-on-ubuntu-18-04/
 
 https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
 
-## Other tutorials
+### Other tutorials
 
 - https://www.youtube.com/watch?v=hVNWkAK70UQ
 - https://phoenixnap.com/kb/how-to-install-lamp-stack-on-ubuntu
 - https://askubuntu.com/questions/997317/how-to-upgrade-the-php-version-in-lampp-in-ubuntu
 
----
 
-# Setup Web Server via Docker
+## Setup Web Server via Docker
 
 - https://www.youtube.com/watch?v=7GTYB8RVYBc <sup>Very Good</sup>
 	- https://www.the-digital-life.com/webserver-linux
+	- https://hub.docker.com/r/linuxserver/swag
 - https://www.youtube.com/watch?v=_trJf3GbZXg
 - https://www.tecmint.com/install-apache-web-server-in-a-docker-container/amp/
 - https://www.geeksforgeeks.org/setup-web-server-over-docker-container-in-linux/amp/
@@ -217,13 +219,15 @@ https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/WebServer%20Docker%20setup.jpg)
 
+---
+
 ## With Kubernetes
 
 - https://www.youtube.com/watch?v=7bA0gTroJjw
 
 ---
 
-# Directory permissions
+## Directory permissions
 
 - https://www.digitalocean.com/community/questions/proper-permissions-for-web-server-s-directory
 - https://serverfault.com/questions/357108/what-permissions-should-my-website-files-folders-have-on-a-linux-webserver
