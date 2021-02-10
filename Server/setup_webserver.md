@@ -212,6 +212,7 @@ https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-
 - https://www.youtube.com/watch?v=7GTYB8RVYBc <sup>Very Good</sup>
 	- https://www.the-digital-life.com/webserver-linux
 	- https://hub.docker.com/r/linuxserver/swag
+	- https://docs.linuxserver.io/general/swag
 - https://www.youtube.com/watch?v=_trJf3GbZXg
 - https://www.tecmint.com/install-apache-web-server-in-a-docker-container/amp/
 - https://www.geeksforgeeks.org/setup-web-server-over-docker-container-in-linux/amp/
