@@ -219,6 +219,10 @@ https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-
 - https://www.tutorialspoint.com/docker/building_web_server_docker_file.htm
 
 1. Install Docker and Docker-Compose: https://github.com/Ruslan-Aliyev/Docker#install-
+2. Check with `docker --version` and `docker-compose --version`
+3. Create and give permissions for the needed directories
+4. Make `docker-compose.yaml`. Easiest to copy it over. Note: https://adminhacks.com/scp-not-port-22.html
+5. `docker-compose up`
 
 ---
 
