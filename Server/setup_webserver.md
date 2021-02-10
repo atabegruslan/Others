@@ -217,7 +217,7 @@ https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-
 - https://www.geeksforgeeks.org/setup-web-server-over-docker-container-in-linux/amp/
 - https://www.tutorialspoint.com/docker/building_web_server_docker_file.htm
 
-![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/WebServer%20Docker%20setup.jpg)
+1. Install Docker and Docker-Compose: https://github.com/Ruslan-Aliyev/Docker#install-
 
 ---
 
