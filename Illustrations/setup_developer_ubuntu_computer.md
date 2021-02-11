@@ -129,6 +129,26 @@ To short-circuit the trial limit:
 
 - https://unix.stackexchange.com/questions/129143/what-is-the-purpose-of-bashrc-and-how-does-it-work
 
+Example:
+
+`sudo gedit ~/.profile`
+
+```
+refresh-phpstorm-lisense() {
+  rm -rf ~/.config/JetBrains/PhpStorm2020.2/eval
+  sudo sed -i -E 's/<property name=\"evl.*\".*\/>//' ~/.config/JetBrains/PhpStorm2020.2/options/other.xml
+  rm -rf ~/.java/.userPrefs/jetbrains/phpstorm
+}
+
+add-permission() {
+  sudo chmod 777 -R $1
+}
+
+alias edit-hosts="sudo gedit /etc/hosts";
+```
+
+`source ~/.profile`
+
 ### Ubuntu's 'control panel' 
 
 `sudo apt install gnome-control-center`
