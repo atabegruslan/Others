@@ -131,7 +131,7 @@ To short-circuit the trial limit:
 
 ### Ubuntu's 'control panel' 
 
-`Sudo apt install gnome-control-center`
+`sudo apt install gnome-control-center`
 
 ## Notes
 
