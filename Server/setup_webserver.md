@@ -221,7 +221,7 @@ https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-
 1. Install Docker and Docker-Compose: https://github.com/Ruslan-Aliyev/Docker#install-
 2. Check with `docker --version` and `docker-compose --version`
 3. Create and give permissions for the needed directories
-4. Make `docker-compose.yaml`. Easiest to copy it over. Note: https://adminhacks.com/scp-not-port-22.html
+4. Make `docker-compose.yaml`. Easiest to copy it over. Note: https://adminhacks.com/scp-not-port-22.html EG: `scp -P {remote-port} {local-path}/docker-compose.yaml {remote-username}@{remote-host-domain}:{remote-path}/docker-compose.yaml`
 5. `docker-compose up`
 
 ---
