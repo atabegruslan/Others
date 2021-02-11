@@ -110,6 +110,10 @@ https://www.linuxhelp.com/how-to-install-meld-tool-in-ubuntu
 
 https://linuxize.com/post/how-to-install-sublime-text-3-on-ubuntu-18-04/
 
+### Chrome  
+
+https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-18-04/
+
 ### PHPStorm
 
 - Open 'Ubuntu Software' and install from there.
@@ -121,9 +125,13 @@ To short-circuit the trial limit:
 - In file: Home directory > .config > JetBrains > PphStormXXXX.X > options > other.xml , remove `<property name="evl.blahblah"/>`
 - Delete the Home directory > .java > .userPrefs > jetbrains > phpstorm
 
-### Chrome  
+### Linux's 'PATH' 
 
-https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-18-04/
+- https://unix.stackexchange.com/questions/129143/what-is-the-purpose-of-bashrc-and-how-does-it-work
+
+### Ubuntu's 'control panel' 
+
+`Sudo apt install gnome-control-center`
 
 ## Notes
 
