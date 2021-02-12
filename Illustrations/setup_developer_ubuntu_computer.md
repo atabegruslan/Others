@@ -125,11 +125,14 @@ To short-circuit the trial limit:
 - In file: Home directory > .config > JetBrains > PphStormXXXX.X > options > other.xml , remove `<property name="evl.blahblah"/>`
 - Delete the Home directory > .java > .userPrefs > jetbrains > phpstorm
 
-### Linux's 'PATH' 
+### Linux's 'Env Vars' 
 
-- https://unix.stackexchange.com/questions/129143/what-is-the-purpose-of-bashrc-and-how-does-it-work
+- `.bash_profile` and `.profile` - Once
+- `.bashrc` - Everytime
 
-Example:
+https://unix.stackexchange.com/questions/129143/what-is-the-purpose-of-bashrc-and-how-does-it-work
+
+Example - Commonly used functions:
 
 `sudo gedit ~/.profile`
 
@@ -148,6 +151,10 @@ alias edit-hosts="sudo gedit /etc/hosts";
 ```
 
 `source ~/.profile`
+
+Example - PATH:
+
+You would want to add eg: `export PATH="$PATH:/some/addition"` into `.bash_profile` instead of `.bashrc`.
 
 ### Ubuntu's 'control panel' 
 
