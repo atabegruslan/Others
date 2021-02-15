@@ -16,27 +16,38 @@ https://dzone.com/articles/how-to-optimize-mysql-queries-for-speed-and-perfor
 
 ---
 
-## Don’t use `UPDATE` instead of `CASE`
+## Issue about `UPDATE`
 
-This issue is very common, and though it’s not hard to spot, many developers often overlook it because using `UPDATE` has a natural ow that seems logical.
+`UPDATE` statement is logged, which means it has to write twice for every single write to the table.
 
-Take this scenario, for instance: You’re inserting data into a temp table and need it to display a certain value if another value exists. Maybe you’re pulling from the Customer table and you want anyone with more than $100,000 in orders to be labeled as “Preferred.” Thus, you insert the data into the table and run an `UPDATE` statement to set the CustomerRank column to “Preferred” for anyone who has more than $100,000 in orders. The problem is that the `UPDATE` statement is logged, which means it has to write twice for every single write to the table. The way around this, of course, is to use an inline `CASE` statement in the SQL query itself. This tests every row for the order amount condition and sets the “Preferred” label before it’s written to the table. The performance increase can be staggering.
+Example:
+
+Situation: Reading from the `Customer` table and you want anyone with more than $100,000 in orders to be labeled as "Preferred".
+
+Bad solution: Insert the data into the table. Then run an `UPDATE` statement to set the CustomerRank column to "Preferred" for anyone who has more than $100,000 in orders.
+
+Good solution:
+```sql
+SELECT ..., ...,
+CASE
+    WHEN amount > 100000 THEN 'Preferred'
+    ELSE ''
+END AS CustomerRank
+FROM Customer;
+```
+and then insert it.
 
 ## Don’t blindly reuse code
 
-This issue is also very common. It’s very easy to copy someone else’s code because you know it pulls the data you need. The problem is that quite often it pulls much more data than you need, and developers rarely bother trimming it down, so they end up with a huge superset of data. This usually comes in the form of an extra outer join or an extra condition in the `WHERE` clause. You can get huge performance gains if you trim reused code to your exact needs.
+When copying code, rid the things that you don't need. eg joins, where conditions... 
 
 ## Do pull only the number of columns you need
 
-This issue is similar to issue No. 2, but it’s specific to columns. It’s all too easy to code all your queries with `SELECT *` instead of listing the columns individually. The problem again is that it pulls more data than you need. I’ve seen this error dozens and dozens of times. A developer does a `SELECT *` query against a table with 120 columns and millions of rows, but winds up using only three to five of them. At that point, you’re processing so much more data than you need it’s a wonder the query returns at all. You’re not only processing more data than you need, but you’re also taking resources away from other processes.
+Don't `SELECT *`, just take what you need.
 
 ## Don’t double-dip
 
-Here’s another one I’ve seen more times than I should have: A stored procedure is written to pull data from a table with hundreds of millions of rows. The developer needs customers who live in California and have incomes of more than $40,000. So he queries for customers that live in California and puts the results into a temp table; then he queries for customers with incomes above $40,000 and puts those results into another temp table. Finally, he joins both tables to get the final product.
-
-Are you kidding me? This should be done in a single query; instead, you’re double-dipping a superlarge table. Don’t be a moron: Query large tables only once whenever possible—you’ll find how much better your procedures perform.
-
-A slightly different scenario is when a subset of a large table is needed by several steps in a process, which causes the large table to be queried each time. Avoid this by querying for the subset and persisting it elsewhere, then pointing the subsequent steps to your smaller data set.
+Query large tables only once whenever possible.
 
 ## Do pre-stage data
 
@@ -48,11 +59,11 @@ Note that many developers get around this join problem by concentrating on the q
 
 ## Do delete and update in batches
 
-Here’s another easy technique that gets overlooked a lot. Deleting or updating large amounts of data from huge tables can be a nightmare if you don’t do it right. The problem is that both of these statements run as a single transaction, and if you need to kill them or if something happens to the system while they’re working, the system has to roll back the entire transaction. This can take a very long time. These operations can also block other transactions for their duration, essentially bottlenecking the system.
+Don't delete/update too many entries in one go. ("in one go" here means: as 1 transaction). It can cause blockages.
 
-The solution is to do deletes or updates in smaller batches. This solves your problem in a couple ways. First, if the transaction gets killed for whatever reason, it only has a small number of rows to roll back, so the database returns online much quicker. Second, while the smaller batches are committing to disk, others can sneak in and do some work, so concurrency is greatly enhanced.
+## Don't do large ops on many tables in the same batch
 
-Along these lines, many developers have it stuck in their heads that these delete and update operations must be completed the same day. That’s not always true, especially if you’re archiving. You can stretch that operation out as long as you need to, and the smaller batches help accomplish that. If you can take longer to do these intensive operations, spend the extra time and don’t bring your system down.
+Don't operate on too many tables on 1 transaction. Remember that each table will be locked. It can cause blockages.
 
 ## Do use temp tables to improve cursor performance
 
@@ -102,7 +113,9 @@ And none of the queries actually used that column! Of course, the column was bur
 
 This is one of my favorite tricks of all time because it is truly one of those hidden secrets that only the experts know. When you use a scalar function in the `SELECT` list of a query, the function gets called for every single row in the result set. This can reduce the performance of large queries by a significant amount. However, you can greatly improve the performance by converting the scalar function to a table-valued function and using a `CROSS APPLY` in the query. This is a wonderful trick that can yield great improvements.
 
-Want to know more about the `APPLY` operator? You’ll find a full discussion in an excellent course on [Microsoft Virtual Academy](https://docs.microsoft.com/en-us/learn/) by Itzik Ben-Gan.
+- https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-scalar-functions/
+- https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-table-valued-functions/
+- https://www.mssqltips.com/sqlservertip/1958/sql-server-cross-apply-and-outer-apply/
 
 ## Do use partitioning to avoid large data moves
 
@@ -116,7 +129,7 @@ This is a case where understanding that all tables are partitions slashed hours 
 
 ## If you must use ORMs, use stored procedures
 
-This is one of my regular diatribes. In short, don’t use ORMs (object-relational mappers). ORMs produce some of the worst code on the planet, and they’re responsible for almost every performance issue I get involved in. ORM code generators can’t possibly write SQL as well as a person who knows what their doing. However, if you use an ORM, write your own stored procedures and have the ORM call the stored procedure instead of writing its own queries. Look, I know all the arguments, and I know that developers and managers love ORMs because they speed you to market. But the cost is incredibly high when you see what the queries do to your database.
+ORM machine-generates queries, which is never as good as a programmer who knows what he's doing.
 
 Stored procedures have a number of advantages. For starters, you’re pushing much less data across the network. If you have a long query, then it could take three or four round trips across the network to get the entire query to the database server. That's not including the time it takes the server to put the query back together and run it, or considering that the query may run several -- or several hundred -- times a second.
 
@@ -131,10 +144,6 @@ Of course, the truth is that sometimes the logic belongs on the front end and so
 - https://laravel.io/forum/04-23-2014-eloquent-vs-raw-sql-which-is-really-better
 - https://stackoverflow.com/questions/38391710/laravel-eloquent-vs-query-builder-why-use-eloquent-to-decrease-performance
 
-## Don't do large ops on many tables in the same batch
-
-This one seems obvious, but apparently it's not. I’ll use another live example because it will drive home the point much better. I had a system that suffered tons of blocking. Dozens of operations were at a standstill. As it turned out, a delete routine that ran several times a day was deleting data out of 14 tables in an explicit transaction. Handling all 14 tables in one transaction meant that the locks were held on every single table until all of the deletes were finished. The solution was to break up each table's deletes into separate transactions so that each delete transaction held locks on only one table. This freed up the other tables and reduced the blocking and allowed other operations to continue working. You always want to split up large transactions like this into separate smaller ones to prevent blocking.
-
 ## Don't use triggers
 
 ### What are triggers
@@ -147,13 +156,15 @@ The problem with triggers: Whatever it is you want them to do will be done in th
 
 ## Don’t cluster on GUID
 
-After all these years, I can't believe we’re still fighting this issue. But I still run into clustered GUIDs at least twice a year.
+A GUID (globally unique identifier) is a 16-byte randomly generated number. 
 
-A GUID (globally unique identifier) is a 16-byte randomly generated number. Ordering your table’s data on this column will cause your table to fragment much faster than using a steadily increasing value like `DATE` or `IDENTITY`. I did a benchmark a few years ago where I inserted a bunch of data into one table with a clustered GUID and into another table with an `IDENTITY` column. The GUID table fragmented so severely that the performance degraded by several thousand percent in a mere 15 minutes. The `IDENTITY` table lost only a few percent off performance after five hours. This applies to more than GUIDs -- it goes toward any volatile column.
+Ordering your table's data on this clustered GUID will cause your table to fragment much faster than using a steadily increasing value like `DATE` or `IDENTITY`. 
+
+This applies to more than GUIDs -- it goes toward any volatile column.
 
 ## Don't count all rows if you only need to see if data exists
 
-It's a common situation. You need to see if data exists in a table or for a customer, and based on the results of that check, you’re going to perform some action. I can't tell you how often I've seen someone do a `SELECT COUNT(*) FROM dbo.T1` to check for the existence of that data:
+Don't use `SELECT COUNT(*)` to check existence. Use `If EXISTS` instead.
 
 ```sql
 SET @CT = (SELECT COUNT(*) FROM dbo.T1);
@@ -163,8 +174,6 @@ BEGIN
 END 
 ```
 
-It's completely unnecessary. If you want to check for existence, then do this:
-
 ```sql
 If EXISTS (SELECT 1 FROM dbo.T1)
 BEGIN
@@ -172,9 +181,9 @@ BEGIN
 END
 ```
 
-Don't count everything in the table. Just get back the first row you find. SQL Server is smart enough to use `EXISTS` properly, and the second block of code returns superfast. The larger the table, the bigger difference this will make. Do the smart thing now before your data gets too big. It’s never too early to tune your database.
+`SELECT COUNT(*)` takes a LOT more reads.
 
-In fact, I just ran this example on one of my production databases against a table with 270 million rows. The first query took 15 seconds, and included 456,197 logical reads, while the second one returned in less than one second and included only five logical reads. However, if you really do need a row count on the table, and it's really big, another technique is to pull it from the system table. `SELECT` rows from `sysindexes` will get you the row counts for all of the indexes. And because the clustered index represents the data itself, you can get the table rows by adding `WHERE indid = 1`. Then simply include the table name and you're golden. So the final query is: 
+If you really do need a row count on the table, and it's really big, another technique is to pull it from the system table. `SELECT` rows from `sysindexes` will get you the row counts for all of the indexes. And because the clustered index represents the data itself, you can get the table rows by adding `WHERE indid = 1`. Then simply include the table name and you're golden. So the final query is: 
 
 `SELECT rows from sysindexes where object_name(id) = 'T1' and indexid = 1`. 
 
@@ -182,13 +191,13 @@ In my 270 million row table, this returned sub-second and had only six logical r
 
 ## Don’t do negative searches
 
-Take the simple query `SELECT * FROM Customers WHERE RegionID <> 3`. You can’t use an index with this query because it’s a negative search that has to be compared row by row with a table scan. If you need to do something like this, you may find it performs much better if you rewrite the query to use the index. This query can easily be rewritten like this:
+Instead of `SELECT * FROM Customers WHERE RegionID <> 3`,
 
-`SELECT * FROM Customers WHERE RegionID < 3 UNION ALL SELECT * FROM Customers WHERE RegionID`
+(You can't use an index with the above query because it's a negative search that has to be compared row by row with a table scan)
 
-This query will use an index, so if your data set is large it could greatly outperform the table scan version. Of course, nothing is ever that easy, right? It could also perform worse, so test this before you implement it. There are too many factors involved for me to tell you that it will work 100 percent of the time. Finally, I realize this query breaks the "[no double dipping](https://www.infoworld.com/article/3209665/sql-unleashed-17-ways-to-speed-your-sql-queries.html)" tip from the last article, but that goes to show there are no hard and fast rules. Though we're double dipping here, we're doing it to avoid a costly table scan.
+Use `SELECT * FROM Customers WHERE RegionID < 3 UNION ALL SELECT * FROM Customers WHERE RegionID`.
 
-OK, there you go. You won’t be able to apply all of these tips all of the time, but if you keep them in mind you’ll find yourself using them as solutions to some of your biggest issues. The most important thing to remember is not to take anything I say as the gospel and implement it because I said so. Test everything in your environment, then test it again. The same solutions won’t work in every situation. But these are tactics I use all the time when addressing poor performance, and they have all served me well time and again.
+(The above query uses the index)
 
 https://www.infoworld.com/article/3209665/sql-unleashed-17-ways-to-speed-your-sql-queries.html
 
