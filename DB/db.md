@@ -345,6 +345,9 @@ A character set is a set of symbols and encodings. A collation is a set of rules
 - https://www.smashingmagazine.com/2012/06/all-about-unicode-utf8-character-sets/
 - https://stackoverflow.com/questions/3951722/whats-the-difference-between-unicode-and-utf-8/13212528
 
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/unicode.JPG)
+
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/utf8.jpg)
 
 - https://www.toptal.com/php/a-utf-8-primer-for-php-and-mysql
 - https://stackoverflow.com/questions/3682409/reading-utf-8-content-from-mysql-table
