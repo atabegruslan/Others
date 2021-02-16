@@ -1,6 +1,8 @@
 # Speed up MySQL
 
-## Index All Columns Used in 'where', 'order by', and 'group by' Clauses
+## Index 
+
+Index All Columns Used in 'where', 'order by', and 'group by' Clauses
 
 ## Optimize Like Statements With Union Clause
 
@@ -12,7 +14,7 @@
 
 ## MySQL Query Caching
 
-https://dzone.com/articles/how-to-optimize-mysql-queries-for-speed-and-perfor
+**Ref:** https://dzone.com/articles/how-to-optimize-mysql-queries-for-speed-and-perfor
 
 ---
 
@@ -113,6 +115,7 @@ And none of the queries actually used that column! Of course, the column was bur
 
 This is one of my favorite tricks of all time because it is truly one of those hidden secrets that only the experts know. When you use a scalar function in the `SELECT` list of a query, the function gets called for every single row in the result set. This can reduce the performance of large queries by a significant amount. However, you can greatly improve the performance by converting the scalar function to a table-valued function and using a `CROSS APPLY` in the query. This is a wonderful trick that can yield great improvements.
 
+- https://stackoverflow.com/questions/34754663/difference-between-scalar-table-valued-and-aggregate-functions-in-sql-server
 - https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-scalar-functions/
 - https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-table-valued-functions/
 - https://www.mssqltips.com/sqlservertip/1958/sql-server-cross-apply-and-outer-apply/
@@ -199,7 +202,7 @@ Use `SELECT * FROM Customers WHERE RegionID < 3 UNION ALL SELECT * FROM Customer
 
 (The above query uses the index)
 
-https://www.infoworld.com/article/3209665/sql-unleashed-17-ways-to-speed-your-sql-queries.html
+**Ref:** https://www.infoworld.com/article/3209665/sql-unleashed-17-ways-to-speed-your-sql-queries.html
 
 ---
 
@@ -220,14 +223,71 @@ https://www.infoworld.com/article/3209665/sql-unleashed-17-ways-to-speed-your-sq
 
 ---
 
-# General Theory
+# General Basics
+
+## DB Servers
+
+- https://en.wikipedia.org/wiki/Database_server
+- https://en.wikipedia.org/wiki/DB-Engines_ranking
+- https://db-engines.com/en/ranking
+- https://www.quora.com/What-are-the-different-database-servers
+
+
+- https://www.guru99.com/mariadb-vs-mysql.html
+- https://softwareengineering.stackexchange.com/questions/120178/whats-the-difference-between-mariadb-and-mysql
+
+## Storage Engines
 
 - https://mariadb.com/kb/en/storage-engine-index-types/
+- https://en.wikipedia.org/wiki/Database_engine
+	- https://en.wikipedia.org/wiki/Database_engine#Data_structures
+
+## Index
+
 - https://stackoverflow.com/questions/7306316/b-tree-vs-hash-table
 - https://www.youtube.com/watch?v=EZ3jBam2IEA&list=PL_c9BZzLwBRK0Pc28IdvPQizD2mJlgoID&index=41
 - https://www.youtube.com/watch?v=ITcOiLSfVJQ
 - https://www.youtube.com/watch?v=Q8Kg67XgPzc
+
+## Full-text vs metadata search
+
+Full-text search is distinguished from searches based on metadata or on parts of the original texts.
+
+In a full-text search, a search engine examines all of the words in every stored document as it tries to match search criteria.
+
 - https://mariadb.com/kb/en/full-text-index-overview/
+- https://en.wikipedia.org/wiki/Full-text_search
+
+## Character Sets and Collations
+
+A character set is a set of symbols and encodings. A collation is a set of rules for comparing characters in a character set.
+
+- https://dev.mysql.com/doc/refman/8.0/en/charset-general.html
+- https://stackoverflow.com/questions/4538732/what-does-collation-mean
+- https://mysqlserverteam.com/mysql-8-0-1-accent-and-case-sensitive-collations-for-utf8mb4/
+- https://stackoverflow.com/questions/48588705/how-to-remove-diacritics-from-utf8-characters-in-php
+
+
+- https://www.w3schools.com/sql/func_mysql_binary.asp
+- https://mariadb.com/kb/en/about-mroonga/
+- https://mroonga.org/docs/
+
+## Encoding
+
+ UTF-8 is an encoding used to translate numbers into binary data. Unicode is a character set used to translate characters into numbers.
+
+- https://www.youtube.com/playlist?list=PLhQN_EIoIKBRA0yVTsWDoJzEKZwJY0p3l
+- https://www.quora.com/Can-you-tell-me-in-a-few-words-the-difference-between-Unicode-and-UTF-8
+- https://stackoverflow.com/questions/643694/what-is-the-difference-between-utf-8-and-unicode
+- https://www.smashingmagazine.com/2012/06/all-about-unicode-utf8-character-sets/
+- https://stackoverflow.com/questions/3951722/whats-the-difference-between-unicode-and-utf-8/13212528
+
+
+- https://www.toptal.com/php/a-utf-8-primer-for-php-and-mysql
+- https://stackoverflow.com/questions/3682409/reading-utf-8-content-from-mysql-table
+
+
+- https://stackoverflow.com/questions/30074492/what-is-the-difference-between-utf8mb4-and-utf8-charsets-in-mysql
 
 ## Similar data types
 
@@ -242,5 +302,11 @@ https://www.infoworld.com/article/3209665/sql-unleashed-17-ways-to-speed-your-sq
 	- https://stackoverflow.com/questions/409286/should-i-use-the-datetime-or-timestamp-data-type-in-mysql
 	- https://www.eversql.com/mysql-datetime-vs-timestamp-column-types-which-one-i-should-use/#:~:text=DATETIME%20%2D%20%E2%80%9CThe%20DATETIME%20type%20is,both%20date%20and%20time%20parts.&text=TIMESTAMP%20%2D%20%E2%80%9CThe%20TIMESTAMP%20data%20type,14%3A07'%20UTC.%E2%80%9D
 	- https://stackoverflow.com/questions/39250006/filtering-table-in-mysql-with-difference-between-two-timestamp-columns
+
+## Stored Procedures
+
+- https://www.youtube.com/watch?v=LgSgEt1mSFk
+- https://www.youtube.com/playlist?list=PL_c9BZzLwBRI8Tv6o6AralPWFmQr0GShn
+- https://www.youtube.com/playlist?list=PLT9miexWCpPUoMztUQSvkPGR6SYSnqK4Z
 
 ---
