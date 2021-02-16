@@ -284,11 +284,8 @@ InnoDB | MyISAM
 referential integrity (RDBMS)   | no referential integrity (DMBS)  
 ACID   | no ACID  
 transaction, logs, rollback   | no transaction nor crash recovery  
-   |   
 big projects   | small projects, small footprint  
-   |   
 FULLTEXT only after MySQL 5.6   | FULLTEXT search indexes  
-   |   
 AUTO_INCREMENT field is a part of index   |   
 cant re-establish deleted tables   |   
 
