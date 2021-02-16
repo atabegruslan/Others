@@ -151,6 +151,10 @@ Of course, the truth is that sometimes the logic belongs on the front end and so
 
 ### What are triggers
 
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/Triggers_1.PNG)
+
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/Triggers_2.PNG)
+
 - https://www.youtube.com/watch?v=gy6LY0Xy2zU
 
 This one is largely the same as the previous one, but it bears mentioning. Don’t use triggers unless it’s unavoidable -- and it’s almost always avoidable.
@@ -204,6 +208,26 @@ Use `SELECT * FROM Customers WHERE RegionID < 3 UNION ALL SELECT * FROM Customer
 
 **Ref:** https://www.infoworld.com/article/3209665/sql-unleashed-17-ways-to-speed-your-sql-queries.html
 
+https://github.com/atabegruslan/Others/blob/master/Illustrations/Improve_SQL_Performance.pdf
+
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/improve_SQL_Server_performance.PNG)
+
+Index make selection faster but modifications slower.
+
+For selection: clustered index is the fastest, non clustered index can be even worse than no index.
+
+Don't use function inside WHERE clause of the SQL query, because if so, then the SQL server will scan instead of seek table using indexes.
+
+Specify these 2 to make insert faster:
+
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/improve_SQL_Server_performance_3.PNG)
+
+Turn statistics (ie SQL Server intel) on is faster:
+
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/improve_SQL_Server_performance_4.PNG)
+
+https://bertwagner.com/posts/12-ways-to-rewrite-sql-queries-for-better-performance/
+
 ---
 
 ## Eager vs Lazy load
@@ -225,8 +249,10 @@ Use `SELECT * FROM Customers WHERE RegionID < 3 UNION ALL SELECT * FROM Customer
 
 # General Basics
 
-## DB Servers
+## DB Platforms
 
+- https://en.wikipedia.org/wiki/Comparison_of_relational_database_management_systems
+- https://en.wikipedia.org/wiki/Relational_database#Market_share
 - https://en.wikipedia.org/wiki/Database_server
 - https://en.wikipedia.org/wiki/DB-Engines_ranking
 - https://db-engines.com/en/ranking
@@ -242,12 +268,52 @@ Use `SELECT * FROM Customers WHERE RegionID < 3 UNION ALL SELECT * FROM Customer
 - https://en.wikipedia.org/wiki/Database_engine
 	- https://en.wikipedia.org/wiki/Database_engine#Data_structures
 
+- https://dev.mysql.com/doc/refman/5.7/en/storage-engines.html
+
+InnoDB | MyISAM
+------ | ------
+row-level locking   | full table-level locking  
+faster insert and update   | faster read in some situations  
+less efficient `select count(*)`   | efficient `select count(*)` (save data as table level)  
+
+- https://dba.stackexchange.com/questions/17431/which-is-faster-innodb-or-myisam
+- https://itknowledgeexchange.techtarget.com/itanswers/cluster-index/
+
+InnoDB | MyISAM
+------ | ------
+referential integrity (RDBMS)   | no referential integrity (DMBS)  
+ACID   | no ACID  
+transaction, logs, rollback   | no transaction nor crash recovery  
+   |   
+big projects   | small projects, small footprint  
+   |   
+FULLTEXT only after MySQL 5.6   | FULLTEXT search indexes  
+   |   
+AUTO_INCREMENT field is a part of index   |   
+cant re-establish deleted tables   |   
+
+Most MySQL indexes (PRIMARY KEY, UNIQUE, INDEX, and FULLTEXT) are stored in B-trees. 
+
+- Indexes on spatial data types use R-trees.
+- MEMORY tables also support hash indexes.
+- InnoDB uses inverted lists for FULLTEXT indexes.
+
+- Hash Index: are used only for equality comparisons: = or <=> (but are very fast). 
+- B-Tree Index: are used for comparison operators: =, >, >=, <, <=, BETWEEN, LIKE.
+
+- https://dev.mysql.com/doc/refman/5.5/en/mysql-indexes.html
+- https://dev.mysql.com/doc/refman/8.0/en/index-btree-hash.html
+
 ## Index
 
 - https://stackoverflow.com/questions/7306316/b-tree-vs-hash-table
 - https://www.youtube.com/watch?v=EZ3jBam2IEA&list=PL_c9BZzLwBRK0Pc28IdvPQizD2mJlgoID&index=41
 - https://www.youtube.com/watch?v=ITcOiLSfVJQ
 - https://www.youtube.com/watch?v=Q8Kg67XgPzc
+
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/clustered_vs_non_index.png)
+
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/unique_n_primary_keys.PNG)
 
 ## Full-text vs metadata search
 
@@ -308,5 +374,13 @@ A character set is a set of symbols and encodings. A collation is a set of rules
 - https://www.youtube.com/watch?v=LgSgEt1mSFk
 - https://www.youtube.com/playlist?list=PL_c9BZzLwBRI8Tv6o6AralPWFmQr0GShn
 - https://www.youtube.com/playlist?list=PLT9miexWCpPUoMztUQSvkPGR6SYSnqK4Z
+- https://www.php.net/manual/en/pdo.prepared-statements.php
+
+## Import and Export DB via Terminal
+
+- Export all: `mysqldump -u root -p mydatabase > /home/myuser/database-dump.sql`
+- Export data only: `mysqldump -u [user] -p[pass] --no-create-info mydb > mydb.sql`
+- Export structure only: `mysqldump -u [user] -p[pass] --no -data mydb > mydb.sql`
+- Import: `mysql -u [user] -p[pass] mydb < mydb.sql`
 
 ---
