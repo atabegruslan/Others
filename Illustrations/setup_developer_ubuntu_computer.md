@@ -120,6 +120,7 @@ https://serverpilot.io/docs/how-to-disable-strict-mode-in-mysql-5-7/
 - https://stackoverflow.com/questions/36882149/error-1067-42000-invalid-default-value-for-created-at
 - https://support.plesk.com/hc/en-us/articles/115000256794-MySQL-database-import-fails-ERROR-1118-42000-Row-size-too-large
 - https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/column-count-limit.html
+- Just for reference: https://stackoverflow.com/questions/40881773/how-to-turn-on-off-mysql-strict-mode-in-localhost-xampp
 
 ## Install other commonly used programs
 
