@@ -293,7 +293,6 @@ cant re-establish deleted tables   |
 - https://stackoverflow.com/questions/7306316/b-tree-vs-hash-table
 - Good tutorial: https://www.youtube.com/watch?v=EZ3jBam2IEA&list=PL_c9BZzLwBRK0Pc28IdvPQizD2mJlgoID&index=41
 - https://www.youtube.com/watch?v=ITcOiLSfVJQ
-- https://www.youtube.com/watch?v=Q8Kg67XgPzc
 - https://itknowledgeexchange.techtarget.com/itanswers/cluster-index/
 - https://dev.mysql.com/doc/refman/5.5/en/mysql-indexes.html
 - https://dev.mysql.com/doc/refman/8.0/en/index-btree-hash.html
@@ -310,6 +309,7 @@ In a full-text search, a search engine examines all of the words in every stored
 
 - https://mariadb.com/kb/en/full-text-index-overview/
 - https://en.wikipedia.org/wiki/Full-text_search
+- https://www.youtube.com/watch?v=Q8Kg67XgPzc
 
 ## Character Sets and Collations
 
