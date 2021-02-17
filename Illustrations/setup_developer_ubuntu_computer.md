@@ -93,6 +93,34 @@ ini_set("xdebug.var_display_max_data", -1);
 ini_set("xdebug.var_display_max_depth", -1); 
 ```
 
+### Turn off MySQL strict mode
+
+#### Method 1:
+
+Check current sql_modes by: `show variables like 'sql_mode';`
+
+Remove the sql_mode `"NO_ZERO_IN_DATE,NO_ZERO_DATE`
+
+#### Method 2:
+
+`sudo gedit /etc/mysql/conf.d/disable_strict_mode.cnf`
+
+Append these:
+```
+[mysqld]
+sql_mode=IGNORE_SPACE,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+```
+
+Save and restartwith: `sudo service mysql restart`
+
+https://serverpilot.io/docs/how-to-disable-strict-mode-in-mysql-5-7/
+
+**By disabling strict mode** problems like `ERROR 1067 Invalid default value for 'another_col'` and `ERROR 1118 (42000): Row size too large` can be avoided.
+
+- https://stackoverflow.com/questions/36882149/error-1067-42000-invalid-default-value-for-created-at
+- https://support.plesk.com/hc/en-us/articles/115000256794-MySQL-database-import-fails-ERROR-1118-42000-Row-size-too-large
+- https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/column-count-limit.html
+
 ## Install other commonly used programs
 
 ### FileZilla 
