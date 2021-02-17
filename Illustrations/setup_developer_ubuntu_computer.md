@@ -183,3 +183,9 @@ https://en.wikipedia.org/wiki/PlayOnLinux
 ### See hidden files 
 
 Control + H 
+
+### XAMPP on Linux
+
+- Good tutorial: https://www.ubuntubuzz.com/2017/06/how-to-install-xampp-on-ubuntu-64-bit.html
+- https://www.click4infos.com/install-xampp-on-linux/
+- https://askubuntu.com/questions/890818/ubuntu-16-04-how-to-start-xampp-control-panel
