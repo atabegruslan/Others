@@ -150,6 +150,12 @@ touch info.php
 echo '<?php phpinfo(); ?>' >> info.php
 ```
 
+#### Apache and PHP log files
+
+By default `/var/log/apache2/error.log`
+
+Can be configured in `/etc/php{version}/apache2/php.ini`
+
 ### Install other minor things
 
 #### Git  
