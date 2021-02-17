@@ -141,7 +141,7 @@ sudo service apache2 restart
 To check that you installed PHP correctly:
 
 - If running `php -v` returns you the PHP version number, then you installed PHP correctly.
-- You can also use `php -i | grep php.ini` to find out the correct `php.ini`
+- You can also use `php -i | grep php.ini` to find out the correct `php.ini` (More details: https://askubuntu.com/questions/356968/find-the-correct-php-ini-file)
 - Then you can create a PHP info page and visit http://127.0.0.1/info.php to see all the PHP info.
 ```
 sudo su
