@@ -166,6 +166,16 @@ https://www.liquidweb.com/kb/install-git-ubuntu-16-04-lts/
 
 `sudo apt install curl`
 
+OR
+
+```
+sudo sed -i -e 's/us.archive.ubuntu.com/archive.ubuntu.com/g' /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get install curl
+sudo apt-get install php7.0
+sudo apt-get install php7.0-curl
+```
+
 #### Node
 
 https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/#install-node-js-from-thenodesource-repository
