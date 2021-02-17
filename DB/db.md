@@ -362,7 +362,6 @@ A character set is a set of symbols and encodings. A collation is a set of rules
 ## Stored Procedures
 
 - https://www.youtube.com/watch?v=LgSgEt1mSFk
-- https://www.youtube.com/playlist?list=PL_c9BZzLwBRI8Tv6o6AralPWFmQr0GShn
 - https://www.youtube.com/playlist?list=PLT9miexWCpPUoMztUQSvkPGR6SYSnqK4Z
 - https://www.php.net/manual/en/pdo.prepared-statements.php
 
