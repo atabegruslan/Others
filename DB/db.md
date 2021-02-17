@@ -252,10 +252,6 @@ https://bertwagner.com/posts/12-ways-to-rewrite-sql-queries-for-better-performan
 ## DB Platforms
 
 - https://en.wikipedia.org/wiki/Comparison_of_relational_database_management_systems
-- https://en.wikipedia.org/wiki/Relational_database#Market_share
-- https://en.wikipedia.org/wiki/Database_server
-- https://en.wikipedia.org/wiki/DB-Engines_ranking
-- https://db-engines.com/en/ranking
 - https://www.quora.com/What-are-the-different-database-servers
 
 
