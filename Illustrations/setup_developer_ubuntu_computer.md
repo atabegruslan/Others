@@ -2,6 +2,25 @@
 
 https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#the-setup
 
+### Other tutorials for installing LAMP
+
+- https://www.taniarascia.com/how-to-install-apache-php-7-1-and-mysql-on-ubuntu-with-vagrant/
+- https://www.howtoforge.com/tutorial/install-apache-with-php-and-mysql-on-ubuntu-16-04-lamp/#-install-phpmyadmin
+- https://askubuntu.com/questions/387062/how-to-solve-the-phpmyadmin-not-found-issue-after-upgrading-php-and-apache
+
+Then don't forget: `sudo gedit /etc/apache2/apache2.conf`
+
+Append: `Include /etc/phpmyadmin/apache.conf`
+
+### Start and stop `apache` and `mysql`
+
+```
+sudo service apache2 stop
+sudo service mysql stop
+sudo service apache2 start
+sudo service mysql start
+```
+
 ## For the easy of localhost development
 
 1. User and web server run with the same permissions
