@@ -156,6 +156,8 @@ Example - PATH:
 
 You would want to add eg: `export PATH="$PATH:/some/addition"` into `.bash_profile` instead of `.bashrc`.
 
+https://hackprogramming.com/2-ways-to-permanently-set-path-variable-in-ubuntu/
+
 ### Ubuntu's 'control panel' 
 
 `sudo apt install gnome-control-center`
