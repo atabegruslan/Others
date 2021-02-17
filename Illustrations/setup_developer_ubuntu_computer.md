@@ -135,7 +135,8 @@ sudo apt-get install filezilla
 
 ### MySQL WorkBench  
 
-https://www.linode.com/docs/databases/mysql/install-and-configure-mysql-workbench-on-ubuntu/ 
+- https://www.linode.com/docs/databases/mysql/install-and-configure-mysql-workbench-on-ubuntu/ 
+- https://www.linode.com/docs/guides/install-and-configure-mysql-workbench-on-ubuntu/#install-mysql-workbench
 
 ### Video Screen Recorder (#2 Simple Screen Recorder is good)
 
@@ -161,6 +162,10 @@ https://linuxize.com/post/how-to-install-sublime-text-3-on-ubuntu-18-04/
 
 https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-18-04/
 
+### JDK
+
+https://stackoverflow.com/questions/14788345/how-to-install-the-jdk-on-ubuntu-linux
+
 ### PHPStorm
 
 - Open 'Ubuntu Software' and install from there.
@@ -171,6 +176,10 @@ To short-circuit the trial limit:
 - Delete the Home directory > .config > JetBrains > PphStormXXXX.X > eval folder
 - In file: Home directory > .config > JetBrains > PphStormXXXX.X > options > other.xml , remove `<property name="evl.blahblah"/>`
 - Delete the Home directory > .java > .userPrefs > jetbrains > phpstorm
+
+### Virtual Hosts
+
+https://viblo.asia/p/cau-hinh-virtual-host-myprojectdev-thay-vi-localhostmyproject-4dbZN0jq5YM
 
 ### Linux's 'Env Vars' 
 
