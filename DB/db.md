@@ -323,13 +323,12 @@ A character set is a set of symbols and encodings. A collation is a set of rules
 
 ## Encoding
 
- UTF-8 is an encoding used to translate numbers into binary data. Unicode is a character set used to translate characters into numbers.
+Unicode character set: Map character to code-point.
+
+UTF-x encodes code-points into binary data. 
 
 - https://www.youtube.com/playlist?list=PLhQN_EIoIKBRA0yVTsWDoJzEKZwJY0p3l
-- https://www.quora.com/Can-you-tell-me-in-a-few-words-the-difference-between-Unicode-and-UTF-8
-- https://stackoverflow.com/questions/643694/what-is-the-difference-between-utf-8-and-unicode
 - https://www.smashingmagazine.com/2012/06/all-about-unicode-utf8-character-sets/
-- https://stackoverflow.com/questions/3951722/whats-the-difference-between-unicode-and-utf-8/13212528
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/unicode.JPG)
 
@@ -337,6 +336,7 @@ A character set is a set of symbols and encodings. A collation is a set of rules
 
 - https://www.toptal.com/php/a-utf-8-primer-for-php-and-mysql
 - https://stackoverflow.com/questions/3682409/reading-utf-8-content-from-mysql-table
+- https://stackoverflow.com/questions/15276191/why-does-a-diamond-with-a-questionmark-in-it-appear-in-my-html
 
 
 - https://stackoverflow.com/questions/30074492/what-is-the-difference-between-utf8mb4-and-utf8-charsets-in-mysql
