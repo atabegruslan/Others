@@ -297,7 +297,7 @@ cant re-establish deleted tables   |
 - https://dev.mysql.com/doc/refman/5.5/en/mysql-indexes.html
 - https://dev.mysql.com/doc/refman/8.0/en/index-btree-hash.html
 
-![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/clustered_vs_non_index.png)
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/clustered_vs_non_index.PNG)
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/unique_n_primary_keys.PNG)
 
