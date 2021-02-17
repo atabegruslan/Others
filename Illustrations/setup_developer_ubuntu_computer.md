@@ -162,6 +162,22 @@ https://hackprogramming.com/2-ways-to-permanently-set-path-variable-in-ubuntu/
 
 `sudo apt install gnome-control-center`
 
+### Install non-linux-native software eg MS Edge
+
+**Use WINE or PlayOnLinux**, then install MS Edge on it.
+
+Wine is a free and open-source compatibility layer that aims to allow application software and computer games developed for Microsoft Windows to run on Unix-like operating systems. Wine also provides a software library, known as "Winelib", against which developers can compile Windows applications to help port them to Unix-like systems.
+
+Wine provides its compatibility layer for Windows runtime system (also called runtime environment) which translates Windows system calls into POSIX-compliant system calls, recreating the directory structure of Windows, and providing alternative implementations of Windows system libraries, system services through `wineserver` and various other components (such as Internet Explorer, the Windows Registry Editor, and msiexec). Wine is predominantly written using black-box testing reverse-engineering, to avoid copyright issues.
+
+https://en.wikipedia.org/wiki/Wine_(software)
+
+PlayOnLinux is a graphical frontend for the Wine software compatibility layer which allows Linux users to install Windows-based video games, Microsoft Office (2000 to 2010), Microsoft Internet Explorer, as well as many other applications such as Apple iTunes and Safari.
+
+While initially developed for Linux-based systems, it is also used on macOS and FreeBSD under the names PlayOnMac and PlayOnBSD, respectively. It can also be used on other operating systems supported by Wine.
+
+https://en.wikipedia.org/wiki/PlayOnLinux
+
 ## Notes
 
 ### See hidden files 
