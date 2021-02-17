@@ -269,44 +269,34 @@ https://bertwagner.com/posts/12-ways-to-rewrite-sql-queries-for-better-performan
 	- https://en.wikipedia.org/wiki/Database_engine#Data_structures
 
 - https://dev.mysql.com/doc/refman/5.7/en/storage-engines.html
+- https://dba.stackexchange.com/questions/17431/which-is-faster-innodb-or-myisam
 
 InnoDB | MyISAM
 ------ | ------
 row-level locking   | full table-level locking  
 faster insert and update   | faster read in some situations  
 less efficient `select count(*)`   | efficient `select count(*)` (save data as table level)  
-
-- https://dba.stackexchange.com/questions/17431/which-is-faster-innodb-or-myisam
-- https://itknowledgeexchange.techtarget.com/itanswers/cluster-index/
-
-InnoDB | MyISAM
------- | ------
 referential integrity (RDBMS)   | no referential integrity (DMBS)  
 ACID   | no ACID  
 transaction, logs, rollback   | no transaction nor crash recovery  
 big projects   | small projects, small footprint  
-FULLTEXT only after MySQL 5.6   | FULLTEXT search indexes  
+FULLTEXT only after MySQL 5.6. InnoDB uses inverted lists for FULLTEXT indexes.   | FULLTEXT search indexes  
 AUTO_INCREMENT field is a part of index   |   
 cant re-establish deleted tables   |   
 
-Most MySQL indexes (PRIMARY KEY, UNIQUE, INDEX, and FULLTEXT) are stored in B-trees. 
-
+- Most MySQL indexes (PRIMARY KEY, UNIQUE, INDEX, and FULLTEXT) are stored in B-trees. 
 - Indexes on spatial data types use R-trees.
 - MEMORY tables also support hash indexes.
-- InnoDB uses inverted lists for FULLTEXT indexes.
-
-- Hash Index: are used only for equality comparisons: = or <=> (but are very fast). 
-- B-Tree Index: are used for comparison operators: =, >, >=, <, <=, BETWEEN, LIKE.
-
-- https://dev.mysql.com/doc/refman/5.5/en/mysql-indexes.html
-- https://dev.mysql.com/doc/refman/8.0/en/index-btree-hash.html
 
 ## Index
 
 - https://stackoverflow.com/questions/7306316/b-tree-vs-hash-table
-- https://www.youtube.com/watch?v=EZ3jBam2IEA&list=PL_c9BZzLwBRK0Pc28IdvPQizD2mJlgoID&index=41
+- Good tutorial: https://www.youtube.com/watch?v=EZ3jBam2IEA&list=PL_c9BZzLwBRK0Pc28IdvPQizD2mJlgoID&index=41
 - https://www.youtube.com/watch?v=ITcOiLSfVJQ
 - https://www.youtube.com/watch?v=Q8Kg67XgPzc
+- https://itknowledgeexchange.techtarget.com/itanswers/cluster-index/
+- https://dev.mysql.com/doc/refman/5.5/en/mysql-indexes.html
+- https://dev.mysql.com/doc/refman/8.0/en/index-btree-hash.html
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/clustered_vs_non_index.png)
 
