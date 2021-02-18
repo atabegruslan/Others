@@ -139,6 +139,18 @@ sudo apt-get install filezilla
 - https://www.linode.com/docs/databases/mysql/install-and-configure-mysql-workbench-on-ubuntu/ 
 - https://www.linode.com/docs/guides/install-and-configure-mysql-workbench-on-ubuntu/#install-mysql-workbench
 
+### Navicat
+
+- https://www.navicat.com/en/navicat-monitor-installation-guide?ver=ubuntu
+
+### DBeaver
+
+- https://computingforgeeks.com/install-and-configure-dbeaver-on-ubuntu-debian/
+
+### POEdit
+
+- https://snapcraft.io/poedit
+
 ### Video Screen Recorder (#2 Simple Screen Recorder is good)
 
 https://www.ubuntupit.com/15-best-linux-screen-recorder-and-how-to-install-those-on-ubuntu/ 
