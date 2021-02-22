@@ -143,6 +143,14 @@ sudo apt-get install filezilla
 
 - https://www.navicat.com/en/navicat-monitor-installation-guide?ver=ubuntu
 
+or
+
+Download: https://downloadly.ir/software/programming/navicat-premium/
+
+Run: `cd navicat121_premium_en_x64 && sh start_navicat`
+
+Renew: `cd ~ && rm -rf .navicat64`
+
 ### DBeaver
 
 - https://computingforgeeks.com/install-and-configure-dbeaver-on-ubuntu-debian/
