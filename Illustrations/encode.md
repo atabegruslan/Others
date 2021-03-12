@@ -2,6 +2,8 @@
 
 ## Types
 
+https://en.wikipedia.org/wiki/List_of_cryptographers
+
 ### Morse
 
 ### Baudot
@@ -265,6 +267,8 @@ Hamming code used in 2D to correct burst errors:
 
 # Encodings commonly used in web development
 
+https://html.spec.whatwg.org/multipage/parsing.html#determining-the-character-encoding
+
 ## HTML Entity
 
 - https://www.freeformatter.com/html-entities.html
@@ -324,6 +328,31 @@ eg: &#20844; represents a chinese character.
 UTF: 2 bytes, 16 bits, 2^16 variations, can accomodate all chinese characters even via brute-force way.
 
 Use this website to convert chinese characters into unicode: http://www.pinyin.info/tools/converter/chars2uninumbers.html
+
+## Content Type vs Data Type (AJAX)
+
+Content Type is what you send to server
+
+Data type is what you expect to get back
+
+https://stackoverflow.com/questions/14322984/differences-between-contenttype-and-datatype-in-jquery-ajax-function
+
+### MIME (Content Type)
+
+- https://www.stubbornjava.com/posts/what-is-a-content-type
+- https://stackoverflow.com/questions/23714383/what-are-all-the-possible-values-for-http-content-type-header
+- https://javarevisited.blogspot.com/2017/06/difference-between-applicationx-www-form-urlencoded-vs-multipart-form-data.html?m=1
+- https://en.wikipedia.org/wiki/MIME
+  - https://en.wikipedia.org/wiki/Media_type
+
+### Multibyte text handling in PHP
+
+- https://www.php.net/manual/en/book.mbstring.php
+- https://compiledconcepts.com/software-engineering/what-are-multibyte-strings-in-php/
+- https://hotexamples.com/examples/-/-/mb_encode/php-mb_encode-function-examples.html
+- https://www.w3schools.com/Php/func_xml_utf8_encode.asp
+
+Exercise: https://stackoverflow.com/questions/3635511/remove-diacritics-from-a-string
 
 ### Common issues
 
