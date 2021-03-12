@@ -236,12 +236,13 @@ e.g. sharp edges are sometimes rendered at very low resolution (as 8x8 blocks).
 
 Appending redundant bits.
 
-single error:
-parity bit,
-  2D parity bit:
-  ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/parity_bit.png)
+- single error
+  - parity bit
+    - 2D parity bit
+
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/parity_bit.png)
   
-burst error:
-2D parity bits,
-checksums,
-CRC.
+- burst error
+  - 2D parity bits
+  - checksums
+  - CRC
