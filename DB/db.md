@@ -323,7 +323,7 @@ A character set is a set of symbols and encodings. A collation is a set of rules
 
 ## Encoding
 
-https://github.com/atabegruslan/Others/blob/master/Illustrations/encode.md#unicode
+https://github.com/atabegruslan/Others/blob/master/Illustrations/encode.md#encodings-commonly-used-in-web-development-db
 
 ## Similar data types
 
