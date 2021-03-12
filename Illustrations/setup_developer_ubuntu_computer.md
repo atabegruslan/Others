@@ -198,6 +198,10 @@ To short-circuit the trial limit:
 - In file: Home directory > .config > JetBrains > PphStormXXXX.X > options > other.xml , remove `<property name="evl.blahblah"/>`
 - Delete the Home directory > .java > .userPrefs > jetbrains > phpstorm
 
+### Compress Zip
+
+- https://www.cyberciti.biz/faq/how-to-zip-a-folder-in-ubuntu-linux/
+
 ### Virtual Hosts
 
 https://viblo.asia/p/cau-hinh-virtual-host-myprojectdev-thay-vi-localhostmyproject-4dbZN0jq5YM
