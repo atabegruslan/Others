@@ -246,3 +246,48 @@ Appending redundant bits.
   - 2D parity bits
   - checksums
   - CRC
+
+# Error correction
+
+single error:
+
+Forward error correction ‐ 2^r => n + r + 1 , n is number of data bits, r is number of redundant bits.
+
+Hamming code detects and corrects all single‐bit errors in data units of any length.
+
+Hamming distance: by how many bits does 2 strings differ.
+
+burst error:
+
+Hamming code used in 2D to correct burst errors,
+
+BCH codes, eg reed‐solomon code.
+
+Hamming code used in 2D to correct burst errors:
+
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/multi_bit_err_correct.png)
+
+---
+
+# Encodings commonly used in web development
+
+## HTML Entity
+
+- https://www.freeformatter.com/html-entities.html
+- https://www.w3schools.com/charsets/ref_html_entities_a.asp
+- https://www.toptal.com/designers/htmlarrows/
+- https://en.wikipedia.org/wiki/Numeric_character_reference
+- https://www.w3schools.com/cssref/css_entities.asp
+- https://www.rapidtables.com/code/text/unicode-characters.html
+
+| Character | Unicode | HTML Hex Reference | HTML Decimal Reference | HTML Named Reference | Escape Sequence | Hex | Desc |
+| < | U+0003C | &#x3c; | &#60; | &lt; | \u003c | \003C | less than | 
+
+## URL Encode
+
+`<` becomes %3C
+
+## ASCII control char
+
+| Escape Sequence | Hex | Desc | Abbrev. | Caret Notation | 
+| \n | 0A | newline | LF | ^J | 
