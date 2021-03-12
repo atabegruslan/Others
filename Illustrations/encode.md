@@ -45,12 +45,6 @@ UTF-x encodes code-points into binary data.
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/utf8.jpg)
 
-- https://www.toptal.com/php/a-utf-8-primer-for-php-and-mysql
-- https://stackoverflow.com/questions/3682409/reading-utf-8-content-from-mysql-table
-- https://stackoverflow.com/questions/15276191/why-does-a-diamond-with-a-questionmark-in-it-appear-in-my-html
-- https://stackoverflow.com/questions/275411/php-output-showing-little-black-diamonds-with-a-question-mark
-- https://stackoverflow.com/questions/30074492/what-is-the-difference-between-utf8mb4-and-utf8-charsets-in-mysql
-
 ## Prefix code
 
 no codeword is a prefix of any other; ASCII is a prefix code.
@@ -291,3 +285,53 @@ Hamming code used in 2D to correct burst errors:
 
 | Escape Sequence | Hex | Desc | Abbrev. | Caret Notation | 
 | \n | 0A | newline | LF | ^J | 
+
+## Unicode and other encodings
+
+### Unicode
+
+Unicode has attempted, with some controversy, to unify the character sets in a process known as Han unification.
+
+Unicode Transformation Format (UTF) encoding, & Universal Character Set (UCS) encoding are the 2 implementations (mapping-methods) of Unicode.
+
+- https://en.wikipedia.org/wiki/List_of_Unicode_characters
+- https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane
+- https://stackoverflow.com/questions/2223882/whats-the-difference-between-utf-8-and-utf-8-without-bom
+- http://www.java2s.com/Tutorial/Java/0120__Development/ConvertfromUTF8toUnicode.htm
+
+### CJK character encodings include
+
+- Big5 (Complex Chinese)
+- EUC-JP
+- EUC-KR
+- GB18030 (mandated standard in the People's Republic of China)
+- GB2312 (subset and predecessor of GB18030)
+- ISO 2022-JP
+- KS C 5861
+- Shift-JIS
+- Unicode encodings (The CJK character sets take up the bulk of the assigned Unicode code space)
+
+#### Simplified Chinese
+
+```html
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+```
+
+eg: &#20844; represents a chinese character.
+
+UTF: 2 bytes, 16 bits, 2^16 variations, can accomodate all chinese characters even via brute-force way.
+
+Use this website to convert chinese characters into unicode: http://www.pinyin.info/tools/converter/chars2uninumbers.html
+
+### Common issues
+
+- https://stackoverflow.com/questions/15276191/why-does-a-diamond-with-a-questionmark-in-it-appear-in-my-html
+- https://stackoverflow.com/questions/275411/php-output-showing-little-black-diamonds-with-a-question-mark
+
+# Encodings commonly used in web development (DB)
+
+- https://www.toptal.com/php/a-utf-8-primer-for-php-and-mysql
+- https://stackoverflow.com/questions/3682409/reading-utf-8-content-from-mysql-table
+- https://stackoverflow.com/questions/30074492/what-is-the-difference-between-utf8mb4-and-utf8-charsets-in-mysql
