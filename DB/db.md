@@ -323,24 +323,7 @@ A character set is a set of symbols and encodings. A collation is a set of rules
 
 ## Encoding
 
-Unicode character set: Map character to code-point.
-
-UTF-x encodes code-points into binary data. 
-
-- https://www.youtube.com/playlist?list=PLhQN_EIoIKBRA0yVTsWDoJzEKZwJY0p3l
-- https://www.smashingmagazine.com/2012/06/all-about-unicode-utf8-character-sets/
-
-![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/unicode.JPG)
-
-![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/utf8.jpg)
-
-- https://www.toptal.com/php/a-utf-8-primer-for-php-and-mysql
-- https://stackoverflow.com/questions/3682409/reading-utf-8-content-from-mysql-table
-- https://stackoverflow.com/questions/15276191/why-does-a-diamond-with-a-questionmark-in-it-appear-in-my-html
-- https://stackoverflow.com/questions/275411/php-output-showing-little-black-diamonds-with-a-question-mark
-
-
-- https://stackoverflow.com/questions/30074492/what-is-the-difference-between-utf8mb4-and-utf8-charsets-in-mysql
+https://github.com/atabegruslan/Others/blob/master/Illustrations/encode.md#unicode
 
 ## Similar data types
 
