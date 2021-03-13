@@ -349,7 +349,7 @@ https://github.com/atabegruslan/Others/blob/master/Illustrations/encode.md#encod
 
 - Export all: `mysqldump -u root -p mydatabase > /home/myuser/database-dump.sql`
 - Export data only: `mysqldump -u [user] -p[pass] --no-create-info mydb > mydb.sql`
-- Export structure only: `mysqldump -u [user] -p[pass] --no -data mydb > mydb.sql`
+- Export structure only: `mysqldump -u [user] -p[pass] --no-data mydb > mydb.sql`
 - Import: `mysql -u [user] -p[pass] mydb < mydb.sql`
 
 ---
