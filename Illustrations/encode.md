@@ -352,7 +352,26 @@ https://stackoverflow.com/questions/14322984/differences-between-contenttype-and
 - https://hotexamples.com/examples/-/-/mb_encode/php-mb_encode-function-examples.html
 - https://www.w3schools.com/Php/func_xml_utf8_encode.asp
 
-Exercise: https://stackoverflow.com/questions/3635511/remove-diacritics-from-a-string
+### Rid diacritics: 
+
+ES6: `dirty.normalize("NFD").replace(/[\u0300-\u036f]/g, "")`
+
+PHP: `$clean = iconv('UTF-8', 'US-ASCII//TRANSLIT', $dirty);`
+
+https://stackoverflow.com/questions/3635511/remove-diacritics-from-a-string
+
+### The UTF-8 Header
+
+Difference between `<?php header("Content-Type: text/html; charset=utf-8"); ?>` and `<meta charset="utf-8">`
+
+The HTTP Content-Type header should always be set, it's the primary source for the browser to figure out what kind of document it's dealing with. 
+
+Only if this header is missing will the browser try to find an HTML meta tag which gives it the same information as a fallback.
+
+It makes sense to set both flags though, since you may save the HTML document to disk, in which case the HTTP header will be gone for anyone needing it later.
+
+You can find the exact rules for how a browser determines the document's charset here: 
+http://www.w3.org/TR/html5/syntax.html#determining-the-character-encoding
 
 ### Common issues
 
