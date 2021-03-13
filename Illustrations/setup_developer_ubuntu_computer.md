@@ -80,11 +80,7 @@ post_max_size=2G
 
 ### Increase the length of the dump-able string, to `var_dump` the entire long string 
 
-Add `xdebug.var_display_max_depth=-1` to `php.ini`
-
-https://stackoverflow.com/questions/34342777/how-to-see-full-content-of-long-strings-with-var-dump-in-php
-
-Making the above edits to `php.ini` have the same results as
+#### Method 1
 
 On top of each PHP file, after the Namespace declaraction, outside the Class 
 ```php
@@ -92,6 +88,41 @@ ini_set("xdebug.var_display_max_children", -1);
 ini_set("xdebug.var_display_max_data", -1); 
 ini_set("xdebug.var_display_max_depth", -1); 
 ```
+
+#### Method 2
+
+Add `xdebug.var_display_max_depth=-1` to `php.ini`
+
+In detail:
+
+```
+; with sane limits
+xdebug.var_display_max_depth = 10
+xdebug.var_display_max_children = 256
+xdebug.var_display_max_data = 1024 
+
+; with no limits
+; (maximum nesting is 1023)
+xdebug.var_display_max_depth = -1 
+xdebug.var_display_max_children = -1
+xdebug.var_display_max_data = -1 
+```
+
+Of course, these may also be set at runtime via `ini_set()`.
+
+Useful if you don't want to modify `php.ini` and restart your web server.
+
+But need to quickly inspect something more deeply.
+
+```
+ini_set('xdebug.var_display_max_depth', '10');
+ini_set('xdebug.var_display_max_children', '256');
+ini_set('xdebug.var_display_max_data', '1024');
+```
+
+- xdebug: http://xdebug.org/docs/all_settings#var_display_max_children
+- https://stackoverflow.com/questions/34342777/how-to-see-full-content-of-long-strings-with-var-dump-in-php
+- https://stackoverflow.com/questions/9998490/how-to-get-xdebug-var-dump-to-show-full-object-array
 
 ### Turn off MySQL strict mode
 
@@ -204,7 +235,21 @@ To short-circuit the trial limit:
 
 ### Virtual Hosts
 
-https://viblo.asia/p/cau-hinh-virtual-host-myprojectdev-thay-vi-localhostmyproject-4dbZN0jq5YM
+/etc/apache2/sites-available/000-default.conf
+```
+<VirtualHost 127.0.0.3:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html/sbribe
+    ServerName www.sbribe.redhost.dk
+    ServerAlias sbribe.redhost.dk
+</VirtualHost>
+```
+
+/etc/hosts
+`127.0.0.3    sbribe.redhost.dk`
+
+- https://viblo.asia/p/cau-hinh-virtual-host-myprojectdev-thay-vi-localhostmyproject-4dbZN0jq5YM 
+- https://weblizar.com/blog/how-setup-virtual-host-for-laravel-xampp-wamp/
 
 ### Linux's 'Env Vars' 
 
@@ -213,7 +258,7 @@ https://viblo.asia/p/cau-hinh-virtual-host-myprojectdev-thay-vi-localhostmyproje
 
 https://unix.stackexchange.com/questions/129143/what-is-the-purpose-of-bashrc-and-how-does-it-work
 
-Example - Commonly used functions:
+#### Example - Commonly used functions:
 
 `sudo gedit ~/.profile`
 
@@ -233,11 +278,16 @@ alias edit-hosts="sudo gedit /etc/hosts";
 
 `source ~/.profile`
 
-Example - PATH:
+#### Example - PATH:
 
 You would want to add eg: `export PATH="$PATH:/some/addition"` into `.bash_profile` instead of `.bashrc`.
 
 https://hackprogramming.com/2-ways-to-permanently-set-path-variable-in-ubuntu/
+
+```
+export PATH=$PATH:/some/addition/bin
+source ~/.profile
+```
 
 ### Ubuntu's 'control panel' 
 
@@ -264,6 +314,30 @@ https://en.wikipedia.org/wiki/PlayOnLinux
 ### See hidden files 
 
 Control + H 
+
+### Apache PHP log files
+
+Where are the Apache and PHP log files?
+
+By default: `/var/log/apache2/error.log`
+
+This can be configured in `/etc/php5/apache2/php.ini`
+
+### Uninstall Composer 
+
+During the installation you got a message Composer successfully installed to: ... this indicates where Composer was installed. 
+
+But you might also search for the file `composer.phar` on your system.
+
+Then simply:
+
+Delete the file `composer.phar`
+
+Delete the Cache Folder:
+- Linux: /home/<user>/.composer
+- Windows: C:\Users\<username>\AppData\Roaming\Composer
+
+https://stackoverflow.com/questions/30396451/remove-composer
 
 ### XAMPP on Linux
 
