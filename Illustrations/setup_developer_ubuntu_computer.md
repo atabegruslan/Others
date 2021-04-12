@@ -229,6 +229,13 @@ To short-circuit the trial limit:
 - In file: `Home directory > .config > JetBrains > PphStormXXXX.X > options > other.xml` , remove `<property name="evl.blahblah"/>`
 - Delete the `Home directory > .java > .userPrefs > jetbrains > phpstorm`
 
+Example
+```
+rm -rf ~/.config/JetBrains/PhpStorm2020.2/eval
+sudo sed -i -E 's/<property name=\"evl.*\".*\/>//' ~/.config/JetBrains/PhpStorm2020.2/options/other.xml
+rm -rf ~/.java/.userPrefs/jetbrains/phpstorm
+```
+
 ### Compress Zip
 
 - https://www.cyberciti.biz/faq/how-to-zip-a-folder-in-ubuntu-linux/
