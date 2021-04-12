@@ -225,9 +225,9 @@ https://stackoverflow.com/questions/14788345/how-to-install-the-jdk-on-ubuntu-li
 
 To short-circuit the trial limit:
 
-- Delete the Home directory > .config > JetBrains > PphStormXXXX.X > eval folder
-- In file: Home directory > .config > JetBrains > PphStormXXXX.X > options > other.xml , remove `<property name="evl.blahblah"/>`
-- Delete the Home directory > .java > .userPrefs > jetbrains > phpstorm
+- Delete the `Home directory > .config > JetBrains > PphStormXXXX.X > eval` folder
+- In file: `Home directory > .config > JetBrains > PphStormXXXX.X > options > other.xml` , remove `<property name="evl.blahblah"/>`
+- Delete the `Home directory > .java > .userPrefs > jetbrains > phpstorm`
 
 ### Compress Zip
 
