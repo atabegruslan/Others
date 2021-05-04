@@ -242,12 +242,6 @@ https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-
 
 ---
 
-## With Kubernetes
-
-- https://www.youtube.com/watch?v=7bA0gTroJjw
-
----
-
 ## Directory permissions
 
 - https://www.digitalocean.com/community/questions/proper-permissions-for-web-server-s-directory
