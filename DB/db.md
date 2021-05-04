@@ -236,6 +236,8 @@ https://bertwagner.com/posts/12-ways-to-rewrite-sql-queries-for-better-performan
 - In Laravel: https://www.youtube.com/watch?v=bZlvzvGpCEE
 - In Laravel: https://www.youtube.com/watch?v=N0phQbyzF0I
 - In .NET: https://www.youtube.com/watch?v=j4w-KFoZTtI
+- https://stackoverflow.com/questions/31366236/lazy-loading-vs-eager-loading
+- https://www.imperva.com/learn/performance/lazy-loading/#:~:text=Lazy%20Loading%20vs.,entities%20referenced%20by%20a%20resource.
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/dotnet_eager_lazy.PNG)
 
@@ -344,6 +346,7 @@ https://github.com/atabegruslan/Others/blob/master/Illustrations/encode.md#encod
 - https://www.youtube.com/watch?v=LgSgEt1mSFk
 - https://www.youtube.com/playlist?list=PLT9miexWCpPUoMztUQSvkPGR6SYSnqK4Z
 - https://www.php.net/manual/en/pdo.prepared-statements.php
+- https://www.dotnettricks.com/learn/sqlserver/difference-between-stored-procedure-and-function-in-sql-server#:~:text=The%20function%20must%20return%20a,be%20called%20from%20a%20Function.
 
 ## Import and Export DB via Terminal
 
@@ -351,5 +354,21 @@ https://github.com/atabegruslan/Others/blob/master/Illustrations/encode.md#encod
 - Export data only: `mysqldump -u [user] -p[pass] --no-create-info mydb > mydb.sql`
 - Export structure only: `mysqldump -u [user] -p[pass] --no-data mydb > mydb.sql`
 - Import: `mysql -u [user] -p[pass] mydb < mydb.sql`
+
+## Cache
+
+- https://www.digitalocean.com/community/tutorials/how-to-optimize-mysql-with-query-cache-on-ubuntu-18-04
+
+### Cache refreshing
+
+1. Write Through Cache(writing to cache whenever a DB operation happens)
+2. Pull Mechanism (Application Polls at regular intervals to update cache)
+3. Push Mechanism (Database notifies application when a record has changed)
+
+- https://medium.datadriveninvestor.com/cache-refreshing-techniques-446403de1ba2
+
+## Dig deeper
+
+- https://dev.mysql.com/doc/refman/8.0/en/explain.html
 
 ---
