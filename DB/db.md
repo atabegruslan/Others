@@ -6,15 +6,50 @@ Index All Columns Used in 'where', 'order by', and 'group by' Clauses
 
 ## Optimize Like Statements With Union Clause
 
+If the `OR`s in the `WHERE` clause are too much or too complicated, the optimizer could incorrectly choose a full table scan to retrieve a record.  
+Use `UNION` instead. 
+
 ## Avoid Like Expressions With Leading Wildcards
+
+Don't do `WHERE column LIKE  '%xxx'`. MySQL can't utilize indexes and will do full table scan instead.
 
 ## Take Advantage of MySQL Full-Text Searches
 
+If you have to use wildcards, utilize full text index instead.  
+https://github.com/atabegruslan/Others/blob/master/DB/db.md#full-text-vs-metadata-search
+
 ## Optimize Your Database Schema
+
+- Normalize
+- Don't use datatypes that is bigger than needed. Eg, for yes/no flags, use tinyint, don't use int.
+	- Texts: 
+		- https://chartio.com/resources/tutorials/understanding-strorage-sizes-for-mysql-text-data-types/
+		- https://stackoverflow.com/questions/25300821/difference-between-varchar-and-text-in-mysql
+	- Numeric:
+		- https://www.w3resource.com/mysql/mysql-data-types.php#:~:text=MySQL%20supports%20all%20standard%20SQL,FIXED%20are%20synonyms%20for%20DECIMAL.
+		- https://dev.mysql.com/doc/refman/8.0/en/numeric-type-syntax.html
+	- Datetime:
+		- https://stackoverflow.com/questions/409286/should-i-use-the-datetime-or-timestamp-data-type-in-mysql
+		- https://www.eversql.com/mysql-datetime-vs-timestamp-column-types-which-one-i-should-use/#:~:text=DATETIME%20%2D%20%E2%80%9CThe%20DATETIME%20type%20is,both%20date%20and%20time%20parts.&text=TIMESTAMP%20%2D%20%E2%80%9CThe%20TIMESTAMP%20data%20type,14%3A07'%20UTC.%E2%80%9D
+		- https://stackoverflow.com/questions/39250006/filtering-table-in-mysql-with-difference-between-two-timestamp-columns
+	- (Ref: https://www.youtube.com/playlist?list=PL_c9BZzLwBRKn20DFbNeLAAbw4ZMTlZPH)
+- Avoid null values
+- Don't have too many columns in a table
+- Minimize `JOIN`s
 
 ## MySQL Query Caching
 
-**Ref:** https://dzone.com/articles/how-to-optimize-mysql-queries-for-speed-and-perfor
+Cache: https://www.digitalocean.com/community/tutorials/how-to-optimize-mysql-with-query-cache-on-ubuntu-18-04
+
+Cache refreshing: https://medium.datadriveninvestor.com/cache-refreshing-techniques-446403de1ba2
+
+1. On write. Update cache upon updating original data.
+2. Application polls original data to update cache.
+3. Original DB pushes/notifies cache upon change.
+
+**Ref:** 
+- https://dzone.com/articles/how-to-optimize-mysql-queries-for-speed-and-perfor
+- https://dev.mysql.com/doc/refman/8.0/en/explain.html
 
 ---
 
@@ -71,47 +106,33 @@ Don't operate on too many tables on 1 transaction. Remember that each table will
 
 ### What is cursor:
 
-- https://www.youtube.com/watch?v=9z6ouWK5_l0
-	- https://www.youtube.com/watch?v=VtUvkndrk_c
+What are cursors: https://www.mysqltutorial.org/mysql-cursor/
 
-![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/cursor.PNG)
+Avoid cursors!
 
-- https://www.javatpoint.com/mysql-cursor
-- https://www.youtube.com/watch?v=RHRjLd0bEaQ
-- https://www.youtube.com/watch?v=xhBUE4Lb1go
+1. Cursors can cause your operation to block other operations for a lot longer than is necessary. This greatly decreases concurrency in your system.
 
-I hope we all know by now that it’s best to stay away from cursors if at all possible. Cursors not only suffer from speed problems, which in itself can be an issue with many operations, but they can also cause your operation to block other operations for a lot longer than is necessary. This greatly decreases concurrency in your system.
+If you really need to use cursors: do the cursor operations against a temp table. 
 
-However, you can’t always avoid using cursors, and when those times arise, you may be able to get away from cursor-induced performance issues by doing the cursor operations against a temp table instead. Take, for example, a cursor that goes through a table and updates a couple of columns based on some comparison results. Instead of doing the comparison against the live table, you may be able to put that data into a temp table and do the comparison against that instead. Then you have a single `UPDATE` statement against the live table that’s much smaller and holds locks only for a short time.
-
-Sniping your data modifications like this can greatly increase concurrency. I’ll finish by saying you almost never need to use a cursor. There’s almost always a set-based solution; you need to learn to see it.
+Take, for example, a cursor that goes through a table and updates a couple of columns based on some comparison results. Instead of doing the comparison against the live table, you may be able to put that data into a temp table and do the comparison against that instead. Then you have a single `UPDATE` statement against the live table that’s much smaller and holds locks only for a short time.
 
 ## Don't nest views
 
-### What are views
-
-- https://www.youtube.com/watch?v=DCp0oFVG_fk
+What are views: https://www.mysqltutorial.org/mysql-views-tutorial.aspx  
+Nested view aren't a 'cache'. It's a 'remembered query'.
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/view_cants.PNG)
 
-### View VS Stored Prodecures
-
-- https://dev.to/rachelsoderberg/comparing-sql-views-and-stored-procedures-4pfb
-
-### Nested View & its disadvantage
+Avoid nested views:
+1. you will probably have much more data coming back than you need.
+2. the query optimizer will give up and return a bad query plan.
 
 - https://bornsql.ca/blog/nested-views-bad/
 
-Views can be convenient, but you need to be careful when using them. While views can help to obscure large queries from users and to standardize data access, you can easily find yourself in a situation where you have views that call views that call views that call views. This is called nesting views, and it can cause severe performance issues, particularly in two ways:
-
-- First, you will very likely have much more data coming back than you need.
-- Second, the query optimizer will give up and return a bad query plan.
-
-I once had a client that loved nesting views. The client had one view it used for almost everything because it had two important joins. The problem was that the view returned a column with 2MB documents in it. Some of the documents were even larger. The client was pushing at least an extra 2MB across the network for every single row in almost every single query it ran. Naturally, query performance was abysmal.
-
-And none of the queries actually used that column! Of course, the column was buried seven views deep, so even finding it was difficult. When I removed the document column from the view, the time for the biggest query went from 2.5 hours to 10 minutes. When I finally unraveled the nested views, which had several unnecessary joins and columns, and wrote a plain query, the time for that same query dropped to subseconds.
-
 ## Do use table-valued functions
+
+What are table-valued functions: https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-table-valued-functions/
+What is `CROSS APPLY`: https://www.youtube.com/watch?v=kVogo0AbatM
 
 This is one of my favorite tricks of all time because it is truly one of those hidden secrets that only the experts know. When you use a scalar function in the `SELECT` list of a query, the function gets called for every single row in the result set. This can reduce the performance of large queries by a significant amount. However, you can greatly improve the performance by converting the scalar function to a table-valued function and using a `CROSS APPLY` in the query. This is a wonderful trick that can yield great improvements.
 
@@ -134,35 +155,39 @@ This is a case where understanding that all tables are partitions slashed hours 
 
 ORM machine-generates queries, which is never as good as a programmer who knows what he's doing.
 
-Stored procedures have a number of advantages. For starters, you’re pushing much less data across the network. If you have a long query, then it could take three or four round trips across the network to get the entire query to the database server. That's not including the time it takes the server to put the query back together and run it, or considering that the query may run several -- or several hundred -- times a second.
-
-Using a stored procedure will greatly reduce that traffic because the stored procedure call will always be much shorter. Also, stored procedures are easier to trace in Profiler or any other tool. A stored procedure is an actual object in your database. That means it's much easier to get performance statistics on a stored procedure than on an ad-hoc query and, in turn, find performance issues and draw out anomalies.
-
-In addition, stored procedures parameterize more consistently. This means you’re more likely to reuse your execution plans and even deal with caching issues, which can be difficult to pin down with ad-hoc queries. Stored procedures also make it much easier to deal with edge cases and even add auditing or change-locking behavior. A stored procedure can handle many tasks that trouble ad-hoc queries. My wife unraveled a two-page query from Entity Framework a couple of years ago. It took 25 minutes to run. When she boiled it down to its essence, she rewrote that huge query as `SELECT COUNT(*) from T1`. No kidding.
-
-OK, I kept it as short as I could. Those are the high-level points. I know many .Net coders think that business logic doesn’t belong in the database, but what can I say other than you’re outright wrong. By putting the business logic on the front end of the application, you have to bring all of the data across the wire merely to compare it. That’s not good performance. I had a client earlier this year that kept all of the logic out of the database and did everything on the front end. The company was shipping hundreds of thousands of rows of data to the front end, so it could apply the business logic and present the data it needed. It took 40 minutes to do that. I put a stored procedure on the back end and had it call from the front end; the page loaded in three seconds.
-
-Of course, the truth is that sometimes the logic belongs on the front end and sometimes it belongs in the database. But ORMs always get me ranting.
-
 - https://laravel.io/forum/04-23-2014-eloquent-vs-raw-sql-which-is-really-better
 - https://stackoverflow.com/questions/38391710/laravel-eloquent-vs-query-builder-why-use-eloquent-to-decrease-performance
 
+### Stored procedures
+
+- https://www.youtube.com/watch?v=LgSgEt1mSFk
+- https://www.sqlshack.com/functions-vs-stored-procedures-sql-server/
+
+| Stored Function | Stored Procedure |
+|---|---|
+| Must return a value | Can return nothing |
+| Can only have input parameters | Can have both input and output parameters |
+| Functions can be called from Procedure | Procedures cannot be called from a Function |
+| https://www.mysqltutorial.org/mysql-stored-function/ | https://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx |
+| Can't edit, just read data | Can edit data |
+| Can be invoked inline. Reusable |  |
+
 ## Don't use triggers
 
-### What are triggers
+What are triggers: https://www.mysqltutorial.org/mysql-triggers.aspx
 
-![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/Triggers_1.PNG)
+Avoid triggers!
 
-![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/Triggers_2.PNG)
+Reason: If you update table, and the trigger updates another table.  
+Then locks are put onto 2 tables.  
+The original update and the triggered update counts as 1 transaction and locks won't be lifted until transaction is done.  
+Can cause blockage and slow-downs.
 
-- https://www.youtube.com/watch?v=gy6LY0Xy2zU
-
-This one is largely the same as the previous one, but it bears mentioning. Don’t use triggers unless it’s unavoidable -- and it’s almost always avoidable.
-
-The problem with triggers: Whatever it is you want them to do will be done in the same transaction as the original operation. If you write a trigger to insert data into another table when you update a row in the Orders table, the lock will be held on both tables until the trigger is done. If you need to insert data into another table after the update, then put the update and the insert into a stored procedure and do them in separate transactions. If you need to roll back, you can do so easily without having to hold locks on both tables. As always, keep transactions as short as possible and don’t hold locks on more than one resource at a time if you can help it.
+Instead: Make the original and triggered updates as 2 stored procedures, and as **seperate transactions**. 
 
 ## Don’t cluster on GUID
 
+What is GUID/UUID: https://www.mysqltutorial.org/mysql-uuid/ , https://www.sqlservertutorial.net/sql-server-basics/sql-server-guid/  
 A GUID (globally unique identifier) is a 16-byte randomly generated number. 
 
 Ordering your table's data on this clustered GUID will cause your table to fragment much faster than using a steadily increasing value like `DATE` or `IDENTITY`. 
@@ -327,48 +352,9 @@ A character set is a set of symbols and encodings. A collation is a set of rules
 
 https://github.com/atabegruslan/Others/blob/master/Illustrations/encode.md#encodings-commonly-used-in-web-development-db
 
-## Similar data types
-
-- https://www.youtube.com/playlist?list=PL_c9BZzLwBRKn20DFbNeLAAbw4ZMTlZPH
-- Texts: 
-	- https://chartio.com/resources/tutorials/understanding-strorage-sizes-for-mysql-text-data-types/
-	- https://stackoverflow.com/questions/25300821/difference-between-varchar-and-text-in-mysql
-- Numeric:
-	- https://www.w3resource.com/mysql/mysql-data-types.php#:~:text=MySQL%20supports%20all%20standard%20SQL,FIXED%20are%20synonyms%20for%20DECIMAL.
-	- https://dev.mysql.com/doc/refman/8.0/en/numeric-type-syntax.html
-- Datetime:
-	- https://stackoverflow.com/questions/409286/should-i-use-the-datetime-or-timestamp-data-type-in-mysql
-	- https://www.eversql.com/mysql-datetime-vs-timestamp-column-types-which-one-i-should-use/#:~:text=DATETIME%20%2D%20%E2%80%9CThe%20DATETIME%20type%20is,both%20date%20and%20time%20parts.&text=TIMESTAMP%20%2D%20%E2%80%9CThe%20TIMESTAMP%20data%20type,14%3A07'%20UTC.%E2%80%9D
-	- https://stackoverflow.com/questions/39250006/filtering-table-in-mysql-with-difference-between-two-timestamp-columns
-
-## Stored Procedures
-
-- https://www.youtube.com/watch?v=LgSgEt1mSFk
-- https://www.youtube.com/playlist?list=PLT9miexWCpPUoMztUQSvkPGR6SYSnqK4Z
-- https://www.php.net/manual/en/pdo.prepared-statements.php
-- https://www.dotnettricks.com/learn/sqlserver/difference-between-stored-procedure-and-function-in-sql-server#:~:text=The%20function%20must%20return%20a,be%20called%20from%20a%20Function.
-
 ## Import and Export DB via Terminal
 
 - Export all: `mysqldump -u root -p mydatabase > /home/myuser/database-dump.sql`
 - Export data only: `mysqldump -u [user] -p[pass] --no-create-info mydb > mydb.sql`
 - Export structure only: `mysqldump -u [user] -p[pass] --no-data mydb > mydb.sql`
 - Import: `mysql -u [user] -p[pass] mydb < mydb.sql`
-
-## Cache
-
-- https://www.digitalocean.com/community/tutorials/how-to-optimize-mysql-with-query-cache-on-ubuntu-18-04
-
-### Cache refreshing
-
-1. Write Through Cache(writing to cache whenever a DB operation happens)
-2. Pull Mechanism (Application Polls at regular intervals to update cache)
-3. Push Mechanism (Database notifies application when a record has changed)
-
-- https://medium.datadriveninvestor.com/cache-refreshing-techniques-446403de1ba2
-
-## Dig deeper
-
-- https://dev.mysql.com/doc/refman/8.0/en/explain.html
-
----
