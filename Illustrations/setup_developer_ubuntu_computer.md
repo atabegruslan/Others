@@ -242,18 +242,22 @@ rm -rf ~/.java/.userPrefs/jetbrains/phpstorm
 
 ### Virtual Hosts
 
-/etc/apache2/sites-available/000-default.conf
+1. `/etc/apache2/sites-available/000-default.conf`
 ```
 <VirtualHost 127.0.0.3:80>
     ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/html/sbribe
-    ServerName www.sbribe.redhost.dk
-    ServerAlias sbribe.redhost.dk
+    DocumentRoot /var/www/html/website
+    ServerName www.website.local
+    ServerAlias website.local
 </VirtualHost>
 ```
 
-/etc/hosts
-`127.0.0.3    sbribe.redhost.dk`
+2. `/etc/hosts`
+```
+127.0.0.3    website.local
+```
+
+3. `sudo service apache2 restart`
 
 - https://viblo.asia/p/cau-hinh-virtual-host-myprojectdev-thay-vi-localhostmyproject-4dbZN0jq5YM 
 - https://weblizar.com/blog/how-setup-virtual-host-for-laravel-xampp-wamp/
