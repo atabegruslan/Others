@@ -33,8 +33,9 @@ https://github.com/atabegruslan/Others/blob/master/DB/db.md#full-text-vs-metadat
 		- https://chartio.com/resources/tutorials/understanding-strorage-sizes-for-mysql-text-data-types/
 		- https://stackoverflow.com/questions/25300821/difference-between-varchar-and-text-in-mysql
 	- Numeric:
-		- https://www.w3resource.com/mysql/mysql-data-types.php#:~:text=MySQL%20supports%20all%20standard%20SQL,FIXED%20are%20synonyms%20for%20DECIMAL.
+		- https://www.w3resource.com/mysql/mysql-data-types.php
 		- https://dev.mysql.com/doc/refman/8.0/en/numeric-type-syntax.html
+		- https://github.com/atabegruslan/Others/blob/master/Illustrations/SQL_float_types.png
 	- Datetime:
 		- https://stackoverflow.com/questions/409286/should-i-use-the-datetime-or-timestamp-data-type-in-mysql
 		- https://www.eversql.com/mysql-datetime-vs-timestamp-column-types-which-one-i-should-use
@@ -331,6 +332,10 @@ cant re-establish deleted tables   |
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/unique_n_primary_keys.PNG)
 
+### Auto Increment
+
+https://trebleclick.blogspot.com/2009/01/mysql-set-auto-increment-in-phpmyadmin.html
+
 ## Full-text vs metadata search
 
 Full-text search is distinguished from searches based on metadata or on parts of the original texts.
@@ -341,6 +346,16 @@ In a full-text search, a search engine examines all of the words in every stored
 - https://en.wikipedia.org/wiki/Full-text_search
 - https://www.youtube.com/watch?v=Q8Kg67XgPzc
 
+## Atomicity
+
+Basic transaction and rollback: https://www.mysqltutorial.org/php-mysql-transaction/
+
+- Rollbacks:
+	- https://github.com/atabegruslan/Others/blob/master/Illustrations/Rollback_1.pdf
+	- https://github.com/atabegruslan/Others/blob/master/Illustrations/Rollback_1a__Transaction_log.pdf
+	- https://github.com/atabegruslan/Others/blob/master/Illustrations/Rollback_1ai__Rollback_Segment.pdf
+	- https://github.com/atabegruslan/Others/blob/master/Illustrations/Rollback_1b__Multiversion_concurrency_control.pdf
+
 ## Concurrency
 
 - In DB
@@ -348,6 +363,8 @@ In a full-text search, a search engine examines all of the words in every stored
 - In Code
 	- Semaphore: http://www.re-cycledair.com/php-dark-arts-semaphores
 	- Flock: https://locallost.net/?p=1091
+
+https://github.com/atabegruslan/Others/blob/master/Illustrations/DB_Concurrency__2PL_or_Timestamp.pdf
 
 ## Character Sets and Collations
 
@@ -373,3 +390,7 @@ https://github.com/atabegruslan/Others/blob/master/Illustrations/encode.md#encod
 - Export data only: `mysqldump -u [user] -p[pass] --no-create-info mydb > mydb.sql`
 - Export structure only: `mysqldump -u [user] -p[pass] --no-data mydb > mydb.sql`
 - Import: `mysql -u [user] -p[pass] mydb < mydb.sql`
+
+## Good to know techniques
+
+https://github.com/atabegruslan/Others/tree/master/Illustrations/techniques
