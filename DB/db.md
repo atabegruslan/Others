@@ -21,6 +21,13 @@ https://github.com/atabegruslan/Others/blob/master/DB/db.md#full-text-vs-metadat
 ## Optimize Your Database Schema
 
 - Normalize
+	- 1NF: Cell should contain only single value. So no eg arrays.
+	- 2NF: If a table have composite key, then every non-candidate attribute must depend on the entire composite key. Accomplished by seperating the attribute that depends on only a part of the composite key into another table.
+	- 3NF: In a table, can't have Col2 -> Col1 -> PK. Accomplished by seperating that transitive dependency into another table.
+	- 3.5NF: In a table, there can't be any other dependencies, except the dependencies that stems from the super key.
+	- 4NF: In a table with >2 columns, there can't be multi-valued dependency. Eg, if person1 likes to eat apples and bananas, and likes to play soccer and basketball, then 2 unique rows containing the same info can arise (person1 - apples - soccer & person1 - bananas - soccer), which is not allowed.
+	- 5NF: If a table is broken down. It must be the same upon recombining. If not so, then don't break the table apart.
+	- (Ref: https://www.youtube.com/playlist?list=PLLGlmW7jT-nTr1ory9o2MgsOmmx2w8FB3 )
 - Don't use datatypes that is bigger than needed. Eg, for yes/no flags, use tinyint, don't use int.
 	- Texts: 
 		- https://chartio.com/resources/tutorials/understanding-strorage-sizes-for-mysql-text-data-types/
@@ -30,12 +37,12 @@ https://github.com/atabegruslan/Others/blob/master/DB/db.md#full-text-vs-metadat
 		- https://dev.mysql.com/doc/refman/8.0/en/numeric-type-syntax.html
 	- Datetime:
 		- https://stackoverflow.com/questions/409286/should-i-use-the-datetime-or-timestamp-data-type-in-mysql
-		- https://www.eversql.com/mysql-datetime-vs-timestamp-column-types-which-one-i-should-use/#:~:text=DATETIME%20%2D%20%E2%80%9CThe%20DATETIME%20type%20is,both%20date%20and%20time%20parts.&text=TIMESTAMP%20%2D%20%E2%80%9CThe%20TIMESTAMP%20data%20type,14%3A07'%20UTC.%E2%80%9D
+		- https://www.eversql.com/mysql-datetime-vs-timestamp-column-types-which-one-i-should-use
 		- https://stackoverflow.com/questions/39250006/filtering-table-in-mysql-with-difference-between-two-timestamp-columns
 	- (Ref: https://www.youtube.com/playlist?list=PL_c9BZzLwBRKn20DFbNeLAAbw4ZMTlZPH)
 - Avoid null values
 - Don't have too many columns in a table
-- Minimize `JOIN`s
+- Minimize `JOIN`s. Sometimes, SELECT clause subqueries can also replace JOINs
 
 ## MySQL Query Caching
 
