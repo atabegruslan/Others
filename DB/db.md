@@ -4,6 +4,12 @@
 
 Index All Columns Used in 'where', 'order by', and 'group by' Clauses
 
+Index make selection faster but modifications/DML operations slower.
+
+For selection: clustered index is the fastest, non clustered index can be even worse than no index.
+
+Don't have unused indexes lying around.
+
 ## Optimize Like Statements With Union Clause
 
 If the `OR`s in the `WHERE` clause are too much or too complicated, the optimizer could incorrectly choose a full table scan to retrieve a record.  
@@ -13,10 +19,34 @@ Use `UNION` instead.
 
 Don't do `WHERE column LIKE  '%xxx'`. MySQL can't utilize indexes and will do full table scan instead.
 
+## Don’t do negative searches
+
+Instead of: `SELECT * FROM Customers WHERE RegionID <> 3` (which can't utilize indexes),
+
+Use: `SELECT * FROM Customers WHERE RegionID < 3 UNION ALL SELECT * FROM Customers WHERE RegionID` (which can utilize indexes).
+
+## Don't use function inside WHERE clause
+
+If so, the SQL server will scan instead of seek table using indexes.
+
 ## Take Advantage of MySQL Full-Text Searches
 
 If you have to use wildcards, utilize full text index instead.  
 https://github.com/atabegruslan/Others/blob/master/DB/db.md#full-text-vs-metadata-search
+
+## Use IN instead of UNION ALL 
+
+(Sidenote: `UNION ALL` display duplicate values, `UNION` don't)
+
+When filtering rows of data on multiple values in tables with skewed distributions and non-covering indexes, writing your logic into multiple statements joined with UNION ALLs can sometimes generate more efficient execution plans than just using IN or ORs.
+
+## DISTINCT with few unique values
+
+Using the DISTINCT operator is not always the fastest way to return the unique values in a dataset. 
+
+Using recursive CTEs to return distinct values on large datasets with relatively few unique values: https://sqlperformance.com/2014/10/t-sql-queries/performance-tuning-whole-plan
+
+What are Common Table Expressions: https://www.sqlservertutorial.net/sql-server-basics/sql-server-cte/
 
 ## Optimize Your Database Schema
 
@@ -43,7 +73,10 @@ https://github.com/atabegruslan/Others/blob/master/DB/db.md#full-text-vs-metadat
 	- (Ref: https://www.youtube.com/playlist?list=PL_c9BZzLwBRKn20DFbNeLAAbw4ZMTlZPH)
 - Avoid null values
 - Don't have too many columns in a table
-- Minimize `JOIN`s. Sometimes, SELECT clause subqueries can also replace JOINs
+- Minimize `JOIN`s, especially nested/compound joins. 
+	- Sometimes, SELECT clause subqueries can also replace JOINs
+	- When have nested/compound joins, force the order of joins, instead of query-optimizer's order
+		Force table join order with blocking operators: https://sqlbits.com/Sessions/Event14/Query_Tuning_Mastery_Clash_of_the_Row_Goals
 
 ## MySQL Query Caching
 
@@ -54,12 +87,6 @@ Cache refreshing: https://medium.datadriveninvestor.com/cache-refreshing-techniq
 1. On write. Update cache upon updating original data.
 2. Application polls original data to update cache.
 3. Original DB pushes/notifies cache upon change.
-
-**Ref:** 
-- https://dzone.com/articles/how-to-optimize-mysql-queries-for-speed-and-perfor
-- https://dev.mysql.com/doc/refman/8.0/en/explain.html
-
----
 
 ## Issue about `UPDATE`
 
@@ -86,9 +113,9 @@ and then insert it.
 
 When copying code, rid the things that you don't need. eg joins, where conditions... 
 
-## Do pull only the number of columns you need
+## Be selective for what columns and rows you retrieve
 
-Don't `SELECT *`, just take what you need.
+Regarding columns: Don't use `SELECT *`, just select what you need.
 
 ## Don’t double-dip
 
@@ -102,6 +129,10 @@ You’re not always able to use this technique, but when you can, you’ll find 
 
 Note that many developers get around this join problem by concentrating on the query itself and creating a view-only around the join so that they don’t have to type the join conditions again and again. But the problem with this approach is that the query still runs for every report that needs it. By pre-staging the data, you run the join just once (say, 10 minutes before the reports) and everyone else avoids the big join. I can’t tell you how much I love this technique; in most environments, there are popular tables that get joined all the time, so there’s no reason why they can’t be pre-staged.
 
+## Temporary Staging Tables
+
+Sometimes the query optimizer struggles to generate an efficient execution plan for complex queries. Breaking a complex query into multiple steps that utilize temporary staging tables can provide SQL Server with more information about your data. They also cause you to write simpler queries which can cause the optimizer to generate more efficient execution plans as well as allow it to reuse result sets more easily.
+
 ## Do delete and update in batches
 
 Don't delete/update too many entries in one go. ("in one go" here means: as 1 transaction). It can cause blockages.
@@ -110,19 +141,21 @@ Don't delete/update too many entries in one go. ("in one go" here means: as 1 tr
 
 Don't operate on too many tables on 1 transaction. Remember that each table will be locked. It can cause blockages.
 
-## Do use temp tables to improve cursor performance
+## Avoid cursors
 
 ### What is cursor:
 
 What are cursors: https://www.mysqltutorial.org/mysql-cursor/
 
-Avoid cursors!
+Cursors can cause your operation to block other operations for a lot longer than is necessary. This greatly decreases concurrency in your system.
 
-1. Cursors can cause your operation to block other operations for a lot longer than is necessary. This greatly decreases concurrency in your system.
+- Solutions/Mitigations:
+	- **Use set-based queries**: Set-based queries is more efficient than cursor-based queries.
+	- If you really need to use cursors:
+		- **Avoid dynamic cursors**: dynamic cursor limits the optimizer to using nested loop joins.
+		- Do the cursor operations against a **temp table**:
 
-If you really need to use cursors: do the cursor operations against a temp table. 
-
-Take, for example, a cursor that goes through a table and updates a couple of columns based on some comparison results. Instead of doing the comparison against the live table, you may be able to put that data into a temp table and do the comparison against that instead. Then you have a single `UPDATE` statement against the live table that’s much smaller and holds locks only for a short time.
+Eg, a cursor that goes through a table and updates a couple of columns based on some comparison results. Instead of doing the comparison against the live table, you may be able to put that data into a temp table and do the comparison against that instead. Then you have a single `UPDATE` statement against the live table that’s much smaller and holds locks only for a short time.
 
 ## Don't nest views
 
@@ -137,6 +170,10 @@ Avoid nested views:
 
 - https://bornsql.ca/blog/nested-views-bad/
 
+## Indexed Views
+
+When you can't add new indexes to existing tables, you might be able to get away with creating a view on those tables and indexing the view instead . This works great for vendor databases where you can't touch any of the existing objects.
+
 ## Do use table-valued functions
 
 What are table-valued functions: https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-table-valued-functions/
@@ -148,6 +185,10 @@ This is one of my favorite tricks of all time because it is truly one of those h
 - https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-scalar-functions/
 - https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-table-valued-functions/
 - https://www.mssqltips.com/sqlservertip/1958/sql-server-cross-apply-and-outer-apply/
+
+### But avoid Multi-statement Table Valued Functions (TVFs)
+
+Multi-statement TVFs are more costly than inline TFVs. SQL Server expands inline TFVs into the main query like it expands views but evaluates multi-statement TVFs in a separate context from the main query and materializes the results of multi-statement into temporary work tables. The separate context and work table make multi-statement TVFs costly.
 
 ## Do use partitioning to avoid large data moves
 
@@ -202,6 +243,12 @@ Ordering your table's data on this clustered GUID will cause your table to fragm
 
 This applies to more than GUIDs -- it goes toward any volatile column.
 
+## Position a Column in an Index
+
+Order or position of a column in an index also plays a vital role to improve SQL query performance. An index can help to improve the SQL query performance if the criteria of the query matches the columns that are left most in the index key. 
+
+As a best practice, most selective columns should be placed leftmost in the key of a non-clustered index.
+
 ## Don't count all rows if you only need to see if data exists
 
 Don't use `SELECT COUNT(*)` to check existence. Use `If EXISTS` instead.
@@ -229,37 +276,70 @@ If you really do need a row count on the table, and it's really big, another tec
 
 In my 270 million row table, this returned sub-second and had only six logical reads. Now that's performance.
 
-## Don’t do negative searches
+## Avoid Use of Non-correlated Scalar Sub Query
 
-Instead of `SELECT * FROM Customers WHERE RegionID <> 3`,
+You can re-write your query to remove non-correlated scalar sub query as a separate query instead of part of the main query and store the output in a variable, which can be referred to in the main query or later part of the batch. This will give better options to Optimizer, which may help to return accurate cardinality estimates along with a better plan.
 
-(You can't use an index with the above query because it's a negative search that has to be compared row by row with a table scan)
-
-Use `SELECT * FROM Customers WHERE RegionID < 3 UNION ALL SELECT * FROM Customers WHERE RegionID`.
-
-(The above query uses the index)
-
-**Ref:** https://www.infoworld.com/article/3209665/sql-unleashed-17-ways-to-speed-your-sql-queries.html
-
-https://github.com/atabegruslan/Others/blob/master/Illustrations/Improve_SQL_Performance.pdf
-
-![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/improve_SQL_Server_performance.PNG)
-
-Index make selection faster but modifications slower.
-
-For selection: clustered index is the fastest, non clustered index can be even worse than no index.
-
-Don't use function inside WHERE clause of the SQL query, because if so, then the SQL server will scan instead of seek table using indexes.
+## Default filegroup settings
 
 Specify these 2 to make insert faster:
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/improve_SQL_Server_performance_3.PNG)
 
-Turn statistics (ie SQL Server intel) on is faster:
+https://sqlstudies.com/2018/02/19/the-default-filegroup-and-why-you-should-care/
+
+## Statistic Creation and Updates
+
+You need to take care of statistic creation and regular updates for computed columns and multi-columns referred in the query; the query optimizer uses information about the distribution of values in one or more columns of a table statistics to estimate the cardinality, or number of rows, in the query result. These cardinality estimates enable the query optimizer to create a high-quality query plan.
+
+### Turn statistics (ie SQL Server intel) on is faster
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/improve_SQL_Server_performance_4.PNG)
 
-https://bertwagner.com/posts/12-ways-to-rewrite-sql-queries-for-better-performance/
+**Ref:** 
+- https://dzone.com/articles/how-to-optimize-mysql-queries-for-speed-and-perfor
+- https://dev.mysql.com/doc/refman/8.0/en/explain.html
+- https://www.infoworld.com/article/3209665/sql-unleashed-17-ways-to-speed-your-sql-queries.html
+- https://bertwagner.com/posts/12-ways-to-rewrite-sql-queries-for-better-performance/
+
+## GROUP BY instead of Window functions
+
+What are window function: https://www.sqltutorial.org/sql-window-functions/
+
+Sometimes window functions rely a little too much on tempdb and blocking operators to accomplish what you ask of them. While using them is always my first choice because of their simple syntax, if they perform poorly you can usually rewrite them as an old-fashioned GROUP BY to achieve better performance.
+
+## Derived tables instead of correlated subqueries
+
+Many people like using correlated subqueries because the logic is often easy to understand, however switching to derived table queries often produces better performance due to their set-based nature.
+
+## Eliminate UDFs
+
+What are UDFs: https://www.sqlservertutorial.net/sql-server-user-defined-functions/
+
+UDFs often cause poor query performance due to forcing serial plans and causing inaccurate estimates. One way to possibly improve the performance of queries that call UDFs is to try and inline the UDF logic directly into the main query. 
+
+With SQL Server 2019 this will be something that happens automatically in a lot of cases, but you might occasionally have to manually inline a UDF's functionality to get the best performance: https://www.brentozar.com/archive/2019/04/finding-froids-limits-testing-inlined-user-defined-functions/
+
+## Create UDFs
+
+Sometimes a poorly configured server will parallelize queries too frequently and cause poorer performance than their serially equivalent plan. In those cases, putting the troublesome query logic into a scalar or multi-statement table-valued function might improve performance since they will force that part of the plan to run serially. Definitely not a best practice, but it is one way to force serial plans when you can't change the cost threshold for parallelism
+
+NB: Configure the cost threshold for parallelism
+
+## Data Compression
+
+Not only does data compression save space , but on certain workloads it can actually improve performance. Since compressed data can be stored in fewer pages, read disk speeds are improved, but maybe more importantly the compressed data allows more to be stored in SQL Server's buffer pool, increasing the potential for SQL Server to reuse data already in memory.
+
+
+## Switch cardinality estimators
+
+The newer cardinality estimator introduced in SQL Server 2014 improves the performance of many queries. However, in some specific cases it can make queries perform more slowly. 
+
+In those cases, a simple query hint is all you need to force SQL Server to change back to the legacy cardinality estimator: https://blog.sqlauthority.com/2019/02/09/sql-server-enabling-older-legacy-cardinality-estimation/
+
+## Copy the data
+
+If you can't get better performance by rewriting a query, you can always copy the data you need to a new table in a location where you CAN create indexes and do whatever other helpful transformations you need to do ahead of time.
 
 ---
 
@@ -348,7 +428,36 @@ In a full-text search, a search engine examines all of the words in every stored
 
 ## Atomicity
 
-Basic transaction and rollback: https://www.mysqltutorial.org/php-mysql-transaction/
+Basic transaction and rollback: 
+
+```php
+try 
+{
+	$dsn = DB_DRIVER.":host=".DB_SERVER.";dbname=".DB_DATABASE.";charset=UTF8";
+	$dbh = new PDO($dsn, DB_USERNAME, DB_PASSWORD);
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	
+} 
+catch (PDOException $e) 
+{
+	die($e->getMessage());		
+}	
+
+try 
+{
+    $dbh->beginTransaction();
+
+	$sql = 'SELECT col1,col2 FROM table WHERE id=:key';
+	$sth = $dbh->prepare($sql);
+	$sth->execute(array(":key" => 1));
+
+    $dbh->commit();
+} 
+catch (PDOException $e) 
+{
+    $dbh->rollBack();
+    die($e->getMessage());
+}
+```
 
 - Rollbacks:
 	- https://github.com/atabegruslan/Others/blob/master/Illustrations/Rollback_1.pdf
