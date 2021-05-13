@@ -341,6 +341,14 @@ In a full-text search, a search engine examines all of the words in every stored
 - https://en.wikipedia.org/wiki/Full-text_search
 - https://www.youtube.com/watch?v=Q8Kg67XgPzc
 
+## Concurrency
+
+- In DB
+	- Table lock: https://www.mysqltutorial.org/mysql-table-locking/
+- In Code
+	- Semaphore: http://www.re-cycledair.com/php-dark-arts-semaphores
+	- Flock: https://locallost.net/?p=1091
+
 ## Character Sets and Collations
 
 A character set is a set of symbols and encodings. A collation is a set of rules for comparing characters in a character set.
