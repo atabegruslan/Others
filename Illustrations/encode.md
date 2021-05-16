@@ -16,7 +16,7 @@ Extra code for:
 
 ### BCD & ASCII
 
-![](Illustrations/Encodings.png)
+![](/Illustrations/Encodings.png)
 
 ### Unicode
 
