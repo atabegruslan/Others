@@ -1,5 +1,7 @@
 # Encoding
 
+- https://youtube.com/watch?v=jeIBNn5Y5fI
+
 ## Types
 
 https://en.wikipedia.org/wiki/List_of_cryptographers
@@ -12,46 +14,140 @@ Extra code for:
 
 11111 (shift down) and 11011 (shift up)
 
-### BCD
+### BCD & ASCII
 
-IBM mainframe
-
-6‐bit codes
-
-### BCDIC
-
-expansion of BCD 
-
-including non‐numeric
-
-### Standard ASCII
-
-128 different characters
-
-include unprintable characters are special functions (e.g. line feed, tab, carriage return, BEL, DC1/XON/ctrl‐Q, DC3/XOFF/ctrl‐S).
-
-### Extended ASCII codes 
-
-e.g. ISO‐8859‐1, Mac OS Roman, ... have an additional 128 characters.
+![](Illustrations/Encodings.png)
 
 ### Unicode
 
-Unicode character set: Map character to code-point.
-
-UTF-x encodes code-points into binary data. 
-
-- https://www.youtube.com/playlist?list=PLhQN_EIoIKBRA0yVTsWDoJzEKZwJY0p3l
+- Very good: https://www.youtube.com/playlist?list=PLhQN_EIoIKBRA0yVTsWDoJzEKZwJY0p3l
 - https://www.smashingmagazine.com/2012/06/all-about-unicode-utf8-character-sets/
 
-![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/unicode.JPG)
+#### The UTF-8 Header
 
-![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/utf8.jpg)
+Difference between `<?php header("Content-Type: text/html; charset=utf-8"); ?>` and `<meta charset="utf-8">`
+
+The HTTP Content-Type header should always be set, it's the primary source for the browser to figure out what kind of document it's dealing with. 
+
+Only if this header is missing will the browser try to find an HTML meta tag which gives it the same information as a fallback.
+
+It makes sense to set both flags though, since you may save the HTML document to disk, in which case the HTTP header will be gone for anyone needing it later.
+
+You can find the exact rules for how a browser determines the document's charset here: 
+http://www.w3.org/TR/html5/syntax.html#determining-the-character-encoding
 
 ## Prefix code
 
 no codeword is a prefix of any other; ASCII is a prefix code.
 
 Kraft's theorem checks whether prefix codes can be made out of a collection of codes with specified lengths.
+
+---
+
+# Encodings commonly used in web development
+
+https://html.spec.whatwg.org/multipage/parsing.html#determining-the-character-encoding
+
+## HTML Entity
+
+- https://www.freeformatter.com/html-entities.html
+- https://www.w3schools.com/charsets/ref_html_entities_a.asp
+- https://www.toptal.com/designers/htmlarrows/
+- https://en.wikipedia.org/wiki/Numeric_character_reference
+- https://www.w3schools.com/cssref/css_entities.asp
+- https://www.rapidtables.com/code/text/unicode-characters.html
+
+| Character | Unicode | HTML Hex Reference | HTML Decimal Reference | HTML Named Reference | Escape Sequence | Hex | Desc |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| < | U+0003C | &#x3c; | &#60; | &lt; | \u003c | \003C | less than | 
+
+## URL Encode
+
+`<` becomes %3C
+
+## ASCII control char
+
+| Escape Sequence | Hex | Desc | Abbrev. | Caret Notation | 
+|  --- |  --- |  --- |  --- |  --- | 
+| \n | 0A | newline | LF | ^J | 
+
+## Unicode and other encodings
+
+### Unicode
+
+Unicode has attempted, with some controversy, to unify the character sets in a process known as Han unification.
+
+Unicode Transformation Format (UTF) encoding, & Universal Character Set (UCS) encoding are the 2 implementations (mapping-methods) of Unicode.
+
+- https://en.wikipedia.org/wiki/List_of_Unicode_characters
+- https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane
+- https://stackoverflow.com/questions/2223882/whats-the-difference-between-utf-8-and-utf-8-without-bom
+- http://www.java2s.com/Tutorial/Java/0120__Development/ConvertfromUTF8toUnicode.htm
+
+### CJK character encodings include
+
+- Big5 (Complex Chinese)
+- EUC-JP
+- EUC-KR
+- GB18030 (mandated standard in the People's Republic of China)
+- GB2312 (subset and predecessor of GB18030)
+- ISO 2022-JP
+- KS C 5861
+- Shift-JIS
+- Unicode encodings (The CJK character sets take up the bulk of the assigned Unicode code space)
+
+#### Simplified Chinese
+
+```html
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+```
+
+eg: &#20844; represents a chinese character.
+
+UTF: 2 bytes, 16 bits, 2^16 variations, can accomodate all chinese characters even via brute-force way.
+
+Use this website to convert chinese characters into unicode: http://www.pinyin.info/tools/converter/chars2uninumbers.html
+
+## Content Type vs Data Type (AJAX)
+
+Content Type is what you send to server
+
+Data type is what you expect to get back
+
+https://stackoverflow.com/questions/14322984/differences-between-contenttype-and-datatype-in-jquery-ajax-function
+
+### MIME (Content Type)
+
+- https://www.stubbornjava.com/posts/what-is-a-content-type
+- https://stackoverflow.com/questions/23714383/what-are-all-the-possible-values-for-http-content-type-header
+- https://javarevisited.blogspot.com/2017/06/difference-between-applicationx-www-form-urlencoded-vs-multipart-form-data.html?m=1
+- https://en.wikipedia.org/wiki/MIME
+  - https://en.wikipedia.org/wiki/Media_type
+
+### Multibyte text handling in PHP
+
+- https://www.php.net/manual/en/book.mbstring.php
+- https://compiledconcepts.com/software-engineering/what-are-multibyte-strings-in-php/
+- https://hotexamples.com/examples/-/-/mb_encode/php-mb_encode-function-examples.html
+- https://www.w3schools.com/Php/func_xml_utf8_encode.asp
+
+### Rid diacritics: 
+
+ES6: `dirty.normalize("NFD").replace(/[\u0300-\u036f]/g, "")`
+
+PHP: `$clean = iconv('UTF-8', 'US-ASCII//TRANSLIT', $dirty);`
+
+- https://stackoverflow.com/questions/3635511/remove-diacritics-from-a-string
+- https://coderwall.com/p/a6koxq/how-to-remove-diacritics-in-sql-server
+- https://dba.stackexchange.com/questions/190969/ignore-accents-in-where
+
+# Encodings commonly used in web development (DB)
+
+- https://www.toptal.com/php/a-utf-8-primer-for-php-and-mysql
+- https://stackoverflow.com/questions/3682409/reading-utf-8-content-from-mysql-table
+- https://stackoverflow.com/questions/30074492/what-is-the-difference-between-utf8mb4-and-utf8-charsets-in-mysql
 
 ---
 
@@ -262,124 +358,3 @@ BCH codes, eg reed‐solomon code.
 Hamming code used in 2D to correct burst errors:
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/multi_bit_err_correct.png)
-
----
-
-# Encodings commonly used in web development
-
-https://html.spec.whatwg.org/multipage/parsing.html#determining-the-character-encoding
-
-## HTML Entity
-
-- https://www.freeformatter.com/html-entities.html
-- https://www.w3schools.com/charsets/ref_html_entities_a.asp
-- https://www.toptal.com/designers/htmlarrows/
-- https://en.wikipedia.org/wiki/Numeric_character_reference
-- https://www.w3schools.com/cssref/css_entities.asp
-- https://www.rapidtables.com/code/text/unicode-characters.html
-
-| Character | Unicode | HTML Hex Reference | HTML Decimal Reference | HTML Named Reference | Escape Sequence | Hex | Desc |
-| < | U+0003C | &#x3c; | &#60; | &lt; | \u003c | \003C | less than | 
-
-## URL Encode
-
-`<` becomes %3C
-
-## ASCII control char
-
-| Escape Sequence | Hex | Desc | Abbrev. | Caret Notation | 
-| \n | 0A | newline | LF | ^J | 
-
-## Unicode and other encodings
-
-### Unicode
-
-Unicode has attempted, with some controversy, to unify the character sets in a process known as Han unification.
-
-Unicode Transformation Format (UTF) encoding, & Universal Character Set (UCS) encoding are the 2 implementations (mapping-methods) of Unicode.
-
-- https://en.wikipedia.org/wiki/List_of_Unicode_characters
-- https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane
-- https://stackoverflow.com/questions/2223882/whats-the-difference-between-utf-8-and-utf-8-without-bom
-- http://www.java2s.com/Tutorial/Java/0120__Development/ConvertfromUTF8toUnicode.htm
-
-### CJK character encodings include
-
-- Big5 (Complex Chinese)
-- EUC-JP
-- EUC-KR
-- GB18030 (mandated standard in the People's Republic of China)
-- GB2312 (subset and predecessor of GB18030)
-- ISO 2022-JP
-- KS C 5861
-- Shift-JIS
-- Unicode encodings (The CJK character sets take up the bulk of the assigned Unicode code space)
-
-#### Simplified Chinese
-
-```html
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
-```
-
-eg: &#20844; represents a chinese character.
-
-UTF: 2 bytes, 16 bits, 2^16 variations, can accomodate all chinese characters even via brute-force way.
-
-Use this website to convert chinese characters into unicode: http://www.pinyin.info/tools/converter/chars2uninumbers.html
-
-## Content Type vs Data Type (AJAX)
-
-Content Type is what you send to server
-
-Data type is what you expect to get back
-
-https://stackoverflow.com/questions/14322984/differences-between-contenttype-and-datatype-in-jquery-ajax-function
-
-### MIME (Content Type)
-
-- https://www.stubbornjava.com/posts/what-is-a-content-type
-- https://stackoverflow.com/questions/23714383/what-are-all-the-possible-values-for-http-content-type-header
-- https://javarevisited.blogspot.com/2017/06/difference-between-applicationx-www-form-urlencoded-vs-multipart-form-data.html?m=1
-- https://en.wikipedia.org/wiki/MIME
-  - https://en.wikipedia.org/wiki/Media_type
-
-### Multibyte text handling in PHP
-
-- https://www.php.net/manual/en/book.mbstring.php
-- https://compiledconcepts.com/software-engineering/what-are-multibyte-strings-in-php/
-- https://hotexamples.com/examples/-/-/mb_encode/php-mb_encode-function-examples.html
-- https://www.w3schools.com/Php/func_xml_utf8_encode.asp
-
-### Rid diacritics: 
-
-ES6: `dirty.normalize("NFD").replace(/[\u0300-\u036f]/g, "")`
-
-PHP: `$clean = iconv('UTF-8', 'US-ASCII//TRANSLIT', $dirty);`
-
-https://stackoverflow.com/questions/3635511/remove-diacritics-from-a-string
-
-### The UTF-8 Header
-
-Difference between `<?php header("Content-Type: text/html; charset=utf-8"); ?>` and `<meta charset="utf-8">`
-
-The HTTP Content-Type header should always be set, it's the primary source for the browser to figure out what kind of document it's dealing with. 
-
-Only if this header is missing will the browser try to find an HTML meta tag which gives it the same information as a fallback.
-
-It makes sense to set both flags though, since you may save the HTML document to disk, in which case the HTTP header will be gone for anyone needing it later.
-
-You can find the exact rules for how a browser determines the document's charset here: 
-http://www.w3.org/TR/html5/syntax.html#determining-the-character-encoding
-
-### Common issues
-
-- https://stackoverflow.com/questions/15276191/why-does-a-diamond-with-a-questionmark-in-it-appear-in-my-html
-- https://stackoverflow.com/questions/275411/php-output-showing-little-black-diamonds-with-a-question-mark
-
-# Encodings commonly used in web development (DB)
-
-- https://www.toptal.com/php/a-utf-8-primer-for-php-and-mysql
-- https://stackoverflow.com/questions/3682409/reading-utf-8-content-from-mysql-table
-- https://stackoverflow.com/questions/30074492/what-is-the-difference-between-utf8mb4-and-utf8-charsets-in-mysql
