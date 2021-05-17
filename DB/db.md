@@ -430,6 +430,20 @@ In a full-text search, a search engine examines all of the words in every stored
 - https://en.wikipedia.org/wiki/Full-text_search
 - https://www.youtube.com/watch?v=Q8Kg67XgPzc
 
+## Data Types
+
+https://www.mysqltutorial.org/mysql-data-types.aspx
+
+### Spatial
+
+- https://www.w3resource.com/mysql/mysql-spatial-data-types.php
+
+### Binary
+
+- https://en.wikipedia.org/wiki/Binary_large_object
+- https://medium.com/nerd-for-tech/store-files-binary-in-mysql-database-and-view-using-vanilla-js-and-node-js-95a227002b85
+- https://stackoverflow.com/questions/33586210/how-to-read-the-value-in-a-binary-column-in-mysql
+
 ## Atomicity
 
 Basic transaction and rollback: 

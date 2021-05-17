@@ -110,6 +110,8 @@ UTF: 2 bytes, 16 bits, 2^16 variations, can accomodate all chinese characters ev
 
 Use this website to convert chinese characters into unicode: http://www.pinyin.info/tools/converter/chars2uninumbers.html
 
+https://en.m.wikipedia.org/wiki/Chinese_character_encoding
+
 ## Content Type vs Data Type (AJAX)
 
 Content Type is what you send to server
@@ -126,28 +128,32 @@ https://stackoverflow.com/questions/14322984/differences-between-contenttype-and
 - https://en.wikipedia.org/wiki/MIME
   - https://en.wikipedia.org/wiki/Media_type
 
-### Multibyte text handling in PHP
+## Multibyte text handling in PHP
 
 - https://www.php.net/manual/en/book.mbstring.php
 - https://compiledconcepts.com/software-engineering/what-are-multibyte-strings-in-php/
 - https://hotexamples.com/examples/-/-/mb_encode/php-mb_encode-function-examples.html
 - https://www.w3schools.com/Php/func_xml_utf8_encode.asp
 
-### Rid diacritics: 
-
-ES6: `dirty.normalize("NFD").replace(/[\u0300-\u036f]/g, "")`
-
-PHP: `$clean = iconv('UTF-8', 'US-ASCII//TRANSLIT', $dirty);`
-
-- https://stackoverflow.com/questions/3635511/remove-diacritics-from-a-string
-- https://coderwall.com/p/a6koxq/how-to-remove-diacritics-in-sql-server
-- https://dba.stackexchange.com/questions/190969/ignore-accents-in-where
-
 # Encodings commonly used in web development (DB)
 
 - https://www.toptal.com/php/a-utf-8-primer-for-php-and-mysql
 - https://stackoverflow.com/questions/3682409/reading-utf-8-content-from-mysql-table
 - https://stackoverflow.com/questions/30074492/what-is-the-difference-between-utf8mb4-and-utf8-charsets-in-mysql
+
+## Rid diacritics: 
+
+ES6: `dirty.normalize("NFD").replace(/[\u0300-\u036f]/g, "")`
+
+PHP: `$clean = iconv('UTF-8', 'US-ASCII//TRANSLIT', $dirty);`
+
+- Clean diacritics: https://stackoverflow.com/questions/3635511/remove-diacritics-from-a-string
+- Clean diacritics: https://coderwall.com/p/a6koxq/how-to-remove-diacritics-in-sql-server
+- Diacritics insensitive search: https://dba.stackexchange.com/questions/190969/ignore-accents-in-where
+
+Related idea: BINARY
+
+![](/Illustrations/MySQL_binary.png)
 
 ---
 
