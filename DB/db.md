@@ -290,25 +290,25 @@ If subquery in independent of parent query, then write it as an independent quer
 
 ## Default filegroup settings
 
+Filegroups are "directories" where DB store their files.
+
+Advantage of more filegroups: more parallelization.
+
 Specify these 2 to make insert faster:
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/improve_SQL_Server_performance_3.PNG)
 
-https://sqlstudies.com/2018/02/19/the-default-filegroup-and-why-you-should-care/
+- What are filegroups: https://blogs.lessthandot.com/index.php/DataMgmt/DBAdmin/sql-server-filegroups-the-what
+- https://sqlstudies.com/2018/02/19/the-default-filegroup-and-why-you-should-care/
+- https://www.sqlshack.com/how-to-work-with-filegroups-in-sql-server-and-migrate-data-between-them/
 
 ## Statistic Creation and Updates
 
 You need to take care of statistic creation and regular updates for computed columns and multi-columns referred in the query; the query optimizer uses information about the distribution of values in one or more columns of a table statistics to estimate the cardinality, or number of rows, in the query result. These cardinality estimates enable the query optimizer to create a high-quality query plan.
 
-### Turn statistics (ie SQL Server intel) on is faster
+Turn statistics (ie SQL Server intel) on is faster
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/improve_SQL_Server_performance_4.PNG)
-
-**Ref:** 
-- https://dzone.com/articles/how-to-optimize-mysql-queries-for-speed-and-perfor
-- https://dev.mysql.com/doc/refman/8.0/en/explain.html
-- https://www.infoworld.com/article/3209665/sql-unleashed-17-ways-to-speed-your-sql-queries.html
-- https://bertwagner.com/posts/12-ways-to-rewrite-sql-queries-for-better-performance/
 
 ## GROUP BY instead of Window functions
 
@@ -348,6 +348,12 @@ In those cases, a simple query hint is all you need to force SQL Server to chang
 ## Copy the data
 
 If you can't get better performance by rewriting a query, you can always copy the data you need to a new table in a location where you CAN create indexes and do whatever other helpful transformations you need to do ahead of time.
+
+**Ref:** 
+- https://dzone.com/articles/how-to-optimize-mysql-queries-for-speed-and-perfor
+- https://dev.mysql.com/doc/refman/8.0/en/explain.html
+- https://www.infoworld.com/article/3209665/sql-unleashed-17-ways-to-speed-your-sql-queries.html
+- https://bertwagner.com/posts/12-ways-to-rewrite-sql-queries-for-better-performance/
 
 ---
 
