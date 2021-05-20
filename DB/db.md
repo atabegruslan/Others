@@ -278,7 +278,15 @@ In my 270 million row table, this returned sub-second and had only six logical r
 
 ## Avoid Use of Non-correlated Scalar Sub Query
 
-You can re-write your query to remove non-correlated scalar sub query as a separate query instead of part of the main query and store the output in a variable, which can be referred to in the main query or later part of the batch. This will give better options to Optimizer, which may help to return accurate cardinality estimates along with a better plan.
+Non-correlated vs correlated subqueries:  
+Non-correlated means subquery is independent of parent query. Correlated means subquery depends on input from parent query.  
+https://www.vertica.com/docs/9.2.x/HTML/Content/Authoring/AnalyzingData/Queries/Subqueries/NoncorrelatedAndCorrelatedSubqueries.htm
+
+Scalar subqueries:  
+A subquery that selects only one column or expression and returns one row.  
+https://docs.actian.com/ingres/11.0/index.html#page/SQLRef/Scalar_Subqueries.htm
+
+If subquery in independent of parent query, then write it as an independent query. It's less complicated for the optimizer.
 
 ## Default filegroup settings
 
