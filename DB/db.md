@@ -174,22 +174,6 @@ Avoid nested views:
 
 When you can't add new indexes to existing tables, you might be able to get away with creating a view on those tables and indexing the view instead . This works great for vendor databases where you can't touch any of the existing objects.
 
-## Do use table-valued functions
-
-What are table-valued functions: https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-table-valued-functions/
-What is `CROSS APPLY`: https://www.youtube.com/watch?v=kVogo0AbatM
-
-This is one of my favorite tricks of all time because it is truly one of those hidden secrets that only the experts know. When you use a scalar function in the `SELECT` list of a query, the function gets called for every single row in the result set. This can reduce the performance of large queries by a significant amount. However, you can greatly improve the performance by converting the scalar function to a table-valued function and using a `CROSS APPLY` in the query. This is a wonderful trick that can yield great improvements.
-
-- https://stackoverflow.com/questions/34754663/difference-between-scalar-table-valued-and-aggregate-functions-in-sql-server
-- https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-scalar-functions/
-- https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-table-valued-functions/
-- https://www.mssqltips.com/sqlservertip/1958/sql-server-cross-apply-and-outer-apply/
-
-### But avoid Multi-statement Table Valued Functions (TVFs)
-
-Multi-statement TVFs are more costly than inline TFVs. SQL Server expands inline TFVs into the main query like it expands views but evaluates multi-statement TVFs in a separate context from the main query and materializes the results of multi-statement into temporary work tables. The separate context and work table make multi-statement TVFs costly.
-
 ## Do use partitioning to avoid large data moves
 
 Not everyone will be able to take advantage of this tip, which relies on partitioning in SQL Server Enterprise, but for those of you who can, it’s a great trick. Most people don’t realize that all tables in SQL Server are partitioned. You can separate a table into multiple partitions if you like, but even simple tables are partitioned from the time they’re created; however, they’re created as single partitions. If you’re running SQL Server Enterprise, you already have the advantages of partitioned tables at your disposal.
@@ -207,19 +191,47 @@ ORM machine-generates queries, which is never as good as a programmer who knows 
 - https://laravel.io/forum/04-23-2014-eloquent-vs-raw-sql-which-is-really-better
 - https://stackoverflow.com/questions/38391710/laravel-eloquent-vs-query-builder-why-use-eloquent-to-decrease-performance
 
-### Stored procedures
+## Stored procedures and User defined functions
+
+### About stored procedures and user defined functions
 
 - https://www.youtube.com/watch?v=LgSgEt1mSFk
 - https://www.sqlshack.com/functions-vs-stored-procedures-sql-server/
 
-| Stored Function | Stored Procedure |
+| Stored Function (UDF) | Stored Procedure |
 |---|---|
 | Must return a value | Can return nothing |
 | Can only have input parameters | Can have both input and output parameters |
 | Functions can be called from Procedure | Procedures cannot be called from a Function |
-| https://www.mysqltutorial.org/mysql-stored-function/ | https://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx |
+| https://www.mysqltutorial.org/mysql-stored-function/ , https://www.sqlservertutorial.net/sql-server-user-defined-functions/ | https://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx |
 | Can't edit, just read data | Can edit data |
-| Can be invoked inline. Reusable |  |
+
+Full list of differences:
+- https://www.c-sharpcorner.com/article/stored-procedures-vs-user-defined-functions-and-choosing-which-one-to-use/
+- https://stackoverflow.com/questions/2039936/difference-between-stored-procedures-and-user-defined-functions/15413792
+
+Sidenote: UDFs are further seperated into scalar UDFs and Table-Valued functions.
+
+### Advantages and disadvantages
+
+UDFs can cause query plans to serialize, which can obviously slow things down (but not always).  
+But sometimes on the contrary, a poorly configured server will parallelize queries too frequently and cause poorer performance than their serially equivalent plan. 
+
+## Do use table-valued functions
+
+What are table-valued functions: https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-table-valued-functions/
+What is `CROSS APPLY`: https://www.youtube.com/watch?v=kVogo0AbatM
+
+This is one of my favorite tricks of all time because it is truly one of those hidden secrets that only the experts know. When you use a scalar function in the `SELECT` list of a query, the function gets called for every single row in the result set. This can reduce the performance of large queries by a significant amount. However, you can greatly improve the performance by converting the scalar function to a table-valued function and using a `CROSS APPLY` in the query. This is a wonderful trick that can yield great improvements.
+
+- https://stackoverflow.com/questions/34754663/difference-between-scalar-table-valued-and-aggregate-functions-in-sql-server
+- https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-scalar-functions/
+- https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-table-valued-functions/
+- https://www.mssqltips.com/sqlservertip/1958/sql-server-cross-apply-and-outer-apply/
+
+### But avoid Multi-statement Table Valued Functions (TVFs)
+
+Multi-statement TVFs are more costly than inline TFVs. SQL Server expands inline TFVs into the main query like it expands views but evaluates multi-statement TVFs in a separate context from the main query and materializes the results of multi-statement into temporary work tables. The separate context and work table make multi-statement TVFs costly.
 
 ## Don't use triggers
 
@@ -304,9 +316,7 @@ Specify these 2 to make insert faster:
 
 ## Statistic Creation and Updates
 
-You need to take care of statistic creation and regular updates for computed columns and multi-columns referred in the query; the query optimizer uses information about the distribution of values in one or more columns of a table statistics to estimate the cardinality, or number of rows, in the query result. These cardinality estimates enable the query optimizer to create a high-quality query plan.
-
-Turn statistics (ie SQL Server intel) on is faster
+Turn on statistics as they helps the query optimizer.
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/improve_SQL_Server_performance_4.PNG)
 
@@ -320,24 +330,9 @@ Sometimes window functions rely a little too much on tempdb and blocking operato
 
 Many people like using correlated subqueries because the logic is often easy to understand, however switching to derived table queries often produces better performance due to their set-based nature.
 
-## Eliminate UDFs
-
-What are UDFs: https://www.sqlservertutorial.net/sql-server-user-defined-functions/
-
-UDFs often cause poor query performance due to forcing serial plans and causing inaccurate estimates. One way to possibly improve the performance of queries that call UDFs is to try and inline the UDF logic directly into the main query. 
-
-With SQL Server 2019 this will be something that happens automatically in a lot of cases, but you might occasionally have to manually inline a UDF's functionality to get the best performance: https://www.brentozar.com/archive/2019/04/finding-froids-limits-testing-inlined-user-defined-functions/
-
-## Create UDFs
-
-Sometimes a poorly configured server will parallelize queries too frequently and cause poorer performance than their serially equivalent plan. In those cases, putting the troublesome query logic into a scalar or multi-statement table-valued function might improve performance since they will force that part of the plan to run serially. Definitely not a best practice, but it is one way to force serial plans when you can't change the cost threshold for parallelism
-
-NB: Configure the cost threshold for parallelism
-
 ## Data Compression
 
 Not only does data compression save space , but on certain workloads it can actually improve performance. Since compressed data can be stored in fewer pages, read disk speeds are improved, but maybe more importantly the compressed data allows more to be stored in SQL Server's buffer pool, increasing the potential for SQL Server to reuse data already in memory.
-
 
 ## Switch cardinality estimators
 
