@@ -78,6 +78,30 @@ What are Common Table Expressions: https://www.sqlservertutorial.net/sql-server-
 	- When have nested/compound joins, force the order of joins, instead of query-optimizer's order
 		Force table join order with blocking operators: https://sqlbits.com/Sessions/Event14/Query_Tuning_Mastery_Clash_of_the_Row_Goals
 
+## Avoid Use of Non-correlated Scalar Sub Query
+
+Non-correlated vs correlated subqueries:  
+Non-correlated means subquery is independent of parent query. Correlated means subquery depends on input from parent query.  
+https://www.vertica.com/docs/9.2.x/HTML/Content/Authoring/AnalyzingData/Queries/Subqueries/NoncorrelatedAndCorrelatedSubqueries.htm
+
+Scalar subqueries:  
+A subquery that selects only one column or expression and returns one row.  
+https://docs.actian.com/ingres/11.0/index.html#page/SQLRef/Scalar_Subqueries.htm
+
+If subquery in independent of parent query, then write it as an independent query. It's less complicated for the optimizer.
+
+## Derived tables instead of correlated subqueries
+
+What are derived tables: https://www.mysqltutorial.org/mysql-derived-table/
+
+Derived table queries often produces better performance due to their set-based nature.
+
+## GROUP BY instead of Window functions
+
+What are window function: https://www.sqltutorial.org/sql-window-functions/
+
+Sometimes window functions rely a little too much on tempdb and blocking operators to accomplish what you ask of them. While using them is always my first choice because of their simple syntax, if they perform poorly you can usually rewrite them as an old-fashioned GROUP BY to achieve better performance.
+
 ## MySQL Query Caching
 
 Cache: https://www.digitalocean.com/community/tutorials/how-to-optimize-mysql-with-query-cache-on-ubuntu-18-04
@@ -285,18 +309,6 @@ If you really do need a row count on the table, and it's really big, another tec
 
 In my 270 million row table, this returned sub-second and had only six logical reads. Now that's performance.
 
-## Avoid Use of Non-correlated Scalar Sub Query
-
-Non-correlated vs correlated subqueries:  
-Non-correlated means subquery is independent of parent query. Correlated means subquery depends on input from parent query.  
-https://www.vertica.com/docs/9.2.x/HTML/Content/Authoring/AnalyzingData/Queries/Subqueries/NoncorrelatedAndCorrelatedSubqueries.htm
-
-Scalar subqueries:  
-A subquery that selects only one column or expression and returns one row.  
-https://docs.actian.com/ingres/11.0/index.html#page/SQLRef/Scalar_Subqueries.htm
-
-If subquery in independent of parent query, then write it as an independent query. It's less complicated for the optimizer.
-
 ## Default filegroup settings
 
 Filegroups are "directories" where DB store their files.
@@ -311,21 +323,11 @@ Specify these 2 to make insert faster:
 - https://sqlstudies.com/2018/02/19/the-default-filegroup-and-why-you-should-care/
 - https://www.sqlshack.com/how-to-work-with-filegroups-in-sql-server-and-migrate-data-between-them/
 
-## Statistic Creation and Updates
+## Statistic 
 
 Turn on statistics as they helps the query optimizer.
 
 ![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/improve_SQL_Server_performance_4.PNG)
-
-## GROUP BY instead of Window functions
-
-What are window function: https://www.sqltutorial.org/sql-window-functions/
-
-Sometimes window functions rely a little too much on tempdb and blocking operators to accomplish what you ask of them. While using them is always my first choice because of their simple syntax, if they perform poorly you can usually rewrite them as an old-fashioned GROUP BY to achieve better performance.
-
-## Derived tables instead of correlated subqueries
-
-Many people like using correlated subqueries because the logic is often easy to understand, however switching to derived table queries often produces better performance due to their set-based nature.
 
 ## Data Compression
 
