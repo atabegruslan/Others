@@ -195,22 +195,20 @@ ORM machine-generates queries, which is never as good as a programmer who knows 
 
 ### About stored procedures and user defined functions
 
-- https://www.youtube.com/watch?v=LgSgEt1mSFk
-- https://www.sqlshack.com/functions-vs-stored-procedures-sql-server/
-
 | Stored Function (UDF) | Stored Procedure |
 |---|---|
 | Must return a value | Can return nothing |
 | Can only have input parameters | Can have both input and output parameters |
 | Functions can be called from Procedure | Procedures cannot be called from a Function |
-| https://www.mysqltutorial.org/mysql-stored-function/ , https://www.sqlservertutorial.net/sql-server-user-defined-functions/ | https://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx |
+| https://www.mysqltutorial.org/mysql-stored-function/ , https://www.sqlservertutorial.net/sql-server-user-defined-functions/ | https://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx , https://www.youtube.com/watch?v=LgSgEt1mSFk |
 | Can't edit, just read data | Can edit data |
 
 Full list of differences:
+- https://www.sqlshack.com/functions-vs-stored-procedures-sql-server/
 - https://www.c-sharpcorner.com/article/stored-procedures-vs-user-defined-functions-and-choosing-which-one-to-use/
 - https://stackoverflow.com/questions/2039936/difference-between-stored-procedures-and-user-defined-functions/15413792
 
-Sidenote: UDFs are further seperated into scalar UDFs and Table-Valued functions.
+Sidenote: UDFs are further seperated into scalar UDFs and **Table-Valued functions**.
 
 ### Advantages and disadvantages
 
@@ -219,10 +217,9 @@ But sometimes on the contrary, a poorly configured server will parallelize queri
 
 ## Do use table-valued functions
 
-What are table-valued functions: https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-table-valued-functions/
-What is `CROSS APPLY`: https://www.youtube.com/watch?v=kVogo0AbatM
-
 This is one of my favorite tricks of all time because it is truly one of those hidden secrets that only the experts know. When you use a scalar function in the `SELECT` list of a query, the function gets called for every single row in the result set. This can reduce the performance of large queries by a significant amount. However, you can greatly improve the performance by converting the scalar function to a table-valued function and using a `CROSS APPLY` in the query. This is a wonderful trick that can yield great improvements.
+
+What is `CROSS APPLY`: https://www.youtube.com/watch?v=kVogo0AbatM
 
 - https://stackoverflow.com/questions/34754663/difference-between-scalar-table-valued-and-aggregate-functions-in-sql-server
 - https://www.sqlservertutorial.net/sql-server-user-defined-functions/sql-server-scalar-functions/
