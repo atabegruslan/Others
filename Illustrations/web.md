@@ -14,7 +14,22 @@ https://www.youtube.com/playlist?list=PLI_rLWXMqpSl_TqX9bbisW-d7tDqcVvOJ
 
 ### Same Origin Policy
 
+You can't **receive** resources from a different origin.
+
+Applies to XMLHttpRequest and fetch.
+
 ### Cross Origin Resource Sharing
+
+For requests to a different origin:
+
+- Safe method: GET, POST or HEAD
+- Safe headers – the only allowed custom headers are:
+     - Accept,
+     - Accept-Language,
+     - Content-Language,
+     - Content-Type with the value `application/x-www-form-urlencoded`, `multipart/form-data` or `text/plain`.
+
+Any others cause a "pre-flight" request to be issued in CORS supported browsers.
 
 ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/cors_preflight.png)
 
@@ -57,6 +72,10 @@ An object of additional header key/value pairs to send along with requests using
 
 - In Nginx: https://github.com/atabegruslan/Others/blob/master/Illustrations/CORS-Proxy-Nginx.pdf
 - In Express/Node: https://github.com/atabegruslan/Others/blob/master/Illustrations/CORS-Proxy-Express.pdf
+
+### CORS browser plugin
+
+For every request, it will add the Access-Control-Allow-Origin: * header to the response.
 
 # Comparisons
 
@@ -114,6 +133,10 @@ and another example:
 }('foo');
 ```
 
+Note:
+- Function declarations that are hoisted as soon as program execution begins and can be called before its actual declaration.
+- Function expressions (anonymous functions) are created at runtime and must be declared/defined before they can be called i.e. they are not hoisted
+
 **Lambda Expression**
 
 - Function expression used as data.
@@ -124,9 +147,40 @@ Example of an lambda expression that isn't anonymous:
 $('#el').on('click', function clickHandler() {
 ```
 
+**Callback**
+
+```js
+function myCalculator(num1, num2, myCallback) {
+  let sum = num1 + num2;
+  myCallback(sum);
+}
+
+myCalculator(5, 5, function (theSum) {
+  document.getElementById("demo").innerHTML = theSum;
+});
+```
+
 ### PHP
 
 - https://www.php.net/manual/en/functions.arrow.php
+
+**Callback**
+
+Run a callback from a user-defined function:
+```php
+function exclaim($str) {
+  return $str . "! ";
+}
+
+function printFormatted($str, $format) {
+  // Calling the $format callback function
+  echo $format($str);
+}
+
+printFormatted("Hello world", "exclaim");
+```
+
+Others ways: https://www.geeksforgeeks.org/implementing-callback-in-php
 
 ### C#
 
