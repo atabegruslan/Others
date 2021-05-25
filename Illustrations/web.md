@@ -160,6 +160,10 @@ myCalculator(5, 5, function (theSum) {
 });
 ```
 
+**Arrow Functions**
+
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/ES6_arrow_this.png)
+
 ### PHP
 
 - https://www.php.net/manual/en/functions.arrow.php
@@ -206,13 +210,50 @@ Delegates used for making callbacks:
 
 ## Asyncs
 
+### JavaScript
+
+Good reads:
+- https://hackernoon.com/async-await-generators-promises-51f1a6ceede2 (GOOD first half)
+- https://blog.benestudio.co/async-await-vs-coroutines-vs-promises-eaedee4e0829 (GOOD)
+- https://www.freecodecamp.org/news/write-modern-asynchronous-javascript-using-promises-generators-and-coroutines-5fa9fe62cf74/ (recap)
+
+Ways:
+- Promises - nesting prob
+- Async Await - Not yet native.
+     - Majority of ES7 features including async/await have not been natively implemented (11 JULY 2016). 
+     - Native in current Chrome, Node.js but still needs to be transpiled with Babel for most projects (Mar 8, 2018).
+- Generators and Coroutines - Need corouting libs. Generator by itself is like Goto
+
+Async in Vue:
+1. vue-async-function: https://xebia.com/blog/next-generation-async-functions-with-vue-async-function/
+     - https://www.npmjs.com/package/vue-async-function
+2. transform-regenerator & polyfill: https://stackoverflow.com/questions/46389267/using-async-await-with-webpack-simple-configuration-throwing-error-regeneratorr/46734082
+     - https://www.npmjs.com/package/@babel/plugin-transform-regenerator
+     -- https://babeljs.io/docs/en/next/babel-plugin-transform-regenerator.html
+     - https://babeljs.io/docs/en/babel-polyfill
+3. Bluebird: https://github.com/atabegruslan/Travel-Blog-Laravel-5-8/commit/9d710ec1b307a5922bf35304e260ff758f5e79ea
+     - https://www.npmjs.com/package/bluebird
+
+See more illustrations at: https://github.com/atabegruslan/Others/blob/master/Illustrations/js_async/
+
+### PHP
+
+https://github.com/Ruslan-Aliyev/async_php
+
 ## True/False
+
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/booleans.png)
 
 ## Frameworks/Technologies
 
+- https://github.com/atabegruslan/Others/blob/master/Illustrations/js_frameworks.pdf
+- https://github.com/atabegruslan/Others/blob/master/Illustrations/soap_rest.pdf
+
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/comparisons.PNG)
+
 # JavaScript
 
-## Past
+## History
 
 ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/history.jpg)
 
@@ -221,9 +262,9 @@ https://www.w3schools.com/Js/js_history.asp
 JavaScript mostly implements the ECMAScript specification.  
 More info about JS vs ECMAScript: https://www.freecodecamp.org/news/whats-the-difference-between-javascript-and-ecmascript-cba48c73a2b5/
 
-## Notes
+## MISC Notes
 
-### Terminology
+### JS Terminology
 
 **JavaScript engine**: A program or interpreter that understands and executes JavaScript code.  
 Synonyms: JavaScript interpreter, JavaScript implementation
@@ -246,3 +287,140 @@ https://stackoverflow.com/questions/59807938/the-confusion-with-jit-compilation-
 **Transpiler (eg Babel)**
 
 A transpiler converts codes that are at similar levels of abstraction. Eg: ES6 code to ES5 code.
+
+### Web Browser parse Query Params
+
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/webserver_handle_query_params.png)
+
+### Detect mobile in web
+
+- https://github.com/atabegruslan/Others/blob/master/Illustrations/android_detection_in_web.pdf
+
+### Notes of interest regarding JS syntax:
+
+- https://www.infragistics.com/community/blogs/b/dhananjay_kumar/posts/how-to-create-constants-in-javascript
+- https://levelup.gitconnected.com/different-ways-to-check-if-an-object-is-empty-in-javascript-e1252d1c0b34
+
+Object to Array:
+
+1. `Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}`
+
+2. ES6 spread syntax: `{ ...['a', 'b', 'c'] }`
+
+3. Array's map function
+resp.data.data is the object:
+```js
+let listOfObjects = Object.keys(resp.data.data).map((key) => {
+	return resp.data.data[key]
+})
+```
+
+4. Array's reduce function: https://dev.to/afewminutesofcode/how-to-convert-an-array-into-an-object-in-javascript-25a4
+
+### Debug
+
+#### Live debug. 
+
+Limit by IP Address
+
+Use: https://www.ip2location.com/
+
+```php
+if ('14.161.26.170' == $_SERVER['REMOTE_ADDR'])
+{
+     // Debug code
+}
+```
+
+#### Dump out debug messages
+
+```php
+ob_flush();
+ob_start();
+var_dump($session->get('auto_extended', 'default'));
+file_put_contents("/home/genbrugsauktion/public_html/filename" . date("YFd_H-i-s") . ".txt", ob_get_flush());
+```
+
+```php
+$myfile = fopen("C:/Users/Victor/Desktop/filename" . date("YFd_H-i-s") . rand(1, 99999) . ".txt", "w");
+fwrite($myfile, debug_backtrace()[0]['file'] . ' | ' . debug_backtrace()[0]['line']);
+fclose($myfile);
+```
+
+```php
+echo '<pre>';
+print_r($results);
+echo '</pre>';
+die();
+```
+
+```php
+file_put_contents("/home/ruslan/Desktop/filename" . date("YFd_H-i-s") . ".txt", serialize($validData));
+```
+
+```php
+$output = "|   |   |   |   |\n|---|---|---|---|\n";
+foreach (debug_backtrace() as $stack)
+{
+  $output .= ' | ' . $stack['file'] . ' | ' . $stack['class'] . ' | ' . $stack['function'] . ' | ' . $stack['line'] . ' | ' . "\n";
+}
+var_dump($output);
+file_put_contents("C:/Users/Victor/Desktop/stacktrace" . date("YFd_H-i-s") . rand(1, 99999) . ".md", $output);
+```
+
+### PUT and DELETE
+
+Query override using HTML form. The following is for "post".
+```
+<form action="/ideas/{{idea.id}}?_method=PUT" method="post">
+	<input type="hidden" name="_method" value="PUT">
+</form>
+```
+Query override using HTML form. The following is for "delete".
+```
+<form method="post" action="/ideas/{{id}}?_method=DELETE">
+	<input type="hidden" name="_method" value="DELETE">
+</form>
+```
+
+### Prevent Resubmission
+
+https://stackoverflow.com/questions/3923904/preventing-form-resubmission
+
+1. Use AJAX + Redirect
+
+This way you post your form in the background using JQuery or something similar to Page2, 
+while the user still sees page1 displayed. 
+Upon successful posting, you redirect the browser to Page2.
+
+2. Post + Redirect to self
+https://en.wikipedia.org/wiki/Post/Redirect/Get
+
+This is a common technique on forums. 
+Form on Page1 posts the data to Page2, 
+Page2 processes the data and does what needs to be done, 
+and then it does a HTTP redirect on itself. 
+This way the last "action" the browser remembers is a simple GET on page2, 
+so the form is not being resubmitted upon F5.
+
+3. https://www.w3schools.com/jquery/event_one.asp
+
+4. Locks https://www.bookstack.cn/read/symfony-v4.3/b5a210628d220088.md
+
+### Git submodule
+
+Example: `git submodule add -b develop https://travisredweb:travisredweb2013github@github.com/redCOMPONENT-COM/redCORE build/redCORE`
+
+### Joomla ORM DDL, Updates with FKs
+
+Joomla PHP DB ORM code, need both before modifying FK restricted data:
+```
+$db->setQuery('SET FOREIGN_KEY_CHECKS=0;')->execute();
+$db->setQuery("ALTER TABLE table_name DROP FOREIGN KEY fk_name;")->execute();
+```
+
+### Server quirks
+
+HTTP is case-sensitive and the local filesystem isn't.  
+Many servers cater for case imperfections.  
+http://stackoverflow.com/questions/6852277/case-sensitive-urls-how-to-make-them-insensitive 
