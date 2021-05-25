@@ -16,7 +16,8 @@ https://www.youtube.com/playlist?list=PLI_rLWXMqpSl_TqX9bbisW-d7tDqcVvOJ
 
 You can't **receive** resources from a different origin.
 
-Applies to XMLHttpRequest and fetch.
+Applies to XMLHttpRequest and fetch.  
+Postman doesn't care about SOP, it's a dev tool not a browser.
 
 ### Cross Origin Resource Sharing
 
@@ -185,6 +186,10 @@ printFormatted("Hello world", "exclaim");
 ```
 
 Others ways: https://www.geeksforgeeks.org/implementing-callback-in-php
+
+**Hooks/Triggers**
+
+https://github.com/atabegruslan/Travellers_Forum#for-comparison
 
 ### C#
 
@@ -424,3 +429,13 @@ $db->setQuery("ALTER TABLE table_name DROP FOREIGN KEY fk_name;")->execute();
 HTTP is case-sensitive and the local filesystem isn't.  
 Many servers cater for case imperfections.  
 http://stackoverflow.com/questions/6852277/case-sensitive-urls-how-to-make-them-insensitive 
+
+### JS call, apply and bind
+
+- https://www.codementor.io/@niladrisekhardutta/how-to-call-apply-and-bind-in-javascript-8i1jca6jp
+- https://stackoverflow.com/questions/15455009/javascript-call-apply-vs-bind
+
+### Paradigms
+
+Declarative - what, Imperative - how
+
