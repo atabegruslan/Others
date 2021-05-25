@@ -16,7 +16,7 @@ https://www.youtube.com/playlist?list=PLI_rLWXMqpSl_TqX9bbisW-d7tDqcVvOJ
 
 ### Cross Origin Resource Sharing
 
-![](/cors_preflight.png)
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/cors_preflight.png)
 
 ### Flash Exploit
 
@@ -46,7 +46,7 @@ An object of additional header key/value pairs to send along with requests using
 
 ### Proxy
 
-![](/cors_proxy.png)
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/cors_proxy.png)
 
 #### Public Proxy
 
@@ -135,20 +135,20 @@ $('#el').on('click', function clickHandler() {
 - Pointers to functions.
 - Allow functions to be passed around.
 
-![](/csdelegate.png)
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/csdelegate.png)
 
 Delegates used for making callbacks:
 
-![](/cscallback1.png)
-![](/cscallback2.png)
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/cscallback1.png)
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/cscallback2.png)
 
 **Anonymous Function**
 
-![](/csanonymous.png)
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/csanonymous.png)
 
 **Lambda Expression**
 
-![](/cslambda.png)
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/cslambda.png)
 
 ## Asyncs
 
@@ -160,7 +160,7 @@ Delegates used for making callbacks:
 
 ## Past
 
-![](/history.jpg)
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/history.jpg)
 
 https://www.w3schools.com/Js/js_history.asp
 
@@ -185,7 +185,7 @@ Synonyms: Host environment
 
 **JIT Compiler (eg in V8 Engine)**
 
-![](/jit.png)
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/jit.png)
 
 https://stackoverflow.com/questions/59807938/the-confusion-with-jit-compilation-in-v8
 
