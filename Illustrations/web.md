@@ -34,6 +34,19 @@ Any others cause a "pre-flight" request to be issued in CORS supported browsers.
 
 ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/cors_preflight.png)
 
+
+### JQuery quirk
+
+CORS POST request works from plain javascript, but not with jQuery: 
+
+jQuery 1.5.1 adds “Access-Control-Request-Headers: x-requested-with” header to all CORS requests. 
+
+jQuery 1.5.2 does not do this. 
+
+Setting a server response header to “Access-Control-Allow-Headers: \*” doesn’t solve the problem. 
+
+Need “Access-Control-Allow-Headers: x-requested-with” specifically.
+
 ### Flash Exploit
 
 - https://github.com/atabegruslan/Others/blob/master/Illustrations/CSRF-Flash.pdf
@@ -60,6 +73,36 @@ An object of additional header key/value pairs to send along with requests using
 
 ### Headers in server
 
+In server, add `Access-Control-Allow-Origin: *` to response headers.
+
+### JSONP
+
+Example:
+
+```html
+<script>
+function getCountries(data) 
+{
+  window.countries = data;
+}
+</script>
+<script src="https://ruslan-website.com/misc/autosugg/autosugg.php?callback=getCountries"></script>
+```
+
+```js
+var countries = JSON.parse(window.countries);
+```
+
+```php
+$countries = $sth->fetchAll(PDO::FETCH_COLUMN, 0);
+$countries = implode($countries, '","');
+$countries = '["' . $countries . '"]';
+
+echo $_GET['callback']."(".json_encode($countries).");";
+```
+
+Live Example: https://jsfiddle.net/atabegaslan/6f7rpgLw/
+
 ### Proxy
 
 ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/cors_proxy.png)
@@ -76,7 +119,7 @@ An object of additional header key/value pairs to send along with requests using
 
 ### CORS browser plugin
 
-For every request, it will add the Access-Control-Allow-Origin: * header to the response.
+For every request, it will add the `Access-Control-Allow-Origin: *` header to the response.
 
 # Comparisons
 
@@ -84,21 +127,19 @@ For every request, it will add the Access-Control-Allow-Origin: * header to the 
 
 Functions that are treated like passable variables.
 
-### JavaScript
-
-- https://www.vinta.com.br/blog/2015/javascript-lambda-and-arrow-functions/
-- https://stackoverflow.com/questions/12930272/javascript-closures-vs-anonymous-functions
-- https://medium0.com/@iampika/javascript-environment-lexical-scope-and-closures-9c8dfaeff73d
-
-**Closure**
-
-- FUNCTIONS WITH PRESERVED DATA. 
-- Function that access variables outside its scope.  
-- Function that captures the state of the surrounding environment.
-- A function that remembers the external things used inside.
-
-Example of a closure that isn't anonymous:
-```js
+<table>
+  <tr>
+    <th>JavaScript</th>
+    <th>PHP</th>
+    <th>C#</th>
+  </tr>
+  <tr>
+    <td>
+      <h2>Closure</h2>
+      <p>Function that uses variables to its outside and remembers their state.</p>
+      <p><a href="https://medium0.com/@iampika/javascript-environment-lexical-scope-and-closures-9c8dfaeff73d">medium.com/@iampika/javascript-environment-lexical-scope-and-closures-9c8dfaeff73d</a></p>
+      <p>Example of a closure that isn't anonymous:</p>
+      <pre>
 function outer() {
     var greeting = "hello ";
 
@@ -106,112 +147,144 @@ function outer() {
         alert(greeting + name);
     })("John Doe");
 }
-```
-
-The Counter Dilema (can be solved by using closures): https://www.w3schools.com/js/js_function_closures.asp
-
-**Anonymous Function**
-
-- Nameless
-
-```js
-function() { 
-  alert('I am anonymous'); 
-} 
-```
-
-Example of an anonymous function that isn't a lambda expression:
-```js
+      </pre>
+      <p><a href="https://stackoverflow.com/questions/12930272/javascript-closures-vs-anonymous-functions">stackoverflow.com/questions/12930272/javascript-closures-vs-anonymous-functions</a></p>
+      <p>The Counter Dilema (can be solved by using closures): <a href="https://www.w3schools.com/js/js_function_closures.asp">w3schools.com/js/js_function_closures.asp</a></p>
+    </td>
+    <td>
+      <h2>Delegates</h2>
+      <p>Pointers to functions. Allow functions to be passed around.</p>
+      <pre>
+public static void AFunction() {…}
+public delegate void ADelegate();
+ADelegate pointer = new ADelegate(AFunction);
+pointer();
+      </pre>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>
+      <h2>Anonymous Function</h2>
+      <p>Nameless</p>
+      <pre>function() { }</pre>
+      <p>Example of an anonymous function that isn't a lambda expression:</p>
+      <pre>
 (function () { 
   // Immediately Invoked Function Expression
 })(); 
-```
-and another example:
-```js
+      </pre>
+      <p>and another example:</p>
+      <pre>
 (msg) => {
   console.log(msg);
   // Just evaluated and dropped on the floor. Not used as data.
 }('foo');
-```
-
-Note:
-- Function declarations that are hoisted as soon as program execution begins and can be called before its actual declaration.
-- Function expressions (anonymous functions) are created at runtime and must be declared/defined before they can be called i.e. they are not hoisted
-
-**Lambda Expression**
-
-- Function expression used as data.
-- A function that is passed around like data.
-
-Example of an lambda expression that isn't anonymous:
-```js
-$('#el').on('click', function clickHandler() {
-```
-
-**Callback**
-
-```js
+      </pre>
+      <p>Note:</p>
+      <p>Function declarations that are hoisted as soon as program execution begins and can be called before its actual declaration.</p>
+      <p>Function expressions (anonymous functions) are created at runtime and must be declared/defined before they can be called i.e. they are not hoisted.</p>
+    </td>
+    <td>
+      <h2>Anonymous Function</h2>
+    </td>
+    <td>
+      <h2>Anonymous Function</h2>
+      <pre>
+public delegate void ADelegate(string s);
+ADelegate pointer = delegate () { … }
+pointer(“param”);
+      </pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h2>Lambda Expression</h2>
+      <p>A function that is passed around like data.</p>
+      <p>Example of an lambda expression that isn't anonymous:</p>
+      <pre>$('#el').on('click', function clickHandler() {</pre>
+    </td>
+    <td></td>
+    <td>
+      <h2>Lambda Expression</h2>
+      <pre>
+public delegate void ADelegate(string s);
+ADelegate pointer = () => { … }
+pointer(“param”);
+      </pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h2>Arrow Functions</h2>
+      <img src="https://github.com/atabegruslan/Others/blob/master/Illustrations/ES6_arrow_this.png" />
+      <p><a href="https://www.vinta.com.br/blog/2015/javascript-lambda-and-arrow-functions/">vinta.com.br/blog/2015/javascript-lambda-and-arrow-functions</a></p>
+    </td>
+    <td>
+      <h2>Arrow Functions</h2>
+      <p><a href="https://www.php.net/manual/en/functions.arrow.php">php.net/manual/en/functions.arrow.php</a></p>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>
+      <h2>Callback</h2>
+      <pre>
 function myCalculator(num1, num2, myCallback) {
   let sum = num1 + num2;
   myCallback(sum);
 }
-
 myCalculator(5, 5, function (theSum) {
   document.getElementById("demo").innerHTML = theSum;
 });
-```
-
-**Arrow Functions**
-
-![](https://github.com/atabegruslan/Others/blob/master/Illustrations/ES6_arrow_this.png)
-
-### PHP
-
-- https://www.php.net/manual/en/functions.arrow.php
-
-**Callback**
-
-Run a callback from a user-defined function:
-```php
+      </pre>
+    </td>
+    <td>
+      <h2>Callback</h2>
+      <p>Run a callback from a user-defined function:</p>
+      <pre>
 function exclaim($str) {
   return $str . "! ";
 }
-
 function printFormatted($str, $format) {
   // Calling the $format callback function
   echo $format($str);
 }
-
 printFormatted("Hello world", "exclaim");
-```
-
-Others ways: https://www.geeksforgeeks.org/implementing-callback-in-php
-
-**Hooks/Triggers**
-
-https://github.com/atabegruslan/Travellers_Forum#for-comparison
-
-### C#
-
-**Delegates**
-
-- Pointers to functions.
-- Allow functions to be passed around.
-
-![](https://github.com/atabegruslan/Others/blob/master/Illustrations/csdelegate.png)
-
-Delegates used for making callbacks:
-
-![](https://github.com/atabegruslan/Others/blob/master/Illustrations/cscallback1.png)
-![](https://github.com/atabegruslan/Others/blob/master/Illustrations/cscallback2.png)
-
-**Anonymous Function**
-
-![](https://github.com/atabegruslan/Others/blob/master/Illustrations/csanonymous.png)
-
-**Lambda Expression**
-
-![](https://github.com/atabegruslan/Others/blob/master/Illustrations/cslambda.png)
+      </pre>
+      <p>Others ways: <a href="https://www.geeksforgeeks.org/implementing-callback-in-php">geeksforgeeks.org/implementing-callback-in-php</a></p>
+    </td>
+    <td>
+      <h2>Callback</h2>
+      <p>Delegates used for making callbacks:</p>
+      <pre>
+class App {
+  static void Main(string[] args){
+    AClass aClass = new AClass();
+    aClass.AFunction(Callback);
+  }
+  static void Callback(int i) {
+    Console.WriteLine(i);
+  }
+}
+public class AClass {
+  public delegate void Callback(int i);
+  public void AFunction(Callback cb) {
+    cb(42);
+  }
+}
+      </pre>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <h2>Hooks/Triggers</h2>
+      <p><a href="https://github.com/atabegruslan/Travellers_Forum#for-comparison">github.com/atabegruslan/Travellers_Forum#for-comparison</a></p>
+    </td>
+    <td></td>
+  </tr>
+</table>
 
 ## Asyncs
 
@@ -439,3 +512,9 @@ http://stackoverflow.com/questions/6852277/case-sensitive-urls-how-to-make-them-
 
 Declarative - what, Imperative - how
 
+### Reading HTTP request body from a JSON POST in PHP
+
+```php
+$inputJSON = file_get_contents('php://input');
+$input = json_decode($inputJSON, TRUE);
+```
