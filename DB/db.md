@@ -167,8 +167,6 @@ Don't operate on too many tables on 1 transaction. Remember that each table will
 
 ## Avoid cursors
 
-### What is cursor:
-
 What are cursors: https://www.mysqltutorial.org/mysql-cursor/
 
 Cursors can cause your operation to block other operations for a lot longer than is necessary. This greatly decreases concurrency in your system.
