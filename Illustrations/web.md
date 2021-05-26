@@ -135,10 +135,7 @@ Functions that are treated like passable variables.
 
 **Closure**
 
-- FUNCTIONS WITH PRESERVED DATA. 
-- Function that access variables outside its scope.  
-- Function that captures the state of the surrounding environment.
-- A function that remembers the external things used inside.
+- Function that uses variables to its outside and remembers their state.
 
 Example of a closure that isn't anonymous:
 ```js
@@ -183,13 +180,13 @@ Note:
 
 **Lambda Expression**
 
-- Function expression used as data.
 - A function that is passed around like data.
 
 Example of an lambda expression that isn't anonymous:
 ```js
 $('#el').on('click', function clickHandler() {
 ```
+
 **Callback**
 ```js
 function myCalculator(num1, num2, myCallback) {
@@ -200,11 +197,16 @@ myCalculator(5, 5, function (theSum) {
   document.getElementById("demo").innerHTML = theSum;
 });
 ```
+
 **Arrow Functions**
 ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/ES6_arrow_this.png)
+
 ### PHP
+
 - https://www.php.net/manual/en/functions.arrow.php
+
 **Callback**
+
 Run a callback from a user-defined function:
 ```php
 function exclaim($str) {
@@ -217,19 +219,27 @@ function printFormatted($str, $format) {
 printFormatted("Hello world", "exclaim");
 ```
 Others ways: https://www.geeksforgeeks.org/implementing-callback-in-php
+
 **Hooks/Triggers**
+
 https://github.com/atabegruslan/Travellers_Forum#for-comparison
+
 ### C#
+
 **Delegates**
+
 - Pointers to functions.
 - Allow functions to be passed around.
+
 ```cs
 public static void AFunction() {…}
 public delegate void ADelegate();
 ADelegate pointer = new ADelegate(AFunction);
 pointer();
 ```
+
 Delegates used for making callbacks:
+
 ```cs
 function myCalculator(num1, num2, myCallback) {
   let sum = num1 + num2;
@@ -240,12 +250,15 @@ myCalculator(5, 5, function (theSum) {
 });
 ```
 **Anonymous Function**
+
 ```cs
 public delegate void ADelegate(string s);
 ADelegate pointer = delegate () { … }
 pointer(“param”);
 ```
+
 **Lambda Expression**
+
 ```cs
 public delegate void ADelegate(string s);
 ADelegate pointer = () => { … }
