@@ -8,6 +8,8 @@ https://en.wikipedia.org/wiki/List_of_cryptographers
 
 ### Morse
 
+![](/Illustrations/Morse.jpg)
+
 ### Baudot
 
 Extra code for:
