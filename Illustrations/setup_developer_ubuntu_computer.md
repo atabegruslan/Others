@@ -350,8 +350,27 @@ Delete the Cache Folder:
 
 https://stackoverflow.com/questions/30396451/remove-composer
 
+### Composer Memory Limit
+
+Set in `php.ini`
+```
+php -i | grep php.ini # Find correct php.ini
+gedit /…/bin/php/php7.4.12/conf/php.ini # Or in Mac: open -e /…/bin/php/php7.4.12/conf/php.ini
+```
+Set: `memory_limit = -1`
+    
+Or in terminal everytime: `php -d memory_limit=-1 /usr/local/bin/composer ...` 
+
 ### XAMPP on Linux
 
 - Good tutorial: https://www.ubuntubuzz.com/2017/06/how-to-install-xampp-on-ubuntu-64-bit.html
 - https://www.click4infos.com/install-xampp-on-linux/
 - https://askubuntu.com/questions/890818/ubuntu-16-04-how-to-start-xampp-control-panel
+    
+### Get your public ssh key
+
+`cat ~/.ssh/id_rsa.pub`
+    
+### Multiple GitHub account issues
+    
+`git remote set-url origin "https://USERNAME@github.com/USERNAME/REPO.git"`
