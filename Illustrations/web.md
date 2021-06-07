@@ -314,7 +314,9 @@ https://github.com/Ruslan-Aliyev/async_php
 
 ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/history.jpg)
 
-https://www.w3schools.com/Js/js_history.asp
+- https://www.w3schools.com/Js/js_history.asp
+- https://www.codesdope.com/blog/article/javascript-es5-vs-es6/
+- https://www.javatpoint.com/es5-vs-es6
 
 JavaScript mostly implements the ECMAScript specification.  
 More info about JS vs ECMAScript: https://www.freecodecamp.org/news/whats-the-difference-between-javascript-and-ecmascript-cba48c73a2b5/
