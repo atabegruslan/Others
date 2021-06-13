@@ -1,6 +1,7 @@
 # Encoding
 
 - https://youtube.com/watch?v=jeIBNn5Y5fI
+- https://slideplayer.com/slide/5994513/
 
 ## Types
 
