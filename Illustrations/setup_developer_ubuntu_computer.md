@@ -204,7 +204,8 @@ https://www.linuxhelp.com/how-to-install-vlc-media-player-on-ubuntu-17-04
 
 ### Meld 
 
-https://www.linuxhelp.com/how-to-install-meld-tool-in-ubuntu 
+- https://www.linuxhelp.com/how-to-install-meld-tool-in-ubuntu 
+- https://www.howtoforge.com/tutorial/beginners-guide-to-visual-merge-tool-meld-on-linux/
 
 ### Sublime Text
 
