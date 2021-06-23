@@ -347,9 +347,15 @@ https://stackoverflow.com/questions/59807938/the-confusion-with-jit-compilation-
 
 A transpiler converts codes that are at similar levels of abstraction. Eg: ES6 code to ES5 code.
 
-### Web Browser parse Query Params
+### Query params
+
+#### How web browsers parse query params
 
 ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/webserver_handle_query_params.png)
+
+#### Best practices
+
+https://stackoverflow.com/questions/611906/http-post-with-url-query-parameters-good-idea-or-not
 
 ### Detect mobile in web
 
