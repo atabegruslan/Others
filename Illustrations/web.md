@@ -357,10 +357,15 @@ A transpiler converts codes that are at similar levels of abstraction. Eg: ES6 c
 
 ### Notes of interest regarding JS syntax:
 
-- https://www.infragistics.com/community/blogs/b/dhananjay_kumar/posts/how-to-create-constants-in-javascript
-- https://levelup.gitconnected.com/different-ways-to-check-if-an-object-is-empty-in-javascript-e1252d1c0b34
+#### Constants
 
-Object to Array:
+https://www.infragistics.com/community/blogs/b/dhananjay_kumar/posts/how-to-create-constants-in-javascript
+
+#### Check empty
+
+https://levelup.gitconnected.com/different-ways-to-check-if-an-object-is-empty-in-javascript-e1252d1c0b34
+
+#### Object to Array:
 
 1. `Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}`
 
@@ -375,6 +380,14 @@ let listOfObjects = Object.keys(resp.data.data).map((key) => {
 ```
 
 4. Array's reduce function: https://dev.to/afewminutesofcode/how-to-convert-an-array-into-an-object-in-javascript-25a4
+
+#### Good Practices
+
+https://www.youtube.com/watch?v=Mus_vwhTCq0
+
+#### Destructuring and related techniques
+
+https://stackoverflow.com/questions/22202766/keeping-only-certain-properties-in-a-javascript-object
 
 ### Debug
 
@@ -499,3 +512,9 @@ Declarative - what, Imperative - how
 $inputJSON = file_get_contents('php://input');
 $input = json_decode($inputJSON, TRUE);
 ```
+
+### Dates and Times
+
+- https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+- https://stackoverflow.com/questions/39508963/calculate-difference-between-two-dates-using-carbon-and-blade
+- https://stackoverflow.com/questions/13845554/php-date-get-name-of-the-months-in-local-language
