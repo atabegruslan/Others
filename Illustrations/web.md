@@ -1,5 +1,112 @@
 # Security
 
+## Preliminary knowledge
+
+Cryptography: https://github.com/atabegruslan/Others/blob/master/Illustrations/cryptography.md
+
+## SSL & TLS
+
+Very good tutorial: https://www.youtube.com/watch?v=iQsKdtjwtYI
+
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/security/ssl.png)
+
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/security/ssl_tls.png)
+
+https://www.youtube.com/watch?v=niLaNbOsn28
+
+https://github.com/atabegruslan/Others/blob/master/Illustrations/security/ssl_tls_details.pdf
+
+## SSH
+
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/security/ssh1.png)
+
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/security/ssh2.png)
+
+SSH2 breaks SSH1 down into: Transport Layer, Connection & Authentication Protocols.  
+
+Differences:  
+- Session symmetrical key goes from client to server via Diffie-Hellman method, not encrypted using server key.  
+- CA will sign the public keys used in the communication. (same procedure as in SSL)
+- SSH1 enforce integrity via CRC, SSH2 uses message authentication codes, eg: hmac-md5, hmac-sha1, hmac-ripemd160.  
+- No Rhosts support in SSH2.  
+- SSH1 only allows negotiation of the symmetric encryption algorithm, all other things are hard coded (mac, compression etc).  
+- SSH2 server can dictate the client to use multiple authentication methods in a single session to succeed. However SSH1 only support one method per session.  
+- SSH2 allows the change of session key periodically.  
+
+https://www.slashroot.in/secure-shell-how-does-ssh-work
+
+### SSH Tunneling
+
+http://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/
+
+### Remote Access
+
+https://www.techotopia.com/index.php/Configuring_CentOS_Remote_Access_using_SSH
+
+## Kerberos
+
+![](https://github.com/atabegruslan/Others/blob/master/Illustrations/security/kerberos.jpg)
+
+## Header security
+
+Q: Are HTTPS headers encrypted?  
+A: Everything are encrypted (Header and Body).  
+
+That's why SSL on vhosts doesn't work too well - you need a dedicated IP address because the Host header is encrypted.
+
+The Server Name Identification (SNI) standard means that the hostname may not be encrypted if you're using TLS.   
+Also, whether you're using SNI or not, the TCP and IP headers are never encrypted. (If they were, your packets would not be routable)  
+
+Protect Response Headers: https://scotthelme.co.uk/hardening-your-http-response-headers/
+
+Defending Against Web Attacks:  
+- https://resources.infosecinstitute.com/topic/defending-against-web-attacks-using-http-headers-part-1/
+- https://resources.infosecinstitute.com/topic/defending-against-web-attacks-using-http-headers-part-2/
+- https://resources.infosecinstitute.com/topic/defending-against-web-attacks-using-http-headers-part-3/
+
+HTTP header security: https://www.contextis.com/en/blog/security-http-headers
+
+### Summary
+
+#### Use headers:
+
+- `Content-Security-Policy` : define a whitelist of approved sources of content for your site (eg css & js ...)
+- `Strict-Transport-Security` : force https usage
+- `Public-Key-Pins` : providing a whitelist of cryptographic identities that the browser should trust. only ever accept a specific set of certificates
+- `!X-Frame-Options` : stop attacker forging your site via iframe. against click jacking
+- `!X-Xss-Protection` : dont execute unescaped malicious(xss) input 
+- `X-Content-Type-Options` : prevents browser from trying to mime-sniff the content type of a response
+
+#### Remove headers:
+
+- `Server` : not reveal server software
+- `X-Powered-By` : not reveal web technology
+
+#### Secure cookies:
+
+Example: `SetCookie: PHPSESSID=36cb82e1d98853f8e250d89be857a0d3; path=/; HttpOnly; secure`
+
+- `HttpOnly` attribute on setcookie header : disable the ability to read cookies using external JavaScript.
+- `secure` attribute on setcookie header : forces your application to send cookies only over HTTPS.
+- Killing the session upon closing the browser.
+
+#### Consider this scenario
+
+A user may view an authenticated page, log out,   
+and then a malicious user can use the browser history to view the cached page.  
+
+Mitigation:
+```
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+```
+
+#### `Referrer-Policy: same-origin`
+
+- `Referrer Policy` is a mechanism that web applications can leverage to manage the referrer field, which contains the last page the user was on.
+- The `Referrer-Policy` response header instructs the browser to let the destination knows the source where the user was previously.
+
 ## CSRF, SOP & CORS
 
 ### Cross Site Request Forgery
