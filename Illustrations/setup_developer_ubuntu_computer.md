@@ -321,21 +321,28 @@ While initially developed for Linux-based systems, it is also used on macOS and 
 
 https://en.wikipedia.org/wiki/PlayOnLinux
 
-## Notes
+## Install, uninstall and manage versions of very common tools
 
-### See hidden files 
+### Ubuntu
 
-Control + H 
+#### Version
 
-### Apache PHP log files
+https://linuxize.com/post/how-to-check-your-ubuntu-version/
 
-Where are the Apache and PHP log files?
+### PHP
 
-By default: `/var/log/apache2/error.log`
+#### Version
 
-This can be configured in `/etc/php5/apache2/php.ini`
+- LAMP: https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#switch-php-versions
+- XAMPP: https://webhostingmedia.net/update-xampp-php-version-windows/
 
-### Uninstall Composer 
+### Composer
+
+#### Install 
+
+https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#composer
+
+#### Uninstall 
 
 During the installation you got a message Composer successfully installed to: ... this indicates where Composer was installed. 
 
@@ -350,6 +357,67 @@ Delete the Cache Folder:
 - Windows: C:\Users\<username>\AppData\Roaming\Composer
 
 https://stackoverflow.com/questions/30396451/remove-composer
+
+#### Version
+
+https://stackoverflow.com/questions/64597051/how-to-downgrade-or-install-a-specific-version-of-composer
+
+### Node
+
+#### Install 
+
+https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#node
+
+#### Uninstall 
+
+https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#uninstall-node
+
+#### Version
+
+https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#change-node-versions
+
+### Docker
+
+#### Install
+
+https://github.com/Ruslan-Aliyev/Docker#install
+
+### Android Studio
+
+#### Uninstall 
+
+https://github.com/atabegruslan/Others/blob/master/Illustrations/Android/Uninstall%20Android%20Completely.pdf
+
+### WP
+
+#### Version
+
+- https://www.hostinger.com/tutorials/how-to-check-which-version-of-wordpress-you-are-using
+- https://wordpress.org/support/wordpress-version/version-5-7/#installation-update-information
+  - https://wordpress.org/support/article/updating-wordpress/#manual-update
+- https://codex.wordpress.org/WordPress_Versions
+- https://yoast.com/wordpress-5-7/
+
+### Laravel
+
+#### Version
+
+http://www.elcoderino.com/check-laravel-version/
+
+## Notes
+
+### See hidden files 
+
+Ubuntu: Control + H 
+Mac: Command + Shift + .
+
+### Apache PHP log files
+
+Where are the Apache and PHP log files?
+
+By default: `/var/log/apache2/error.log`
+
+This can be configured in `/etc/php5/apache2/php.ini`
 
 ### Composer Memory Limit
 

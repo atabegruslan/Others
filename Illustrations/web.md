@@ -451,6 +451,11 @@ var_dump($output);
 file_put_contents("C:/Users/Victor/Desktop/stacktrace" . date("YFd_H-i-s") . rand(1, 99999) . ".md", $output);
 ```
 
+### Convert hyphen <-> camel case
+
+- JS: https://stackoverflow.com/questions/6660977/convert-hyphens-to-camel-case-camelcase
+- PHP: https://stackoverflow.com/questions/2791998/convert-dashes-to-camelcase-in-php
+
 ### PUT and DELETE
 
 Query override using HTML form. The following is for "post".
