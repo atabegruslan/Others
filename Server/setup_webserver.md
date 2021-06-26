@@ -150,6 +150,11 @@ touch info.php
 echo '<?php phpinfo(); ?>' >> info.php
 ```
 
+Related tutorials:
+- https://tecadmin.net/switch-between-multiple-php-version-on-ubuntu/# 
+- https://askubuntu.com/questions/705880/how-to-install-php-7 
+- https://www.vultr.com/docs/how-to-install-and-configure-php-70-or-php-71-on-ubuntu-16-04
+
 #### Apache and PHP log files
 
 By default `/var/log/apache2/error.log`

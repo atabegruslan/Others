@@ -2,15 +2,14 @@
 
 https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#the-setup
 
-### Other tutorials for installing LAMP
+### Other ways/tutorials for installing LAMP
 
+- `sudo /opt/lampp/manager-linux-x64.run`
 - https://www.taniarascia.com/how-to-install-apache-php-7-1-and-mysql-on-ubuntu-with-vagrant/
 - https://www.howtoforge.com/tutorial/install-apache-with-php-and-mysql-on-ubuntu-16-04-lamp/#-install-phpmyadmin
 - https://askubuntu.com/questions/387062/how-to-solve-the-phpmyadmin-not-found-issue-after-upgrading-php-and-apache
 
-Then don't forget: `sudo gedit /etc/apache2/apache2.conf`
-
-Append: `Include /etc/phpmyadmin/apache.conf`
+Then don't forget to append `Include /etc/phpmyadmin/apache.conf` to `/etc/apache2/apache2.conf`
 
 ### Start and stop `apache` and `mysql`
 
@@ -68,7 +67,8 @@ https://support.plesk.com/hc/en-us/articles/115000256794-MySQL-database-import-f
 
 1. Use `php -i | grep php.ini` to find out the correct `php.ini`
 
-https://stackoverflow.com/questions/2184513/change-the-maximum-upload-file-size https://askubuntu.com/questions/356968/find-the-correct-php-ini-file  
+- https://stackoverflow.com/questions/2184513/change-the-maximum-upload-file-size 
+- https://askubuntu.com/questions/356968/find-the-correct-php-ini-file  
 
 2. Edit `php.ini`:  `sudo gedit php.ini`
 ```
@@ -132,6 +132,8 @@ Check current sql_modes by: `show variables like 'sql_mode';`
 
 Remove the sql_mode `"NO_ZERO_IN_DATE,NO_ZERO_DATE`
 
+https://stackoverflow.com/questions/36882149/error-1067-42000-invalid-default-value-for-created-at
+
 #### Method 2:
 
 `sudo gedit /etc/mysql/conf.d/disable_strict_mode.cnf`
@@ -142,13 +144,12 @@ Append these:
 sql_mode=IGNORE_SPACE,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
 ```
 
-Save and restartwith: `sudo service mysql restart`
+Save and restart with: `sudo service mysql restart`
 
 https://serverpilot.io/docs/how-to-disable-strict-mode-in-mysql-5-7/
 
 **By disabling strict mode** problems like `ERROR 1067 Invalid default value for 'another_col'` and `ERROR 1118 (42000): Row size too large` can be avoided.
 
-- https://stackoverflow.com/questions/36882149/error-1067-42000-invalid-default-value-for-created-at
 - https://support.plesk.com/hc/en-us/articles/115000256794-MySQL-database-import-fails-ERROR-1118-42000-Row-size-too-large
 - https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/column-count-limit.html
 - Just for reference: https://stackoverflow.com/questions/40881773/how-to-turn-on-off-mysql-strict-mode-in-localhost-xampp
@@ -219,12 +220,56 @@ https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-18-
 
 https://stackoverflow.com/questions/14788345/how-to-install-the-jdk-on-ubuntu-linux
 
+### Git
+
+https://www.liquidweb.com/kb/install-git-ubuntu-16-04-lts/ 
+
+#### Github 2FA
+
+- https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/ 
+- https://help.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/
+
+#### Gitlab 2FA
+
+- https://gitlab.{company}.dk/profile/keys 
+- https://docs.gitlab.com/ee/user/profile/account/two_factor_authentication.html
+
+#### Gitlab Personal Access Token
+
+https://gitlab.{company}.dk/profile/personal_access_tokens
+```
+composer config http-basic.gitlab.{company}.dk <username> <personal access token>
+composer install
+```
+
+### Slack
+
+#### 2FA
+
+https://get.slack.help/hc/en-us/articles/204509068-Set-up-two-factor-authentication
+
 ### PHPStorm
 
-- Open 'Ubuntu Software' and install from there.
-- Or via terminal: https://www.linuxbabe.com/desktop-linux/install-phpstorm-ubuntu-15-10
+#### Install
 
-To short-circuit the trial limit:
+Open 'Ubuntu Software' and install from there (old way)
+
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/install_phpstorm_old.png)
+
+Or via terminal: https://www.linuxbabe.com/desktop-linux/install-phpstorm-ubuntu-15-10
+
+#### License
+
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/phpstorm_license.png)
+
+> A JetBrains PhpStorm license has been assigned to your JetBrains Account.   
+> Please use your JetBrains Account credentials in the product to activate your license.   
+> https://www.jetbrains.com/phpstorm/buy/#edition=commercial   
+
+A license file will be received.  
+When PHPStorm start for first time, register with code then drag this file in.
+
+#### To short-circuit the trial limit
 
 - Delete the `Home directory > .config > JetBrains > PphStormXXXX.X > eval` folder
 - In file: `Home directory > .config > JetBrains > PphStormXXXX.X > options > other.xml` , remove `<property name="evl.blahblah"/>`
@@ -411,13 +456,10 @@ http://www.elcoderino.com/check-laravel-version/
 Ubuntu: Control + H 
 Mac: Command + Shift + .
 
-### Apache PHP log files
+#### Apache and PHP log files
 
-Where are the Apache and PHP log files?
-
-By default: `/var/log/apache2/error.log`
-
-This can be configured in `/etc/php5/apache2/php.ini`
+- https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#apache-and-php-log-files
+- https://github.com/Ruslan-Aliyev/Log#php-logs
 
 ### Composer Memory Limit
 

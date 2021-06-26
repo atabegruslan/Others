@@ -450,6 +450,10 @@ https://www.mysqltutorial.org/mysql-data-types.aspx
 - https://medium.com/nerd-for-tech/store-files-binary-in-mysql-database-and-view-using-vanilla-js-and-node-js-95a227002b85
 - https://stackoverflow.com/questions/33586210/how-to-read-the-value-in-a-binary-column-in-mysql
 
+## Prepared Statements
+
+https://www.w3schools.com/php/php_mysql_prepared_statements.asp
+
 ## Atomicity
 
 Basic transaction and rollback: 
@@ -495,6 +499,7 @@ catch (PDOException $e)
 	- Table lock: https://www.mysqltutorial.org/mysql-table-locking/
 - In Code
 	- Semaphore: http://www.re-cycledair.com/php-dark-arts-semaphores
+		- In detail: https://github.com/atabegruslan/Others/blob/master/Illustrations/php/semaphore.php
 	- Flock: https://locallost.net/?p=1091
 
 https://github.com/atabegruslan/Others/blob/master/Illustrations/DB_Concurrency__2PL_or_Timestamp.pdf

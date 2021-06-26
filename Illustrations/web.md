@@ -301,10 +301,16 @@ https://github.com/Ruslan-Aliyev/async_php
 
 ## Frameworks/Technologies
 
-- https://github.com/atabegruslan/Others/blob/master/Illustrations/js_frameworks.pdf
+- https://github.com/atabegruslan/Others/blob/master/Illustrations/js/js_frameworks.pdf
 - https://github.com/atabegruslan/Others/blob/master/Illustrations/soap_rest.pdf
 
 ![](https://github.com/atabegruslan/Others/blob/master/Illustrations/comparisons.PNG)
+
+## PHP vs Node
+
+https://www.geeksforgeeks.org/php-vs-node-js/
+
+One main point is that Node is event-driver, while PHP behaves like: https://github.com/atabegruslan/Others/blob/master/Illustrations/php/php_process_for_each_user.pdf
 
 # JavaScript
 
@@ -318,13 +324,6 @@ https://github.com/Ruslan-Aliyev/async_php
 
 JavaScript mostly implements the ECMAScript specification.  
 More info about JS vs ECMAScript: https://www.freecodecamp.org/news/whats-the-difference-between-javascript-and-ecmascript-cba48c73a2b5/
-
-# Hacks
-
-- Web development hacks: https://www.youtube.com/playlist?list=PLI_rLWXMqpSl_TqX9bbisW-d7tDqcVvOJ
-- Quines: https://www.youtube.com/watch?v=1drBqXG2jg0
-- Steganography: https://www.youtube.com/watch?v=YUC085a0ewU
-- Windows tricks: https://www.youtube.com/watch?v=ygrGns5uugU
 
 # MISC Notes
 
@@ -365,96 +364,6 @@ https://stackoverflow.com/questions/611906/http-post-with-url-query-parameters-g
 ### Detect mobile in web
 
 - https://github.com/atabegruslan/Others/blob/master/Illustrations/android_detection_in_web.pdf
-
-### Notes of interest regarding JS syntax:
-
-#### Constants
-
-https://www.infragistics.com/community/blogs/b/dhananjay_kumar/posts/how-to-create-constants-in-javascript
-
-#### Check empty
-
-https://levelup.gitconnected.com/different-ways-to-check-if-an-object-is-empty-in-javascript-e1252d1c0b34
-
-#### Object to Array:
-
-1. `Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}`
-
-2. ES6 spread syntax: `{ ...['a', 'b', 'c'] }`
-
-3. Array's map function
-resp.data.data is the object:
-```js
-let listOfObjects = Object.keys(resp.data.data).map((key) => {
-	return resp.data.data[key]
-})
-```
-
-4. Array's reduce function: https://dev.to/afewminutesofcode/how-to-convert-an-array-into-an-object-in-javascript-25a4
-
-#### Good Practices
-
-https://www.youtube.com/watch?v=Mus_vwhTCq0
-
-#### Destructuring and related techniques
-
-https://stackoverflow.com/questions/22202766/keeping-only-certain-properties-in-a-javascript-object
-
-### Debug
-
-#### Live debug. 
-
-Limit by IP Address
-
-Use: https://www.ip2location.com/
-
-```php
-if ('14.161.26.170' == $_SERVER['REMOTE_ADDR'])
-{
-     // Debug code
-}
-```
-
-#### Dump out debug messages
-
-```php
-ob_flush();
-ob_start();
-var_dump($session->get('auto_extended', 'default'));
-file_put_contents("/home/genbrugsauktion/public_html/filename" . date("YFd_H-i-s") . ".txt", ob_get_flush());
-```
-
-```php
-$myfile = fopen("C:/Users/Victor/Desktop/filename" . date("YFd_H-i-s") . rand(1, 99999) . ".txt", "w");
-fwrite($myfile, debug_backtrace()[0]['file'] . ' | ' . debug_backtrace()[0]['line']);
-fclose($myfile);
-```
-
-```php
-echo '<pre>';
-print_r($results);
-echo '</pre>';
-die();
-```
-
-```php
-file_put_contents("/home/ruslan/Desktop/filename" . date("YFd_H-i-s") . ".txt", serialize($validData));
-```
-
-```php
-$output = "|   |   |   |   |\n|---|---|---|---|\n";
-foreach (debug_backtrace() as $stack)
-{
-  $output .= ' | ' . $stack['file'] . ' | ' . $stack['class'] . ' | ' . $stack['function'] . ' | ' . $stack['line'] . ' | ' . "\n";
-}
-var_dump($output);
-file_put_contents("C:/Users/Victor/Desktop/stacktrace" . date("YFd_H-i-s") . rand(1, 99999) . ".md", $output);
-```
-
-### Convert hyphen <-> camel case
-
-- JS: https://stackoverflow.com/questions/6660977/convert-hyphens-to-camel-case-camelcase
-- PHP: https://stackoverflow.com/questions/2791998/convert-dashes-to-camelcase-in-php
 
 ### PUT and DELETE
 
@@ -512,25 +421,3 @@ $db->setQuery("ALTER TABLE table_name DROP FOREIGN KEY fk_name;")->execute();
 HTTP is case-sensitive and the local filesystem isn't.  
 Many servers cater for case imperfections.  
 http://stackoverflow.com/questions/6852277/case-sensitive-urls-how-to-make-them-insensitive 
-
-### JS call, apply and bind
-
-- https://www.codementor.io/@niladrisekhardutta/how-to-call-apply-and-bind-in-javascript-8i1jca6jp
-- https://stackoverflow.com/questions/15455009/javascript-call-apply-vs-bind
-
-### Paradigms
-
-Declarative - what, Imperative - how
-
-### Reading HTTP request body from a JSON POST in PHP
-
-```php
-$inputJSON = file_get_contents('php://input');
-$input = json_decode($inputJSON, TRUE);
-```
-
-### Dates and Times
-
-- https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-- https://stackoverflow.com/questions/39508963/calculate-difference-between-two-dates-using-carbon-and-blade
-- https://stackoverflow.com/questions/13845554/php-date-get-name-of-the-months-in-local-language
