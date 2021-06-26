@@ -198,6 +198,8 @@ When you can't add new indexes to existing tables, you might be able to get away
 
 ## Do use partitioning to avoid large data moves
 
+What is table partitioning: https://www.sqlshack.com/database-table-partitioning-sql-server/
+
 Not everyone will be able to take advantage of this tip, which relies on partitioning in SQL Server Enterprise, but for those of you who can, it’s a great trick. Most people don’t realize that all tables in SQL Server are partitioned. You can separate a table into multiple partitions if you like, but even simple tables are partitioned from the time they’re created; however, they’re created as single partitions. If you’re running SQL Server Enterprise, you already have the advantages of partitioned tables at your disposal.
 
 This means you can use partitioning features like `SWITCH` to archive large amounts of data from a warehousing load. Let’s look at a real example from a client I had last year. The client had the requirement to copy the data from the current day’s table into an archive table; in case the load failed, the company could quickly recover with the current day’s table. For various reasons, it couldn’t rename the tables back and forth every time, so the company inserted the data into an archive table every day before the load, then deleted the current day’s data from the live table.
