@@ -100,6 +100,7 @@ Example of DateTime usage:
 
 - https://stackoverflow.com/questions/39508963/calculate-difference-between-two-dates-using-carbon-and-blade
 - https://stackoverflow.com/questions/13845554/php-date-get-name-of-the-months-in-local-language
+- https://www.codexworld.com/how-to/add-days-to-date-in-php/
 
 ## Sessions, Tokens, Auth
 
