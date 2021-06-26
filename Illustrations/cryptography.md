@@ -80,9 +80,3 @@ Both create secure channels, check message authenticity and build authentication
 But only based on some prior knowledge (a public key) and on some trusted 3rd party.  
 
 https://github.com/atabegruslan/Others/blob/master/Illustrations/security/symmetric_assymmetric.pdf
-
-TLS is a bit better than SSL.  
-SSL is by port - secure connection used from the get-go.  
-TLS is by protocol - these connections first begin with an insecure "hello" to the server  
-and only then switch to secured communication after the handshake between the client and server is successful.  
-If this shandshake fails for any reason, the connection is severed.  
