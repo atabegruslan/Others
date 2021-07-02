@@ -154,9 +154,10 @@ PHP: `$clean = iconv('UTF-8', 'US-ASCII//TRANSLIT', $dirty);`
 - Clean diacritics: https://coderwall.com/p/a6koxq/how-to-remove-diacritics-in-sql-server
 - Diacritics insensitive search: https://dba.stackexchange.com/questions/190969/ignore-accents-in-where
 
-Related idea: BINARY
+## Case insensitive search by BINARY
 
-![](/Illustrations/MySQL_binary.png)
+- https://www.w3schools.com/Sql/func_mysql_binary.asp
+- https://stackoverflow.com/questions/18853452/sql-select-like-insensitive-casing
 
 ---
 

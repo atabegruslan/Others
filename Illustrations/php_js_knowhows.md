@@ -66,6 +66,12 @@ var_dump($output);
 file_put_contents("C:/Users/Victor/Desktop/stacktrace" . date("YFd_H-i-s") . rand(1, 99999) . ".md", $output);
 ```
 
+### Force out a Guzzle Request Exception
+
+`throw new \GuzzleHttp\Exception\RequestException('test', new \GuzzleHttp\Psr7\Request('dummy', '', [], null, []));`
+
+https://www.howtobuildsoftware.com/index.php/how-do/zlV/guzzle-how-to-create-own-requestexception-in-guzzle
+
 ## Reading HTTP request body from a JSON POST in PHP
 
 ```php
@@ -101,6 +107,8 @@ Example of DateTime usage:
 - https://stackoverflow.com/questions/39508963/calculate-difference-between-two-dates-using-carbon-and-blade
 - https://stackoverflow.com/questions/13845554/php-date-get-name-of-the-months-in-local-language
 - https://www.codexworld.com/how-to/add-days-to-date-in-php/
+- https://stackoverflow.com/questions/2891937/strtotime-doesnt-work-with-dd-mm-yyyy-format
+- https://stackoverflow.com/questions/54347430/laravel-carbon-get-next-occurrence-of-particular-date-from-current-date
 
 ## Sessions, Tokens, Auth
 
