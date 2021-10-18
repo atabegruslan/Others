@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+   <body>
+      <p>In short, with arrow functions there are no binding of this.</p>
+      <p>In regular functions the this keyword represented the object that called the function, which could be the window, the document, a button or whatever.</p>
+
+      <button id="btn_reg_func">Regular Function</button>
+      <p id="demo_reg_func"></p>
+
+      <script>
+         var regFunc;
+         
+        regFunc = function(e) {
+          document.getElementById("demo_reg_func").innerHTML += e.type + ": " + this.constructor.name + "<br>";
+        }
+         
+        window.addEventListener("load", regFunc); // load: Window
+         
+        document.getElementById("btn_reg_func").addEventListener("click", regFunc); // click: HTMLButtonElement
+
+        class RegClass {
+          constructor() {
+            setTimeout(function() {
+              document.getElementById("demo_reg_func").innerHTML += "class: " + this.constructor.name + "<br>"; // class: Window
+            }, 100);
+          }
+        }
+        new RegClass();
+      </script>
+
+      <p>With arrow functions the this keyword always represents the object that defined the arrow function.</p>
+
+      <button id="btn_arr_func">Arrow Function</button>
+      <p id="demo_arr_func"></p>
+
+      <script>
+        var arrFunc;
+
+        arrFunc = (e) => {
+          document.getElementById("demo_arr_func").innerHTML += e.type + ": " + this.constructor.name + "<br>";
+        }
+
+        window.addEventListener("load", arrFunc); // load: Window
+
+        document.getElementById("btn_arr_func").addEventListener("click", arrFunc); // click: Window
+
+        class ArrClass {
+          constructor() {
+            setTimeout(() => {
+              document.getElementById("demo_arr_func").innerHTML += "class: " + this.constructor.name + "<br>"; // class: ArrClass
+            }, 100);
+          }
+        }
+        new ArrClass();
+      </script>
+   </body>
+</html>

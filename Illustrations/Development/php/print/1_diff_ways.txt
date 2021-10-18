@@ -1,0 +1,97 @@
+ECHO
+Accept many expressions. No return value hence faster.
+
+<?php echo $variable; ?> or its shortcut <?= $variable ?>
+
+Echo is a language construct, not a function, even though it can be used in a function form with brackets:
+<?php echo ('Some Output'); ?>
+
+Echo cannot be called using variable functions. The following example will NOT work:
+<?php ($val == 5) ? echo 'true' : echo 'false'; ?>
+
+--------------------------------
+--------------------------------
+
+PRINT:
+Language construct. Return true or false. Accept 1 expression.
+<?php print 'Some print output'; ?>
+
+Quoting still works, though accepts 1 expression:
+<?php
+  $count = 'Two';
+  print "$count more please";
+?>
+
+Multiple string concatenation (with the period operator) still works, though accepts 1 expression.
+
+Multiple strings passed as parameters will NOT work.
+
+--------------------------------
+--------------------------------
+
+PRINTF:
+
+printf (string format [, mixed args...])
+
+<?php
+  $count = 3;
+  $cost = 25.2;
+  $format = "The %d items cost $%.2f.";
+  printf($format, $count, $cost);
+?>
+
+--------------------------------
+--------------------------------
+
+var_dump is for debugging purposes. var_dump always prints the result.
+The var_dump function displays structured information about variables/expressions including its type and value. 
+Arrays are explored recursively with values indented to show structure. 
+It also shows which array values and object properties are references.
+
+// var_dump(array('', false, 42, array('42')));
+array(4) {
+  [0]=> string(0) ""
+  [1]=> bool(false)
+  [2]=> int(42)
+  [3]=> array(1) {[0]=>string(2) "42")}
+}
+
+--------------------------------
+--------------------------------
+
+print_r is for debugging purposes, too, but does not include the member's type. 
+It's a good idea to use if you know the types of elements in your array, but can be misleading otherwise. 
+print_r by default prints the result, but allows returning as string instead by using the optional $return parameter.
+print_r() displays information about a variable in a way that's readable by humans. 
+array values will be presented in a format that shows keys and elements. Similar notation is used for objects.
+
+Array (
+    [0] =>
+    [1] =>
+    [2] => 42
+    [3] => Array ([0] => 42)
+)
+
+--------------------------------
+--------------------------------
+
+var_export prints valid php code. 
+Useful if you calculated some values and want the results as a constant in another script. 
+Note that var_export can not handle reference cycles/recursive arrays, 
+whereas var_dump and print_r check for these. 
+var_export by default prints the result, but allows returning as string instead by using the optional $return parameter.
+
+array (
+  0 => '',
+  2 => false,
+  2 => 42,
+  3 => array (0 => '42',),
+)
+var_export is the best compromise of concise and precise.
+
+--------------------------------
+--------------------------------
+
+PRETTY PRINT JSON IN PHP:
+
+$json_string = json_encode($data, JSON_PRETTY_PRINT);

@@ -1,0 +1,195 @@
+GitBash:
+
+misc:
+git --version
+clear the screen: clear
+git help
+see commit history: git log OR git log --pretty=oneline
+see one person's commit hist: git log --author="name"
+
+GroupWork: each user need account:
+git config --global user.name "me"   //global means everything in the context of your user account, not the whole team.
+git config --global user.email "me@mail.com"
+
+see all your user-settings: 
+git config --list
+see one of your user-settings: 
+git config user.email
+
+cr8 repo:
+create a folder 
+in gitbash: pwd //see current dir
+cd thatFolder //go into that folder
+git init //make that folder the repo
+
+commit:
+make file inside that folder
+in gitbash: git add . //tell git that this folder (.) has its content changed,ie a new file is created in it.
+or: git add FileName
+Add all: git add *
+git commit -m "description of the change" //save the changes
+
+git status //see whether there are files to be committed.
+
+workflow:
+working copy (local computer) [add] staging area [commit] repo [push] GitHub
+
+edit file without add & commit, and see difference bt working copy and repo: 
+git diff
+
+see difference bt staging area and repo:
+git diff --staged
+
+del file from repo and working copy:
+git rm NAME.EXT
+
+move/rename file:
+if rename file in folder from a.txt to b.txt,
+then have to git rm a.txt & then git add b.txt
+Easier way:
+git mv SameFolder/a.txt SameFolder/b.txt   //note that mv and rename is same thing.
+
+
+GITHUB: Hosted repo
+
+Pulls all changes and saves them to your directory:
+git pull https://github.com/derekbanas/SimpleFragment.git
+
+Gets data from the remote, but it doesn't merge changes with your work:
+git fetch origin 
+
+Renames remote repo:
+git remote rename origin newOriginName
+
+git tagging: name your commits:
+name your previous commit 'v2': git tag -a v2 -m "msg"
+see all your tags: git tag
+see a tag's details: git show v2 ; get out of this: q 
+Name a commit:
+1)git log --pretty=oneline, copy the hash of the commit that you wanna tag ; q
+2)git tag -a v2 HASH
+3)editor pops up, type in msg, 
+4)save msg, tag the commit n get outta editor: enter, esc, :wq, enter 
+push commits to github using tags: git push origin v2
+push all tags: git push --tags
+
+git aliases: renaming commands to make them shorter, eg: commit -> co:
+git config --global alias.co commit
+
+Create new branch on github:
+git branch NAME
+Go to that branch:
+git checkout NAME
+Now instead of git push origin master, we push to the branch:
+git push origin NAME
+To see all your branches:
+git branch
+To see all your merged branches:
+git branch --merged
+To see all your unmerged branches:
+git branch --no-merged
+Merge branches:
+inside master, use: git merge NAME, to merge NAME into master
+Delete branch on local:
+git branch -d NAME
+Delete branch on remote host:
+git push origin -d NAME
+
+if 3 diff branches tries to merge, causes probs. the last branch to be merged cant be merged.
+sol1)
+Delete a unmerged branch on local:
+git branch -D NAME
+sol2)
+Use MergeTool:
+1)install it.
+2)after merge fault, just type: git mergetool
+merge tool starts and id the prob.
+3)you decide which ver is right, click 'actions' menu in RHS botttom corner, and sel something like 'use left'.
+4)File, save merge.
+
+Rebase/fast fwd merge: git rebase master
+NEVER rebase commits that has been pushed to Github.
+
+revert: undo a commit, records the undo:
+git revert head, edit the code in editor
+
+reset: deletes a commit:
+git reset FILENAME
+reset staging area to match the most recent commit but leave working dir alone:
+git reset
+move back to a commit and reset only staging area:
+git reset a_commit
+reset staging area & wrk dir to match the most recent commit:
+git reset --hard //undo al changes on all tracked files
+move back to a commit and reset wrk dir & staging area:
+git reset --hard a_commit
+DONT use reset so often!
+
+clean: remove untracked files from dir. undo-able:
+git clean -n //show the would-be removed files
+git clean -f //remove untracked files
+git clean -df //remove untracked files & dirs
+
+.Gitignore:
+create gitignore file on local PC: touch .gitignore
+------
+secret.txt //so that secret.txt will be ignored.
+------
+then: 
+git add .gitignore 
+git commit 
+git push
+
+Collab:
+1)go to someone else's repo on github, settings, collaborators, enter someone else's repo name to get to it, fork.
+2)Clone that repo down to your local pc, start making alterations on your forked copy.
+3)Push it up to forked github repo
+4)Send msg to orig author: go to author's repo page, pull request, new pull request, edit, make ymerge pull req, confirm merge.
+
+
+SSH keys allow you to identify trusted computers without the need for passwords and here I'll show you how to generate multiple codes for multiple GitHub accounts.
+1)ssh-keygen -t rsa -C "Your Email Address" // Generates the 2)define the name of the file you want to save the key in
+3)Enter a passphrase
+4)A public key and a randomart image are generated. The randomart image is provided because it is easier to recognize then a random string of numbers.
+5)cd ~/.ssh //where all keys are stored.
+6)open up pub key file: vim ____.pub //a lot of priv info here
+7)copy evrythng from ssh-rsa to your email@
+8)loginto github, account settings, ssh keys, add ssh key, give title for this key, paste it in, add key.
+Now in github your email is assoc's with that pub key.
+9)create another key with another email@. Paste it into another github account. ie repeat steps 1-8.
+
+10)tell ssh about these keys:
+ssh-add ~/.ssh/keyName1 (step2)
+ssh-add ~/.ssh/keyName2 (step2)
+
+11)cr8 conf file: to assoc diff hosts with diff keys:
+touch ~/.ssh/config 
+vim config 
+
+---------------
+Host github.com
+HostName github.com
+User git
+IdentityFile ~/.ssh/keyName1 (step2)
+
+Host github-ntt
+HostName github.com
+User git
+IdentityFile ~/.ssh/keyName2 (step2)
+---------------
+
+12)in gitbash: go to the folder where git is tracking, edit and commit a file there.
+
+13)git remote add myorigin git@github-ntt:keyName2/GitFolder.git
+- git@github-ntt is the rmt dir
+- myorigin is the alias for that rmt dir
+- id yourself with keyName2 ssh key
+- you want to push GitFolder.git's files onto Github
+
+In gitbash:
+when u push this the 1st time, warning pops up: host github.com cant be established (ie it's not aware of it), it then shown you a key, compare the key with this one:https://help.github.com/articles/what-are-github-s-ssh-key-fingerprints . If match, select yes
+
+14)now gitbash trusts github, so you can push and pull.
+
+
+http://goo.gl/zWDj7T

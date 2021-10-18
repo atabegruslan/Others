@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+   <body>
+      <a href="http://testwebsite.local/?dummy=dummy">SELF</a>
+      <a href="https://www.google.com">EXT</a>
+      <script>
+
+        $("a").on("click", function() {
+            var url = $(this).attr("href");
+
+            if (! /^https?:\/\/./.test(url) 
+              || /https?:\/\/testwebsite\.local/.test(url)
+              || /https?:\/\/hooks\.stripe\.com\/redirect\/authenticate\//.test(url) ) 
+            {
+              window.localLinkClicked = true;
+            }
+            else
+            {
+              window.localLinkClicked = false;
+            }
+        });
+
+        window.onbeforeunload = (event) => {
+          const e = event || window.event;
+          e.preventDefault();
+
+          var res = handleUnload();
+          return res;
+        };
+
+        function handleUnload() 
+        {
+          var type = performance.getEntriesByType("navigation")[0].type;
+
+          if (type === 'navigate' ||  type === 'reload')
+          {
+            if (window.localLinkClicked) 
+            {
+              return null;
+            } 
+            else 
+            {
+              return true;
+            }
+          }
+          else
+          {
+            return null;
+          }
+        }
+      </script>
+   </body>
+</html>
