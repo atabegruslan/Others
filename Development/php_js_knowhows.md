@@ -154,17 +154,7 @@ Example of DateTime usage:
 
 - https://www.youtube.com/watch?v=3Be2T5dhN0A
 
-## Other knowhows
-
-### Joomla ORM DDL, Updates with FKs
-
-Joomla PHP DB ORM code, need both before modifying FK restricted data:
-```
-$db->setQuery('SET FOREIGN_KEY_CHECKS=0;')->execute();
-$db->setQuery("ALTER TABLE table_name DROP FOREIGN KEY fk_name;")->execute();
-```
-
-### Others
+## Others
 
 https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/php/
 
