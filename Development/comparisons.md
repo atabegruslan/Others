@@ -151,7 +151,7 @@ https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/js/
 
 ### PHP
 
-https://github.com/Ruslan-Aliyev/async_php
+https://github.com/Ruslan-Aliyev/PHP_Async
 
 ### C#
 

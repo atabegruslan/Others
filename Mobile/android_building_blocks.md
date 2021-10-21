@@ -9,24 +9,24 @@
 |  | RecyclerView  | [RecyclerView](https://github.com/Ruslan-Aliyev/Kotlin_Android_RecyclerView)  | RecyclerView  |   |
 |  | RecyclerView & Search  | [RecyclerView & Search](https://github.com/Ruslan-Aliyev/Kotlin_Android_RecyclerView_Search)  | RecyclerView & Search  |   |
 | **HTTP** [RetroFit 1.9 vs 2.0](https://github.com/atabegruslan/Others/blob/master/Mobile/retrofit_versions.md) , [HTTP Libs](https://github.com/atabegruslan/Others/blob/master/Mobile/http_libraries.md) , [GsonConverterFactory](https://www.tabnine.com/code/java/classes/retrofit2.converter.gson.GsonConverterFactory) |  |  |  |  |  
-|  | [RetroFit 1.9 Get](https://github.com/Ruslan-Aliyev/Android-Retrofit2Get) , [RetroFit 2.0 Get](https://github.com/Ruslan-Aliyev/Android-RetrofitGet)  | [RecyclerView & RetroFit](https://github.com/Ruslan-Aliyev/Kotlin_Android_RecyclerView_RetroFit2) , [Tutorials](https://www.youtube.com/playlist?list=PLlxmoA0rQ-LzEmWs4T99j2w6VnaQVGEtR) | [RecyclerView & Chopper](https://github.com/Ruslan-Aliyev/Flutter_Chopper)  |   |
+|  | [RetroFit 1.9 Get](https://github.com/Ruslan-Aliyev/Java_Android_Retrofit2_Get) , [RetroFit 2.0 Get](https://github.com/Ruslan-Aliyev/Java_Android_Retrofit_Get)  | [RecyclerView & RetroFit](https://github.com/Ruslan-Aliyev/Kotlin_Android_RecyclerView_RetroFit2) , [Tutorials](https://www.youtube.com/playlist?list=PLlxmoA0rQ-LzEmWs4T99j2w6VnaQVGEtR) | [RecyclerView & Chopper](https://github.com/Ruslan-Aliyev/Flutter_Chopper)  |   |
 |  | RecyclerView & RetroFit & MultiMedia  | [RecyclerView & RetroFit & MultiMedia](https://github.com/Ruslan-Aliyev/Kotlin_Android_RecyclerView_RetroFit2_and_Images)  |   |   |
 |  | HTTP Requests with Auth  | HTTP Requests with Auth  | [HTTP Request](https://www.youtube.com/watch?v=m7b7_Nq7XSs) , HTTP Requests with Auth  |   |
-|  | [OkHttp3 Get](https://github.com/Ruslan-Aliyev/Android-OkHttp3Get) , [OkHttp3 Post MultiPart](https://github.com/Ruslan-Aliyev/Android-OkHttp3PostMultiPart)  | OkHttp3  | [HTTP](https://github.com/Ruslan-Aliyev/Flutter_HTTP)  |   |
-|  | [Volley](https://github.com/Ruslan-Aliyev/Android-Volley-Get)  | Volley  | [DIO](https://codeburst.io/quick-tip-how-to-make-http-requests-in-dart-53fc407daf31)  |   |
+|  | [OkHttp3 Get](https://github.com/Ruslan-Aliyev/Java_Android_OkHttp3_Get) , [OkHttp3 Post MultiPart](https://github.com/Ruslan-Aliyev/Java_Android_OkHttp3_Post_MultiPart)  | OkHttp3  | [HTTP](https://github.com/Ruslan-Aliyev/Flutter_HTTP)  |   |
+|  | [Volley](https://github.com/Ruslan-Aliyev/Java_Android_Volley_Get)  | Volley  | [DIO](https://codeburst.io/quick-tip-how-to-make-http-requests-in-dart-53fc407daf31)  |   |
 |  | Speech  | [Speech](https://github.com/Ruslan-Aliyev/Kotlin_Android_Speech)  | Speech  |   |
 |  | Google Android Maps API  | [Map](https://github.com/Ruslan-Aliyev/Kotlin_Android_Google_Maps_API)  |   |   |
 |  | Cloud Messaging  | [FCM](https://github.com/Ruslan-Aliyev/Kotlin_Android_FCM)  |   |   |
 |  | Social Media Signup  | [Google SignIn](https://github.com/Ruslan-Aliyev/Kotlin_Android_Google_SignIn) , [FireBase Google SignIn](https://www.youtube.com/watch?v=iD5rO7XNHnQ) , [FB SignIn](https://github.com/Ruslan-Aliyev/Kotlin_Android_FB_SignIn) |   |   |
 |  | WebView & Email  | [WebView & Email](https://github.com/Ruslan-Aliyev/Kotlin_Android_Feedback)  | WebView & Email  |   |
 |  | App Link  | [App Link](https://github.com/atabegruslan/Others/blob/master/Mobile/app_links.md)  | App Link  |   |
-|  | [Device Admin](https://github.com/Ruslan-Aliyev/Android-DeviceAdmin)  |   |   |   |
-|  | [Service](https://github.com/Ruslan-Aliyev/Android-Service)  |   |   |   |
-|  | [HotSpot](https://github.com/Ruslan-Aliyev/Android-HotSpot)  |   |   |   |
-|  | [InApp Purchase](https://github.com/Ruslan-Aliyev/Android-InApp-Purchase)  |   |   |   |
+|  | [Device Admin](https://github.com/Ruslan-Aliyev/Java_Android_DeviceAdmin)  |   |   |   |
+|  | [Service](https://github.com/Ruslan-Aliyev/Java_Android_Service)  |   |   |   |
+|  | [HotSpot](https://github.com/Ruslan-Aliyev/Java_Android_HotSpot)  |   |   |   |
+|  | [InApp Purchase](https://github.com/Ruslan-Aliyev/Java_Android_InAppPurchase)  |   |   |   |
 |  | Pay |   |   |   |
 |  | [PlayStore](https://github.com/atabegruslan/Others/tree/master/Illustrations/Mobile/PlayStore/) |   |   |   |
-|  | [Google Analytics](https://github.com/Ruslan-Aliyev/Android-GoogleAnalytics)  |   |   |   |
+|  | [Google Analytics](https://github.com/Ruslan-Aliyev/Java_Android_GoogleAnalytics)  |   |   |   |
 | **Dependency Injection** |   |   |   |   |
 | Dagger | [Simplest Demo](https://github.com/Ruslan-Aliyev/Java_Android_Dagger) | [Simplest Demo](https://github.com/Ruslan-Aliyev/Kotlin_Android_Dagger) |   |   |
 | **Thread** [Options](https://github.com/atabegruslan/Others/blob/master/Illustrations/Mobile/thread_options.pdf) |   |   |   |   |
