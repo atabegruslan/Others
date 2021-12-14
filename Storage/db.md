@@ -34,7 +34,7 @@ If so, the SQL server will scan instead of seek table using indexes.
 If you have to use wildcards, utilize full text index instead.  
 https://github.com/atabegruslan/Others/blob/master/Storage/db.md#full-text-vs-metadata-search
 
-## Use IN instead of UNION ALL 
+## IN vs UNION ALL 
 
 (Sidenote: `UNION ALL` display duplicate values, `UNION` don't)
 
