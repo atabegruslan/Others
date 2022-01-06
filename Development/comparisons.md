@@ -205,7 +205,7 @@ https://github.com/Ruslan-Aliyev/PHP_Async
 | HTML, fat PHP call | AJAX, thin call, dynamic |
 | Use PHP to prepare HTML, no need for client | Same server and client language |
 | Connection to DB: SQL | Connection to DB: JSON |
-| Blocking execution model. Init once per every request. It handles each request in a separate process that don't share memory address space. | Fast, event-driven. Init once - many requests |
+| Blocking execution model. Init once per every request. It handles each request in a separate process that don't share memory address space. But note: https://stackoverflow.com/a/23291362 | Fast, event-driven. Init once - many requests |
 | Many versions, backwards compat support can be slow |  |
 |  | Callbacks, closures, functions are all objects |
 
