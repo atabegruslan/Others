@@ -432,6 +432,10 @@ In a full-text search, a search engine examines all of the words in every stored
 - https://en.wikipedia.org/wiki/Full-text_search
 - https://www.youtube.com/watch?v=Q8Kg67XgPzc
 
+## Execution order
+
+https://dba.stackexchange.com/a/162756
+
 ## Data Types
 
 https://www.mysqltutorial.org/mysql-data-types.aspx
