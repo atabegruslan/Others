@@ -21,6 +21,10 @@ git remote add origin https://github.com/{USERNAME}/{REPO}.git
 - https://www.git-tower.com/learn/git/faq/change-author-name-email/
 - https://alvinalexander.com/git/git-show-change-username-email-address/
 
+## Syncing existing code to existing repo
+
+`git pull origin master --allow-unrelated-histories`
+
 ## Git submodule
 
 In the dependant repo: `git submodule add -b develop https://username:password@github.com/account/needed-project dest-path/needed-project`
