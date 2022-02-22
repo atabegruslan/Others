@@ -357,8 +357,7 @@ If you can't get better performance by rewriting a query, you can always copy th
 ## Eager vs Lazy load
 
 - The (n + 1) problem: https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping
-- In Laravel: https://www.youtube.com/watch?v=bZlvzvGpCEE
-- In Laravel: https://www.youtube.com/watch?v=N0phQbyzF0I
+- In Laravel: https://www.youtube.com/watch?v=bZlvzvGpCEE , https://www.youtube.com/watch?v=N0phQbyzF0I , https://viblo.asia/p/eager-loading-trong-laravel-su-dung-with-hay-load-RnB5p0bG5PG
 - In .NET: https://www.youtube.com/watch?v=j4w-KFoZTtI
 - https://stackoverflow.com/questions/31366236/lazy-loading-vs-eager-loading
 - https://www.imperva.com/learn/performance/lazy-loading/#:~:text=Lazy%20Loading%20vs.,entities%20referenced%20by%20a%20resource.
