@@ -6,3 +6,4 @@
   - Recursively convert all newlines: `find . -type f -print0 | xargs -0 dos2unix`
   - https://github.com/eslint/eslint/blob/main/docs/rules/linebreak-style.md
 - Add `zip` to "git bash" on Windows: https://stackoverflow.com/a/38783744
+- Symbolic links: On Linux it's `ln -s ...`. On Windows it's https://www.tenforums.com/tutorials/131182-create-soft-hard-symbolic-links-windows.html
