@@ -376,6 +376,8 @@ https://linuxize.com/post/how-to-check-your-ubuntu-version/
 
 ### PHP
 
+- https://www.dev2qa.com/how-to-check-php-version-and-php-install-path-on-linux-and-windows/
+
 #### Version
 
 - LAMP: https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#switch-php-versions
@@ -432,6 +434,12 @@ https://github.com/Ruslan-Aliyev/Docker#install
 #### Uninstall 
 
 https://github.com/atabegruslan/Others/blob/master/Illustrations/Mobile/complete_uninstall.pdf
+
+### Python
+
+#### Uninstall 
+
+- https://www.delftstack.com/howto/python/python-uninstall-from-windows/
 
 ### WP
 
