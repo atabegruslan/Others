@@ -51,6 +51,10 @@ Revert a specific commit: `git revert {commit hash ID}`
 - https://git-scm.com/docs/git-revert#_examples
 - https://stackoverflow.com/questions/1463340/how-to-revert-multiple-git-commits
 
+#### Un-Revert
+
+- https://stackoverflow.com/questions/8728093/how-do-i-un-revert-a-reverted-git-commit
+
 ### Via Reset
 
 -  https://git-scm.com/docs/git-reset#_examples
