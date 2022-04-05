@@ -215,6 +215,13 @@ let listOfObjects = Object.keys(resp.data.data).map((key) => {
 - https://stackoverflow.com/questions/60044205/download-response-data-as-stream-w-axios-in-react-app
 - https://stackoverflow.com/questions/4545311/download-a-file-by-jquery-ajax
 
+## Typed Arrays
+
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays
+- https://stackoverflow.com/questions/3195865/converting-byte-array-to-string-in-javascript
+- https://www.youtube.com/watch?v=UYkJaW3pmj0
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView
+
 ## Good Practices
 
 https://www.youtube.com/watch?v=Mus_vwhTCq0
