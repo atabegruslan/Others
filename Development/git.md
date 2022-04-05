@@ -1,7 +1,7 @@
 # Git moves and solutions to common issues
 
 ## Multiple GitHub account issues
-    
+
 - By forcing correct credential: `git remote set-url origin "https://USERNAME@github.com/USERNAME/REPO.git"`
 - By clearing git credentials on your local machine: https://stackoverflow.com/questions/47465644/github-remote-permission-denied
 
@@ -110,6 +110,14 @@ git cherry-pick {src commit SHA}
 
 Don't rebase any commits that's been pushed to a remote repo
 
+## Stash
+
+- https://www.youtube.com/watch?v=-aPoRU5W8lA
+
+## Log
+
+- https://trailhead.salesforce.com/en/content/learn/modules/git-and-git-hub-basics/work-with-your-history-in-git
+
 ## Git Terminology
 
 ![](/Illustrations/Development/git/git_term.PNG)
@@ -145,6 +153,7 @@ Don't rebase any commits that's been pushed to a remote repo
 ![](/Illustrations/Development/git/git_config_display.PNG)
 
 - https://www.youtube.com/playlist?list=PLdMKkri2rs0tIcDT0sAY4OYD3xRci8u9p
+- https://www.youtube.com/watch?v=ecK3EnyGD8o
 - https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/git/git.txt
 
 ## GitBook
