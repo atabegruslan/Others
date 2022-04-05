@@ -181,6 +181,11 @@ https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/php
 - https://stackoverflow.com/questions/15455009/javascript-call-apply-vs-bind
 - https://www.youtube.com/watch?v=c0mLRpw-9rI&list=PL7pEw9n3GkoW5bYOhVAtmJlak3ZK7SaDf&index=6
 
+## Map, Reduce & Filter
+
+- https://www.freecodecamp.org/news/javascript-map-reduce-and-filter-explained-with-examples/
+- https://www.youtube.com/watch?v=rRgD1yVwIvE
+
 ## Check empty
 
 https://levelup.gitconnected.com/different-ways-to-check-if-an-object-is-empty-in-javascript-e1252d1c0b34
