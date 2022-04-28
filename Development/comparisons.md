@@ -223,9 +223,9 @@ https://github.com/Ruslan-Aliyev/PHP_Async
 | Pagination abilities |   |
 | Easy dependency injection using service container |   |
 
-| AngularJS | Angular | React | Vue | Svelte |
+| AngularJS | Angular | React | Vue | Svelte [Crash Course](https://www.youtube.com/watch?v=UU7MgYIbtAk), [Tutorial Series](https://www.youtube.com/playlist?list=PLC3y8-rFHvwiYZOsc2D8AO1MYwLjZQrKx) |
 |---|---|---|---|---|
-| Full MVC Framework | Full MVC Framework | JS Library. View only |  | Just a compiler [Crash Course](https://www.youtube.com/watch?v=UU7MgYIbtAk) [Tutorial Series](https://www.youtube.com/playlist?list=PLC3y8-rFHvwiYZOsc2D8AO1MYwLjZQrKx) |
+| Full MVC Framework | Full MVC Framework | JS Library. View only |  | Just a compiler |
 | MVC Architecture. Controllers and Scopes. Weak component model. | Deeply-binded and loosely-coupled **components**. Strong component model. No concept of scopes nor controllers. Good modularity & scalability. Many core functionality are moved into modules. But poor backward compatibility. | No real architecture. Can optionally use Flux, Redux or MobX. Medium component model. |  |  |
 |  | Dynamic loading: loading libraries into memory at runtime, retrieve and execute functions, and then unload library from memory. |  |  |  |
 |  | Big but fast bundle | Small fast bundle | Small fast bundle | V Small fast bundle |
