@@ -127,6 +127,11 @@ Don't rebase any commits that's been pushed to a remote repo
 - What BLOB means: https://matthew-brett.github.io/curious-git/git_object_types.html
 - Tracking a branch means to match it to its remote counterpart and 'monitors' it: https://www.git-tower.com/learn/git/faq/track-remote-upstream-branch/
 
+## Inner Workings
+
+- https://www.youtube.com/watch?v=P6jD966jzlk
+- https://www.youtube.com/watch?v=uR6G2v_WsRA
+
 ## Useful commands
 
 - Change commit message: `git commit --amend -m"correction to previous message"` 
