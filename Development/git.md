@@ -113,12 +113,12 @@ Don't rebase any commits that's been pushed to a remote repo
 ## Stash
 
 1. Save changes to branch A.
-2. Run git stash.
+2. Run `git stash`.
 3. Check out branch B.
 4. Fix the bug in branch B.
 5. Commit and (optionally) push to remote.
 6. Check out branch A
-7. Run git stash pop to get your stashed changes back.
+7. Run `git stash pop` to get your stashed changes back.
 
 - https://www.youtube.com/watch?v=-aPoRU5W8lA
 - https://opensource.com/article/21/4/git-stash
