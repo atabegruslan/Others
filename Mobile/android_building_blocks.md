@@ -236,6 +236,8 @@ https://www.guardsquare.com/en/blog/proguard-vs-dexguard
 
 ![](/Illustrations/Mobile/versions.PNG)
 
+https://youtu.be/O0UwUF2DgQc
+
 ## HAXM: 
 
 Hardware Accelerated Execution Manager, accelerates emulator. 
