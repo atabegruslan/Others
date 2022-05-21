@@ -198,6 +198,13 @@ sudo npm install -g n
 sudo n 8.15.0 
 ```
 
+or 
+
+```
+nvm install v14.0.0         # Install v14.0.0
+nvm use v14.0.0             # Use v14.0.0
+```
+
 1. https://www.abeautifulsite.net/how-to-upgrade-or-downgrade-nodejs-using-npm 
 2. https://stackoverflow.com/questions/7718313/how-to-change-to-an-older-version-of-node-js/23569481#23569481
 3. https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally 
