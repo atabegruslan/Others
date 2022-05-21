@@ -199,7 +199,8 @@ sudo n 8.15.0
 ```
 
 1. https://www.abeautifulsite.net/how-to-upgrade-or-downgrade-nodejs-using-npm 
-2. https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally 
+2. https://stackoverflow.com/questions/7718313/how-to-change-to-an-older-version-of-node-js/23569481#23569481
+3. https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally 
 
 Node: Tutorial 2 above: Manually change npm's default directory. Later on you don't need to run node & npm under sudo  
 
