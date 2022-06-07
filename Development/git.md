@@ -145,6 +145,7 @@ Don't rebase any commits that's been pushed to a remote repo
 
 - Change commit message: `git commit --amend -m"correction to previous message"` 
 	- https://linuxize.com/post/change-git-commit-message/
+- Change commit: https://confluence.atlassian.com/bitbucketserverkb/how-do-you-make-changes-on-a-specific-commit-779171729.html
 - Rename branch: `git branch -m oldName newName`
 	- If currently on `oldName` branch: `git branch -m newName`
 - Checkout remote branch: `git fetch`, `git checkout remoteBranchName`
