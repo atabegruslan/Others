@@ -216,6 +216,7 @@ Other tutorials on this:
 - https://michael-kuehnel.de/node.js/2015/09/08/using-vm-to-switch-node-versions.html
 - https://bytearcher.com/articles/ways-to-get-the-latest-node.js-version-on-a-mac/
 - Windows, NVM: https://stackoverflow.com/questions/25654234/node-version-manager-nvm-on-windows/61060494#61060494
+- Linux, NVM: https://learn2torials.com/a/how-to-install-nvm
 
 ```
 // Install NVM from https://github.com/coreybutler/nvm-windows/releases
