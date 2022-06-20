@@ -147,3 +147,24 @@ https://github.com/Ruslan-Aliyev/compass_sprites
 ## Smarty
 
 - https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/templating/smarty/smarty.md
+
+# CSS
+
+## Defer
+
+CSS files are render-blocking resources: they must be loaded and processed before the browser renders the page. Web pages that contain unnecessarily large styles take longer to render. `defer` defers non-critical CSS.
+
+https://web.dev/defer-non-critical-css/
+
+## Font-size, accessability
+
+These are the available CSS font-size units: https://www.w3schools.com/cssref/css_units.asp  
+Most notably: `em` and `rem`.   
+Take this setting for example: `<p>Some text<span>Some more text</span></p>`:   
+- For `em`: If `p` is set to have `font-size` of `30px`, and then you give `span` a `font-size` of `0.5em`, then `span` will have a `font-size` of `15px`.    
+- For `rem`: If the root element (normally `<html>`) have a `font-size` of `30px`, and then you give `span` a `font-size` of `0.5em`, then `span` will have a `font-size` of `15px`.  
+With that background knowledge, we can start talking about the visually-impared: https://whitep4nth3r.com/blog/how-to-make-your-font-sizes-accessible-with-css/   
+In Chrome, a user can go to `settings > appearance > font size` and set font size to XL, L, M, S or XS.  
+What you, as a developer should do next is:  
+- Set the root element to: `html { font-size: 100% }`
+- Use `rem` as font units for all the text elements.  
