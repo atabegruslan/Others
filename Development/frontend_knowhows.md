@@ -168,3 +168,9 @@ In Chrome, a user can go to `settings > appearance > font size` and set font siz
 What you, as a developer should do next is:  
 - Set the root element to: `html { font-size: 100% }`
 - Use `rem` as font units for all the text elements.  
+
+## `attr` vs `data`
+
+Read: https://coderwall.com/p/t_cgwq/when-is-better-to-use-data-or-attr
+
+Note, If you are programming a website for iPhone Safari, `data-{stuff}` will be lost. Better to use attr.  
