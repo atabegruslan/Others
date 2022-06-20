@@ -206,6 +206,43 @@ let listOfObjects = Object.keys(resp.data.data).map((key) => {
 
 4. Array's reduce function: https://dev.to/afewminutesofcode/how-to-convert-an-array-into-an-object-in-javascript-25a4
 
+## Sleep
+
+https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep/39914235#39914235
+
+```js
+function sleep(ms) 
+{
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+await sleep(1000);
+```
+
+## AJAX with recursion
+
+https://stackoverflow.com/questions/50904154/ajax-recursive-callback-on-completion/50904266#50904266
+
+```js
+function recursive_function()
+{
+	$.ajax({
+	    ...,
+	    async: true,
+	    success: function(res) {
+		if ( NOT DONE ) 
+		{
+		    recursive_function();
+		}
+		else
+		{
+		    // DONE
+		}
+	    }
+	});
+}
+```
+
 ## Differentiate browser refresh, visiting new website, forward, back
 
 - https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/js/refresh_navigate_leave.html
