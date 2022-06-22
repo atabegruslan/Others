@@ -272,6 +272,20 @@ https://www.youtube.com/watch?v=Mus_vwhTCq0
 
 https://stackoverflow.com/questions/22202766/keeping-only-certain-properties-in-a-javascript-object
 
+## Modules
+
+- CommonJS (Node.js, `require()` & `module.exports`) vs ES modules (browser, `import` & `export`): https://blog.logrocket.com/commonjs-vs-es-modules-node-js/ 
+	- `require` vs `import`: https://flexiple.com/javascript-require-vs-import/
+- Newer Node supports ES modules experimentally: https://stackoverflow.com/questions/43622337/using-import-fs-from-fs/43622412#43622412
+- CommonJS, AMD & ES: https://medium.com/computed-comparisons/commonjs-vs-amd-vs-requirejs-vs-es6-modules-2e814b114a0b
+	- https://stackoverflow.com/questions/34866510/building-a-javascript-library-why-use-an-iife-this-way/34866603#34866603
+- UMD, unpkg: https://tutorial.tips/how-to-load-any-npm-module-in-browser/
+- Importing a module's CSS: https://stackoverflow.com/questions/49518277/import-css-from-node-modules-in-webpack/49523565#49523565
+	- Or like `import 'bootstrap/dist/css/bootstrap.min.css';` with `bootstrap` folder being located in `./node_modules/bootstrap/...`
+- Webpack: https://webpack.js.org/api/module-methods/
+- `package.json`'s `browser`: https://docs.npmjs.com/cli/v8/configuring-npm/package-json#browser
+- Issue: "cannot use import statement outside a module": https://www.google.com/search?q=cannot+use+import+statement+outside+a+module
+
 ## Get caret position in text area
 
 https://github.com/atabegruslan/Others/blob/master/Development/js/get_caret_position.html
