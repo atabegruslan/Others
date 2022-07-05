@@ -221,7 +221,7 @@ await sleep(1000);
 
 ## AJAX with recursion
 
-https://stackoverflow.com/questions/50904154/ajax-recursive-callback-on-completion/50904266#50904266
+https://stackoverflow.com/questions/19332049/while-loop-with-jquery-async-ajax-calls/19332078#19332078
 
 ```js
 function recursive_function()
