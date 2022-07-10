@@ -339,6 +339,11 @@ A transpiler converts codes that are at similar levels of abstraction. Eg: ES6 c
 	- https://stackoverflow.com/questions/2447791/define%C2%ADvs%C2%ADconst
 	- https://www.w3schools.com/php/func_misc_constant.asp
 
+## Query Params
+
+- JS: https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/delete#examples
+- PHP: https://stackoverflow.com/questions/4937478/strip-off-url-parameter-with-php/45713333#45713333
+
 ## Convert hyphen <-> camel case
 
 - JS: https://stackoverflow.com/questions/6660977/convert-hyphens-to-camel-case-camelcase
