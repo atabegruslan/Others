@@ -428,6 +428,10 @@ https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#cha
 #### Install
 
 https://github.com/Ruslan-Aliyev/Docker#install
+    
+#### Uninstall
+
+Mac: https://nektony.com/how-to/uninstall-docker-on-mac
 
 ### Android Studio
 
