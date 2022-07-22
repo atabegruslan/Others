@@ -447,13 +447,20 @@ https://github.com/atabegruslan/Others/blob/master/Illustrations/Mobile/complete
 
 ### WP
 
+#### Install
+
+https://code.tutsplus.com/articles/download-and-install-wordpress-via-the-shell-over-ssh--wp-24403
+
 #### Version
 
-- https://www.hostinger.com/tutorials/how-to-check-which-version-of-wordpress-you-are-using
-- https://wordpress.org/support/wordpress-version/version-5-7/#installation-update-information
-  - https://wordpress.org/support/article/updating-wordpress/#manual-update
 - https://codex.wordpress.org/WordPress_Versions
-- https://yoast.com/wordpress-5-7/
+- Check version: 
+    - https://wpbuffs.com/wordpress-php-version-check/
+    - https://www.hostinger.com/tutorials/how-to-check-which-version-of-wordpress-you-are-using
+    - Admin, Tools > Site Health
+- Upgrade: https://wordpress.org/support/wordpress-version/version-5-7/#installation-update-information
+    - https://wordpress.org/support/article/updating-wordpress/#manual-update
+- Downgrade: `{domain}/wp-admin/options-general.php?page=wpdowngrade`
 
 ### Laravel
 
