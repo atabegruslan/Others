@@ -219,6 +219,25 @@ function sleep(ms)
 await sleep(1000);
 ```
 
+## Polling
+
+```js
+var thereYet = false;
+var intervalName = setInterval(function() {
+    if ( /* "there yet" condition */ ) 
+    {
+        thereYet = true;
+    }
+    
+    if (thereYet) 
+    {
+        clearInterval(intervalName);
+    }
+
+    // Do action
+}, 100);
+```
+
 ## AJAX with recursion
 
 https://stackoverflow.com/questions/19332049/while-loop-with-jquery-async-ajax-calls/19332078#19332078
