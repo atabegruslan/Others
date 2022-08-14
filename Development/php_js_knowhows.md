@@ -305,6 +305,10 @@ https://stackoverflow.com/questions/22202766/keeping-only-certain-properties-in-
 - `package.json`'s `browser`: https://docs.npmjs.com/cli/v8/configuring-npm/package-json#browser
 - Issue: "cannot use import statement outside a module": https://www.google.com/search?q=cannot+use+import+statement+outside+a+module
 
+## Publish modules to npmjs
+
+https://zellwk.com/blog/publish-to-npm/
+
 ## Get caret position in text area
 
 https://github.com/atabegruslan/Others/blob/master/Development/js/get_caret_position.html
