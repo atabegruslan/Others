@@ -3,7 +3,9 @@
 ## Multiple GitHub account issues
 
 - By forcing correct credential: `git remote set-url origin "https://USERNAME@github.com/USERNAME/REPO.git"`
-- By clearing git credentials on your local machine: https://stackoverflow.com/questions/47465644/github-remote-permission-denied
+- By clearing git credentials on your local machine: 
+	- Windows: https://stackoverflow.com/questions/47465644/github-remote-permission-denied
+	- Mac: https://docs.github.com/en/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain
 
 ## Auth
 - https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
