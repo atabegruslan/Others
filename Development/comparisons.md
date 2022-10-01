@@ -213,6 +213,7 @@ https://github.com/Ruslan-Aliyev/PHP_Async
 |  | Callbacks, closures, functions are all objects |
 
 - https://www.geeksforgeeks.org/php-vs-node-js/
+- https://kinsta.com/blog/php-vs-javascript/
 
 | Laravel | Cake |
 |---|---|
