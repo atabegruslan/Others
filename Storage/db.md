@@ -525,7 +525,8 @@ https://github.com/atabegruslan/Others/blob/master/Security/encode.md#encodings-
 
 ## Good to know techniques
 
-https://github.com/atabegruslan/Others/tree/master/Illustrations/db/techniques
+- https://github.com/atabegruslan/Others/tree/master/Illustrations/Storage/techniques
+- Find out what happens under the hood: https://dev.mysql.com/blog-archive/mysql-explain-analyze/
 
 ## DB Platforms
 
