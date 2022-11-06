@@ -282,3 +282,15 @@ https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-
 ## Start all from scratch
 
 - https://www.youtube.com/watch?v=be4W-pSk8Ac
+
+---
+
+## Nginx vs Apache
+
+Apache - Process driven, can handle large number of requests/second. New process for each request. But slow if visit number increase.  
+Nginx - Event driven, won't slow if visit number increase.  
+
+Apache - More flexible: More addons, handle more scripting languages.  
+Nginx - Better performance.  
+
+https://www.youtube.com/watch?v=UJEgx0vRna8 
