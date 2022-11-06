@@ -160,8 +160,19 @@ https://github.com/Ruslan-Aliyev/PHP_Async
 
 - Async & Await: https://www.youtube.com/watch?v=2moh18sh5p4
 
-## Data Types
+## Dependency Management
 
+### NodeJS
+
+- https://stackoverflow.com/questions/22343224/whats-the-difference-between-tilde-and-caret-in-package-json
+- https://docs.npmjs.com/cli/v8/configuring-npm/package-json#dependencies
+- https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept
+
+### Composer
+
+- https://getcomposer.org/doc/articles/versions.md
+
+## Data Types
 
 | PHP | JS |
 |---|---|
