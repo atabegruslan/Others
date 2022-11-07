@@ -164,8 +164,13 @@ https://github.com/Ruslan-Aliyev/PHP_Async
 
 ### NodeJS
 
+`^version`: Compatible with version - `^1.2.3` will use releases from `1.2.3` to `<2.0.0`
+
+`~version`: Approximately equivalent to version - `~1.2.3` will use releases from `1.2.3` to `<1.3.0`
+
 - https://stackoverflow.com/questions/22343224/whats-the-difference-between-tilde-and-caret-in-package-json
-- https://docs.npmjs.com/cli/v8/configuring-npm/package-json#dependencies
+    - https://docs.npmjs.com/cli/v8/configuring-npm/package-json#dependencies
+    - https://docs.npmjs.com/cli/v6/using-npm/semver
 - https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept
 
 ### Composer
