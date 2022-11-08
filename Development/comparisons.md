@@ -184,7 +184,7 @@ https://github.com/Ruslan-Aliyev/PHP_Async
 |   | Undefined (Only declared, no value assigned, eg: `var x;`) |
 | Null (Assigned nothing yet or assigned the constant `NULL`) | Null (eg: `var x = null;`) |
 | boolean | boolean |
-| float, integer | number |
+| float, integer | number. (Tricky thing about `NaN` https://medium0.com/@ntgard/why-nan-nan-3d41af988d30) |
 | string | string |
 |   | symbol |
 |   | function object |
