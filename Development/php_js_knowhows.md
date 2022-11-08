@@ -361,7 +361,20 @@ So that `node-ipc` of any version between 9.2.1 and 10 will be made to be v9.2.1
 }
 ```
 
-Override `foo` to be 1.0.0 when it's a child (or grandchild, or great grandchild, etc) of the package `bar`
+Override `foo` to be 1.0.0 when it's a child (or grandchild, or great grandchild, etc) of the package `bar`.
+
+There is another way of accomplishing the above: https://docs.npmjs.com/cli/v8/commands/npm-shrinkwrap
+
+**Use forked NPM modules**
+
+https://www.pluralsight.com/guides/how-to-use-forked-npm-dependencies
+
+For example, just put in the Github link (or a community-fork of it, or your own fork of it)
+
+```
+"dependencies": {
+  "react-js-pagination": "https://github.com/wwwaiser/react-js-pagination.git",
+```
 
 ## Get caret position in text area
 
