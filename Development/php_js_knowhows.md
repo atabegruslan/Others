@@ -309,6 +309,60 @@ https://stackoverflow.com/questions/22202766/keeping-only-certain-properties-in-
 
 https://zellwk.com/blog/publish-to-npm/
 
+## package.json
+
+### Local modules
+
+In `./local_modules/@whatever-optional-namespace/local-module-name/package.json`
+```
+{
+  "name": "local-module-name",
+```
+
+`npm i -S ./local_modules/@whatever-optional-namespace/local-module-name`
+
+The following will be generated in `./package.json`
+```
+{
+  "name": "whatever",
+  "dependencies": {
+    "@whatever-optional-namespace/local-module-name": "file:local_modules/@whatever-optional-namespace/local-module-name"
+  },
+```
+
+Now your local module is in.
+
+### Overrides
+
+Only works for NPM  >= v8.3
+
+- https://www.stefanjudis.com/today-i-learned/how-to-override-your-dependencys-dependencies/
+- https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides
+
+#### What you can do:
+
+**Constrict dependency version**
+
+```
+"overrides": {
+  "node-ipc@>9.2.1 <10": "9.2.1"
+}
+```
+
+So that `node-ipc` of any version between 9.2.1 and 10 will be made to be v9.2.1
+
+**Override "downstream" module**
+
+```
+"overrides": {
+  "bar": {
+    "foo": "1.0.0"
+  }
+}
+```
+
+Override `foo` to be 1.0.0 when it's a child (or grandchild, or great grandchild, etc) of the package `bar`
+
 ## Get caret position in text area
 
 https://github.com/atabegruslan/Others/blob/master/Development/js/get_caret_position.html
