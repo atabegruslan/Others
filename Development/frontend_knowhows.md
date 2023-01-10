@@ -156,6 +156,10 @@ This becomes useful when your dependency-module's develop haven't yet updated th
 - Caution: https://www.youtube.com/watch?v=4vIhgaEMtOk
 - Relevant: https://stackoverflow.com/questions/43664200/what-is-the-difference-between-npm-install-and-npm-run-build
 
+## Process manager
+
+PM2: https://www.youtube.com/watch?v=yPd9sds9lJ4 (Very Good)
+
 # Other frontend tools
 
 ## Yarn (package manager)
@@ -262,6 +266,11 @@ https://github.com/Ruslan-Aliyev/compass_sprites
 
 - https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/templating/smarty/smarty.md
 
+# Web worker
+
+- https://blog.logrocket.com/web-workers-react-typescript/
+- EG: https://github.com/atabegruslan/Laravel_CRUD_API#3rd-party-notifications---webpush
+
 # CSS
 
 ## Defer
@@ -288,3 +297,7 @@ What you, as a developer should do next is:
 Read: https://coderwall.com/p/t_cgwq/when-is-better-to-use-data-or-attr
 
 Note, If you are programming a website for iPhone Safari, `data-{stuff}` will be lost. Better to use attr.  
+
+## Add lens flare
+
+https://css-tricks.com/add-a-css-lens-flare-to-photos-for-a-bright-touch
