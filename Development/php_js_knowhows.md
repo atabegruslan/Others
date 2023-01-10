@@ -283,102 +283,54 @@ function recursive_function()
 - https://www.youtube.com/watch?v=UYkJaW3pmj0
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView
 
-## Good Practices
-
-https://www.youtube.com/watch?v=Mus_vwhTCq0
-
 ## Destructuring and related techniques
 
 https://stackoverflow.com/questions/22202766/keeping-only-certain-properties-in-a-javascript-object
 
-## Modules
+## Eval
 
-- CommonJS (Node.js, `require()` & `module.exports`) vs ES modules (browser, `import` & `export`): https://blog.logrocket.com/commonjs-vs-es-modules-node-js/ 
-	- `require` vs `import`: https://flexiple.com/javascript-require-vs-import/
-- Newer Node supports ES modules experimentally: https://stackoverflow.com/questions/43622337/using-import-fs-from-fs/43622412#43622412
-- CommonJS, AMD & ES: https://medium.com/computed-comparisons/commonjs-vs-amd-vs-requirejs-vs-es6-modules-2e814b114a0b
-	- https://stackoverflow.com/questions/34866510/building-a-javascript-library-why-use-an-iife-this-way/34866603#34866603
-- UMD, unpkg: https://tutorial.tips/how-to-load-any-npm-module-in-browser/
-- Importing a module's CSS: https://stackoverflow.com/questions/49518277/import-css-from-node-modules-in-webpack/49523565#49523565
-	- Or like `import 'bootstrap/dist/css/bootstrap.min.css';` with `bootstrap` folder being located in `./node_modules/bootstrap/...`
-- Webpack: https://webpack.js.org/api/module-methods/
-- `package.json`'s `browser`: https://docs.npmjs.com/cli/v8/configuring-npm/package-json#browser
-- Issue: "cannot use import statement outside a module": https://www.google.com/search?q=cannot+use+import+statement+outside+a+module
+https://www.w3schools.com/jsref/jsref_eval.asp
 
-## Publish modules to npmjs
+But try not to use it, it may execute malicious code.
 
-https://zellwk.com/blog/publish-to-npm/
+## Merge two Arrays and Remove Duplicates
 
-## package.json
+https://thispointer.com/5-ways-to-merge-two-arrays-and-remove-duplicates-in-javascript/
 
-### Local modules
+## Deep-merge 2 objects
 
-In `./local_modules/@whatever-optional-namespace/local-module-name/package.json`
-```
-{
-  "name": "local-module-name",
-```
+https://gist.github.com/ahtcx/0cd94e62691f539160b32ecda18af3d6
 
-`npm i -S ./local_modules/@whatever-optional-namespace/local-module-name`
+### with nested arrays
 
-The following will be generated in `./package.json`
-```
-{
-  "name": "whatever",
-  "dependencies": {
-    "@whatever-optional-namespace/local-module-name": "file:local_modules/@whatever-optional-namespace/local-module-name"
-  },
-```
+```js
+const merge = (target, source) => {
+  for (const key of Object.keys(source))
+  {
+    if (Array.isArray(source[key]))
+    {
+      Object.assign(source[key], [...new Set(target[key].concat(source[key]))]);
+    }
 
-Now your local module is in.
-
-### Overrides
-
-Only works for NPM  >= v8.3
-
-- https://www.stefanjudis.com/today-i-learned/how-to-override-your-dependencys-dependencies/
-- https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides
-
-#### What you can do:
-
-**Constrict dependency version**
-
-```
-"overrides": {
-  "node-ipc@>9.2.1 <10": "9.2.1"
-}
-```
-
-So that `node-ipc` of any version between 9.2.1 and 10 will be made to be v9.2.1
-
-**Override "downstream" module**
-
-```
-"overrides": {
-  "bar": {
-    "foo": "1.0.0"
+    if (source[key] instanceof Object && !Array.isArray(source[key]))
+    {
+      Object.assign(source[key], merge(target[key], source[key]));
+    }
   }
+
+  Object.assign(target || {}, source)
+  
+  return target
 }
-```
-
-Override `foo` to be 1.0.0 when it's a child (or grandchild, or great grandchild, etc) of the package `bar`.
-
-There is another way of accomplishing the above: https://docs.npmjs.com/cli/v8/commands/npm-shrinkwrap
-
-**Use forked NPM modules**
-
-https://www.pluralsight.com/guides/how-to-use-forked-npm-dependencies
-
-For example, just put in the Github link (or a community-fork of it, or your own fork of it)
-
-```
-"dependencies": {
-  "react-js-pagination": "https://github.com/wwwaiser/react-js-pagination.git",
 ```
 
 ## Get caret position in text area
 
 https://github.com/atabegruslan/Others/blob/master/Development/js/get_caret_position.html
+
+## Good Practices
+
+https://www.youtube.com/watch?v=Mus_vwhTCq0
 
 ## Weird Parts Explained
 

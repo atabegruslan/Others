@@ -145,6 +145,7 @@ Don't rebase any commits that's been pushed to a remote repo
 
 ## Useful commands
 
+- Delete branches: https://www.freecodecamp.org/news/how-to-delete-a-git-branch-both-locally-and-remotely
 - Change commit message: `git commit --amend -m"correction to previous message"` 
 	- https://linuxize.com/post/change-git-commit-message/
 - Change commit: https://confluence.atlassian.com/bitbucketserverkb/how-do-you-make-changes-on-a-specific-commit-779171729.html
