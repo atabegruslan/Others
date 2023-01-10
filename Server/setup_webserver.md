@@ -228,6 +228,12 @@ nvm use <wanted-node-version>
 
 `sudo apt install composer`
 
+#### Java
+
+JDK includes the JRE, so you do not have to download both separately.
+
+https://docs.oracle.com/javase/10/install/overview-jdk-10-and-jre-10-installation.htm  
+
 #### Gulp 
 
 https://tecadmin.net/install-gulp-js-on-ubuntu/
