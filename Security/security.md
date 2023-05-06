@@ -32,6 +32,11 @@ https://www.youtube.com/watch?v=niLaNbOsn28
 
 https://github.com/atabegruslan/Others/blob/master/Illustrations/Security/ssl_tls_details.pdf
 
+### Having HTTPS on your server
+
+- XAMPP: https://github.com/atabegruslan/Others/blob/master/Development/xampp.md#https-on-local-xampp
+- https://github.com/atabegruslan/Others/blob/master/Server/https.md
+
 ## SSH
 
 ![](/Illustrations/Security/ssh1.PNG)
