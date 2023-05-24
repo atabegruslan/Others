@@ -43,6 +43,9 @@ Below is what it looks like after you got the certificate
 
 ![](/Illustrations/Security/after_setup_ssl_cert.png)
 
+PEM: The default format for storing keys. Can have extensions of `.pem`, `.crt` or `.key`. They can be encoded in `base64`.  
+X.509: The standard for defining those formats. It is also used for SSL certificates.  
+
 # SSH
 
 ![](/Illustrations/Security/ssh1.PNG)
