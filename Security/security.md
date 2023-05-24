@@ -10,11 +10,11 @@
 - https://www.youtube.com/c/SathvikTechtuber/videos
 - https://www.youtube.com/playlist?list=PLoEpvlpUwwkbWXz0UjwDDYb91ZpjN5ScV
 
-## Preliminary knowledge
+# Preliminary knowledge
 
 Cryptography: https://github.com/atabegruslan/Others/blob/master/Security/cryptography.md
 
-## SSL & TLS
+# SSL & TLS
 
 TLS is a bit better than SSL.  
 SSL is by port - secure connection used from the get-go.  
@@ -32,12 +32,18 @@ https://www.youtube.com/watch?v=niLaNbOsn28
 
 https://github.com/atabegruslan/Others/blob/master/Illustrations/Security/ssl_tls_details.pdf
 
-### Having HTTPS on your server
+## Having HTTPS on your server
 
 - XAMPP: https://github.com/atabegruslan/Others/blob/master/Development/xampp.md#https-on-local-xampp
 - https://github.com/atabegruslan/Others/blob/master/Server/https.md
+- https://en.wikipedia.org/wiki/Public_key_certificate
+- Getting certificate: https://certbot.eff.org/instructions?ws=nginx&os=centosrhel8
 
-## SSH
+Below is what it looks like after you got the certificate
+
+![](/Illustrations/Security/after_setup_ssl_cert.png)
+
+# SSH
 
 ![](/Illustrations/Security/ssh1.PNG)
 
@@ -56,19 +62,68 @@ Differences:
 
 https://www.slashroot.in/secure-shell-how-does-ssh-work
 
-### SSH Tunneling
+Below is what it looks after immediately after creating SSH keys:
+
+![](/Illustrations/Security/ssh_keys_immed_after_setup.png)
+
+## SSH Tunneling
 
 http://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/
 
-### Remote Access
+## Remote Access
 
 https://www.techotopia.com/index.php/Configuring_CentOS_Remote_Access_using_SSH
 
-## Kerberos
+# Kerberos
 
 ![](/Illustrations/Security/kerberos.PNG)
 
-## Header security
+---
+
+# Auth and related security issues
+
+Auth techniques: https://github.com/atabegruslan/Others/blob/master/Security/auth.md
+
+Simple common-sense things you can do
+
+- Use HTTPS
+- Never put sensitive credentials into URLs. Put them into headers or POST payload, where they'll be encrypted.
+  - If you put them in URLs, it can be seen in
+  - Logs
+  - Man in the middle attacks
+  - Referrer header
+- Avoid using Basic Authentication, because it isn't very secure.
+- If you want to be paranoid about security, then encrypt your credentials
+- Have some kind of mechanism to do integrity checks on the other end
+- Make your requests one-time
+  - Nonce
+  - timestamp
+  - OTP
+- One-time links when appropriate. Eg: when resetting password
+- GET should never make modifications nor deletions
+  - Else that would violate REST conventions
+  - It might be accidently invoked by web-crawlers
+    - Use `robots.txt` to limit crawlers
+- Sanitize and validate inputs
+- Restrict HTTP methods to only those that's needed
+- Check expected payload type
+- In users table (and other tables that REST APIs access), use random UUIDs instead of auto-incrementing IDs
+- Use logs
+- Test regularly
+- Rate limit
+  - Quota: Responds with HTTP 429 Too Many Requests error when requests come too often
+  - Throttle: Slow the requests down
+- Use firewall
+
+# SQL Injection
+
+Injection of malicious SQL code. Use PDO or any modern framework to sanitize any malicious SQL code into mere text.
+
+# XSS
+
+Injection of malicious JS code. Sanitize user input. Especially escape all the `<script>` tags.
+
+# Header security
 
 Q: Are HTTPS headers encrypted?  
 A: Everything are encrypted (Header and Body).  
@@ -87,9 +142,7 @@ Defending Against Web Attacks:
 
 HTTP header security: https://www.contextis.com/en/blog/security-http-headers
 
-### Summary
-
-#### Use headers:
+## Use headers:
 
 - `Content-Security-Policy` : define a whitelist of approved sources of content for your site (eg css & js ...)
 - `Strict-Transport-Security` : force https usage
@@ -98,12 +151,12 @@ HTTP header security: https://www.contextis.com/en/blog/security-http-headers
 - `!X-Xss-Protection` : dont execute unescaped malicious(xss) input 
 - `X-Content-Type-Options` : prevents browser from trying to mime-sniff the content type of a response
 
-#### Remove headers:
+## Remove headers:
 
 - `Server` : not reveal server software
 - `X-Powered-By` : not reveal web technology
 
-#### Secure cookies:
+## Secure cookies:
 
 Example: `SetCookie: PHPSESSID=36cb82e1d98853f8e250d89be857a0d3; path=/; HttpOnly; secure`
 
@@ -111,7 +164,7 @@ Example: `SetCookie: PHPSESSID=36cb82e1d98853f8e250d89be857a0d3; path=/; HttpO
 - `secure` attribute on setcookie header : forces your application to send cookies only over HTTPS.
 - Killing the session upon closing the browser.
 
-#### Consider this scenario
+## Consider this scenario
 
 A user may view an authenticated page, log out,   
 and then a malicious user can use the browser history to view the cached page.  
@@ -123,18 +176,14 @@ Pragma: no-cache
 Expires: 0
 ```
 
-#### `Referrer-Policy: same-origin`
+## `Referrer-Policy: same-origin`
 
 - `Referrer Policy` is a mechanism that web applications can leverage to manage the referrer field, which contains the last page the user was on.
 - The `Referrer-Policy` response header instructs the browser to let the destination knows the source where the user was previously.
 
-## SQL Injection
+# CSRF, SOP & CORS
 
-## XSS
-
-## CSRF, SOP & CORS
-
-### Cross Site Request Forgery
+## Cross Site Request Forgery
 
 - https://youtube.com/watch?v=hW2ONyxAySY
 - https://portswigger.net/web-security/csrf
@@ -149,14 +198,14 @@ Expires: 0
     - https://stackoverflow.com/questions/5691492/csrf-tokens-vs-nonce-confusion-are-they-the-same/5691513#5691513
     - https://codex.wordpress.org/WordPress_Nonces
 
-### Same Origin Policy
+## Same Origin Policy
 
 You can't **receive** resources from a different origin.
 
 Applies to XMLHttpRequest and fetch.  
 Postman doesn't care about SOP, it's a dev tool not a browser.
 
-### Cross Origin Resource Sharing
+## Cross Origin Resource Sharing
 
 For requests to a different origin:
 
@@ -279,3 +328,10 @@ Live Example: https://jsfiddle.net/atabegaslan/6f7rpgLw/
 ### CORS browser plugin
 
 For every request, it will add the `Access-Control-Allow-Origin: *` header to the response.
+
+# Content Security Policy
+
+- https://en.wikipedia.org/wiki/Content_Security_Policy
+- https://content-security-policy.com/
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+- https://content-security-policy.com/style-src/
