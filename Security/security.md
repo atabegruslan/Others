@@ -115,6 +115,7 @@ Simple common-sense things you can do
 - Test regularly
 - Rate limit
   - Quota: Responds with HTTP 429 Too Many Requests error when requests come too often
+    - Laravel: https://www.youtube.com/watch?v=vrLcCxWlxOk
   - Throttle: Slow the requests down
 - Use firewall
 - Utilize reverse proxy https://www.youtube.com/watch?v=9sAg7RooEDc /API gateway https://www.youtube.com/watch?v=vHQqQBYJtLI
