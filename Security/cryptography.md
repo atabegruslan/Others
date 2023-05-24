@@ -83,6 +83,8 @@ https://www.youtube.com/watch?v=YEBfamv-_do
 
 # 3 - RSA
 
+https://www.youtube.com/watch?v=Pq8gNbvfaoM
+
 Assymmetrical key, based on number theory - mathematical process of generating a public key and another private key: 
 
 Choose two large prime numbers p and q  
