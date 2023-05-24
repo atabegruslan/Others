@@ -227,10 +227,6 @@ Difference between `~/.ssh/id_ed12345`, `~/.ssh/id_ed12345.pub` & `~/.ssh/known_
 SSH is a protocol. OpenSSH is a software tool.  
 https://www.ssh.com/academy/ssh/openssh
 
-Below is what it looks after immediately after creating SSH keys:
-
-![](/Illustrations/Security/ssh_keys_immed_after_setup.png)
-
 # LDAP
 
 https://www.youtube.com/watch?v=QyhNaY5O468
