@@ -5,7 +5,10 @@ Firstly, the above 3 are different things.
 Hashes are 1-way functions. Some examples:
 - MD5 (obsolete)
 - SHA256
-- argon2
+- argon2 (newest as of 2023)
+- PBRDF2
+- Bcrypt
+- Scrypt
 
 The returned hash is also called the **digest**. It is commonly in the `hex` or `base64` formats.
 
