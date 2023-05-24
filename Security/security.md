@@ -117,6 +117,15 @@ Simple common-sense things you can do
   - Quota: Responds with HTTP 429 Too Many Requests error when requests come too often
   - Throttle: Slow the requests down
 - Use firewall
+- Utilize reverse proxy https://www.youtube.com/watch?v=9sAg7RooEDc /API gateway https://www.youtube.com/watch?v=vHQqQBYJtLI
+
+Below is how you can have a symmetric encryption on credentials when sending them over APIs
+
+![](/Illustrations/Security/encrypt_credentials.png)
+
+Below is how you can hide secrets in the proxy
+
+![](/Illustrations/Security/hide_secrets_in_proxy.png)
 
 # SQL Injection
 
