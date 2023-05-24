@@ -37,6 +37,7 @@ Eager loading have 2 functions that we can utilize: `Picture::with('metadata')->
 - https://laravel.com/docs/5.2/eloquent-relationships#eager-loading
 - https://www.youtube.com/watch?v=bZlvzvGpCEE
 - https://www.youtube.com/watch?v=N0phQbyzF0I
+- https://www.youtube.com/watch?v=OJJU3AGlsEI
 
 # Better code for DB optimization
 
@@ -49,3 +50,35 @@ Also:
 - Use `with` to avoid N+1 problem.
 
 https://www.youtube.com/watch?v=yAAqAxiaEmg
+
+---
+
+DB Performance:
+- https://www.youtube.com/watch?v=FhlVOIfjxbA
+- https://www.youtube.com/watch?v=LuxFql2CDyg
+- https://www.youtube.com/watch?v=lRi1-RYnQ7A
+- https://www.youtube.com/watch?v=12KCl82L48Y
+- https://www.youtube.com/watch?v=2QhPLcYLay8
+- https://www.youtube.com/watch?v=IE557e1Fy84
+- https://www.youtube.com/watch?v=PYAuAStv6cw
+- https://www.youtube.com/watch?v=csWx7RcNh5U
+- https://www.youtube.com/watch?v=HadES55O4Wk
+- https://www.youtube.com/watch?v=yAAqAxiaEmg
+- https://www.youtube.com/watch?v=JOnXX-N96NE
+- https://www.youtube.com/watch?v=S-d4xrJA_Zs
+
+Useful knowhow:
+- https://www.youtube.com/watch?v=IwPpOFFfCTc
+- https://www.youtube.com/watch?v=1a1ySsWxxH8
+- https://www.youtube.com/watch?v=QUkW6Y1woN0
+- https://www.youtube.com/watch?v=aqccE0lSOjs
+- https://github.com/Ruslan-Aliyev/Laravel8_Newest_Notes/blob/master/README.md#nested-models
+- https://www.youtube.com/watch?v=jwgvic7hmx0
+- https://www.youtube.com/watch?v=O1TIsQO0mwM
+- https://www.youtube.com/watch?v=bSQcmcu6yHc
+- https://www.youtube.com/watch?v=QqsDk5RA9jU
+- https://www.youtube.com/watch?v=243NrYTRYvo
+- https://www.youtube.com/watch?v=f-eAI1fdOOY
+- https://www.youtube.com/watch?v=6J8vb5_WRBw
+- https://www.youtube.com/watch?v=rgOlkcTncv8
+- https://www.youtube.com/watch?v=G4AwoAiti14
