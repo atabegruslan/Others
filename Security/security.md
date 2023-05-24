@@ -225,6 +225,12 @@ Expires: 0
 
 ## Cross Site Request Forgery
 
+This is a subtype of a larger category of attacks
+- Privledge escalation
+  - Confused deputy attack
+    - CSRF
+
+Articles:
 - https://youtube.com/watch?v=hW2ONyxAySY
 - https://portswigger.net/web-security/csrf
 - https://docs.spring.io/spring-security/site/docs/3.2.0.CI-SNAPSHOT/reference/html/csrf.html
@@ -234,9 +240,10 @@ Expires: 0
   - CSRF Token: 
     - https://markitzeroday.com/x-requested-with/cors/2017/06/29/csrf-mitigation-for-ajax-requests.html
     - https://stackoverflow.com/questions/20504846/why-is-it-common-to-put-csrf-prevention-tokens-in-cookies/20518324#20518324
-  - Nonce:
-    - https://stackoverflow.com/questions/5691492/csrf-tokens-vs-nonce-confusion-are-they-the-same/5691513#5691513
-    - https://codex.wordpress.org/WordPress_Nonces
+    - Note: Nonce isn't exactly the same as CSRF tokens:
+      - https://stackoverflow.com/questions/5691492/csrf-tokens-vs-nonce-confusion-are-they-the-same/5691513#5691513
+      - https://codex.wordpress.org/WordPress_Nonces
+   - Cookie's samesite set to `strict`
 
 ## Same Origin Policy
 
