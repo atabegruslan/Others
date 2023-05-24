@@ -128,7 +128,7 @@ Example of DateTime usage:
 
 ## Sessions, Tokens, Auth
 
-- https://github.com/Ruslan-Aliyev/auth
+- https://github.com/atabegruslan/Others/blob/master/Security/auth.md
 - https://www.youtube.com/watch?v=7Q17ubqLfaM
 - https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/php/session/session_start.pdf
 - https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/php/session/persistent_cookie.pdf
