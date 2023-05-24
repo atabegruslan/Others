@@ -120,7 +120,8 @@ Simple common-sense things you can do
   - Example in plain PHP:
     - https://www.digitalocean.com/community/tutorials/how-to-implement-php-rate-limiting-with-redis-on-ubuntu-20-04
     - https://helloacm.com/easy-rate-limit-in-php-using-simple-strategy-an-api-example/
-- Use firewall
+- Use firewall: https://en.wikipedia.org/wiki/Application_firewall#Description
+  - https://en.wikipedia.org/wiki/Web_application_firewall
 - Utilize reverse proxy https://www.youtube.com/watch?v=9sAg7RooEDc /API gateway https://www.youtube.com/watch?v=vHQqQBYJtLI
 
 Below is how you can have a symmetric encryption on credentials when sending them over APIs
