@@ -8,6 +8,7 @@
 Good readings:
 - https://learning.postman.com/docs/sending-requests/authorization/
 - https://www.rfc-editor.org/rfc/rfc2617
+- https://www.cloudflare.com/en-gb/learning/performance/http2-vs-http1.1/
 
 # Basic Auth
 
