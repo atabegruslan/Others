@@ -1,3 +1,37 @@
+# Hashing / Encoding / Encryption
+
+Firstly, the above 3 are different things.
+
+Hashes are 1-way functions. Some examples:
+- MD5 (obsolete)
+- SHA256
+- argon2
+
+The returned hash is also called the **digest**. It is commonly in the `hex` or `base64` formats.
+
+HMAC is a type of hashing algorithm that requires a password (ie: a symmetric key). The resulting hash is commonly in `hex` format.
+
+Encoding:
+- `base64` is an example of encoding
+- https://github.com/atabegruslan/Others/blob/master/Security/encode.md
+
+Encryption is when the original text can be recovered if you have the key. Some examples:
+- Symmetric
+  - DES
+  - RC4
+  - AES256. Result is commonly in `hex` format
+- Assymetric
+  - Diffie Helmann
+  - DSA
+  - ECDSA
+  - ed25519
+  - PGP
+  - RSA. Its public key can have encode-type of `spki` & format of `pem`. Its private key can have encode-type of `pkcs8` & format of `pem` & cypher of `aes-256-cbc` & can have a passphrase.
+
+Signing = First hashing the content, then encrypting it. Then appending it to the content.
+
+---
+
 # Caesar code:
 
 E is: go forward N letters in the alphabet, rotating from Z to A.  
@@ -77,3 +111,10 @@ Both create secure channels, check message authenticity and build authentication
 But only based on some prior knowledge (a public key) and on some trusted 3rd party.  
 
 https://github.com/atabegruslan/Others/blob/master/Illustrations/Security/symmetric_assymmetric.pdf
+
+---
+
+# Related things
+
+PEM: The default format for storing keys. Can have extensions of `.pem`, `.crt` or `.key`. They can be encoded in `base64`.  
+X.509: The standard for defining those formats. It is also used for SSL certificates.  
