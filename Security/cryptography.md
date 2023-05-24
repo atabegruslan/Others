@@ -114,10 +114,3 @@ Both create secure channels, check message authenticity and build authentication
 But only based on some prior knowledge (a public key) and on some trusted 3rd party.  
 
 https://github.com/atabegruslan/Others/blob/master/Illustrations/Security/symmetric_assymmetric.pdf
-
----
-
-# Related things
-
-PEM: The default format for storing keys. Can have extensions of `.pem`, `.crt` or `.key`. They can be encoded in `base64`.  
-X.509: The standard for defining those formats. It is also used for SSL certificates.  
