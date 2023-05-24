@@ -139,6 +139,29 @@ Injection of malicious SQL code. Use PDO or any modern framework to sanitize any
 
 Injection of malicious JS code. Sanitize user input. Especially escape all the `<script>` tags.
 
+# XXE
+
+# Directory traversal attack & File inclusion vulnerability & Remote code execution
+
+- https://www.youtube.com/watch?v=qFRgIAtWKc4
+- https://www.youtube.com/watch?v=rK5TFXom34w
+- (include derek bana's video here)
+
+# Clickjacking
+
+# Timing attack
+
+# Replay attack
+
+Eg: Call the request to deposit money into my account multiple times.
+
+On a similar topic: Use this POST and Redirect pattern to avoid multiple submits when user clicks the submit button too many times: https://en.wikipedia.org/wiki/Post/Redirect/Get
+
+# Cookie Poisoning
+
+- https://www.f5.com/glossary/cookie-poisoning
+- https://www.youtube.com/watch?v=qAc9R5Xs6ew
+
 # Header security
 
 Q: Are HTTPS headers encrypted?  
