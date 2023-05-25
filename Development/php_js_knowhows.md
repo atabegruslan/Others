@@ -495,6 +495,14 @@ PM2:
 - https://www.youtube.com/watch?v=yPd9sds9lJ4 (Very Good)
 - https://www.youtube.com/watch?v=zrfRDGdp7Po&list=PLdHg5T0SNpN38gy5xZ0PVEaDdZXlPkgP9&index=6
 
+## Formatters
+
+- Rome: https://www.youtube.com/watch?v=XFR2TRhbnq0
+- Prettier: https://www.youtube.com/watch?v=DqfQ4DPnRqI
+- https://blog.logrocket.com/migrating-prettier-rome/
+- https://www.freecodecamp.org/news/using-prettier-and-jslint/
+- https://blog.bitsrc.io/best-practices-with-react-hooks-69d7e4af69a7
+
 # Others
 
 ## Constants
