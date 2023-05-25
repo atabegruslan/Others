@@ -9,6 +9,10 @@ Good readings:
 - https://learning.postman.com/docs/sending-requests/authorization/
 - https://www.rfc-editor.org/rfc/rfc2617
 - https://www.cloudflare.com/en-gb/learning/performance/http2-vs-http1.1/
+- https://howtodoinjava.com/java/java-security/rest-api-security-guide/
+- https://www.trendmicro.com/en_vn/research/21/f/secure_secrets_managing_authentication_credentials.html
+- https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html
+- https://www.invicti.com/blog/web-security/rest-api-web-service-security/
 
 # Basic Auth
 
@@ -189,8 +193,8 @@ Best to put the JWT into an HTTP-only cookie or the Authorization header.
 
 - Good intro explaination: https://www.youtube.com/watch?v=soGRyl9ztjI
 - Good detailed explaination:
-  - https://www.youtube.com/watch?v=7Q17ubqLfaM
-  - https://medium0.com/batc/jwt-for-dummies-ok-not-100-dummies-1f08d3279a0b
+	- https://www.youtube.com/watch?v=7Q17ubqLfaM
+	- https://medium0.com/batc/jwt-for-dummies-ok-not-100-dummies-1f08d3279a0b
 - https://www.youtube.com/watch?v=UBUNrFtufWo
 - https://www.youtube.com/playlist?list=PLCakfctNSHkGQ6S557u-6sLEYsfWje47P
 - https://www.youtube.com/playlist?list=PLe30vg_FG4OQRZhQY57FCIyk1cPGDAc6k
@@ -203,12 +207,15 @@ Best to put the JWT into an HTTP-only cookie or the Authorization header.
 - https://stackoverflow.com/questions/58341833/why-base64-is-used-in-jwts/58344036#58344036
 - Vulnerabilities: https://www.invicti.com/blog/web-security/json-web-token-jwt-attacks-vulnerabilities/
 - https://blog.logrocket.com/secure-rest-api-jwt-authentication/
+- https://www.moesif.com/blog/technical/restful-apis/Authorization-on-RESTful-APIs/
 
 # API KEY
 
-An client app identifier and authorizer, instead of a user's credentials.
+For an client app, instead of a user's credentials.
 
 - https://www.youtube.com/watch?v=sNn23dPRUS8
+- https://blog.mergify.com/api-keys-best-practice/amp/
+- A good example: https://scaleflex.zendesk.com/hc/en-gb/articles/360018054180-What-is-the-difference-between-Filerobot-API-Secret-Keys-and-Security-Templates-
 
 Can be used against DDoS attacks, because with API Keys, you can set a visit-frequency max limit.
 
@@ -269,7 +276,8 @@ https://www.techtarget.com/searchmobilecomputing/definition/Active-Directory-Fed
 
 ![](/Illustrations/Security/password_reset.png)
 
-- https://www.troyhunt.com/everything-you-ever-wanted-to-know/
+- Above flow taken from: https://www.troyhunt.com/everything-you-ever-wanted-to-know/
+- 2 more ways are suggested here: https://softwareengineering.stackexchange.com/questions/303854/putting-a-password-in-a-rest-api-call/303996#303996
 
 ## Remember Me
 

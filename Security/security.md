@@ -168,6 +168,10 @@ On a similar topic: Use this POST and Redirect pattern to avoid multiple submits
 - https://www.f5.com/glossary/cookie-poisoning
 - https://www.youtube.com/watch?v=qAc9R5Xs6ew
 
+# Stealing your password
+
+- https://www.bleepingcomputer.com/news/security/top-5-password-cracking-techniques-used-by-hackers/
+
 # Header security
 
 Q: Are HTTPS headers encrypted?  

@@ -1,5 +1,7 @@
 # Hashing / Encoding / Encryption
 
+https://www.youtube.com/watch?v=NuyzuNBFWxQ
+
 Firstly, the above 3 are different things.
 
 Hashes are 1-way functions. Some examples:
