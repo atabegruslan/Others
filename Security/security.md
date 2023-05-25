@@ -157,7 +157,7 @@ Injection of malicious JS code. Sanitize user input. Especially escape all the `
 
 - https://www.youtube.com/watch?v=qFRgIAtWKc4
 - https://www.youtube.com/watch?v=rK5TFXom34w
-- (include derek bana's video here)
+- https://www.youtube.com/watch?v=zoWDFqEg7Cg&list=PL2407F4EE0530B251&index=7
 
 # Clickjacking
 
