@@ -361,7 +361,7 @@ $countries = '["' . $countries . '"]';
 echo $_GET['callback']."(".json_encode($countries).");";
 ```
 
-Live Example: https://jsfiddle.net/atabegaslan/6f7rpgLw/
+Full Example: https://github.com/atabegruslan/Others/blob/master/Illustrations/Security/jsonp.md
 
 ### Proxy
 
