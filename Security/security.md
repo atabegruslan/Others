@@ -95,6 +95,8 @@ Simple common-sense things you can do
   - Logs
   - Man in the middle attacks
   - Referrer header
+  - History
+  - Proxy's cache
 - Avoid using Basic Authentication, because it isn't very secure.
 - If you want to be paranoid about security, then encrypt your credentials
 - Have some kind of mechanism to do integrity checks on the other end
@@ -109,8 +111,11 @@ Simple common-sense things you can do
     - Use `robots.txt` to limit crawlers
 - Sanitize and validate inputs
 - Restrict HTTP methods to only those that's needed
-- Check expected payload type
+- Content type validation for both request and response
 - In users table (and other tables that REST APIs access), use random UUIDs instead of auto-incrementing IDs
+- Store passwords in DB as hashes
+- Don't upload config files into repositories
+- Don't make error messages too revealing
 - Use logs
 - Test regularly
 - Rate limit

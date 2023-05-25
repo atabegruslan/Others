@@ -104,6 +104,9 @@ Types:
 			- https://www.youtube.com/watch?v=Gtbm5Fut-j8
 			- ![](/Illustrations/Security/authorization_code_interception_attack.png)
 			- ![](/Illustrations/Security/PKCE.png)
+- **Hybrid**: 
+	- https://backstage.forgerock.com/docs/am/7/oidc1-guide/openid-connect-hybrid-flow.html	
+	- ![](/Illustrations/Security/hybrid_grant.png)		
 - **Device Authorization Grant/Device Code** (urn:ietf:params:oauth:grant-type:device_code): https://www.youtube.com/watch?v=QdFjaOb-KTs 
 - **Refresh Token**
 
@@ -282,7 +285,11 @@ Just set the expiry time of the cookie long into the future
 - https://en.wikipedia.org/wiki/RSA_SecurID
 - https://en.wikipedia.org/wiki/Google_Authenticator
 
-## Capcha
+Below is a way
+
+![](/Illustrations/Security/MFA.png)
+
+## Captcha
 
 ## Question & Answer challenge
 
