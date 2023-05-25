@@ -330,7 +330,8 @@ https://github.com/atabegruslan/Others/blob/master/Development/js/get_caret_posi
 
 ## Good Practices
 
-https://www.youtube.com/watch?v=Mus_vwhTCq0
+- https://www.youtube.com/watch?v=Mus_vwhTCq0
+- https://www.youtube.com/watch?v=lkIFF4maKMU
 
 ## Weird Parts Explained
 

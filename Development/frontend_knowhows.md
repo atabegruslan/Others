@@ -157,9 +157,19 @@ https://github.com/Ruslan-Aliyev/compass_sprites
 
 # CSS
 
-## Defer
+## Good Practice
 
+- https://www.youtube.com/watch?v=Qhaz36TZG5Y
+
+## Defer & Async
+
+Defer:  
 CSS files are render-blocking resources: they must be loaded and processed before the browser renders the page. Web pages that contain unnecessarily large styles take longer to render. `defer` defers non-critical CSS.
+
+- If async is present: The script is downloaded in parallel to parsing the page, and executed as soon as it is available (before parsing completes)
+- If defer is present (and not async): The script is downloaded in parallel to parsing the page, and executed after the page has finished parsing
+- If neither async or defer is present: The script is downloaded and executed immediately, blocking parsing until the script is completed
+
 
 https://web.dev/defer-non-critical-css/
 

@@ -137,6 +137,9 @@ Below is how you can hide secrets in the proxy
 
 ![](/Illustrations/Security/hide_secrets_in_proxy.png)
 
+**Attacks**:
+- https://www.youtube.com/watch?v=pdC3H8SX-F4
+
 # SQL Injection
 
 Injection of malicious SQL code. Use PDO or any modern framework to sanitize any malicious SQL code into mere text.
@@ -146,6 +149,9 @@ Injection of malicious SQL code. Use PDO or any modern framework to sanitize any
 Injection of malicious JS code. Sanitize user input. Especially escape all the `<script>` tags.
 
 # XXE
+
+- https://www.youtube.com/watch?v=BZOg_NgvP18
+- https://www.youtube.com/watch?v=gjm6VHZa_8s
 
 # Directory traversal attack & File inclusion vulnerability & Remote code execution
 
@@ -171,6 +177,15 @@ On a similar topic: Use this POST and Redirect pattern to avoid multiple submits
 # Stealing your password
 
 - https://www.bleepingcomputer.com/news/security/top-5-password-cracking-techniques-used-by-hackers/
+
+# DDoS
+
+2 Solutions
+
+1. If that's random attack, happen sometimes, we need to have a good firewall standing at or before balancing layer, so our core processor won't be affected by the attack. This solution base on the situation so we can have different methods: Manual built firewall (nginx/lua), 3rd-party firewall, or even using IDS
+
+2. If that's a targeted attack, and we know who/what is doing that, we can still using firewall to stay away from issue with our core processor. But apart from that, in order to not loosing resources just to check and ignore in specific conditions, we can even do an attack, back to the attacker, by using very basic methods (like SYNC/ACK flooding), so we can just spending a very small resource to make attacker "shut their mouth"
+
 
 # Header security
 
@@ -206,6 +221,8 @@ HTTP header security: https://www.contextis.com/en/blog/security-http-headers
 - `X-Powered-By` : not reveal web technology
 
 ## Secure cookies:
+
+https://www.youtube.com/watch?v=aUF2QCEudPo
 
 Example: `SetCookie: PHPSESSID=36cb82e1d98853f8e250d89be857a0d3; path=/; HttpOnly; secure`
 

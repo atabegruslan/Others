@@ -11,8 +11,9 @@ Good readings:
 - https://www.cloudflare.com/en-gb/learning/performance/http2-vs-http1.1/
 - https://howtodoinjava.com/java/java-security/rest-api-security-guide/
 - https://www.trendmicro.com/en_vn/research/21/f/secure_secrets_managing_authentication_credentials.html
-- https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html
-- https://www.invicti.com/blog/web-security/rest-api-web-service-security/
+- https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html#security-headers
+	- https://www.youtube.com/watch?v=OREjhwSOXDI
+	- https://www.invicti.com/blog/web-security/rest-api-web-service-security/
 
 # Basic Auth
 
