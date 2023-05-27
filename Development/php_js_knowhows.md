@@ -175,6 +175,42 @@ https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/php
 
 # JS
 
+## Prototype
+
+- https://www.youtube.com/watch?v=dgpaY5wjJ9w
+- https://www.youtube.com/watch?v=01jVgCK-HX4
+
+![](/Illustrations/Development/js/prototype1.png)
+
+https://www.youtube.com/watch?v=DqGwxR_0d1M&list=PL0zVEGEvSaeHBZFy6Q8731rcwk0Gtuxub&index=5
+
+- `.__proto__` property points to the object that the current object actually will use when doing lookups on the prototype.
+- `.prototype` only exists on functions, in case you want to use those objects as constructors passed to the `new` keyword.
+
+So with prototype-based languages, it's just: object -> object -> object.   
+There are no classes and instance objects. Just objects.  
+So Prototype inheritance/chaining can be better described as objects delegating its missing functionalities to other objects.
+
+Inheritance, eg: `Date` objects inherit from `Date.prototype`
+
+From ES6, JavaScript introduced the `class` keyword. But it's essentially a syntactic sugar over the prototype-based system.
+
+**Class vs Prototype**
+
+In short: prototype is eaasier for the computer under the hood.
+
+Proper comparison: https://softwareengineering.stackexchange.com/questions/110936/what-are-the-advantages-of-prototype-based-oop-over-class-based-oop
+
+![](/Illustrations/Development/js/prototype2.png)
+
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
+
 ## Call, apply & bind
 
 - https://www.codementor.io/@niladrisekhardutta/how-to-call-apply-and-bind-in-javascript-8i1jca6jp
@@ -261,6 +297,13 @@ function recursive_function()
 	});
 }
 ```
+
+## Debouncing vs Throttling
+
+- Debouncing: Hold up for a while then act
+- Throttling: Act then hold up for a while
+
+https://redd.one/blog/debounce-vs-throttle
 
 ## Differentiate browser refresh, visiting new website, forward, back
 

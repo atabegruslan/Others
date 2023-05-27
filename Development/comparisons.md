@@ -80,6 +80,11 @@ myCalculator(5, 5, function (theSum) {
 
 **Arrow Functions**
 
+When regular functions are made in an object, `this` is pointed to that object.  
+When arrow functions are made in an object, `this` doesn't change, so `this` stayed pointed to `window` (or whatever object it was pointing to before)
+
+https://stackoverflow.com/questions/41690124/arrow-functions-return-this-as-the-window-object/41691192#41691192
+
 https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/js/arrow_functions.html
 
 ### PHP
