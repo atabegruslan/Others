@@ -286,6 +286,7 @@ Just set the expiry time of the cookie long into the future
 
 - https://stackoverflow.com/questions/244882/what-is-the-best-way-to-implement-remember-me-for-a-website/244907#244907
 - https://paragonie.com/blog/2015/04/secure-authentication-php-with-long-term-persistence
+- https://www.youtube.com/watch?v=72JYhSoVYPc
 
 ## MFA
 
