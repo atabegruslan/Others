@@ -293,6 +293,10 @@ Any others cause a "pre-flight" request to be issued in CORS supported browsers.
 
 ![](/Illustrations/Security/cors_preflight.PNG)
 
+- https://developer.mozilla.org/en-US
+- https://javascript.info/fetch-crossorigin#credentials
+- https://auth0.com/blog/cors-tutorial-a-guide-to-cross-origin-resource-sharing/#How-to-Add-CORS-to-a-Nodejs-Express-App
+
 ### JQuery quirk
 
 CORS POST request works from plain javascript, but not with jQuery: 
@@ -333,6 +337,7 @@ References:
 - Code: https://www.geekboy.ninja/blog/exploiting-json-cross-site-request-forgery-csrf-using-flash/
 - Variant scenario: https://stackoverflow.com/questions/17478731/whats-the-point-of-the-x-requested-with-header
 - Variant scenario: https://www.youtube.com/watch?v=IW9VGipXpgw
+- https://security.stackexchange.com/questions/170477/csrf-with-json-post-when-content-type-must-be-application-json/175911#175911
 
 ### Related things
 
