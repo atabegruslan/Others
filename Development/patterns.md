@@ -306,6 +306,8 @@ Eg: parsers/processors of different file formats - the reading part, the data re
 
 ![](/Illustrations/Patterns/template.png)
 
+Then you can: `fileAnalyzer.analyze()`
+
 ### Chain of responsibility
 
 Request is passed to a sequential chain of handlers.
