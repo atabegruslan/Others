@@ -159,7 +159,7 @@ If you have a requirement like this:
 
 Then if later, there are more types of TVs and more buttons to implement for (ie: the varieties expands in 2 dimentions), then how will we handle it?
 
-![](/Illustrations/Patterns/bridge1.png)
+![](/Illustrations/Patterns/bridge.png)
 
 Doing it like a inheritance-tree will become unwieldy very fast.   
 It's better to do it in a composition manner.  
@@ -273,8 +273,8 @@ Useful when you are interested in the state of an object and want to get notifie
 
 ![](/Illustrations/Patterns/observer.png)
 
+Observed
 ```php
-// Observed
 class Subject
 {
     private $observer;
@@ -299,8 +299,10 @@ class Subject
       return "Dummy Update Notice";
     }
 }
+```
 
-// Observer
+Observer
+```php
 class Observer
 {
     public function update(Subject $subject)
