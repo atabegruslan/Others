@@ -260,17 +260,37 @@ A simpler class acting as a proxy in front of a more complicated class. Client i
 
 ### Flyweight
 
-Caching and reusing object instances, when there is a need to create objects that varies little. Saves RAM. 
+Caching and reusing objects, when there is a need to create objects that varies little. Saves RAM. 
+```java
+class Factory 
+{
+    private static HashMap cache = new HashMap();
 
-![](/Illustrations/Patterns/flyweight1.png)
+    public static Vehicle getVehicle(String type)
+    {
+        Vehicle vehicle = null;
 
-![](/Illustrations/Patterns/flyweight2.png)
+        if (cache.containsKey(type)) // THE IMPORTANT PART
+        {
+            vehicle = cache.get(type);
+        }
 
-![](/Illustrations/Patterns/flyweight3.png)
+        // Instantiate the vehicle object
+
+        return vehicle;
+    }
+}
+```
+
+Then you can:
+```java
+Vehicle car = Factory.getVehicle('car'); // If a car was previous made by the factory, then a cached car would be returned.
+car.assignColor('blue'); // Make minor changes when necessary
+```
 
 ## Behavioural patterns
 
-### Template method
+### Template
 
 When algorithms are roughly the same. 
 
@@ -292,13 +312,26 @@ When a command (which is normally a function) is made into an object.
 - It become undo-able.
 - The command can be called from many different places.
 
-![](/Illustrations/Patterns/command1.png)
+```java
+interface Command 
+{
+    // ...
+}
 
-![](/Illustrations/Patterns/command2.png)
+class DemoCommand implements Command 
+{
+    public function execute()
+    {
 
-https://sourcemaking.com/design_patterns/command
+    }
+}
+```
+
+Then you can: `demoCommand.execute()`
 
 ### Interpreter
+
+Like the parsing of programming languages.
 
 ### Iterator
 
