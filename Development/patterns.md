@@ -7,9 +7,7 @@
 - https://www.tutorialspoint.com/design_pattern/index.htm
 - https://sourcemaking.com/design_patterns
 - https://refactoring.guru/design-patterns/catalog
-- https://www.youtube.com/playlist?list=PLzS3AYzXBoj8t5hPykr5VU7jG-kEim-LX
-- https://www.youtube.com/watch?v=JFvSCobD7JU
-- https://www.youtube.com/watch?v=tv-_1er1mWI
+- https://www.youtube.com/playlist?list=PLlsmxlJgn1HJpa28yHzkBmUY-Ty71ZUGc
 
 ## Creational patterns
 
@@ -152,29 +150,57 @@ Provides an interface between two unrelated entities so that they can work toget
 
 ### Bridge
 
-![](/Illustrations/Patterns/bridge0.JPG)
+If you have a requirement like this:
 
-![](/Illustrations/Patterns/bridge.png)
+|        |   Forward Button   |    Back Button    |
+|--------|--------------------|-------------------|
+| TV     | Increment channel  | Decrement channel |
+| Player | Fast Forward       | Rewind            |
+
+Then if later, there are more types of TVs and more buttons to implement for (ie: the varieties expands in 2 dimentions), then how will we handle it?
+
+![](/Illustrations/Patterns/bridge1.png)
+
+Doing it like a inheritance-tree will become unwieldy very fast.   
+It's better to do it in a composition manner.  
+
+```java
+public abstract class TV // This is the abstraction
+{
+    protected Button button; // This reference to the implementation is called the bridge
+
+    protected TV(Button button)
+    {
+        this.button = button;
+    }
+
+    abstract void otherMethods();
+}
+```
+
+- The client works with the abstraction.
+- But it's still client's job to link the abstraction object to one of the implementation objects.
 
 ### Decorator
 
-**Modify/add functionality to an object at runtime.**
+Situation: Burger shop sells different types of burger, with many different combinations of ingredients.
 
-![](/Illustrations/Patterns/decorator.png)
+Doing this via the inheritence way is too rigid and clumsy:
 
-This type of composition is **better than inheritance. With inheritance, if top class changes, everything below needs to be refactored.**
+`class Bun {}`
 
-The decorator pattern allows an entity to completely contain another entity so that using the decorator looks identical to the contained entity. This allows the decorator to **modify the behaviour and/or content of whatever it is encapsulating without changing the outward appearance of the entity**. For example, you might use a decorator to add logging output on the usage of the contained element without changing any behaviour of the contained element. 
+`class Hamburger extends Bun ()`
+
+`class Cheeseburger extends Hamburger ()`
+
+Doing this in a composition manner is more flexible:
+
+So a cheeseburger can be made by: `new Cheese( new Patty( new Bun() ) )`
 
 ### Composite 
 
-Handle individual objects and composites uniformly. Eg handle a book and a collection of books the same way.
-
-![](/Illustrations/Patterns/composite.png)
-
-Decorator & Composite usually go hand in and hand. In that using the composite pattern often leads to also using the decorator pattern.
-
-The composite pattern allows you to build a hierarchical structure (such as a tree of elements) in a way that allows your external code to view the entire structure as a single entity. So the interface to a leaf entity is exactly the same as the entity for a compound entity. So the essence is that all elements in your composite structure have the same interface even though some are leaf nodes and others are entire structures. User interfaces often use this approach to allow easy composability. 
+Using the composite pattern often leads to also using the decorator pattern.  
+All elements (nodes & leaves, or eg: book & volume) have the same interface, so they can be interacted with in the same way.  
 
 ### Facade
 
