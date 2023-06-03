@@ -148,6 +148,14 @@ Provides an interface between two unrelated entities so that they can work toget
 
 ![](/Illustrations/Patterns/adaptor.png)
 
+```java
+Vehicle tank = new Tank();
+tank.drive();
+
+Vehicle robotAdapter = new RobotAdapter();
+robotAdapter.drive();
+```
+
 ### Bridge
 
 If you have a requirement like this:
@@ -302,7 +310,7 @@ Eg: parsers/processors of different file formats - the reading part, the data re
 
 Request is passed to a sequential chain of handlers.
 
-![](/Illustrations/Patterns/chain_responsibility.png)
+![](/Illustrations/Patterns/chain.png)
 
 ### Command
 
