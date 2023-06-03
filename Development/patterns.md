@@ -185,7 +185,7 @@ public abstract class TV // This is the abstraction
 
 Situation: Burger shop sells different types of burger, with many different combinations of ingredients.
 
-Doing this via the inheritence way is too rigid and clumsy:
+Doing this via the **inheritence** way is too rigid and clumsy:
 
 `class Bun {}`
 
@@ -193,14 +193,62 @@ Doing this via the inheritence way is too rigid and clumsy:
 
 `class Cheeseburger extends Hamburger ()`
 
-Doing this in a composition manner is more flexible:
+Doing this in a **composition** manner is more flexible:
 
 So a cheeseburger can be made by: `new Cheese( new Patty( new Bun() ) )`
 
+```java
+abstract class Burger 
+{
+
+}
+
+class Bun extends Burger 
+{
+
+}
+
+abstract class Ingredient extends Burger // This is the decorator
+{
+    private Burger burger;
+
+    public Ingredient(Burger burger)
+    {
+        this.burger = burger;
+    }
+}
+class Patty extends Ingredient 
+{
+    public Patty(Burger burger)
+    {
+        super(burger);
+    }
+}
+class Cheese extends Ingredient 
+{
+    public Cheese(Burger burger)
+    {
+        super(burger);
+    }
+}
+```
+
+Note: A un-made plain-bun burger is interacted with in the same way as a finished burger with multiple ingredients.
+
 ### Composite 
 
-Using the composite pattern often leads to also using the decorator pattern.  
+Using the composite pattern often leads to the using of decorator pattern.  
 All elements (nodes & leaves, or eg: book & volume) have the same interface, so they can be interacted with in the same way.  
+
+![](/Illustrations/Patterns/composition.png)
+
+In this example, both Volume and Book extends the Node class.  
+Then you can interact with Book and Volume in the same way:  
+```java
+Node myVolume = new Volume();
+myVolume.add(new Volume);
+myVolume.add(new Book);
+```
 
 ### Facade
 
@@ -208,9 +256,11 @@ Creating a wrapper interfaces on top of existing interfaces to help client appli
 
 ### Proxy
 
+A simpler class acting as a proxy in front of a more complicated class. Client interact with the proxy class.
+
 ### Flyweight
 
-Caching and reusing object instances, when there is a need to create objects that varies little.
+Caching and reusing object instances, when there is a need to create objects that varies little. Saves RAM. 
 
 ![](/Illustrations/Patterns/flyweight1.png)
 
