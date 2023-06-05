@@ -9,6 +9,7 @@
 - https://refactoring.guru/design-patterns/catalog
 - https://www.youtube.com/playlist?list=PLlsmxlJgn1HJpa28yHzkBmUY-Ty71ZUGc
 - https://www.freecodecamp.org/news/design-pattern-for-modern-backend-development-and-use-cases/
+- https://www.youtube.com/watch?v=tv-_1er1mWI
 
 ## Creational patterns
 
@@ -268,6 +269,8 @@ Creating a wrapper interfaces on top of existing interfaces to help client appli
 
 A simpler class acting as a proxy in front of a more complicated class. Client interact with the proxy class.
 
+![](/Illustrations/Patterns/proxy.jpg)
+
 ### Flyweight
 
 Caching and reusing objects, when there is a need to create objects that varies little. Saves RAM. 
@@ -360,7 +363,7 @@ Provide a centralized communication medium between different objects in a system
 
 Used to save a history of an object's past states.
 
-https://sourcemaking.com/design_patterns/memento/php
+![](/Illustrations/Patterns/memento.png)
 
 ### Observer
 
@@ -420,6 +423,8 @@ $gossiper->updateFavorites();
 ### State
 
 An object should change its behavior when its internal state changes. State-specific behavior should be defined independently.
+
+![](/Illustrations/Patterns/state.jpg)
 
 ### Strategy
 
@@ -501,6 +506,11 @@ Visitor vs Strategy: Visitor pattern allows **Double Dispatch**
 
 ## OOP
 
+- Abstraction
+- Encapsulation
+- Inheritance
+- Polymorphism
+
 ## SOLID
 
 S: Single responsibility
@@ -547,29 +557,48 @@ https://flexiple.com/react/provider-pattern-with-react-context-api/
 
 ---
 
+# Microservices Patterns
+
+![](/Illustrations/Patterns/microservices_1.jpg)  
+![](/Illustrations/Patterns/microservices_2.jpg)  
+
+- https://www.youtube.com/watch?v=ADHcBxEXvFA
+- https://www.youtube.com/watch?v=xuH81XGWeGQ
+- https://blogs.mulesoft.com/dev-guides/microservices/top-6-microservices-patterns/
+
+---
+
 # Serverless Patterns
 
 Serverless means all (DB, code, etc) hosted on eg: Amazon
+
+Microservices is a technique to design an application.  
+Serverless is the architecture to run the part or complete application.   
 
 https://dev.to/aws-builders/serverless-patterns-4439
 
 ---
 
-# Microservices Patterns
+# Event Driven Patterns
 
-Microservices
+Event Driven Architecture
 
-![](/Illustrations/Patterns/microservices_1.jpg)
+Event driven architecture leverages messaging frameworks like Kafka or MQ to establish a "push" based approach to communicating between services. While some microservices act as publishers of events, others act as consumers of those events to ultimately deliver a solution.
 
-![](/Illustrations/Patterns/microservices_2.jpg)
+- https://www.stackchief.com/blog/Event%20Driven%20vs%20REST%20in%20Microservice%20Architecture
+- https://www.youtube.com/watch?v=3t7pMx35Reg
+- https://www.youtube.com/watch?v=M07btP86Ybk
+- https://www.quora.com/Whats-the-difference-between-an-event-driven-and-microservices-architecture/answer/Stanley-Ambrose-4
 
 Patterns
 
+- Publisher/Subscriber Pattern (Pub-Sub)
+- Event Streaming Pattern
+- Event Sourcing Pattern
+- Backpressure Pattern
+- Saga Pattern
+
 https://levelup.gitconnected.com/stay-ahead-of-the-curve-5-must-know-distributed-systems-design-patterns-for-event-driven-7515121a28ae
-
-https://www.youtube.com/watch?v=ADHcBxEXvFA
-
-https://www.youtube.com/watch?v=xuH81XGWeGQ
 
 ---
 
