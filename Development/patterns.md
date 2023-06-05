@@ -499,6 +499,8 @@ Visitor vs Strategy: Visitor pattern allows **Double Dispatch**
 
 # Others
 
+## OOP
+
 ## SOLID
 
 S: Single responsibility
@@ -510,6 +512,20 @@ L: Liskov principle implies: With inheritance, don't make the parent class too g
 I: Have smaller interfaces, so that the implementing class can implement all their methods.
 
 D: Dependency injection. Typically example: don't instantiate other classes from within classes, instead pass them in
+
+## MVC MVP MVVM ADR
+
+![](/Illustrations/Patterns/MVC_MVP_MVVM.jpg)
+
+![](/Illustrations/Patterns/MVC_MVP_MVVM.png)
+
+![](/Illustrations/Patterns/MVC_MVP_MVVM_ADR.png)
+
+## Domain Driven Design
+
+https://www.youtube.com/watch?v=H5--9pMmuK4
+
+https://github.com/atabegruslan/Others/blob/master/Illustrations/Patterns/DDD.pdf
 
 ## Push vs Pull
 
@@ -540,6 +556,14 @@ https://dev.to/aws-builders/serverless-patterns-4439
 ---
 
 # Microservices Patterns
+
+Microservices
+
+![](/Illustrations/Patterns/microservices_1.jpg)
+
+![](/Illustrations/Patterns/microservices_2.jpg)
+
+Patterns
 
 https://levelup.gitconnected.com/stay-ahead-of-the-curve-5-must-know-distributed-systems-design-patterns-for-event-driven-7515121a28ae
 
