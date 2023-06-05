@@ -423,6 +423,12 @@ An object should change its behavior when its internal state changes. State-spec
 
 Used when we have multiple algorithm for a specific task and client decides the actual implementation to be used at runtime.
 
+The following code shows how a product's tax can be can be calculated for different situations (eg in different countries)
+
+|   |Tax in situation 1|Tax in situation 2| ... |
+|---|---|---|---|
+|Product1| xxx | yyy | zzz |
+
 ```php
 class ProductTax implements TaxInterface
 {
@@ -453,22 +459,28 @@ class Product implements ProductInterface
 
 ### Visitor
 
-Perform an operation on a group of similar kind of Objects.
+The following code shows how many products can have different taxes calculated for them
+
+|   |Tax in situation 1|Tax in situation 2| ... |
+|---|---|---|---|
+|Product1| ... | ... | ... |
+|Product2| ... | ... | ... |
+| ... | ... | ... | ... |
 
 ```php
+// This is the visitor
 class ProductTax implements TaxInterface
 {
+    // calculate(ProductInterface $product) can be called from the client
+    // Eg: in the client, there can be a loop, looping thru all the products, and invoking the calculation of taxes for them
     public function calculate(ProductInterface $product) : float
-    {
+    { // The calculation of products' taxes starts here (from the visitor)
         return ($product->price() * 1.20);
     }
 }
 
 class Product implements ProductInterface
 {
-    /**
-     * Visitor Pattern
-     */
     public function calculatePrice(TaxInterface $tax): float
     {
         return $tax->calculate($this);
