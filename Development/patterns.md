@@ -8,6 +8,7 @@
 - https://sourcemaking.com/design_patterns
 - https://refactoring.guru/design-patterns/catalog
 - https://www.youtube.com/playlist?list=PLlsmxlJgn1HJpa28yHzkBmUY-Ty71ZUGc
+- https://www.freecodecamp.org/news/design-pattern-for-modern-backend-development-and-use-cases/
 
 ## Creational patterns
 
@@ -134,6 +135,7 @@ Note: `synchronized` is normally applied to methods, so that a critical section 
 
 It can cause problems for testing too:  
 - https://medium0.com/@fatihcyln/the-problems-with-singletons-and-why-you-should-use-di-instead-5a0fa0a5baed
+- https://www.baeldung.com/java-static-class-vs-singleton
 - https://stackoverflow.com/questions/10936695/how-to-test-singleton-class-that-has-a-static-dependency/10939204#10939204
 - https://enterprisecraftsmanship.com/posts/singleton-vs-dependency-injection/
 
@@ -499,14 +501,56 @@ Visitor vs Strategy: Visitor pattern allows **Double Dispatch**
 
 ## SOLID
 
-![](https://raw.githubusercontent.com/Ruslan-Aliyev/Design-Patterns/master/Illustrations/Patterns/SOLID.jpg)
+S: Single responsibility
+
+O: Open & closed. In other words, when new requirements come, classes should be extensible but not edited
+
+L: Liskov principle implies: With inheritance, don't make the parent class too generic. Eg: If parent class is `Animal` which can `eat()` and `walk()`, then it's problematic when a child class is `Fish`, because `Fish` can't `walk()`
+
+I: Have smaller interfaces, so that the implementing class can implement all their methods.
+
+D: Dependency injection. Typically example: don't instantiate other classes from within classes, instead pass them in
 
 ## Push vs Pull
 
+https://github.com/atabegruslan/Others/blob/master/Illustrations/Patterns/push_pull.pdf
+
 ## Repository
 
+![](/Illustrations/Patterns/Repo.png)
+
+https://www.youtube.com/watch?v=giJcdfW2wC8
+
+https://www.youtube.com/watch?v=PuQjfO7Q0-4
+
 ## Provider
+
+https://mortenbarklund.com/blog/react-architecture-provider-pattern/
+
+https://flexiple.com/react/provider-pattern-with-react-context-api/
+
+---
+
+# Serverless Patterns
+
+Serverless means all (DB, code, etc) hosted on eg: Amazon
+
+https://dev.to/aws-builders/serverless-patterns-4439
 
 ---
 
 # Microservices Patterns
+
+https://levelup.gitconnected.com/stay-ahead-of-the-curve-5-must-know-distributed-systems-design-patterns-for-event-driven-7515121a28ae
+
+https://www.youtube.com/watch?v=ADHcBxEXvFA
+
+https://www.youtube.com/watch?v=xuH81XGWeGQ
+
+---
+
+# Anti patterns (aka common bad habits)
+
+JS: Async/Await inside promises: https://stackoverflow.com/questions/43036229/is-it-an-anti-pattern-to-use-async-await-inside-of-a-new-promise-constructor
+
+https://event-driven.io/en/i_will_just_add_one_more_field/
