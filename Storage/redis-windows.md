@@ -46,7 +46,16 @@ rdcli -h UBUNTU.IP.ADDRESS
 
 ## To find out the guest Ubuntu's IP address
 
-![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/Storage/find_guest_ubuntu_IP.jpg)
+From Ubuntu console
+
+```
+sudo apt install net-tools
+ifconfig
+```
+
+From PowerShell
+
+`wsl hostname -I`
 
 # Connecting to Ubuntu's Redis server from Windows host
 
