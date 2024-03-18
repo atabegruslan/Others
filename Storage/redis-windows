@@ -30,6 +30,8 @@ From Windows host machine
 - https://stackoverflow.com/questions/40678865/how-to-connect-to-remote-redis-server/40678950#40678950
 - https://redis.com/blog/get-redis-cli-without-installing-redis-server/
 
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/Storage/find_guest_ubuntu_IP.jpg)
+
 Connecting to Ubuntu's Redis server from Windows host
 
 https://www.baeldung.com/linux/redis-server-remote-connect
