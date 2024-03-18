@@ -30,6 +30,8 @@ redis-cli
 PONG
 ```
 
+`Control + C` to exit Redis CLI
+
 `sudo service redis-server stop`
 
 # From Windows host machine
