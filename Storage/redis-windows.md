@@ -14,6 +14,8 @@ Install Ubuntu
 
 In Ubuntu console:
 
+First you will be prompted to set a username and password. I just used `ubuntu` and `ubuntu`
+
 ```
 sudo apt-add-repository ppa:redislabs/redis
 sudo apt-get update
