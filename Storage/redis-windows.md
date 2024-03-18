@@ -60,3 +60,14 @@ From PowerShell
 # Connecting to Ubuntu's Redis server from Windows host
 
 https://www.baeldung.com/linux/redis-server-remote-connect
+
+If you run `rdcli -h UBUNTU.IP.ADDRESS` and get:
+
+```
+rdcli : File C:\Users\ADMIN\AppData\Roaming\npm\rdcli.ps1 cannot be loaded. The file
+C:\Users\ADMIN\AppData\Roaming\npm\rdcli.ps1 is not digitally signed. You cannot run this script on the current
+system. For more information about running scripts and setting execution policy, see about_Execution_Policies at
+https:/go.microsoft.com/fwlink/?LinkID=135170.
+```
+
+
