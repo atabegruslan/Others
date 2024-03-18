@@ -1,0 +1,12 @@
+Need to install it on Window's Linux Subsystem
+
+https://developer.redis.com/create/windows/
+
+Run PowerShell as Admin
+
+`Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
+
+Open Windows Store: `start ms-windows-store:`
+
+Install Ubuntu
+
