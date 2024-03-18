@@ -69,3 +69,17 @@ Replace `bind 127.0.0.1 -::1` with `bind 0.0.0.0 -::1`
 
 Replace `protected-mode yes` with `protected-mode no`
 
+`sudo service redis-server restart`
+
+Then if you run in PowerShell `rdcli -h UBUNTU.IP.ADDRESS` and get:
+
+```
+rdcli : File C:\Users\ADMIN\AppData\Roaming\npm\rdcli.ps1 cannot be loaded. The file
+C:\Users\ADMIN\AppData\Roaming\npm\rdcli.ps1 is not digitally signed. You cannot run this script on the current
+system. For more information about running scripts and setting execution policy, see about_Execution_Policies at
+https:/go.microsoft.com/fwlink/?LinkID=135170.
+```
+
+Then run `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted` in PowerShell
+
+Now try ping in PowerShell `rdcli -h UBUNTU.IP.ADDRESS` again. You'll get `PONG`
