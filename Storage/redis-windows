@@ -10,3 +10,26 @@ Open Windows Store: `start ms-windows-store:`
 
 Install Ubuntu
 
+![](https://raw.githubusercontent.com/atabegruslan/Others/master/Illustrations/Storage/Windows_store_install_Ubuntu.png)
+
+In Ubuntu console:
+
+```
+sudo apt-add-repository ppa:redislabs/redis
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install redis-server
+sudo service redis-server restart
+redis-cli
+127.0.0.1:6379> ping
+PONG
+```
+
+From Windows host machine
+
+- https://stackoverflow.com/questions/40678865/how-to-connect-to-remote-redis-server/40678950#40678950
+- https://redis.com/blog/get-redis-cli-without-installing-redis-server/
+
+Connecting to Ubuntu's Redis server from Windows host
+
+https://www.baeldung.com/linux/redis-server-remote-connect
