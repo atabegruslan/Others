@@ -420,17 +420,86 @@ A transpiler converts codes that are at similar levels of abstraction. Eg: ES6 c
 
 ## Modules
 
-- CommonJS (Node.js, `require()` & `module.exports`) vs ES modules (browser, `import` & `export`): https://blog.logrocket.com/commonjs-vs-es-modules-node-js/ 
+- BE: Node default is CJS (Common JS, like `require()` & `module.exports`)
+- FE: ES2015 made its module system, called ESM (ES Modules, like `import` & `export`)
+- Node14+ can support ESM. 
+  - To use ESM in Node, either have `type:module` in `package.json` or use `.jsm` extension for module files 
+  - https://stackoverflow.com/questions/43622337/using-import-fs-from-fs/43622412#43622412
+  - So if you use `import` in NodeJS, then obviously you'll get `"Uncaught SyntaxError: Cannot use import statement outside a module"`. Hence, you'll have to:
+    - add `type:module` in `package.json`
+    - use `.jsm` extension
+    - add `type="module"` to `<script type="module" src="whatever.js"></script>`
+    - https://stackoverflow.com/questions/58211880/uncaught-syntaxerror-cannot-use-import-statement-outside-a-module-when-import/64655153#64655153
+  - Conversely, if you get `ReferenceError: require is not defined`, then you'are obviously in ESM & you'll need to use the `import` syntax.
+
+Comparisons:
+- CJS vs ESM: https://blog.logrocket.com/commonjs-vs-es-modules-node-js/ 
   - `require` vs `import`: https://flexiple.com/javascript-require-vs-import/
-- Newer Node supports ES modules experimentally: https://stackoverflow.com/questions/43622337/using-import-fs-from-fs/43622412#43622412
 - CommonJS, AMD & ES: https://medium.com/computed-comparisons/commonjs-vs-amd-vs-requirejs-vs-es6-modules-2e814b114a0b
   - https://stackoverflow.com/questions/34866510/building-a-javascript-library-why-use-an-iife-this-way/34866603#34866603
 - UMD, unpkg: https://tutorial.tips/how-to-load-any-npm-module-in-browser/
+- CJS vs ESM vs AMD vs UMD: https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm (GOOD)
+
+Other related articles:
 - Importing a module's CSS: https://stackoverflow.com/questions/49518277/import-css-from-node-modules-in-webpack/49523565#49523565
   - Or like `import 'bootstrap/dist/css/bootstrap.min.css';` with `bootstrap` folder being located in `./node_modules/bootstrap/...`
 - Webpack: https://webpack.js.org/api/module-methods/
 - `package.json`'s `browser`: https://docs.npmjs.com/cli/v8/configuring-npm/package-json#browser
-- Issue: "cannot use import statement outside a module": https://www.google.com/search?q=cannot+use+import+statement+outside+a+module
+
+## Bundlers
+
+https://www.youtube.com/watch?v=5IG4UmULyoA
+
+### WebPack
+
+Take this example:
+
+`webpack.config.js`
+```
+module.exports = { 
+  entry: "./index.tsx",
+  target: "es5",
+  module: {
+    rules: [
+      {
+        test: /\.tsx$/,
+        use: ['babel-loader', 'ts-loader']
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  }
+}
+```
+
+Loaders are pre-processors in WebPack
+
+- Regarding the CSS part: 
+  - The loaders are executed from right to left. `css-loader` resolve all `imports` & `url(...)`. `style-loader` inserts those styles into the page.
+    - https://stackoverflow.com/a/34237524
+  - Another example: https://github.com/atabegruslan/ReactJS-Flux-Redux/blob/64d9e0f494101d9571396ddd730015beccd407d1/webpack.config.js#L48-L50
+
+- Regarding the JS part:
+  -  `ts-loader` converts typescript to javascript
+  - `babel-loader`: https://webpack.js.org/loaders/babel-loader
+    - As we can see from below: it does the following:
+      - `@babel/preset-env`: Transpiles new ECMA scripts to older versions and add in polyfills when necessary.
+        - https://babeljs.io/docs/babel-preset-env
+      - `@babel/react`: Converts `jsx` to `js`
+
+`babel.config.json`
+```
+module.exports = {
+  "presets": [
+    "@babel/preset-env",
+    "@babel/react"
+  ]
+}
+```
+
+- More on Babel presets: https://babeljs.io/docs/presets
 
 ## Publish modules to npmjs
 
