@@ -22,7 +22,9 @@ TLS is by protocol - these connections first begin with an insecure "hello" to t
 and only then switch to secured communication after the handshake between the client and server is successful.  
 If this shandshake fails for any reason, the connection is severed.  
 
-Very good tutorial: https://www.youtube.com/watch?v=iQsKdtjwtYI
+SSL/TLS uses both asymmetric and symmetric encryption. Asymmetric encryption is used to establish a secure session between a client and a server, and symmetric encryption is used to exchange data within the secured session.
+
+https://www.youtube.com/watch?v=iQsKdtjwtYI
 
 ![](/Illustrations/Security/ssl.PNG)
 
@@ -31,6 +33,12 @@ Very good tutorial: https://www.youtube.com/watch?v=iQsKdtjwtYI
 https://www.youtube.com/watch?v=niLaNbOsn28
 
 https://github.com/atabegruslan/Others/blob/master/Illustrations/Security/ssl_tls_details.pdf
+
+## HTTPS
+
+https://www.youtube.com/watch?v=j9QmMEWmcfo 
+
+![](/Illustrations/Security/https.png)
 
 ## Having HTTPS on your server
 
@@ -222,9 +230,40 @@ HTTP header security: https://www.contextis.com/en/blog/security-http-headers
 
 ## Secure cookies:
 
+### Cookie attributes
+
+https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes
+
+#### Secure 
+
+Secure channel (eg: HTTPS) only
+
+#### HttpOnly 
+
+Can NOT be accessed by client-side JS. Limits XSS
+
+#### SameSite
+
+Affects CSRF
+
 https://www.youtube.com/watch?v=aUF2QCEudPo
 
-Example: `SetCookie: PHPSESSID=36cb82e1d98853f8e250d89be857a0d3; path=/; HttpOnly; secure`
+strict: 
+- Cookie isn't sent when you click a link to the website from another website. 
+- Cookie isn't sent when requested from eg an img src
+
+lax
+- Cookie is sent when you click a link to the website from another website. 
+- Cookie isn't sent when requested from eg an img src
+
+none
+- Cookie is sent when you click a link to the website from another website. 
+- Cookie is sent when requested from eg an img src
+- Vulnerable to CSRF
+
+### Example
+
+`SetCookie: PHPSESSID=36cb82e1d98853f8e250d89be857a0d3; path=/; HttpOnly; secure`
 
 - `HttpOnly` attribute on setcookie header : disable the ability to read cookies using external JavaScript.
 - `secure` attribute on setcookie header : forces your application to send cookies only over HTTPS.

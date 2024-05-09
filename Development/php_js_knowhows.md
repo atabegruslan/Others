@@ -371,11 +371,6 @@ const merge = (target, source) => {
 
 https://github.com/atabegruslan/Others/blob/master/Development/js/get_caret_position.html
 
-## Good Practices
-
-- https://www.youtube.com/watch?v=Mus_vwhTCq0
-- https://www.youtube.com/watch?v=lkIFF4maKMU
-
 ## Weird Parts Explained
 
 - https://www.youtube.com/playlist?list=PLGnv0UtYYEZbfGp7Trh2xyGxyWaH71XyP
