@@ -83,3 +83,22 @@ https:/go.microsoft.com/fwlink/?LinkID=135170.
 Then run `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted` in PowerShell
 
 Now try ping in PowerShell `rdcli -h UBUNTU.IP.ADDRESS` again. You'll get `PONG`
+
+---
+
+Note that from your host windows command console, you can also access the Ubuntu commands by prepending `wsl`
+
+eg:
+
+`wsl redis-cli`
+
+```
+127.0.0.1:6379> ping
+PONG
+```
+
+and for Ubuntu commands that needs sudo and password
+
+```
+wsl -- echo "your-ubuntu-password" `| sudo service redis-server restart
+```
