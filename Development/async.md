@@ -122,6 +122,8 @@ Some Websocket libraries are built atop those async technologies
 - Pusher
 - Laravel Websockets (free Pusher, made obsolete by Reverb): https://github.com/Ruslan-Aliyev/laravel-websockets
 - Reverb (built atop ReactPHP)
+    - https://www.youtube.com/watch?v=TkYXIHgdrgA
+    - https://www.youtube.com/watch?v=rMtlrsnChxw 
 
 ## JS
 
