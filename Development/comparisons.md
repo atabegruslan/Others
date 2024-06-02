@@ -165,6 +165,19 @@ https://github.com/Ruslan-Aliyev/PHP_Async
 
 - Async & Await: https://www.youtube.com/watch?v=2moh18sh5p4
 
+## Workers
+
+|              | Service Workers  | Web Workers  | Worker Threads   | Worklets     |
+|--------------|------------------|--------------|------------------|--------------|
+|              |                  | In browsers  | In NodeJS        | Custom animations & effects |
+| Instances    | One for all tabs | Many per tab |                  |              |
+| Lifespan     | Independent      | Same as tab  |                  |              |
+| Intended use | Offline support  | Parallelism  |                  |              |
+
+- https://stackoverflow.com/questions/38632723/what-can-service-workers-do-that-web-workers-cannot
+- https://stackoverflow.com/questions/60268604/whats-the-difference-between-web-workers-and-worker-threads
+- https://dev.to/bharat5604/web-worker-service-worker-and-worklets-a-comprehensive-guide-1f64
+
 ## Dependency Management
 
 ### NodeJS

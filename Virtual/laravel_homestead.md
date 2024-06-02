@@ -53,6 +53,10 @@ laravel new project
 - https://dbeaver.io/download/
 - Defaults: 192.168.10.10:3306 homestead/secret
 
+### Common issues
+
+- Mapping port from Swoole out to Homestead: https://nickpoulos.medium.com/installing-swoole-on-laravel-homestead-ac79a804984a
+
 ### Commonly encountered problems:
 
 - https://laracasts.com/discuss/channels/general-discussion/box-laravelhomestead-could-not-be-found-2?page=1#reply=640644
