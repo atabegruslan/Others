@@ -129,7 +129,7 @@ Simple common-sense things you can do
 - Rate limit
   - Quota: Responds with HTTP 429 Too Many Requests error when requests come too often
   - Throttle: Slow the requests down
-  - Example on Laravel: https://github.com/Ruslan-Aliyev/Laravel10_Newest_Notes/blob/master/README.md#rate-limit
+  - Example on Laravel: https://github.com/Ruslan-Aliyev/laravel-redis?tab=readme-ov-file#rate-limiting
   - Example in plain PHP:
     - https://www.digitalocean.com/community/tutorials/how-to-implement-php-rate-limiting-with-redis-on-ubuntu-20-04
     - https://helloacm.com/easy-rate-limit-in-php-using-simple-strategy-an-api-example/

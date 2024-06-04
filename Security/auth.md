@@ -203,7 +203,7 @@ Best to put the JWT into an HTTP-only cookie or the Authorization header.
 - https://levelup.gitconnected.com/crud-restful-api-with-go-gorm-jwt-postgres-mysql-and-testing-460a85ab7121
 - https://www.youtube.com/watch?v=M4JIvUIE17c
 - JWT decoder: https://jwt.io/
-- Example in Laravel: https://github.com/Ruslan-Aliyev/Laravel8_Newest_Notes#jwt
+- Example in Laravel: https://github.com/atabegruslan/Others/blob/master/Development/laravel.md#jwt
 - https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims
 - https://stackoverflow.com/questions/58341833/why-base64-is-used-in-jwts/58344036#58344036
 - Vulnerabilities: https://www.invicti.com/blog/web-security/json-web-token-jwt-attacks-vulnerabilities/

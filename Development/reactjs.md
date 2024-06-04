@@ -519,7 +519,7 @@ const ui = (
 - Alternatives to Redux
    - MobX, eg demo https://github.com/atabegruslan/React-MobX
    - Apollo Client & GraphQL
-      - Demo in Vue: https://github.com/Ruslan-Aliyev/laravel_notes#graphql
+      - Demo in Vue: https://github.com/atabegruslan/laravel-graphql?tab=readme-ov-file#apollo-in-front
       - Tutorial in React: https://www.youtube.com/playlist?list=PLillGF-RfqbZrjw48EXLdM4dsOhURCLZx
    - RxJS, good tutorial: https://www.youtube.com/watch?v=2LCo926NFLI
    - ( Concept of push & pull: https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/js/async/readme.md#idea-of-pull-vs-push )

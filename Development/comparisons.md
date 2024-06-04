@@ -153,17 +153,18 @@ pointer(“param”);
 
 ## Asyncs
 
-### JavaScript
-
-https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/js/async/readme.md
-
 ### PHP
 
-https://github.com/Ruslan-Aliyev/PHP_Async
+https://github.com/atabegruslan/Others/blob/master/Development/async.md
 
 ### C#
 
 - Async & Await: https://www.youtube.com/watch?v=2moh18sh5p4
+
+### JavaScript
+
+- https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/js/async/readme.md
+- https://github.com/atabegruslan/Others/blob/master/Development/async.md#workers
 
 ## Workers
 

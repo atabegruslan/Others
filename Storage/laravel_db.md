@@ -72,7 +72,7 @@ Useful knowhow:
 - https://www.youtube.com/watch?v=1a1ySsWxxH8
 - https://www.youtube.com/watch?v=QUkW6Y1woN0
 - https://www.youtube.com/watch?v=aqccE0lSOjs
-- https://github.com/Ruslan-Aliyev/Laravel8_Newest_Notes/blob/master/README.md#nested-models
+- https://github.com/atabegruslan/Others/blob/master/Development/laravel.md#nested-models
 - https://www.youtube.com/watch?v=jwgvic7hmx0
 - https://www.youtube.com/watch?v=O1TIsQO0mwM
 - https://www.youtube.com/watch?v=bSQcmcu6yHc
