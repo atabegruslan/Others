@@ -75,7 +75,9 @@ According to POSTMAN, it takes an average of 30ms
 
 ### Laravel Octane
 
-https://laravel.com/docs/11.x/octane
+- https://laravel.com/docs/11.x/octane
+- https://www.youtube.com/watch?v=s5mTa8df6rY
+- https://www.youtube.com/watch?v=YGBvdAWt0W8
 
 ## ReactPHP
 
@@ -137,6 +139,8 @@ Some Websocket libraries are built atop those async technologies
 Chat normally relies on Websockets
 
 - PHP, Ratchet: https://github.com/Ruslan-Aliyev/chat-php-ratchet
+- Laravel Websockets: https://medium.com/@lfoster49203/building-real-time-applications-with-laravel-and-websockets-1f0e4465ef3a
+- Laravel Chatify: https://www.youtube.com/watch?v=9tj7sz-JF3Q
 - Node, WebSocket: https://github.com/Ruslan-Aliyev/chat-NodeJS-WebSocket
 - Node, socket.io: https://github.com/Ruslan-Aliyev/chat-NodeJS-SocketIo
 - Java: https://github.com/Ruslan-Aliyev/chat-java

@@ -188,14 +188,19 @@ Overridden by: ⁨`resources⁩/⁨views⁩/vendor⁩/admin⁩/catalog⁩/produc
 
 support@bagisto.com
 
-Tutorials: https://bagisto.com/en/social-login-for-bagisto/
+Tutorials: https://bagisto.com/en/social-login-for-bagisto
 
-- https://bagisto.com/en/
-	- https://bagisto.com/en/download/
+- https://bagisto.com/en
+	- https://bagisto.com/en/download
 		- https://github.com/bagisto/bagisto/tree/v1.2.0-BETA1
-		- https://webkul.com/blog/laravel-ecommerce-website/
+		- https://webkul.com/blog/laravel-ecommerce-website
 		
-- https://bagisto.com/en/laravel-multi-vendor-marketplace/
-	- https://webkul.com/blog/laravel-multi-vendor-marketplace/
+- https://bagisto.com/en/laravel-multi-vendor-marketplace
+	- https://webkul.com/blog/laravel-multi-vendor-marketplace
 
+---
 
+# Also read
+
+- https://bagisto.com/en/how-to-create-custom-payment-method-in-bagisto
+- https://github.com/bagisto/bagisto/blob/2f1c999a5484b42f909379316a9565035554409c/packages/Webkul/Core/src/Database/Migrations/2018_07_20_064849_create_channels_table.php

@@ -19,15 +19,34 @@ To check Laravel version:
 
 Major changes from Laravel 5 to 10:
 - `laravel/ui` has came out in version 5.8 https://github.com/laravel/ui#supported-versions . At this point, you can't use `php artisan make:auth` anymore, instead you need to do: `php artisan ui vue --auth`.
-    - Then in version 8 Jetstream came out https://www.youtube.com/playlist?list=PL8z-YHNIa8wksXALnv_PWPukBAr86pt7n , https://laravel-news.com/jetstream-spatie-permission , https://jetstream.laravel.com/2.x/introduction.html , https://www.youtube.com/watch?v=NiQSNjWKLfU , https://github.com/laravel/jetstream . Laravel Jetstream uses Fortify https://github.com/laravel/fortify#introduction , https://www.youtube.com/playlist?list=PLxFwlLOncxFIbxi2gQCN3SR5e3-WB-4T2 . Fortify is just backend while Jetstream includes frontend (made from Tailwind with Livewire or Inertia).
-        - Followed by Breeze: https://www.youtube.com/watch?v=3Jdy9rfYqN0 , https://www.youtube.com/watch?v=UsyAgb0-_IE , https://www.youtube.com/watch?v=XVxyY_owL_M, https://www.grepper.com/answers/390424/laravel+install+breze?ucard=1
+    - Version 8: Jetstream: 
+        - https://www.youtube.com/playlist?list=PL8z-YHNIa8wksXALnv_PWPukBAr86pt7n 
+        - https://laravel-news.com/jetstream-spatie-permission 
+        - https://jetstream.laravel.com/2.x/introduction.html 
+        - https://www.youtube.com/watch?v=NiQSNjWKLfU 
+        - https://github.com/laravel/jetstream 
+        - Laravel Jetstream uses Fortify: 
+            - https://github.com/laravel/fortify#introduction 
+            - https://www.youtube.com/playlist?list=PLxFwlLOncxFIbxi2gQCN3SR5e3-WB-4T2 
+            - Fortify is just backend while Jetstream includes frontend (made from Tailwind with Livewire or Inertia).
+        - Followed by Breeze: 
+            - https://www.youtube.com/watch?v=3Jdy9rfYqN0 
+            - https://www.youtube.com/watch?v=UsyAgb0-_IE 
+            - https://www.youtube.com/watch?v=XVxyY_owL_M
+            - https://www.grepper.com/answers/390424/laravel+install+breze?ucard=1
+            - https://laravel-news.com/laravel-breeze-typescript
 - Sanctum ( which uses https://github.com/firebase/php-jwt )
 - Blade components: https://dev.to/ericchapman/laravel-blade-components-5c9c
-- In version 9.19, Vite became the default bundler: 
+- In version 9.19, Vite became the default bundler (instead of Mix): 
     - https://www.youtube.com/playlist?list=PLDc9bt_00KcJaUEt9_WLioydKazVJwaXZ 
     - https://www.youtube.com/watch?v=KCrXgy8qtjM 
     - https://www.youtube.com/watch?v=epMbfE37014 
     - https://laravel.com/docs/11.x/vite#running-vite
+    - https://storybook.js.org/blog/storybook-performance-from-webpack-to-vite
+    - https://laracasts.com/discuss/channels/vite/laravel-vite-setup-with-assets
+- Mix:
+    - https://laravel.com/docs/8.x/mix#introduction
+    - https://stackoverflow.com/questions/49392001/laravel-project-auto-refresh-after-changes
 
 ## Good tutorials on new (2021) Laravel stuff
 
@@ -38,13 +57,20 @@ Major changes from Laravel 5 to 10:
 - https://www.youtube.com/c/drehimself/playlists
     - https://www.youtube.com/watch?v=9OKbmMqsREc&list=RDCMUCtb40EQj2inp8zuaQlLx3iQ&start_radio=1
 
+## Notable articles
+
+- https://laravel-news.com/laravel-10-4-0
+- https://laravel-news.com/laravel-10-17-0
+- Laravel 10.43: https://www.youtube.com/watch?v=BrXLbyVJaWw
+- https://laravel-news.com/laravel-10-44-0
+
 # Service Provider
 
 https://www.youtube.com/watch?v=VYPfncvYW-Y
 
-![](/Illustrations/Development/laravel_servicecontainer1.png)
+![](/Illustrations/Development/laravel/laravel_servicecontainer1.png)
 
-![](/Illustrations/Development/laravel_servicecontainer2.png)
+![](/Illustrations/Development/laravel/laravel_servicecontainer2.png)
 
 - https://code.tutsplus.com/tutorials/how-to-register-use-laravel-service-providers--cms-28966
 - Then watch these tutorials:
@@ -67,26 +93,32 @@ Better dependency management
 - https://www.codementor.io/@decodeweb/laravel-service-providers-explained-in-depth-12uu86s2pq
 - https://barryvanveen.nl/articles/34-laravel-service-provider-examples
 - https://laravel.com/docs/7.x/container#the-make-method
+- https://laravel-news.com/leaning-on-the-container
+- https://stackoverflow.com/questions/62870556/how-this-app-singleton-works-in-laravel
+- https://www.reddit.com/r/laravel/comments/4c0uew/is_resolving_instead_of_injecting_in_a
+- https://dev.to/wilburpowery/resolve-classes-from-laravels-container-1lf4
 
 # Lifecycle
 
 - https://laravel.com/docs/8.x/lifecycle#first-steps
     - https://laravel.com/docs/4.2/lifecycle#request-lifecycle (Summary subsection)
 
-# Clear cache
+# Notification
 
-- https://tecadmin.net/clear-cache-laravel-5/
-- On top of the above `php artisan config:cache` is also an useful command
+- https://github.com/atabegruslan/Laravel_CRUD_API/tree/master?tab=readme-ov-file#notifications
+- https://www.itsolutionstuff.com/post/laravel-10-notification-create-notification-in-laravel-10example.html
 
-# Upload to server
+# Event
 
-Methods:
+- https://github.com/atabegruslan/Laravel_CRUD_API/tree/master?tab=readme-ov-file#events-hooks
 
-1. Upload `public` folder into server's `public_html` folder. Upload the rest to another folder outside of the server's `public_html` folder. In `public/index.php` rectify all relevant paths. Import .sql to server's database. Refactor database-name, username & password in the `.env` file.
-2.  Load the entire folder as it is. To rid the `/public/` segment of the URL, put the following into the root folder's `.htaccess`: https://infyom.com/blog/how-to-remove-public-path-from-url-in-laravel-application
-3. To rid the `/public/` by: https://www.devopsschool.com/blog/laravel-remove-public-from-url-using-htaccess/
+Usage: eg: broadcast events thru a websocket server: https://github.com/Ruslan-Aliyev/laravel-websockets
 
-- https://www.youtube.com/watch?v=UyopFbFRug8
+# Job
+
+- https://github.com/spatie/laravel-artisan-dispatchable
+
+Usage: eg: dispatching a job into a queue: https://github.com/Ruslan-Aliyev/laravel-queue
 
 # Scheduling tasks
 
@@ -241,7 +273,14 @@ public function findPhpExec()
 }
 ```
 
+# Facades
+
+- https://laravel-news.com/process-facade-laravel-10
+
 # Helper
+
+- https://dev.to/kingsconsult/how-to-create-laravel-8-helpers-function-global-function-d8n
+- https://laravel-news.com/laravel-array-helpers-every-developer-should-know-about
 
 ## Method 1
 
@@ -292,6 +331,100 @@ class XxxHelper
 ```
 
 3. `composer dump-autoload`
+
+# Making Service
+
+- https://github.com/artogrig/laravel-make-service
+- https://laracasts.com/discuss/channels/laravel/howwhere-do-i-create-service-classes
+
+In services, use:
+- Static methods: If no need for objects. Eg yearly report service for year 2020, 2021, ...
+- Non-static methods: If you want to chain methods
+- DI service: slightly less code
+
+# Different ways of writing things
+
+In Blade
+```
+@if (!in_array($modLabel, ['xxx', 'yyy']))
+
+@endif
+```
+is same as
+```
+@php {{ $skips = ['xxx','yyy','deleted_at']; }} @endphp
+@if (!in_array($initLabel, $skips))
+
+@endif
+```
+
+In PHP
+```
+$thisAndPrevious = ActionLog::where([
+        [ 'time',            '<=', $log['time']            ],
+        [ 'record_key_name', '=',  $log['record_key_name'] ],
+        [ 'record_id',       '=',  $log['record_id']       ],
+        [ 'model',           '=',  $log['model']           ],
+    ])
+    ->where(function ($query) {
+        $query->where('method', '=', 'create')
+              ->orWhere('method', '=', 'update');
+    })
+    ->orderBy('id', 'DESC')
+    ->take(2)
+    ->get();
+```
+is same as
+```
+$thisAndPrevious = CrudLog::where('time', '<=', $log['time'])
+    ->where('record_key_name', '=',  $log['record_key_name'])
+    ->where('record_id', '=',  $log['record_id'])
+    ->where('model', '=',  $log['model'])
+    ->whereIn('method', ['create', 'update'])
+    ->orderBy('id', 'DESC')
+    ->take(2)
+    ->get();
+```
+
+# Patterns
+
+- https://laraveldaily.com/post/design-patterns-examples-laravel-core
+- Observer: https://viblo.asia/p/observer-events-trong-laravel-co-the-ban-chua-biet-gGJ59OQjZX2
+
+# Shorter code
+
+- https://www.youtube.com/watch?v=NUYqjdmsIj8
+
+![](/Illustrations/Development/laravel/laravel_redirect_from_controller.png)
+
+- https://www.youtube.com/watch?v=onkvcJMZ6Wo
+
+# Redirect
+
+- https://www.nicesnippets.com/blog/redirect-to-another-url-or-website-in-laravel
+
+# Route
+
+- https://www.youtube.com/watch?v=dPxUj7cNh9k
+- https://github.com/atabegruslan/Laravel_CRUD_API/tree/master?tab=readme-ov-file#ziggy-routes
+
+# View
+
+- https://laravel.com/docs/10.x/blade#blade-directives
+- https://laravelcollective.com/docs/5.8/html (Obsolete)
+    - https://stackoverflow.com/questions/51968355/how-to-use-datetimepicker-in-laravel-using-laravelcollective
+- https://stackoverflow.com/questions/45279612/including-a-css-file-in-a-blade-template/45290308
+- https://laravel-news.com/basset
+- https://laracasts.com/discuss/channels/laravel/how-to-link-external-css-file-to-laravel-blade-file
+- https://dev.to/aschmelyun/four-ways-to-pass-data-from-laravel-to-vue-5d8m
+- https://stackoverflow.com/questions/41520258/how-to-pass-a-php-variable-to-vue-component-instance-in-laravel-blade
+
+# View Overriding
+
+- THE tutorial: https://www.youtube.com/watch?v=BntEU1Q5ga8
+- https://voyager-docs.devdojo.com/
+    - https://voyager-docs.devdojo.com/customization/overriding-files
+    - EG: For `{domain}/admin/posts`, override `vendor/tcg/voyager/resources/views/bread/browse.blade.php` with `resources/views/vendor/voyager/posts/browse.blade.php`
 
 # Filter in view:
 
@@ -379,110 +512,23 @@ Pass the `pagination` object into the view.
 - https://github.com/gilbitron/laravel-vue-pagination/blob/master/README.md
 - https://github.com/matfish2/vue-pagination-2/blob/master/README.md
 
-# Different ways of writting things
+# Component
 
-In Blade
-```
-@if (!in_array($modLabel, ['xxx', 'yyy']))
+- https://www.youtube.com/watch?v=7E76PPoIVW4
 
-@endif
-```
-is same as
-```
-@php {{ $skips = ['xxx','yyy','deleted_at']; }} @endphp
-@if (!in_array($initLabel, $skips))
+# Request & Response
 
-@endif
-```
+- https://viblo.asia/p/su-khac-biet-giua-request-get-vs-request-input-vs-request-vs-get-data-trong-laravel-bJzKmgjkl9N
+- https://stackoverflow.com/questions/37296654/laravel-lumen-ensure-json-response
+- https://www.youtube.com/watch?v=mwi_mxqtVfc
+- https://www.youtube.com/watch?v=QhzrVlPm6wk
 
-In PHP
-```
-$thisAndPrevious = ActionLog::where([
-        [ 'time',            '<=', $log['time']            ],
-        [ 'record_key_name', '=',  $log['record_key_name'] ],
-        [ 'record_id',       '=',  $log['record_id']       ],
-        [ 'model',           '=',  $log['model']           ],
-    ])
-    ->where(function ($query) {
-        $query->where('method', '=', 'create')
-              ->orWhere('method', '=', 'update');
-    })
-    ->orderBy('id', 'DESC')
-    ->take(2)
-    ->get();
-```
-is same as
-```
-$thisAndPrevious = CrudLog::where('time', '<=', $log['time'])
-    ->where('record_key_name', '=',  $log['record_key_name'])
-    ->where('record_id', '=',  $log['record_id'])
-    ->where('model', '=',  $log['model'])
-    ->whereIn('method', ['create', 'update'])
-    ->orderBy('id', 'DESC')
-    ->take(2)
-    ->get();
-```
+# Model casts
 
-# Relationships
+- https://awesomeopensource.com/project/mad-web/laravel-enum
+- https://laravel-news.com/model-casts
 
-- https://laravel.com/docs/8.x/database-testing#has-many-relationships (`->has()` and `->for()`)
-- https://joelclermont.com/post/laravel-8-factory-relationships/ (Factory in factory)
-- https://www.codegrepper.com/code-examples/whatever/laravel+factory+relationship (via callbacks)
-- https://github.com/atabegruslan/Laravel_CRUD_API?tab=readme-ov-file#theory-of-many-to-many-relationships-in-laravel
-
-# Migration scripts
-
-- Migration is for database structure.
-- To run a DB migration script again:
-    - `php artisan migrate:rollback` (which deletes the most recent batch out of the `migrations` table)
-    - Or go into the DB, manually delete the entry out of the `migrations` table.
-- Seeding is for database data.
-    - Make seed: `php artisan make:seeder WhateverTableSeeder`
-    - Run seed: `php artisan db:seed --class=WhateverTableSeeder`
-
-# Timestamps and Soft Deletes
-
-If you weren't using these before and decide to start using them
-
-1. Adust the database
-    - For timestamps: add `created_at` & `updated_at` nullable columns of timestamp type, default now.
-    - For soft delete: add `deleted_at` nullable column of timestamp type, default null.
-2. Make the migration script consistent by adding 
-```php
-Schema::create('whatevers', function (Blueprint $table) {
-    ...
-    $table->softDeletes();
-    $table->timestamps();
-});
-```
-3. In model, add:
-```php
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-
-class Whatever extends Model
-{
-    use SoftDeletes;
-
-    public $timestamps = true;
-```
-
-You can see that `Illuminate\Database\Eloquent\Model.php::performDeleteOnModel()` is overridden by `Illuminate\Database\Eloquent\SoftDeletes.php::performDeleteOnModel()`
-
-https://www.itsolutionstuff.com/post/how-to-use-soft-delete-in-laravel-5example.html
-
-# PgSql
-
-Have these in `.env`
-```
-DB_CONNECTION=pgsql
-DB_HOST=127.0.0.1
-POSTGRESQL_ADDON_DB=xxx
-POSTGRESQL_ADDON_USER=postgres
-POSTGRESQL_ADDON_PASSWORD=
-```
-
-Enable `extension=pdo_pgsql` in `php.ini`
+![](/Illustrations/Development/laravel/laravel_model_cast.png)
 
 # File generating/manipulating libraries
 
@@ -490,6 +536,9 @@ Enable `extension=pdo_pgsql` in `php.ini`
 - https://github.com/PHPOffice/PhpSpreadsheet
 - https://docs.laravel-excel.com/2.1/export/cells.html
 - https://www.itsolutionstuff.com/post/laravel-merge-multiple-pdf-files-exampleexample.html
+- https://www.youtube.com/watch?v=v8eSGeszu4U
+- https://www.youtube.com/playlist?list=PL1TrjkMQ8UbWeumS9QLpRWpkG7qIKHSqX
+- https://www.itsolutionstuff.com/post/how-to-merge-multiple-pdf-files-in-laravel-10example.html
 
 # Documentation
 
@@ -519,19 +568,28 @@ All the documentation libraries involves annotating the controller functions
 
 An actual working example of Swagger in Laravel: https://github.com/Ruslan-Aliyev/laravel-swagger
 
-# Security issues
+# Date and time
 
-- https://www.youtube.com/watch?v=dWVTfY6cMBs
+- Tempo: https://laravel-news.com/tempo-js-dates
+- Laravel Carbon:
 
-# Making Service
+![](/Illustrations/Development/laravel/laravel_carbon.png)
 
-- https://github.com/artogrig/laravel-make-service
-- https://laracasts.com/discuss/channels/laravel/howwhere-do-i-create-service-classes
+- https://github.com/atabegruslan/Others/blob/master/Development/php_js_knowhows.md#dates-and-times
+- https://stackoverflow.com/questions/57761890/laravel-formatting-all-dates-simultaneously
 
-In services, use:
-- Static methods: If no need for objects. Eg yearly report service for year 2020, 2021, ...
-- Non-static methods: If you want to chain methods
-- DI service: slightly less code
+# Validation
+
+- https://www.youtube.com/watch?v=IkRXKRCPWeU
+- Scroll to position: https://www.youtube.com/watch?v=YGbyKxw6a84
+- https://laravel.com/docs/11.x/validation#custom-validation-rules
+- https://stackoverflow.com/questions/50287823/validating-a-custom-date-format-in-with-laravel-validator
+- https://www.leonelngande.com/laravel-validation-sometimes-vs-nullable
+- https://laravel.com/docs/11.x/validation#rule-alpha-num
+- https://stackcoder.in/posts/how-to-create-custom-validation-rules-in-php-laravel-using-artisan-command
+- https://codingspoint.com/laravel-8-date-format-validation-example
+
+![](/Illustrations/Development/laravel/laravel_validation_stopOnFirstFailure.png)
 
 # Client Side Vallidation
 
@@ -585,31 +643,28 @@ Route::get('/log', function () {
 
 - https://www.youtube.com/watch?v=XWFXikdTFcw
 
-# Debugging / Monitoring
+# Multi Tenancy
 
-- https://github.com/barryvdh/laravel-debugbar
-
-# Admin Backside Panel
-
-- https://reposhub.com/php/web-frameworks/the-control-group-voyager.html
-- https://github.com/the-control-group/voyager
-
-```
-composer require tcg/voyager
-# Update .env database connection and APP_URL
-php artisan voyager:install --with-dummy
-{domain}/admin : admin@admin.com/password
-```
-
-- https://github.com/filamentphp/filament?tab=readme-ov-file#panel-builder--documentation--demo (Laravel Filament is mainly for developing Tall Stack, but it have an admin panel)
-- https://github.com/jeroennoten/Laravel-AdminLTE
+- https://www.youtube.com/watch?v=pWVxWu0D9sY
+- https://www.youtube.com/watch?v=GKBV0-u_-4A
+- https://www.youtube.com/watch?v=8ot9IiGaqhk
 
 # Integrations
+
+## Email
+
+- https://laracasts.com/discuss/channels/laravel/how-to-check-mail-is-send-successfully-in-laravel
+- https://hotexamples.com/examples/illuminate.support.facades/Mail/failures/php-mail-failures-method-examples.html
+
+## Recaptcha
+
+- https://laravel-news.com/google-recaptcha-enterprise-for-laravel
 
 ## SMS SignIn
 
 - https://codezen.io/how-to-send-sms-messages-in-laravel/
 - https://stackoverflow.com/questions/48883060/laravel-register-and-log-in-via-phone-number-and-sms-confirmation
+- https://laraveldaily.com/post/laravel-2fa-two-factor-auth-otp-email-sms
 
 ## Zalo Integration
 
@@ -626,16 +681,10 @@ https://gist.github.com/atabegruslan/b603476fbfa5a928ce92c0f9b49f29d7
 - `artisan vendor:publish`: https://stillat.com/blog/2016/12/07/laravel-artisan-vendor-command-the-vendorpublish-command
 - Override package views: https://stackoverflow.com/questions/57160594/is-it-possible-to-override-a-laravel-package-view-from-another-package
 
-## View Overriding
-
-- THE tutorial: https://www.youtube.com/watch?v=BntEU1Q5ga8
-- https://voyager-docs.devdojo.com/
-    - https://voyager-docs.devdojo.com/customization/overriding-files
-    - EG: For `{domain}/admin/posts`, override `vendor/tcg/voyager/resources/views/bread/browse.blade.php` with `resources/views/vendor/voyager/posts/browse.blade.php`
-
 # Pipeline
 
 - https://hafiqiqmal93.medium.com/laravel-eloquent-query-sfilter-using-pipeline-7c6f2673d5da
+- https://laravel-news.com/livestream-laravel-pipelines
 
 In controller
 ```php
@@ -806,19 +855,45 @@ Eg: Get timestamps in a formatted way, get name with first letter capitalized, g
 
 https://laravel.com/docs/9.x/eloquent-mutators
 
-![](/Illustrations/Development/laravel_model_attributes.png)
+![](/Illustrations/Development/laravel/laravel_model_attributes.png)
 
 https://github.com/academico-sis/academico/blob/pro/app/Traits/PriceTrait.php#L7
 
 # Permissions terminology
 
-https://www.youtube.com/watch?v=kZOgH3-0Bko
+- `spatie/laravel-permission`: https://github.com/atabegruslan/Laravel_CRUD_API/tree/master?tab=readme-ov-file#permissions-spatie-library
+- https://www.youtube.com/watch?v=kZOgH3-0Bko
+- https://techsolutionstuff.com/post/laravel-8-user-roles-and-permissions-without-package
+- https://techsolutionstuff.com/post/user-roles-and-permissions-without-package-laravel-9
+- https://devnote.in/laravel-simple-role-based-authentication
+- https://viblo.asia/p/laravel-8-tao-roles-va-permissions-khong-su-dung-package-maGK761b5j2
 
 In Laravel, there is the regular User - Role - Permission
 
 Then there are "weirder" terms like:
 - Permission = gate
 - Group of permissions = policy
+
+![](/Illustrations/Development/laravel/laravel_policy.png)
+
+# Security
+
+- spatie/laravel-csp: https://laravel-news.com/laravel-content-security-policies
+- https://laravel-news.com/passwordless-authentication-in-laravel
+- https://laravel-news.com/use-1password-to-authenticate-with-forge-and-vapor-securely
+- https://www.youtube.com/watch?v=dWVTfY6cMBs
+- https://stackoverflow.com/questions/28899905/bcrypt-vs-hash-in-laravel
+- https://flareapp.io/docs/ignition/introducing-ignition/security-recommendations
+
+## Middleware
+
+- https://laravel-news.com/laravel-security-middleware
+
+# Auth
+
+- https://code.tutsplus.com/how-to-create-a-custom-authentication-guard-in-laravel--cms-29667t
+- https://laravel.com/docs/11.x/authentication
+- Multi Auth using Guards: https://www.youtube.com/watch?v=JanA7k9IBdo
 
 # JWT
 
@@ -998,11 +1073,19 @@ Tutorials:
     - This means that the bearer token that Passport generates is actually a JWT. Since OAuth2 makes no specifications on its bearer token's format, a JWT can be use.
         - The private and public keys for the signing of the generated JWT can be found in `/storage` folder
 
+## SSO
+
+- https://www.youtube.com/playlist?list=PLC-R40l2hJfdyfZ3jkDKOcyoqmIgw2wda 
+- https://github.com/mi-lopez/laravel-sso 
+
 # Homestead
 
 https://github.com/atabegruslan/Others/blob/master/Virtual/laravel_homestead.md
 
 # Storage to AWS S3
+
+- https://www.youtube.com/watch?v=xN-CF7dzeyM
+- https://laravel.com/docs/11.x/filesystem
 
 - https://github.com/thephpleague/flysystem-aws-s3-v3
     - https://github.com/thephpleague/flysystem
@@ -1012,7 +1095,7 @@ https://github.com/atabegruslan/Others/blob/master/Virtual/laravel_homestead.md
 - https://github.com/aws/aws-sdk-php-laravel
 - https://iwconnect.com/working-with-amazonaws-s3-creds-in-laravel/
 - https://readouble.com/laravel/8.x/en/filesystem.html
-- https://www.clever-cloud.com/doc/deploy/addon/cellar/
+- https://www.clever-cloud.com/doc/deploy/addon/cellar
 
 1. `composer require league/flysystem-aws-s3-v3`
 
@@ -1068,7 +1151,259 @@ else
 }
 ```
 
-See also: https://www.youtube.com/watch?v=xN-CF7dzeyM
+# Critical Sections
+
+![](/Illustrations/Development/laravel/laravel_racing_condition.png)
+
+# Laravel Ecosystem
+
+https://ecosystem.laravel.io
+
+## TALL 
+
+- https://www.youtube.com/playlist?list=PLQVyhB87NYx6efRmZjLiCrrTzHTH5KDT0
+- https://tallstack.dev/
+
+## Alpine
+
+Alternative to Vue
+
+- https://www.youtube.com/watch?v=M3fY0E60cM0
+- https://www.youtube.com/watch?v=DJjenhzqBHk
+- https://blog.logrocket.com/intro-to-alpine-js-for-vue-developers
+
+## Livewire
+
+Unifying BE and FE from the back
+
+- https://www.youtube.com/watch?v=4c7h2sIA8lc
+- https://www.youtube.com/playlist?list=PLe30vg_FG4OQ8b813BDykoYz95Zc3xUWK
+- Livewire prefetch: https://www.youtube.com/watch?v=1vnvLMkc7AM
+- https://laravel-news.com/wirebox-livewire-playground
+- https://laravel-news.com/how-to-add-a-confirmation-dialog-with-livewire
+- https://laravel-news.com/livewire-toaster
+- Order Management System: https://www.youtube.com/watch?v=-ExuAuCnyg4
+- Livewire volt: https://www.youtube.com/watch?v=wa_NQTH1sQc
+- Code review: https://www.youtube.com/watch?v=-48w_ZPuw34
+- https://laravel-news.com/livewire-inertia
+
+## InertiaJS
+
+Unifying BE and FE from the front
+
+- https://github.com/Ruslan-Aliyev/Laravel_Inertia
+
+## Filament
+
+- To help developing on TALL stack
+
+https://laravel-news.com/5-underrated-filament-features 
+https://www.youtube.com/watch?v=bF04VPI68sg 
+https://www.youtube.com/watch?v=FzouTDRx9KU 
+https://www.youtube.com/watch?v=GKBV0-u_-4A 
+https://www.youtube.com/watch?v=ujUhXLVqOO0 
+https://www.youtube.com/watch?v=tznw7lTblbY 
+https://www.youtube.com/watch?v=JAHYfq07uiU
+
+## Admin Dashboard
+
+- https://reposhub.com/php/web-frameworks/the-control-group-voyager.html
+- https://github.com/the-control-group/voyager
+
+```
+composer require tcg/voyager
+# Update .env database connection and APP_URL
+php artisan voyager:install --with-dummy
+{domain}/admin : admin@admin.com/password
+```
+
+- https://github.com/filamentphp/filament?tab=readme-ov-file#panel-builder--documentation--demo (Laravel Filament is mainly for developing Tall Stack, but it have an admin panel)
+- https://github.com/jeroennoten/Laravel-AdminLTE
+
+## Nova
+
+Admin dashboard
+
+- https://www.youtube.com/watch?v=vBfaiZQDQrQ
+
+## `LaravelDaily/Larastarters` library*
+
+- https://github.com/LaravelDaily/Larastarters
+
+## Statamic
+
+Admin dashboard
+
+- https://laravel-news.com/statamic-4-released
+
+## Gitamic
+
+- https://laravel-news.com/gitamic
+
+## Kinetic
+
+- https://github.com/ericdrowell/KineticJS/
+
+## Shift
+
+For update
+
+- https://laravelshift.com
+
+## Shift Blueprint
+
+Scaffold
+
+- https://www.youtube.com/watch?v=JgKJj2iDEHM
+
+## Orion
+
+Building REST APIs
+
+- https://laravel-news.com/laravel-orion
+
+## Pint
+
+PHP code style fixer
+
+- https://laravel-news.com/configuring-laravel-pint
+- https://www.youtube.com/watch?v=L_ZnvP2qAds
+
+## Herd
+
+Laravel and PHP development environment for macOS
+
+- https://laravel-news.com/laravel-herd
+- https://www.youtube.com/watch?v=fQOw-wkQV7o
+
+## Takeout
+
+Docker related
+
+- https://laravel-news.com/using-takeout-with-local-valet-and-docker-sites
+
+## Valet
+
+Docker related
+
+- https://laravel-news.com/valet-v4-is-released
+- https://spinupwp.com/laravel-valet-local-wordpress-dev
+
+## Sail
+
+Docker related
+
+- https://laravel.com/docs/11.x/sail
+
+## Laradock*
+
+Docker related
+
+- https://www.youtube.com/watch?v=q9bk9L2h8i8
+- https://www.youtube.com/watch?v=yCZog0bk6sE
+- https://www.youtube.com/watch?v=nDDtIYi-Zd4
+- https://www.youtube.com/watch?v=PsHjQYNcMZg 
+- https://laradock.io
+
+## Basset 
+
+Load CSS & JS
+
+- https://laravel-news.com/basset
+
+## Bun
+
+JS package manager
+
+- Bun vs NPM vs Yarn vs pnpm: https://benjamincrozat.com/bun-package-manager
+- https://laravel-news.com/laravel-sail-bun
+
+## Smart Ads
+
+Make ad banners
+
+- https://laravel-news.com/laravel-smart-ads
+
+## TelemetryHub
+
+Monitoring
+
+- https://laravel-news.com/telemetryhub
+
+## Benchmark
+
+Test performance
+
+- https://laravel-news.com/laravel-benchmark
+
+## Ray
+
+Test performance
+
+- https://myray.app/docs/getting-started/introduction
+
+## Sentry
+
+Monitor performance
+
+- https://laravel-news.com/how-sentry-can-improve-your-laravel-application
+
+## Laravel 11's health-check endpoint*
+
+Health-check
+
+- https://laravel-news.com/laravel-11-health-endpoint
+
+## `barryvdh/laravel-debugbar` library*
+
+Debugging and Monitoring
+
+- https://github.com/barryvdh/laravel-debugbar
+
+## Folio
+
+Simplify routing
+
+- https://laravel.com/docs/11.x/folio
+
+## Telescope
+
+Logging
+
+- https://laravel.com/docs/11.x/telescope
+
+## Tinkerwell tool*
+
+Code runner for PHP. Better than Tinker
+
+- https://laravel-news.com/tinkerwell-v4
+
+## Forge
+
+Server management
+
+- https://forge.laravel.com 
+
+## Vapor 
+
+Serverless deployment platform
+
+- https://vapor.laravel.com
+
+## Precognition
+
+- https://laravel-news.com/laravel-precognition
+
+# Deployment
+
+Methods:
+
+1. Upload `public` folder into server's `public_html` folder. Upload the rest to another folder outside of the server's `public_html` folder. In `public/index.php` rectify all relevant paths. Import .sql to server's database. Refactor database-name, username & password in the `.env` file.
+2.  Load the entire folder as it is. To rid the `/public/` segment of the URL, put the following into the root folder's `.htaccess`: https://infyom.com/blog/how-to-remove-public-path-from-url-in-laravel-application
+3. To rid the `/public/` by: https://www.devopsschool.com/blog/laravel-remove-public-from-url-using-htaccess/
+
+- https://www.youtube.com/watch?v=UyopFbFRug8
+- https://laravel-news.com/run-one-time-operations-after-deployment-with-laravel
 
 # Clevercloud
 
@@ -1085,3 +1420,64 @@ See also: https://www.youtube.com/watch?v=xN-CF7dzeyM
    }
  }
 ```
+
+# HTTPS 
+
+- https://github.com/atabegruslan/Others/blob/master/Server/https.md
+- https://dev.to/robertobutti/laravel-artisan-serve-and-https-cb0
+
+# Clear cache
+
+- https://tecadmin.net/clear-cache-laravel-5/
+- On top of the above `php artisan config:cache` is also an useful command
+
+# File Upload
+
+- https://www.digitalocean.com/community/tutorials/how-to-handle-file-uploads-in-vue-2
+- https://therichpost.com/vue-laravel-image-upload/
+- https://stackoverflow.com/questions/47630163/axios-post-request-to-send-form-data
+- https://stackoverflow.com/questions/54057254/laravel-5-7-cant-parse-post-multipart-form-data-request/54059842
+- https://stackoverflow.com/questions/54686218/laravel-vuejs-axios-put-request-formdata-is-empty
+- https://stackoverflow.com/questions/5392344/sending-multipart-formdata-with-jquery-ajax
+- https://viblo.asia/p/upload-file-su-dung-vue-dropzone-gAm5yRYAKdb
+
+# EC
+
+- https://www.youtube.com/watch?v=waojlxMBZ3U
+- https://laravel-news.com/modelling-busines-processes-in-laravel
+
+# AI
+
+- https://laravel-news.com/openai-for-laravel
+
+# Misc
+
+- https://www.grepper.com/answers/155245/laravel+call+controller+method+from+view
+- https://www.youtube.com/watch?v=6dEfxGLgevM
+- https://stackoverflow.com/questions/14837065/how-to-get-public-directory
+- https://appdividend.com/how-to-create-filters-in-laravel
+- https://laravel-news.com/hiding-console-commands
+- https://laravel-news.com/laravel-recurring-models
+- https://www.youtube.com/watch?v=xk6kQAd_kj0
+- https://www.youtube.com/watch?v=JGYn-qth-VQ
+- https://www.youtube.com/watch?v=5qOwF-J5xxM
+- Bad practices: https://www.youtube.com/watch?v=dSH4dyCQVas
+- Interview: https://www.youtube.com/watch?v=OJoHJwDK-VQ
+- https://laravel-news.com/using-attributes-to-add-value
+- https://laracasts.com/discuss/channels/general-discussion/how-to-use-a-constructor-in-a-model-if-it-is-even-possible
+- Progress bar: https://www.youtube.com/watch?v=9TT5VzSMMaU
+- Call route from controller: https://panjeh.medium.com/laravel-call-named-routes-in-console-internally-php-artisan-command-15ba05ddafb1
+- `Str`:
+
+![](/Illustrations/Development/laravel/laravel_str.png)
+
+Masking sensitive info:
+![](/Illustrations/Development/laravel/laravel_mask.png)
+
+---
+
+# Places for info and help
+
+- https://laracasts.com/series/demystifying-laravel-magic
+- https://laracasts.com/series/automated-laravel-upgrades/episodes/1
+- https://discord.com/invite/laravel

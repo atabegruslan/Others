@@ -1,5 +1,10 @@
 # PHP
 
+## Class
+
+- https://www.php.net/manual/en/function.get-class.php
+- https://www.php.net/manual/en/language.oop5.constants.php
+
 ## Composer
 
 ### Setup
@@ -71,6 +76,35 @@ file_put_contents("C:/Users/Victor/Desktop/stacktrace" . date("YFd_H-i-s") . ran
 `throw new \GuzzleHttp\Exception\RequestException('test', new \GuzzleHttp\Psr7\Request('dummy', '', [], null, []));`
 
 https://www.howtobuildsoftware.com/index.php/how-do/zlV/guzzle-how-to-create-own-requestexception-in-guzzle
+
+## Get various info
+
+Get base URL:
+```php
+<?php
+echo '<pre>';
+print_r($_SERVER);
+echo '</pre>';
+
+echo '<pre>';
+$baseUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$urlParts = explode('/', $baseUrl);
+array_pop($urlParts);
+$baseUrl = implode('/', $urlParts);
+$baseUrl .= '/';
+echo $baseUrl;
+echo '</pre>';
+```
+
+Get PHP's info: `phpinfo();`
+
+![](/Illustrations/Development/php/php_pathinfo.png)
+
+A file, folder or link's info: `print_r(lstat('C:\Users\somefile.txt'));`
+
+- https://stackoverflow.com/questions/12085761/what-is-lstat-alternative-in-windows/12086077#12086077
+- https://www.w3schools.com/php/func_filesystem_lstat.asp
+- https://www.geeksforgeeks.org/node-js-fs-lstat-method
 
 ## Reading HTTP request body from a JSON POST in PHP
 
@@ -164,6 +198,10 @@ Example of DateTime usage:
 - BC Functions: 
 	- https://www.php.net/manual/en/ref.bc.php
 	- https://sodocumentation.net/php/topic/8550/bc-math--binary-calculator-
+
+## Progress bar
+
+- https://snipplr.com/view/29548
 
 ## Versions
 
