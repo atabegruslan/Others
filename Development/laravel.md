@@ -598,7 +598,7 @@ Route::get('/log', function () {
 composer require tcg/voyager
 # Update .env database connection and APP_URL
 php artisan voyager:install --with-dummy
-http://localhost/laravel_notes/public/admin : admin@admin.com/password
+{domain}/admin : admin@admin.com/password
 ```
 
 - https://github.com/filamentphp/filament?tab=readme-ov-file#panel-builder--documentation--demo (Laravel Filament is mainly for developing Tall Stack, but it have an admin panel)
@@ -631,7 +631,7 @@ https://gist.github.com/atabegruslan/b603476fbfa5a928ce92c0f9b49f29d7
 - THE tutorial: https://www.youtube.com/watch?v=BntEU1Q5ga8
 - https://voyager-docs.devdojo.com/
     - https://voyager-docs.devdojo.com/customization/overriding-files
-    - EG: For `http://localhost/laravel_notes/public/admin/posts`, override `vendor/tcg/voyager/resources/views/bread/browse.blade.php` with `resources/views/vendor/voyager/posts/browse.blade.php`
+    - EG: For `{domain}/admin/posts`, override `vendor/tcg/voyager/resources/views/bread/browse.blade.php` with `resources/views/vendor/voyager/posts/browse.blade.php`
 
 # Pipeline
 
@@ -742,12 +742,6 @@ abstract class Filter
         return $this->applyFilters($next($builder));
     }
 
-    /**
-     * apply Filters
-     *
-     * @param Builder $builder
-     * @return void
-     */
     protected abstract function applyFilters(Builder $builder): Builder;
 
     protected function filterName()
@@ -1074,7 +1068,7 @@ else
 }
 ```
 
-See also: https://youtu.be/xN-CF7dzeyM?si=IEg9DjV-Uv38ZZI1
+See also: https://www.youtube.com/watch?v=xN-CF7dzeyM
 
 # Clevercloud
 
