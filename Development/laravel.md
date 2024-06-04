@@ -273,6 +273,8 @@ public function findPhpExec()
 }
 ```
 
+See also for plain PHP: https://github.com/atabegruslan/Others/blob/master/Development/php_js_knowhows.md#get-various-info
+
 # Facades
 
 - https://laravel-news.com/process-facade-laravel-10
