@@ -1,1 +1,0 @@
-"C:\Users\Victor\curl\src\curl.exe" "http://localhost/test/cron/script2.php?testname=test2"
