@@ -1,6 +1,6 @@
-## Laravel Homestead
+# Laravel Homestead
 
-### Tutorials
+## Tutorials
 
 - https://www.youtube.com/playlist?list=PL41lfR-6DnOqzgYCAOIBTnMUFNdLtsKuW
 - https://laravel.com/docs/8.x/homestead
@@ -46,19 +46,26 @@ composer global require laravel/installer
 laravel new project
 ```
 
-### DB:
+## DB:
 
 - https://laravel.com/docs/8.x/homestead#connecting-to-databases
 - https://www.youtube.com/watch?v=9-vHcy5esAo
 - https://dbeaver.io/download/
 - Defaults: 192.168.10.10:3306 homestead/secret
 
-### Common issues
+## Common issues
 
 - Mapping port from Swoole out to Homestead: https://nickpoulos.medium.com/installing-swoole-on-laravel-homestead-ac79a804984a
 
-### Commonly encountered problems:
+## Commonly encountered problems:
 
 - https://laracasts.com/discuss/channels/general-discussion/box-laravelhomestead-could-not-be-found-2?page=1#reply=640644
 - Restarting Vagrant https://stackoverflow.com/questions/24274387/using-laravel-homestead-no-input-file-specified
 - Composer problem https://stackoverflow.com/questions/36107400/composer-update-memory-limit#comment105321195_36107762
+
+---
+
+# More about Vagrant
+
+- https://en.m.wikipedia.org/wiki/Vagrant_(software)
+- https://www.quora.com/Whats-the-difference-between-a-VM-Docker-and-Vagrant/answer/Varun-Risbud?ch=10&oid=24924878&share=c0cdb983&srid=hJcklY&target_type=answer

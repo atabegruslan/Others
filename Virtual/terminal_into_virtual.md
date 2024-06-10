@@ -95,3 +95,14 @@ ssh pwuser@127.0.0.1 -p2222
 - https://www.answertopia.com/ubuntu/managing-ubuntu-users-and-groups/
 - https://askubuntu.com/questions/612751/what-is-the-difference-between-the-groups-adm-and-admin
 - https://www.configserverfirewall.com/ubuntu-linux/add-user-to-docker-group-ubuntu/
+
+---
+
+# More
+
+- https://marekbosman.com/site/access-virtualbox-image-from-the-command-line
+- https://unix.stackexchange.com/questions/566506/connect-to-virtualbox-gnu-linux-from-windows-10-via-ssh
+- https://www.oracle.com/technical-resources/articles/it-infrastructure/admin-manage-vbox-cli.html
+- https://superuser.com/questions/522713/command-line-tool-to-connect-to-a-virtualbox-guest-console
+- https://www.virtualbox.org/manual/ch08.html#vboxmanage-common
+- https://forums.virtualbox.org/viewtopic.php?t=41503

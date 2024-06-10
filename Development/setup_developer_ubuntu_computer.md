@@ -1,6 +1,6 @@
 ## Setup LAMP and other essentials
 
-https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#the-setup
+https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver_lamp.md
 
 ### Other ways/tutorials for installing LAMP
 
@@ -380,14 +380,14 @@ https://linuxize.com/post/how-to-check-your-ubuntu-version/
 
 #### Version
 
-- LAMP: https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#switch-php-versions
-- XAMPP: https://webhostingmedia.net/update-xampp-php-version-windows/
+- LAMP: https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver_lamp.md#switch-php-versions
+- XAMPP: https://webhostingmedia.net/update-xampp-php-version-windows
 
 ### Composer
 
 #### Install 
 
-https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#composer
+https://github.com/atabegruslan/Others/blob/master/Development/install_uninstall_change_versions.md#composer
 
 #### Uninstall 
 
@@ -413,15 +413,15 @@ https://stackoverflow.com/questions/64597051/how-to-downgrade-or-install-a-speci
 
 #### Install 
 
-https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#node
+https://github.com/atabegruslan/Others/blob/master/Development/install_uninstall_change_versions.md#node
 
 #### Uninstall 
 
-https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#uninstall-node
+https://github.com/atabegruslan/Others/blob/master/Development/install_uninstall_change_versions.md#uninstall-node
 
 #### Version
 
-https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#change-node-versions
+https://github.com/atabegruslan/Others/blob/master/Development/install_uninstall_change_versions.md#change-node-versions
 
 ### NPM
 
@@ -483,7 +483,7 @@ Mac: Command + Shift + .
 
 #### Apache and PHP log files
 
-- https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver.md#apache-and-php-log-files
+- https://github.com/atabegruslan/Others/blob/master/Server/setup_webserver_lamp.md#apache-and-php-log-files
 - https://github.com/Ruslan-Aliyev/Log#php-logs
 
 ### Composer Memory Limit

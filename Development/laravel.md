@@ -1199,13 +1199,14 @@ Unifying BE and FE from the front
 
 - To help developing on TALL stack
 
-https://laravel-news.com/5-underrated-filament-features 
-https://www.youtube.com/watch?v=bF04VPI68sg 
-https://www.youtube.com/watch?v=FzouTDRx9KU 
-https://www.youtube.com/watch?v=GKBV0-u_-4A 
-https://www.youtube.com/watch?v=ujUhXLVqOO0 
-https://www.youtube.com/watch?v=tznw7lTblbY 
-https://www.youtube.com/watch?v=JAHYfq07uiU
+- https://www.youtube.com/watch?v=wGu8lgaK_v8
+- https://laravel-news.com/5-underrated-filament-features 
+- https://www.youtube.com/watch?v=bF04VPI68sg 
+- https://www.youtube.com/watch?v=FzouTDRx9KU 
+- https://www.youtube.com/watch?v=GKBV0-u_-4A 
+- https://www.youtube.com/watch?v=ujUhXLVqOO0 
+- https://www.youtube.com/watch?v=tznw7lTblbY 
+- https://www.youtube.com/watch?v=JAHYfq07uiU
 
 ## Admin Dashboard
 
@@ -1291,21 +1292,38 @@ Docker related
 - https://laravel-news.com/valet-v4-is-released
 - https://spinupwp.com/laravel-valet-local-wordpress-dev
 
-## Sail
+## Laradock
 
 Docker related
 
-- https://laravel.com/docs/11.x/sail
-
-## Laradock*
-
-Docker related
-
+- https://www.youtube.com/playlist?list=PLWvvi-jFYHUjfMprLCYA1ubflsirxKrVg
+- https://github.com/LaraDock/
+- https://laradock.io
 - https://www.youtube.com/watch?v=q9bk9L2h8i8
 - https://www.youtube.com/watch?v=yCZog0bk6sE
 - https://www.youtube.com/watch?v=nDDtIYi-Zd4
 - https://www.youtube.com/watch?v=PsHjQYNcMZg 
-- https://laradock.io
+
+## Sail
+
+Docker related
+
+# Sail
+
+- https://laravel.com/docs/11.x/sail
+- https://laravel-news.com/laravel-sail
+- https://www.youtube.com/watch?v=PDaGJ397Ing
+- https://www.youtube.com/watch?v=5VxLX3aVs-E
+- https://www.youtube.com/watch?v=4K4nkncZ2OQ
+- https://laravel.com/docs/8.x/sail#installing-sail-into-existing-applications
+- https://laravel.com/docs/8.x/installation#getting-started-on-macos
+- https://www.youtube.com/watch?v=398J2rNQRGY
+
+Setup in existing project
+```
+composer require laravel/sail --dev
+php artisan sail:install # After here, a docker-compose.yaml will be created
+```
 
 ## Basset 
 
