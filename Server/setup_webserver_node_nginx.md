@@ -11,9 +11,16 @@ Digital Ocean Droplet is used
 
 Centos is used
 
-Generate and ddd your local SSH public key into server's `authorized_keys` file
+Generate and add your local SSH public key into server's `authorized_keys` file
 
-Relevant: https://stackoverflow.com/questions/33243393/what-is-actually-in-known-hosts
+To clear up any confusion between `authorized_keys` and `known hosts`, imagine this setup:
+
+Your localhost -> your server -> Github
+
+You add your localhost's SSH key into your server's `authorized_keys`, so that it will allows you to SSH in.     
+When you give your server's SSH key to Github, in order to pull from Github via SSH, then an entry got Github will be added into your server's `known hosts`. https://stackoverflow.com/questions/33243393/what-is-actually-in-known-hosts     
+
+Difference between SSH vs Deploy keys: https://stackoverflow.com/questions/39659302/difference-between-account-ssh-key-vs-deployment-ssh-key/39659393#39659393
 
 `dnf` is Centos's package manager
 ```
@@ -107,6 +114,17 @@ Up to now, the terminal you are using is `zsh`, `fishshell` is better.
 
 https://gist.github.com/atabegruslan/10c8a71a184adc0091e153b5cd7446bd
 
+## DNS
+
+In this tutorial, **GoDaddy** is used.    
+Need to A and CNAME records.   
+
+## What are proxies
+
+- https://www.youtube.com/watch?v=4NB0NDtOwIQ
+- https://www.pomerium.com/blog/proxy-vs-reverse-proxy/
+- https://www.youtube.com/watch?v=ozhe__GdWC8
+
 ## Reverse Proxy
 
 Tutorial's Nginx reverse-proxy setup
@@ -130,3 +148,77 @@ https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer
 - https://webhostinggeeks.com/howto/how-to-configure-and-use-haproxy-as-a-reverse-proxy
 - https://www.haproxy.com/blog/layer-4-and-layer-7-proxy-mode
 - https://www.youtube.com/watch?v=aKMLgFVxZYk&list=PLpXfHEl2fzl6A8U5X0amZiYewxNQ01ERK&index=2
+
+## Load balancing methods
+
+- https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#choosing-a-load-balancing-method
+- https://youtu.be/dBmxNsS3BGE?si=ASSdIDtdsj2yf9sw
+
+![](/Illustrations/Server/load_balancing_methods.png)
+
+## Load balancer uses
+
+![](/Illustrations/Server/load_balancer_uses.png)
+
+## Load balancer choices
+
+- https://www.g2.com/categories/load-balancing
+- https://www.nomios.com/news-blog/best-load-balancers-2024
+- https://www.softwaretestinghelp.com/sofware-load-balancers
+- https://logz.io/blog/best-open-source-load-balancers
+
+![](/Illustrations/Server/load_balancer_choices.png)
+
+## SSL certificate
+
+**Certbot** is used in this tutorial
+
+## Update server whenever Github updates
+
+In this tutorial, this Webhook Server is used: https://github.com/adnanh/webhook
+
+Github gets a new commit -> Github's Webhook calls server's Webhook Server -> Webhook Server's `hooks.json` -> `redeploy.sh` pulls in the new code from Github.
+
+![](/Illustrations/Server/github_setup_webhook.png)
+
+![](/Illustrations/Server/webhook_server.png)
+
+![](/Illustrations/Server/webhook_files.png)
+
+## Firewall
+
+`firewalld` is used in this tutorial
+
+## Fail2Ban 
+
+If someone fails to eg login often enough, then he'll be banned for a set amount of time.
+
+## Deployment strategies
+
+- https://youtu.be/AWVTKBUnoIg?si=rTv922OtNL8GCWqw
+
+![](/Illustrations/Server/deployment_strategies.png)
+
+## API Gateways
+
+- https://www.youtube.com/watch?v=6ULyxuHKxg8
+
+![](/Illustrations/Server/api_gateway.png)
+
+Uses:
+- Authentication / authorization
+- SSL cert rotation (obtaining new cert every N days) / SSL termination
+- DDoS protection
+- Throttling
+- Routing
+- Security policy enforcement
+- Static content
+- Something like auto-sending you discounts, sales and offers
+- Cache
+- Load Balancing
+- Circuit breaking
+- A/B Testing
+- Protocol tranlation
+- Service discovery
+- Admin dashboard
+- Monitoring, logging, analytics, billing

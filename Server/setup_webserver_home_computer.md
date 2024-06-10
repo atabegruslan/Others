@@ -16,6 +16,8 @@ When you put URL into a browser:
 - ICANN's Authoritative Name Server https://www.cloudns.net/blog/authoritative-dns-server
 
 Other relevant articles:
-- https://en.m.wikipedia.org/wiki/List_of_DNS_record_types
+
+- https://en.wikipedia.org/wiki/List_of_DNS_record_types
+- https://www.site24x7.com/learn/dns-record-types.html
 - https://en.wikipedia.org/wiki/DNS_zone
 - https://en.wikipedia.org/wiki/Domain_name_registrar 
