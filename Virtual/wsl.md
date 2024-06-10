@@ -11,6 +11,8 @@
 
 > For WSL2 you only need "Virtual Machine Platform" (a subset of Hyper-V) and "Windows Subsystem for Linux" features.
 
+![](/Illustrations/Virtual/wsl/wsl.png)
+
 ## Enable virtualization on Windows 
 
 Something you need to do before having Docker
