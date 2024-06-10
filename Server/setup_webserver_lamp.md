@@ -173,6 +173,7 @@ Can be configured in `/etc/php{version}/apache2/php.ini`
 - https://www.youtube.com/watch?v=hVNWkAK70UQ
 - https://phoenixnap.com/kb/how-to-install-lamp-stack-on-ubuntu
 - https://askubuntu.com/questions/997317/how-to-upgrade-the-php-version-in-lampp-in-ubuntu
+- https://www.tecmint.com/install-ubuntu-server-22-04
 
 ---
 

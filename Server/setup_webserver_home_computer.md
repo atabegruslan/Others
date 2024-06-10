@@ -21,3 +21,4 @@ Other relevant articles:
 - https://www.site24x7.com/learn/dns-record-types.html
 - https://en.wikipedia.org/wiki/DNS_zone
 - https://en.wikipedia.org/wiki/Domain_name_registrar 
+- https://opensource.com/article/23/3/open-source-dns-server

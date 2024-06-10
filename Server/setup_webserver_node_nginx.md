@@ -122,8 +122,9 @@ Need to A and CNAME records.
 ## What are proxies
 
 - https://www.youtube.com/watch?v=4NB0NDtOwIQ
-- https://www.pomerium.com/blog/proxy-vs-reverse-proxy/
+- https://www.pomerium.com/blog/proxy-vs-reverse-proxy
 - https://www.youtube.com/watch?v=ozhe__GdWC8
+- https://www.marktechpost.com/2023/08/31/best-proxy-servers-2023
 
 ## Reverse Proxy
 
@@ -136,6 +137,12 @@ Another example of a simple Nginx reverse-proxy setup
 https://phoenixnap.com/kb/nginx-reverse-proxy
 
 ![](/Illustrations/Server/nginx_reverse_proxy_2.png)
+
+Other tutorials:
+- https://kinsta.com/blog/reverse-proxy
+- https://www.freecodecamp.org/news/docker-nginx-letsencrypt-easy-secure-reverse-proxy-40165ba3aee2
+- https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Docker-Nginx-reverse-proxy-setup-example
+- https://www.highgo.ca/2023/06/06/using-nginx-as-a-postgresql-reverse-proxy-and-load-balancer
 
 ## Load Balancing
 
@@ -168,6 +175,12 @@ https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer
 - https://logz.io/blog/best-open-source-load-balancers
 
 ![](/Illustrations/Server/load_balancer_choices.png)
+
+- https://www.baeldung.com/zuul-load-balancing
+- https://www.designgurus.io/course-play/grokking-system-design-fundamentals/doc/641da6bad2bb4146954f1130
+- https://www.howtoforge.com/how-to-set-up-load-balancing-mysql-server-with-proxysql-on-debian-11
+- https://www.techgeeknext.com/spring-cloud/eureka-load-balancer
+- https://www.eginnovations.com/documentation/F5-BIG-IP-Load-Balancers/Introduction-to-F5-BIG-IP-Load-Balancer-Monitoring.htm#:~:text=An%20F5%20BIG%2DIP%20load,servers%20in%20the%20server%20pools.
 
 ## SSL certificate
 
