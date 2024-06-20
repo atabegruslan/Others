@@ -279,6 +279,13 @@ Ordering your table's data on this clustered GUID will cause your table to fragm
 
 This applies to more than GUIDs -- it goes toward any volatile column.
 
+### About UUID
+
+- https://www.youtube.com/watch?v=OAOQ7U0XAi0
+- https://www.youtube.com/watch?v=2MbFDR7qt5U
+
+![](/Illustrations/Storage/uuid_ulid.PNG)
+
 ## Position a Column in an Index
 
 Order or position of a column in an index also plays a vital role to improve SQL query performance. An index can help to improve the SQL query performance if the criteria of the query matches the columns that are left most in the index key. 
@@ -427,9 +434,18 @@ Full-text search is distinguished from searches based on metadata or on parts of
 
 In a full-text search, a search engine examines all of the words in every stored document as it tries to match search criteria.
 
-- https://mariadb.com/kb/en/full-text-index-overview/
+- https://mariadb.com/kb/en/full-text-index-overview
 - https://en.wikipedia.org/wiki/Full-text_search
 - https://www.youtube.com/watch?v=Q8Kg67XgPzc
+
+### In CJK languages
+
+- https://mariadb.com/kb/en/about-mroonga
+- https://levelup.gitconnected.com/how-to-make-chinese-full-text-search-dd8b6df801fb?gi=20ec5f770d70
+- https://dev.mysql.com/doc/refman/8.4/en/fulltext-search.html
+- https://forums.percona.com/t/how-fulltext-support-chinese-search/2059
+- https://dev.mysql.com/worklog/task/?id=6607
+- https://stackoverflow.com/questions/27940695/how-to-perform-mysql-fulltext-search-with-chinese-characters
 
 ## Execution order
 
@@ -498,6 +514,38 @@ Table lock: https://www.mysqltutorial.org/mysql-table-locking/
 
 https://github.com/atabegruslan/Others/blob/master/Illustrations/Storage/db_concurrency_2pl_or_timestamp.pdf
 
+### Locking
+
+- https://viblo.asia/p/database-locking-naQZRDGd5vx
+- https://www.tutorialspoint.com/mysql/mysql_lock_tables.htm
+
+## Triggers
+
+- Good intro: https://www.youtube.com/watch?v=rIi1dvPdTHE
+- Another good intro: https://dev.mysql.com/doc/refman/8.4/en/trigger-syntax.html
+- Calling API from Trigger
+	- https://medium.com/@elvis.gosselin/calling-rest-apis-from-mysql-dd9f15b74d92
+	- https://www.mooreds.com/wordpress/archives/1497
+	- https://open-bi.blogspot.com/2012/11/call-restful-web-services-from-mysql.html
+	- https://stackoverflow.com/questions/37215104/calling-an-url-from-a-trigger-in-mysql
+	- https://stackoverflow.com/questions/21746553/how-to-install-mysql-udf-in-windows-wamp
+		- https://github.com/mysqludf/lib_mysqludf_str/blob/master/README.win_x64.txt
+
+## Partitioning and Sharding
+
+- https://viblo.asia/p/gioi-thieu-ve-partitioning-trong-mysql-jvEla6kz5kw
+- https://www.devart.com/dbforge/mysql/studio/partition-mysql.html
+- https://www.sqltutorial.org/sql-window-functions/sql-partition-by/?callback=in&code=ZWEWN2Q1MWYTMDK5NS0ZN2QXLTLMM2MTNTLMM2I1NZFINJG0&state=0c9518e721f542da89bbac2394748a1a
+- https://www.sqlshack.com/database-table-partitioning-sql-server
+- https://www.mongodb.com/docs/manual/core/sharding-data-partitioning
+- https://uptrace.medium.com/postgresql-table-partitioning-589d7092a505
+- https://www.youtube.com/watch?v=wXvljefXyEo
+- https://www.youtube.com/watch?v=QA25cMWp9Tk
+
+![](/Illustrations/Storage/partitioning.PNG)
+
+![](/Illustrations/Storage/sharding_algorithms.PNG)
+
 ## Character Sets and Collations
 
 A character set is a set of symbols and encodings. A collation is a set of rules for comparing characters in a character set.
@@ -507,10 +555,9 @@ A character set is a set of symbols and encodings. A collation is a set of rules
 - https://mysqlserverteam.com/mysql-8-0-1-accent-and-case-sensitive-collations-for-utf8mb4/
 - https://stackoverflow.com/questions/48588705/how-to-remove-diacritics-from-utf8-characters-in-php
 
-
 - https://www.w3schools.com/sql/func_mysql_binary.asp
 - https://mariadb.com/kb/en/about-mroonga/
-- https://mroonga.org/docs/
+- https://mroonga.org/docs
 
 ## Encoding
 
@@ -535,6 +582,18 @@ https://github.com/atabegruslan/Others/blob/master/Security/encode.md#encodings-
 - https://softwareengineering.stackexchange.com/questions/120178/whats-the-difference-between-mariadb-and-mysql
 
 ## DB Types
+
+- https://www.youtube.com/watch?v=W2Z7fbCLSTw
+
+![](/Illustrations/Storage/db_types.PNG)
+
+- https://www.youtube.com/watch?v=kkeFE6iRfMM
+
+![](/Illustrations/Storage/db_choices.PNG)
+
+- https://www.youtube.com/watch?v=jb2AvF8XzII
+
+![](/Illustrations/Storage/db_future_types.PNG)
 
 ### Relational
 

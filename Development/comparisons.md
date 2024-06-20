@@ -178,6 +178,7 @@ https://github.com/atabegruslan/Others/blob/master/Development/async.md
 - https://stackoverflow.com/questions/38632723/what-can-service-workers-do-that-web-workers-cannot
 - https://stackoverflow.com/questions/60268604/whats-the-difference-between-web-workers-and-worker-threads
 - https://dev.to/bharat5604/web-worker-service-worker-and-worklets-a-comprehensive-guide-1f64
+- https://blog.logrocket.com/complete-guide-threads-node-js
 
 ## Dependency Management
 
@@ -247,8 +248,38 @@ https://github.com/atabegruslan/Others/blob/master/Development/async.md
 | Many versions, backwards compat support can be slow |  |
 |  | Callbacks, closures, functions are all objects |
 
-- https://www.geeksforgeeks.org/php-vs-node-js/
-- https://kinsta.com/blog/php-vs-javascript/
+- https://www.geeksforgeeks.org/php-vs-node-js
+- https://kinsta.com/blog/php-vs-javascript
+
+
+
+Thread
+
+- Node: https://github.com/atabegruslan/Others/blob/master/Development/comparisons.md#workers
+- PHP: 
+  - https://www.php.net/manual/en/language.fibers.php
+  - https://stackoverflow.com/questions/796217/what-is-the-difference-between-a-thread-and-a-fiber
+  - https://stackoverflow.com/questions/77891921/using-fibers-in-php
+
+https://hackaday.com/2023/09/25/processes-threads-and-fibers
+
+Thread models
+
+- PHP: https://stackoverflow.com/questions/7980111/can-php-serve-multiple-requests-at-the-same-time-or-one-by-one
+- Node: https://www.digitalocean.com/community/tutorials/node-js-architecture-single-threaded-event-loop
+- .NET: https://www.researchgate.net/figure/Architecture-of-ASPNET_fig1_245563991
+
+Performance
+
+- https://www.turing.com/blog/php-vs-asp-net/#performance
+- https://www.geeksforgeeks.org/difference-between-php-and-net
+- https://www.educba.com/php-vs-dot-net
+- https://stackoverflow.com/questions/691942/speed-of-code-execution-asp-net-mvc-versus-php
+
+
+
+
+
 
 | Laravel | Cake |
 |---|---|
