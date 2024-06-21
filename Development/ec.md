@@ -4,15 +4,23 @@
 
 - Stripe developer dashboard: https://dashboard.stripe.com
 
+stripe_dashboard.png
+
+Payments (left side) is where you see whether your transaction has succeeded or not
 
 - https://docs.stripe.com/testing#cards
 
 ## Paypal
 
-- SignUp to Paypal (Developer or not): https://www.paypal.com/en/webapps/mpp/country-worldwide , https://www.paypal.com/vn/signin
+- SignUp to Paypal (Developer or not): https://www.paypal.com/en/webapps/mpp/country-worldwide , https://www.paypal.com/vn/signin . Using your real email and password (Not your sandbox accounts)
 
 - Auto-generate sandbox Paypal accounts: https://developer.paypal.com/developer/accounts 
-	- then https://developer.paypal.com/developer/applications
+
+paypal_developer_credentials.png
+
+paypal_sandbox_accounts.png
+
+paypal_sandbox_account_detail.png
 
 ## Bambora ePay
 
@@ -57,12 +65,13 @@
 		- https://github.com/Ruslan-Aliyev/Stripe-API-Plain-PHP
 	- Laravel
 		- https://medium0.com/@juangsalazprabowo/how-to-integrate-laravel-with-stripe-fc54e54a767c
+		- https://www.remotestack.io/how-to-integrate-stripe-payment-gateway-in-laravel
 	- Misc
 		- https://stackoverflow.com/questions/29851706/how-to-create-a-customer-in-omnipay-stripe
 - Paypal
 	- Plain PHP
 		- https://www.youtube.com/watch?v=5AbkSomC-a4
-		- https://gist.github.com/atabegruslan/1de5d2d7c4d6c1c6681c5e66f5503913
+		- https://gist.github.com/atabegruslan/1de5d2d7c4d6c1c6681c5e66f5503913 // @TODO FINISH LARAVEL EG ^
 	- Laravel
 		- https://www.youtube.com/watch?v=_7YBIRQfSN0
 		- https://sujipthapa.co/blog/a-guide-to-integrate-omnipay-paypal-with-laravel
@@ -86,7 +95,6 @@
 - A Joomla EC extension DB: `joomla.mwb`
 
 
-
 - Why have seperate orders and carts table:
 	- https://stackoverflow.com/questions/60157839/should-i-have-a-cart-table-in-my-e-commerce-app-or-just-have-an-open-order-stat
 	- https://www.reddit.com/r/Database/comments/iq2g9q/q_how_to_design_cart_and_order_tables_in
@@ -95,11 +103,16 @@
 	- https://stackoverflow.com/questions/76093147/product-variations-table-for-ecommerce
 	- https://stackoverflow.com/questions/24923469/modeling-product-variants
 	- https://flixtechs.co.zw/posts/laravel-ecommerce-tutorial-part-8-product-variations
+- How to design tables to better handle Guest checkout
+	- https://stackoverflow.com/questions/17352944/database-schema-for-registered-customers-and-guest-checkout
+		- So no need to record strangers in users table
+		- Just record guest checkouts in the orders table (with nullable FK to user)
+		- Users with accounts have addresses linked to the users table
+		- Guests' addresses should be linked to the orders table
 
 
 
-
-
+#############
 
 
 GENERAL TUTs

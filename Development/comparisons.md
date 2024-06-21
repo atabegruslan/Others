@@ -265,6 +265,8 @@ https://hackaday.com/2023/09/25/processes-threads-and-fibers
 
 Thread models
 
+php_thread_model.png
+
 - PHP: https://stackoverflow.com/questions/7980111/can-php-serve-multiple-requests-at-the-same-time-or-one-by-one
 - Node: https://www.digitalocean.com/community/tutorials/node-js-architecture-single-threaded-event-loop
 - .NET: https://www.researchgate.net/figure/Architecture-of-ASPNET_fig1_245563991

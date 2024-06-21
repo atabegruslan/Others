@@ -945,7 +945,7 @@ Go to https://jwt.io/ to check
 - https://www.youtube.com/watch?v=6eX9Pj-GhZs
 - https://www.youtube.com/watch?v=jIzPuM76-nI
 
-# Laravel Sanctum
+# Laravel Sanctum (Update)
 
 First, read it's predecessor: https://github.com/atabegruslan/Laravel_CRUD_API?tab=readme-ov-file#passport
 
@@ -1195,7 +1195,7 @@ Unifying BE and FE from the front
 
 - https://github.com/Ruslan-Aliyev/Laravel_Inertia
 
-## Filament
+## Filament (Update)
 
 - To help developing on TALL stack
 
