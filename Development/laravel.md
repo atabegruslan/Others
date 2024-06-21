@@ -887,7 +887,7 @@ Then there are "weirder" terms like:
 - https://stackoverflow.com/questions/28899905/bcrypt-vs-hash-in-laravel
 - https://flareapp.io/docs/ignition/introducing-ignition/security-recommendations
 
-## Middleware
+# Middleware
 
 - https://laravel-news.com/laravel-security-middleware
 
@@ -897,12 +897,17 @@ Then there are "weirder" terms like:
 - https://laravel.com/docs/11.x/authentication
 - Multi Auth using Guards: https://www.youtube.com/watch?v=JanA7k9IBdo
 
+# Passport
+
+Can serve OAuth2
+
+https://github.com/atabegruslan/Laravel_CRUD_API?tab=readme-ov-file#passport
+
 # JWT
 
 - Intro: https://github.com/atabegruslan/Others/blob/master/Security/auth.md#jwt
     - https://jwt-auth.readthedocs.io/en/develop/laravel-installation/
 - https://www.youtube.com/watch?v=VtAxYez4ZdQ
-- https://adevait.com/laravel/implementing-jwt-authentication-in-laravel
 
 Note: Passport's bearer token is also a JWT. (There is no rule saying that a JWT can't be used as a bearer token). To test this:
 
@@ -913,7 +918,7 @@ php artisan key:generate
 
 composer require laravel/passport
 php artisan migrate
- php artisan passport:install
+php artisan passport:install
 ```
 
 By now, `php artisan passport:keys` should already been ran under the hood. If not, then please run this. This will generate `/storage/oauth-public.key` & `/storage/oauth-private.key`
@@ -945,41 +950,24 @@ Go to https://jwt.io/ to check
 - https://www.youtube.com/watch?v=6eX9Pj-GhZs
 - https://www.youtube.com/watch?v=jIzPuM76-nI
 
-# Laravel Sanctum (Update)
+# JWT in Laravel using `php-jwt`
 
-First, read it's predecessor: https://github.com/atabegruslan/Laravel_CRUD_API?tab=readme-ov-file#passport
+https://adevait.com/laravel/implementing-jwt-authentication-in-laravel
 
-Nowadays Sanctum has became Laravel's default.  
-It generates something like a Personal Access Token.  
+# JWT in Laravel using `tymon/jwt-auth`
+
+https://github.com/Ruslan-Aliyev/laravel-jwt
+
+# Laravel Sanctum
+
+It generates an opaque token, like a Personal Access Token.  
 This token can be passed in the API call, in the Authorization header, just like how you would for a bearer token.  
 Furthermore, for SPAs, Sanctum can be used to provide session-based authentications.  
 Sanctum's session-based authentications involves a HTTP-only cookie, which is safe for frontend SPAs (browser storage or regular cookie is unsafe because a bit of JS can acquire the sensitive credentials)  
 
-## Sanctum's Preliminary Setup
-
-```
-composer require laravel/sanctum
-php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
-php artisan migrate
-```
-
 ## Sanctum for token
 
-Use the `Laravel\Sanctum\HasApiTokens` trait in the user model.
-
-Generate token: `$user->createToken('token-name', ['server:update'])`
-
-Protect the route or controller:
-
-`Route::post('/whatever-route', [WhateverController::class, 'whatever'])->middleware('auth:sanctum');`
-
-```php
-if ($user->tokenCan('server:update')) {
-    // return 403 error
-}
-```
-
-https://laravel.com/docs/8.x/sanctum#token-abilities
+https://github.com/Ruslan-Aliyev/laravel-sanctum-token
 
 ## Sanctum for session
 
@@ -1075,7 +1063,7 @@ Tutorials:
     - This means that the bearer token that Passport generates is actually a JWT. Since OAuth2 makes no specifications on its bearer token's format, a JWT can be use.
         - The private and public keys for the signing of the generated JWT can be found in `/storage` folder
 
-## SSO
+# SSO
 
 - https://www.youtube.com/playlist?list=PLC-R40l2hJfdyfZ3jkDKOcyoqmIgw2wda 
 - https://github.com/mi-lopez/laravel-sso 
@@ -1195,18 +1183,15 @@ Unifying BE and FE from the front
 
 - https://github.com/Ruslan-Aliyev/Laravel_Inertia
 
-## Filament (Update)
+## Filament
 
 - To help developing on TALL stack
 
-- https://www.youtube.com/watch?v=wGu8lgaK_v8
 - https://laravel-news.com/5-underrated-filament-features 
-- https://www.youtube.com/watch?v=bF04VPI68sg 
-- https://www.youtube.com/watch?v=FzouTDRx9KU 
-- https://www.youtube.com/watch?v=GKBV0-u_-4A 
-- https://www.youtube.com/watch?v=ujUhXLVqOO0 
+- https://www.youtube.com/watch?v=GKBV0-u_-4A
 - https://www.youtube.com/watch?v=tznw7lTblbY 
 - https://www.youtube.com/watch?v=JAHYfq07uiU
+- Admin dashboard: https://github.com/Ruslan-Aliyev/laravel-filment-adminpanel
 
 ## Admin Dashboard
 

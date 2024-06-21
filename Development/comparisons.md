@@ -244,44 +244,37 @@ https://github.com/atabegruslan/Others/blob/master/Development/async.md
 | HTML, fat PHP call | AJAX, thin call, dynamic |
 | Use PHP to prepare HTML, no need for client | Same server and client language |
 | Connection to DB: SQL | Connection to DB: JSON |
-| Blocking execution model. Init once per every request. It handles each request in a separate process that don't share memory address space. But note: https://stackoverflow.com/a/23291362 | Fast, event-driven. Init once - many requests |
 | Many versions, backwards compat support can be slow |  |
 |  | Callbacks, closures, functions are all objects |
+| Blocking execution model. Init once per every request. It handles each request in a separate process that don't share memory address space | Fast, event-driven. Init once - many requests |
 
+- For PHP, note: https://stackoverflow.com/a/23291362
 - https://www.geeksforgeeks.org/php-vs-node-js
 - https://kinsta.com/blog/php-vs-javascript
 
-
-
-Thread
+## Thread
 
 - Node: https://github.com/atabegruslan/Others/blob/master/Development/comparisons.md#workers
 - PHP: 
   - https://www.php.net/manual/en/language.fibers.php
   - https://stackoverflow.com/questions/796217/what-is-the-difference-between-a-thread-and-a-fiber
   - https://stackoverflow.com/questions/77891921/using-fibers-in-php
+  - https://hackaday.com/2023/09/25/processes-threads-and-fibers
 
-https://hackaday.com/2023/09/25/processes-threads-and-fibers
+## Thread models
 
-Thread models
-
-php_thread_model.png
+![](/Illustrations/Development/ec/php_thread_model.png)
 
 - PHP: https://stackoverflow.com/questions/7980111/can-php-serve-multiple-requests-at-the-same-time-or-one-by-one
 - Node: https://www.digitalocean.com/community/tutorials/node-js-architecture-single-threaded-event-loop
 - .NET: https://www.researchgate.net/figure/Architecture-of-ASPNET_fig1_245563991
 
-Performance
+## Performance
 
 - https://www.turing.com/blog/php-vs-asp-net/#performance
 - https://www.geeksforgeeks.org/difference-between-php-and-net
 - https://www.educba.com/php-vs-dot-net
 - https://stackoverflow.com/questions/691942/speed-of-code-execution-asp-net-mvc-versus-php
-
-
-
-
-
 
 | Laravel | Cake |
 |---|---|
