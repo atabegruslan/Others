@@ -32,7 +32,13 @@
 - https://stackshare.io/stackups/bambora-vs-paypal
 - https://stackshare.io/stackups/bambora-vs-stripe
 
+## Google Pay
+
+Supported on both Stripe and Paypal
+
 ## Apple Pay
+
+Supported on both Stripe and Paypal
 
 ## Shop Pay
 
@@ -40,13 +46,22 @@
 
 - https://www.youtube.com/watch?v=9vlNrvTdQBQ
 
+Supported on Stripe 
+
 ## WeChat Pay
 
 - https://romanglushach.medium.com/alipay-and-wechat-pay-how-they-work-what-they-offer-and-how-to-use-them-ade7d6e20944
 
+Supported on Stripe 
+
 ## Paypal Venmo
 
+https://www.youtube.com/watch?v=itpIJ7ewn4E
+
+Eligibility:
 - https://github.com/eileenmcnaughton/nz.co.fuzion.omnipaymultiprocessor/blob/master/docs/Paypal.md#venmo
+- https://woocommerce.com/document/woocommerce-paypal-payments/#pay-with-venmo
+	- https://developer.paypal.com/docs/checkout/pay-with-venmo/#link-eligibility
 
 ---
 
