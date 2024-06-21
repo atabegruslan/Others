@@ -14,6 +14,13 @@
 - Auto-generate sandbox Paypal accounts: https://developer.paypal.com/developer/accounts 
 	- then https://developer.paypal.com/developer/applications
 
+See payment log: https://www.sandbox.paypal.com/mep/dashboard
+
+Help
+
+- https://developer.paypal.com/docs/support
+- https://www.paypal-community.com/mts
+
 ## Bambora ePay
 
 	ePay (a part of Euronet): https://www.youtube.com/watch?v=mKHw_-ISV9w 
@@ -40,6 +47,9 @@ Supported on both Stripe and Paypal
 
 Supported on both Stripe and Paypal
 
+- https://docs.stripe.com/apple-pay
+- https://stripe.com/payments/apple-pay
+
 ## Shop Pay
 
 ## Ali Pay
@@ -48,15 +58,32 @@ Supported on both Stripe and Paypal
 
 Supported on Stripe 
 
+- https://docs.stripe.com/payments/alipay
+- https://stripe.com/payment-method/alipay
+- https://stripe.com/resources/more/alipay-an-in-depth-guide
+- https://support.stripe.com/questions/activating-alipay-on-your-stripe-account
+
 ## WeChat Pay
 
 - https://romanglushach.medium.com/alipay-and-wechat-pay-how-they-work-what-they-offer-and-how-to-use-them-ade7d6e20944
 
 Supported on Stripe 
 
+- https://docs.stripe.com/payments/wechat-pay
+- https://stripe.com/resources/more/wechat-pay-an-in-depth-guide
+
 ## Paypal Venmo
 
+Intro
+
 https://www.youtube.com/watch?v=itpIJ7ewn4E
+
+Docs
+
+- https://developer.paypal.com/docs/checkout/pay-with-venmo/integrate
+- https://venmo.com/gettingstarted/apipayment
+- https://venmo.com/docs/overview
+- https://venmo.com/developers
 
 Eligibility:
 - https://github.com/eileenmcnaughton/nz.co.fuzion.omnipaymultiprocessor/blob/master/docs/Paypal.md#venmo
@@ -97,8 +124,8 @@ Eligibility:
 - https://moqups.com/templates/diagrams-flowcharts/erd/ecommerce-database-diagram/
 - https://creately.com/diagram/example/he7cxejx1/e-Commerce%20Database
 - WP WooCommerce DB: https://github.com/woocommerce/woocommerce/wiki/Database-Description
-- Bagisto DB: `bagisto.mwb`
-- A Joomla EC extension DB: `joomla.mwb`
+- Bagisto DB: https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/ec/bagisto.mwb
+- A Joomla EC extension DB: https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/ec/joomla.mwb
 
 
 
