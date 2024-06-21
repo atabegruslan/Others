@@ -21,7 +21,25 @@ Help
 - https://developer.paypal.com/docs/support
 - https://www.paypal-community.com/mts
 
-## Bambora ePay
+## Paypal's Venmo
+
+Intro
+
+https://www.youtube.com/watch?v=itpIJ7ewn4E
+
+Docs
+
+- https://developer.paypal.com/docs/checkout/pay-with-venmo/integrate
+- https://venmo.com/gettingstarted/apipayment
+- https://venmo.com/docs/overview
+- https://venmo.com/developers
+
+Eligibility:
+- https://github.com/eileenmcnaughton/nz.co.fuzion.omnipaymultiprocessor/blob/master/docs/Paypal.md#venmo
+- https://woocommerce.com/document/woocommerce-paypal-payments/#pay-with-venmo
+	- https://developer.paypal.com/docs/checkout/pay-with-venmo/#link-eligibility
+
+## Bambora's ePay
 
 	ePay (a part of Euronet): https://www.youtube.com/watch?v=mKHw_-ISV9w 
 	https://en.wikipedia.org/wiki/Euronet_Worldwide
@@ -39,22 +57,20 @@ Help
 - https://stackshare.io/stackups/bambora-vs-paypal
 - https://stackshare.io/stackups/bambora-vs-stripe
 
-## Google Pay
+## Shopify's Shop Pay
 
-Supported on both Stripe and Paypal
+## Google Pay & Apple Pay
 
-## Apple Pay
+- https://www.youtube.com/watch?v=cHv8LqkbPHk
 
 Supported on both Stripe and Paypal
 
 - https://docs.stripe.com/apple-pay
 - https://stripe.com/payments/apple-pay
 
-## Shop Pay
+## Ali Pay & WeChat Pay
 
-## Ali Pay
-
-- https://www.youtube.com/watch?v=9vlNrvTdQBQ
+- https://www.youtube.com/watch?v=nHkyOOcFEDE
 
 Supported on Stripe 
 
@@ -63,32 +79,10 @@ Supported on Stripe
 - https://stripe.com/resources/more/alipay-an-in-depth-guide
 - https://support.stripe.com/questions/activating-alipay-on-your-stripe-account
 
-## WeChat Pay
-
-- https://romanglushach.medium.com/alipay-and-wechat-pay-how-they-work-what-they-offer-and-how-to-use-them-ade7d6e20944
-
-Supported on Stripe 
-
 - https://docs.stripe.com/payments/wechat-pay
 - https://stripe.com/resources/more/wechat-pay-an-in-depth-guide
 
-## Paypal Venmo
-
-Intro
-
-https://www.youtube.com/watch?v=itpIJ7ewn4E
-
-Docs
-
-- https://developer.paypal.com/docs/checkout/pay-with-venmo/integrate
-- https://venmo.com/gettingstarted/apipayment
-- https://venmo.com/docs/overview
-- https://venmo.com/developers
-
-Eligibility:
-- https://github.com/eileenmcnaughton/nz.co.fuzion.omnipaymultiprocessor/blob/master/docs/Paypal.md#venmo
-- https://woocommerce.com/document/woocommerce-paypal-payments/#pay-with-venmo
-	- https://developer.paypal.com/docs/checkout/pay-with-venmo/#link-eligibility
+- https://romanglushach.medium.com/alipay-and-wechat-pay-how-they-work-what-they-offer-and-how-to-use-them-ade7d6e20944
 
 ---
 
