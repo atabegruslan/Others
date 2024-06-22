@@ -899,8 +899,6 @@ Then there are "weirder" terms like:
 
 # Passport
 
-Can serve OAuth2
-
 https://github.com/atabegruslan/Laravel_CRUD_API?tab=readme-ov-file#passport
 
 # JWT
@@ -950,11 +948,11 @@ Go to https://jwt.io/ to check
 - https://www.youtube.com/watch?v=6eX9Pj-GhZs
 - https://www.youtube.com/watch?v=jIzPuM76-nI
 
-# JWT in Laravel using `php-jwt`
+## JWT in Laravel using `php-jwt`
 
 https://adevait.com/laravel/implementing-jwt-authentication-in-laravel
 
-# JWT in Laravel using `tymon/jwt-auth`
+## JWT in Laravel using `tymon/jwt-auth`
 
 https://github.com/Ruslan-Aliyev/laravel-jwt
 
@@ -965,11 +963,17 @@ This token can be passed in the API call, in the Authorization header, just like
 Furthermore, for SPAs, Sanctum can be used to provide session-based authentications.  
 Sanctum's session-based authentications involves a HTTP-only cookie, which is safe for frontend SPAs (browser storage or regular cookie is unsafe because a bit of JS can acquire the sensitive credentials)  
 
+Full tutorial: https://www.youtube.com/watch?v=TzAJfjCn7Ks
+
 ## Sanctum for token
+
+For first party SPA frontends
 
 https://github.com/Ruslan-Aliyev/laravel-sanctum-token
 
 ## Sanctum for session
+
+For third party apps
 
 Flow:
 - Client to server: CRSF cookie request 
@@ -1054,14 +1058,32 @@ Tutorials:
 - https://laravel-news.com/using-sanctum-to-authenticate-a-react-spa
 - https://www.youtube.com/watch?v=2zKoS8GsKK8
 - https://www.youtube.com/watch?v=eeMtmkDZ72Q
-- https://www.youtube.com/watch?v=TzAJfjCn7Ks
+- https://www.youtube.com/watch?v=gKC7yvllsPE
 
-# Passport vs Sanctum
+## Sanctum for token (in SPA)
+
+- https://www.youtube.com/watch?v=8myQdPL8I1s&t=150s
+
+## Passport vs Sanctum
 
 - Sanctum offers both session-based and token-based authentication and is good for single-page application (SPA) authentications. 
 - Passport uses JWT authentication as standard but also implements full OAuth2 authorization
     - This means that the bearer token that Passport generates is actually a JWT. Since OAuth2 makes no specifications on its bearer token's format, a JWT can be use.
         - The private and public keys for the signing of the generated JWT can be found in `/storage` folder
+
+- Sanctum always requires that you're 'logging in' as a user. If there's ever a use-case for authentication without a user present you can look into laravel passport's client credential grant.
+
+- https://www.youtube.com/watch?v=edcTejycirk
+- https://www.youtube.com/watch?v=8myQdPL8I1s
+
+## In relation to Breeze
+
+- `php artisan install:breeze` uses sessions
+- `php artisan install:breeze api` uses sanctum
+
+- https://www.youtube.com/watch?v=2zKoS8GsKK8&t=160s
+- https://www.youtube.com/watch?v=jGVHEgqkToc
+- https://medium.com/@a3rxander/backend-api-in-laravel-10x-with-laravel-breeze-8c3b4b2fe6ca
 
 # SSO
 
