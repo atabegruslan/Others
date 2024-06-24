@@ -965,17 +965,19 @@ Sanctum's session-based authentications involves a HTTP-only cookie, which is sa
 
 Full tutorial: https://www.youtube.com/watch?v=TzAJfjCn7Ks
 
-## Sanctum for token
-
-For third party SPA frontends
-
-https://github.com/Ruslan-Aliyev/laravel-sanctum-token
-
 ## Sanctum for session
 
-For first party apps
+For first party SPA frontends
 
+https://github.com/Ruslan-Aliyev/laravel-sanctum-session-seperate-vue
 
+https://github.com/Ruslan-Aliyev/laravel-sanctum-session-inlaravel-vue
+
+## Sanctum for token
+
+For third party apps
+
+https://github.com/Ruslan-Aliyev/laravel-sanctum-token
 
 ## Sanctum for token (in SPA)
 
