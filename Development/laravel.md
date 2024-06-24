@@ -1057,7 +1057,6 @@ If you decide to run `npm run dev` and serve the frontend on a different port, y
 Tutorials:
 - https://laravel-news.com/using-sanctum-to-authenticate-a-react-spa
 - https://www.youtube.com/watch?v=2zKoS8GsKK8
-- https://www.youtube.com/watch?v=eeMtmkDZ72Q
 - https://www.youtube.com/watch?v=gKC7yvllsPE
 
 ## Sanctum for token (in SPA)
