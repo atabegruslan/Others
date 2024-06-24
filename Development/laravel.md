@@ -973,6 +973,8 @@ https://github.com/Ruslan-Aliyev/laravel-sanctum-session-seperate-vue
 
 https://github.com/Ruslan-Aliyev/laravel-sanctum-session-inlaravel-vue
 
+The seperate front end way is more appropriate
+
 ## Sanctum for token
 
 For third party apps
