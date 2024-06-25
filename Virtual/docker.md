@@ -184,6 +184,7 @@ To get started setting up VMs and a Swarm
 
 - https://www.youtube.com/watch?v=FeJyAjDoLEw
 - https://www.youtube.com/watch?v=FS-HJTM6Oec
+- https://www.youtube.com/watch?v=GgDEwQXpZI8 So use Host Only Network
 - https://www.youtube.com/watch?v=Tm0Q5zr3FL4
 - https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/
 
