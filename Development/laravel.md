@@ -514,9 +514,10 @@ Pass the `pagination` object into the view.
 - https://github.com/gilbitron/laravel-vue-pagination/blob/master/README.md
 - https://github.com/matfish2/vue-pagination-2/blob/master/README.md
 
-# Component
+# Blade Component
 
 - https://www.youtube.com/watch?v=7E76PPoIVW4
+- https://www.youtube.com/playlist?list=PL1JpS8jP1wgAm1z3ntJZQ0ef9vokjJ56Z
 
 # Request & Response
 
