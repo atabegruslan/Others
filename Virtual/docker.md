@@ -180,6 +180,14 @@ ${user} sudo service docker restart
 
 > Docker swarm is a Clustering and orchestration tool. It is used for scheduling containers across multiple nodes. You can combine multiple nodes as a cluster and then send "docker run" command to this cluster. Docker stack is a collection of services that make up an application in a specific environment. The extension of stack file is yaml (yml also).
 
+To get started setting up VMs and a Swarm
+
+- https://www.youtube.com/watch?v=FeJyAjDoLEw
+- https://www.youtube.com/watch?v=FS-HJTM6Oec
+- https://www.youtube.com/watch?v=GgDEwQXpZI8 So use Host Only Network
+- https://www.youtube.com/watch?v=Tm0Q5zr3FL4
+- https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/
+
 ## Load Balancing
 
 - https://www.quora.com/How-do-I-run-a-website-on-multiple-servers
