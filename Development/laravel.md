@@ -1085,6 +1085,27 @@ Tutorials:
 - https://www.youtube.com/watch?v=jGVHEgqkToc
 - https://medium.com/@a3rxander/backend-api-in-laravel-10x-with-laravel-breeze-8c3b4b2fe6ca
 
+## Session that uses DB (Suitable for multi server environment)
+
+- https://laravel.com/docs/11.x/session#configuration
+- https://www.youtube.com/watch?v=EO-kp3nl3cg
+
+`SESSION_DRIVER=database`
+
+php artisan session:table
+php artisan migrate
+
+```php
+Schema::create('sessions', function (Blueprint $table) {
+    $table->string('id')->primary();
+    $table->foreignId('user_id')->nullable()->index();
+    $table->string('ip_address', 45)->nullable();
+    $table->text('user_agent')->nullable();
+    $table->longText('payload');
+    $table->integer('last_activity')->index();
+});
+```
+
 # SSO
 
 - https://www.youtube.com/playlist?list=PLC-R40l2hJfdyfZ3jkDKOcyoqmIgw2wda 

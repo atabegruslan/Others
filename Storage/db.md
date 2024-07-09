@@ -523,6 +523,14 @@ https://github.com/atabegruslan/Others/blob/master/Illustrations/Storage/db_conc
 
 - Good intro: https://www.youtube.com/watch?v=rIi1dvPdTHE
 - Another good intro: https://dev.mysql.com/doc/refman/8.4/en/trigger-syntax.html
+
+### Examples
+
+| MySQL | PGSQL |
+| ------ | ------ |
+| ![](/Illustrations/Storage/trigger_mysql_1.png) | ![](/Illustrations/Storage/trigger_pgsql_1.png) |
+|  | https://www.postgresqltutorial.com/postgresql-triggers/creating-first-trigger-postgresql , https://www.postgresql.org/docs/current/plpgsql-errors-and-messages.html |
+
 - Calling API from Trigger
 	- https://medium.com/@elvis.gosselin/calling-rest-apis-from-mysql-dd9f15b74d92
 	- https://www.mooreds.com/wordpress/archives/1497

@@ -69,7 +69,7 @@ nvm use <wanted-node-version>
 
 ## Composer  
 
-`sudo apt install composer`
+https://www.cherryservers.com/blog/how-to-install-composer-ubuntu
 
 ## Java
 

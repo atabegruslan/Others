@@ -52,3 +52,8 @@ server {
 When you run `service strapi-v4 start`, it will run it on the server on port 8280. Ports can be changed inside the Node.js app.
 
 Then according to your confirguration file, any http request to `yourdomainname.com` will be forwarded to `http://127.0.0.1:8280`
+
+---
+
+- https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Nginx-PHP-FPM-config-example
+- https://www.datadoghq.com/blog/nginx-502-bad-gateway-errors-php-fpm
