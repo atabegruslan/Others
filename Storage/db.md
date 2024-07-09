@@ -220,7 +220,7 @@ ORM machine-generates queries, which is never as good as a programmer who knows 
 
 ## Stored procedures and User defined functions
 
-What they are: (todo)
+What they are: https://github.com/atabegruslan/Others/blob/master/Storage/db.md#stored-procedures--udfs
 
 UDFs are further seperated into scalar UDFs and **Table-Valued functions**.
 
@@ -508,21 +508,22 @@ https://github.com/atabegruslan/Others/blob/master/Illustrations/Storage/db_conc
 
 - Good intro: https://www.youtube.com/watch?v=rIi1dvPdTHE
 - Another good intro: https://dev.mysql.com/doc/refman/8.4/en/trigger-syntax.html
+- https://stackoverflow.com/questions/19152974/fire-a-trigger-after-the-update-of-specific-columns-in-mysql/19153222#19153222
 
 ### Examples
 
 | MySQL | PGSQL |
 | ------ | ------ |
 | ![](/Illustrations/Storage/trigger_mysql_1.png) | ![](/Illustrations/Storage/trigger_pgsql_1.png) |
-| https://www.mysqltutorial.org/mysql-triggers.aspx | https://www.postgresqltutorial.com/postgresql-triggers/creating-first-trigger-postgresql , https://www.postgresql.org/docs/current/plpgsql-errors-and-messages.html |
+| https://www.mysqltutorial.org/mysql-triggers.aspx | https://www.postgresqltutorial.com/postgresql-triggers/creating-first-trigger-postgresql , https://www.postgresql.org/docs/current/plpgsql-errors-and-messages.html , https://www.cybertec-postgresql.com/en/postgresql-how-to-write-a-trigger |
 
-- Calling API from Trigger
-	- https://medium.com/@elvis.gosselin/calling-rest-apis-from-mysql-dd9f15b74d92
-	- https://www.mooreds.com/wordpress/archives/1497
-	- https://open-bi.blogspot.com/2012/11/call-restful-web-services-from-mysql.html
-	- https://stackoverflow.com/questions/37215104/calling-an-url-from-a-trigger-in-mysql
-	- https://stackoverflow.com/questions/21746553/how-to-install-mysql-udf-in-windows-wamp
-		- https://github.com/mysqludf/lib_mysqludf_str/blob/master/README.win_x64.txt
+Calling API from Trigger
+- https://medium.com/@elvis.gosselin/calling-rest-apis-from-mysql-dd9f15b74d92
+- https://www.mooreds.com/wordpress/archives/1497
+- https://open-bi.blogspot.com/2012/11/call-restful-web-services-from-mysql.html
+- https://stackoverflow.com/questions/37215104/calling-an-url-from-a-trigger-in-mysql
+- https://stackoverflow.com/questions/21746553/how-to-install-mysql-udf-in-windows-wamp
+	- https://github.com/mysqludf/lib_mysqludf_str/blob/master/README.win_x64.txt
 
 ## Stored procedures & UDFs
 
@@ -531,21 +532,35 @@ https://github.com/atabegruslan/Others/blob/master/Illustrations/Storage/db_conc
 | Must return a value | Can return nothing |
 | Can only have input parameters | Can have both input and output parameters |
 | Functions can be called from Procedure | Procedures cannot be called from a Function |
-| https://www.mysqltutorial.org/mysql-stored-function/ , https://www.sqlservertutorial.net/sql-server-user-defined-functions/ | https://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx , https://www.youtube.com/watch?v=LgSgEt1mSFk |
-| Can't edit, just read data | Can edit data, and should be used for editing data and making transactions |
+| Can't edit, just read (ie: returns) the data | Can edit data, and should be used for editing data and making transactions |
 
 Full list of differences:
 - https://www.sqlshack.com/functions-vs-stored-procedures-sql-server/
 - https://www.c-sharpcorner.com/article/stored-procedures-vs-user-defined-functions-and-choosing-which-one-to-use/
 - https://stackoverflow.com/questions/2039936/difference-between-stored-procedures-and-user-defined-functions/15413792
+- https://bestinterviewquestion.medium.com/difference-between-stored-procedure-and-function-in-mysql-52f845d70b05
 
 ### UDF Examples
 
 | MySQL | PGSQL |
 | ------ | ------ |
 | ![](/Illustrations/Storage/udf_mysql_1a.png) | ![](/Illustrations/Storage/udf_pgsql_1a.png) |
-| ![](/Illustrations/Storage/udf_mysql_1b.png) |  |
+| ![](/Illustrations/Storage/udf_mysql_1b.png) | https://www.postgresqltutorial.com/postgresql-plpgsql/postgresql-create-function |
 | ![](/Illustrations/Storage/udf_mysql_1c.png) |  |
+| https://www.mysqltutorial.org/mysql-stored-function , https://www.sqlservertutorial.net/sql-server-user-defined-functions |  |
+
+Other points of interest from above example:
+- PGSQL's closest equivalent to `DETERMINISTIC`:
+	- https://dba.stackexchange.com/questions/185044/postgresql-immutable-volatile-stable
+	- https://www.postgresql.org/message-id/2131668.1686840541%40sss.pgh.pa.us
+- PLPGSQL have full functionalities but hurts performance. 'sql' is the simpler alt: https://en.wikipedia.org/wiki/PL/pgSQL
+- User defined variables in MySQL: https://www.mysqltutorial.org/mysql-basics/mysql-variables
+- Better to use Text instead of Varchar in PGSQL: https://wiki.postgresql.org/wiki/Don't_Do_This#Don.27t_use_varchar.28n.29_by_default
+- These are both valid syntaxes for PGSQL stored functions
+	- `CREATE OR REPLACE FUNCTION get_user_level( IN user_id INTEGER ) RETURNS TEXT`
+	- `CREATE OR REPLACE FUNCTION get_user_level( IN user_id INTEGER, OUT something TEXT )`
+	- But still, functions are better than procedures for routines with returns.
+- PGSQL often have "case folding", so better to use snake_case and avoid camelCase
 
 ### Stored Procedures Examples
 
@@ -553,6 +568,7 @@ Full list of differences:
 | ------ | ------ |
 | ![](/Illustrations/Storage/stored_procedures_mysql_1a.png) | ![](/Illustrations/Storage/stored_procedures_pgsql_1a.png) |
 | ![](/Illustrations/Storage/stored_procedures_mysql_1b.png) | ![](/Illustrations/Storage/stored_procedures_pgsql_1b.png) |
+| https://www.mysqltutorial.org/mysql-stored-procedure , https://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx , https://www.youtube.com/watch?v=LgSgEt1mSFk | https://www.postgresqltutorial.com/postgresql-plpgsql/postgresql-create-procedure |
 
 ## Partitioning and Sharding
 
