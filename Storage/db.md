@@ -220,24 +220,9 @@ ORM machine-generates queries, which is never as good as a programmer who knows 
 
 ## Stored procedures and User defined functions
 
-### About stored procedures and user defined functions
+What they are: (todo)
 
-| Stored Function (UDF) | Stored Procedure |
-|---|---|
-| Must return a value | Can return nothing |
-| Can only have input parameters | Can have both input and output parameters |
-| Functions can be called from Procedure | Procedures cannot be called from a Function |
-| https://www.mysqltutorial.org/mysql-stored-function/ , https://www.sqlservertutorial.net/sql-server-user-defined-functions/ | https://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx , https://www.youtube.com/watch?v=LgSgEt1mSFk |
-| Can't edit, just read data | Can edit data |
-
-Full list of differences:
-- https://www.sqlshack.com/functions-vs-stored-procedures-sql-server/
-- https://www.c-sharpcorner.com/article/stored-procedures-vs-user-defined-functions-and-choosing-which-one-to-use/
-- https://stackoverflow.com/questions/2039936/difference-between-stored-procedures-and-user-defined-functions/15413792
-
-Sidenote: UDFs are further seperated into scalar UDFs and **Table-Valued functions**.
-
-### Advantages and disadvantages
+UDFs are further seperated into scalar UDFs and **Table-Valued functions**.
 
 UDFs can cause query plans to serialize, which can obviously slow things down (but not always).  
 But sometimes on the contrary, a poorly configured server will parallelize queries too frequently and cause poorer performance than their serially equivalent plan. 
@@ -259,7 +244,7 @@ Multi-statement TVFs are more costly than inline TFVs. SQL Server expands inline
 
 ## Don't use triggers
 
-What are triggers: https://www.mysqltutorial.org/mysql-triggers.aspx
+What are triggers: https://github.com/atabegruslan/Others/blob/master/Storage/db.md#triggers 
 
 Avoid triggers!
 
@@ -529,7 +514,7 @@ https://github.com/atabegruslan/Others/blob/master/Illustrations/Storage/db_conc
 | MySQL | PGSQL |
 | ------ | ------ |
 | ![](/Illustrations/Storage/trigger_mysql_1.png) | ![](/Illustrations/Storage/trigger_pgsql_1.png) |
-|  | https://www.postgresqltutorial.com/postgresql-triggers/creating-first-trigger-postgresql , https://www.postgresql.org/docs/current/plpgsql-errors-and-messages.html |
+| https://www.mysqltutorial.org/mysql-triggers.aspx | https://www.postgresqltutorial.com/postgresql-triggers/creating-first-trigger-postgresql , https://www.postgresql.org/docs/current/plpgsql-errors-and-messages.html |
 
 - Calling API from Trigger
 	- https://medium.com/@elvis.gosselin/calling-rest-apis-from-mysql-dd9f15b74d92
@@ -538,6 +523,36 @@ https://github.com/atabegruslan/Others/blob/master/Illustrations/Storage/db_conc
 	- https://stackoverflow.com/questions/37215104/calling-an-url-from-a-trigger-in-mysql
 	- https://stackoverflow.com/questions/21746553/how-to-install-mysql-udf-in-windows-wamp
 		- https://github.com/mysqludf/lib_mysqludf_str/blob/master/README.win_x64.txt
+
+## Stored procedures & UDFs
+
+| Stored Function (UDF) | Stored Procedure |
+|---|---|
+| Must return a value | Can return nothing |
+| Can only have input parameters | Can have both input and output parameters |
+| Functions can be called from Procedure | Procedures cannot be called from a Function |
+| https://www.mysqltutorial.org/mysql-stored-function/ , https://www.sqlservertutorial.net/sql-server-user-defined-functions/ | https://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx , https://www.youtube.com/watch?v=LgSgEt1mSFk |
+| Can't edit, just read data | Can edit data, and should be used for editing data and making transactions |
+
+Full list of differences:
+- https://www.sqlshack.com/functions-vs-stored-procedures-sql-server/
+- https://www.c-sharpcorner.com/article/stored-procedures-vs-user-defined-functions-and-choosing-which-one-to-use/
+- https://stackoverflow.com/questions/2039936/difference-between-stored-procedures-and-user-defined-functions/15413792
+
+### UDF Examples
+
+| MySQL | PGSQL |
+| ------ | ------ |
+| ![](/Illustrations/Storage/udf_mysql_1a.png) | ![](/Illustrations/Storage/udf_pgsql_1a.png) |
+| ![](/Illustrations/Storage/udf_mysql_1b.png) |  |
+| ![](/Illustrations/Storage/udf_mysql_1c.png) |  |
+
+### Stored Procedures Examples
+
+| MySQL | PGSQL |
+| ------ | ------ |
+| ![](/Illustrations/Storage/stored_procedures_mysql_1a.png) | ![](/Illustrations/Storage/stored_procedures_pgsql_1a.png) |
+| ![](/Illustrations/Storage/stored_procedures_mysql_1b.png) | ![](/Illustrations/Storage/stored_procedures_pgsql_1b.png) |
 
 ## Partitioning and Sharding
 
