@@ -572,12 +572,17 @@ Other points of interest from above example:
 
 ## Partitioning and Sharding
 
-- https://viblo.asia/p/gioi-thieu-ve-partitioning-trong-mysql-jvEla6kz5kw
-- https://www.devart.com/dbforge/mysql/studio/partition-mysql.html
-- https://www.sqltutorial.org/sql-window-functions/sql-partition-by/?callback=in&code=ZWEWN2Q1MWYTMDK5NS0ZN2QXLTLMM2MTNTLMM2I1NZFINJG0&state=0c9518e721f542da89bbac2394748a1a
+| MySQL | PGSQL |
+| ------ | ------ |
+| ![](/Illustrations/Storage/partition_mysql.png) | ![](/Illustrations/Storage/partition_pgsql.png) |
+| https://www.percona.com/blog/what-is-mysql-partitioning , https://viblo.asia/p/gioi-thieu-ve-partitioning-trong-mysql-jvEla6kz5kw , https://www.devart.com/dbforge/mysql/studio/partition-mysql.html , https://planetscale.com/blog/what-is-mysql-partitioning | https://www.enterprisedb.com/postgres-tutorials/how-use-table-partitioning-scale-postgresql , https://www.postgresql.org/docs/current/ddl-partitioning.html |
+
+- https://www.sqltutorial.org/sql-window-functions/sql-partition-by
 - https://www.sqlshack.com/database-table-partitioning-sql-server
 - https://www.mongodb.com/docs/manual/core/sharding-data-partitioning
 - https://uptrace.medium.com/postgresql-table-partitioning-589d7092a505
+- https://www.youtube.com/watch?v=JDLgw8Po9QY
+- https://www.youtube.com/watch?v=hdxdhCpgYo8
 - https://www.youtube.com/watch?v=wXvljefXyEo
 - https://www.youtube.com/watch?v=QA25cMWp9Tk
 
