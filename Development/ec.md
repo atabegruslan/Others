@@ -64,6 +64,13 @@ Comparisons
 
 ## Shopify's Shop Pay
 
+Sign up: https://www.youtube.com/watch?v=n2thn62SNrw
+
+Laravel integration:
+- https://github.com/Kyon147/laravel-shopify (`gnikyt`'s' & `osiset`'s' are obsolete) : https://github.com/Kyon147/laravel-shopify/wiki
+- https://github.com/signifly/laravel-shopify : https://laravel-news.com/laravel-shopify
+- `phpish/shopify-php-sdk` : https://medium.com/@maulanayusupp/integrated-laravel-with-shopify-a-beginners-guide-bb226c195d53
+
 ## Google Pay & Apple Pay
 
 - https://www.youtube.com/watch?v=cHv8LqkbPHk
@@ -117,16 +124,73 @@ Supported on Stripe
 	- https://stackoverflow.com/questions/60157839/should-i-have-a-cart-table-in-my-e-commerce-app-or-just-have-an-open-order-stat
 	- https://www.reddit.com/r/Database/comments/iq2g9q/q_how_to_design_cart_and_order_tables_in
 	- https://dba.stackexchange.com/questions/328854/ecommerce-app-design-relation-between-order-and-cart
-- How to design tables for Product Variations
-	- https://stackoverflow.com/questions/76093147/product-variations-table-for-ecommerce
-	- https://stackoverflow.com/questions/24923469/modeling-product-variants
-	- https://flixtechs.co.zw/posts/laravel-ecommerce-tutorial-part-8-product-variations
+
 - How to design tables to better handle Guest checkout
 	- https://stackoverflow.com/questions/17352944/database-schema-for-registered-customers-and-guest-checkout
 		- So no need to record strangers in users table
 		- Just record guest checkouts in the orders table (with nullable FK to user)
 		- Users with accounts have addresses linked to the users table
 		- Guests' addresses should be linked to the orders table
+		- https://stackoverflow.com/questions/36234548/how-track-sessionid-for-shopping-cart-table-in-laravel
+
+- Session management
+	- https://www.quora.com/Is-there-a-way-to-keep-a-login-session-without-using-any-cookies
+	- https://stackoverflow.com/questions/39596509/do-i-still-need-sessions-if-i-use-token-based-authentication
+
+- How to design tables for Product Variations
+	- https://stackoverflow.com/questions/76093147/product-variations-table-for-ecommerce
+	- https://stackoverflow.com/questions/24923469/modeling-product-variants
+	- https://flixtechs.co.zw/posts/laravel-ecommerce-tutorial-part-8-product-variations
+
+![](/Illustrations/Development/ec/prod_var_er.png)
+
+Algorithm for generating variants (recursion involved):
+
+```php
+/*
+$matrix = [
+	[1, 2], // standing for: big, small
+	[5, 6], // standing for: red, blue
+];
+*/
+function generateVariants($matrix, $i, $var1, $product)
+{
+    if ($i == count($matrix)) return;
+
+    foreach($matrix[$i] as $var2)
+    {
+        $this->generateVariants($matrix, $i+1, $var1 . ' ' . $var2, $product);
+
+        if($i == count($matrix)-1)
+        {
+            $combo = trim($var1 . ' ' . $var2);
+            $comboArr = explode(' ', $combo);
+
+            $nextAvailableVariantId = (Variant::max('id') ?? 0) + 1;
+
+            foreach($comboArr as $comboItem)
+            {
+                Variant::create([
+                    'id' => $nextAvailableVariantId,
+                    'attribute_value_id' => $comboItem,
+                    'product_id' => $product->id,
+                ]);
+            }
+
+            $product->product_variants()->create([
+                'product_id' => $product->id,
+                'variant_id' => $nextAvailableVariantId,
+                'sku' => 'dummy-sku',
+                'price' => 1.5,
+                'name' => 'dummy-name',
+                'description' => 'dummy-description',
+                'in_stock' => true
+            ]);
+        }
+    }
+}
+```
+Ref: https://stackoverflow.com/a/16967147
 
 ## General tutorials
 
