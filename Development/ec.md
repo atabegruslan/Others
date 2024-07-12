@@ -35,7 +35,9 @@ Help
 
 Intro
 
-https://www.youtube.com/watch?v=itpIJ7ewn4E
+- https://www.youtube.com/watch?v=itpIJ7ewn4E
+
+- https://www.youtube.com/watch?v=kTKNRrKADKc
 
 Docs
 
