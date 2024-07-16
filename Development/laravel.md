@@ -902,6 +902,70 @@ Then there are "weirder" terms like:
 
 https://github.com/atabegruslan/Laravel_CRUD_API?tab=readme-ov-file#passport
 
+**Past usage**
+
+```
+composer require laravel/passport
+php artisan migrate
+php artisan passport:install
+```
+
+After this, `oauth_clients` table will automatically have 2 clients
+
+Setup up API guards in `config/auth.php`
+
+Protect routes using `auth:api` middleware
+
+**Update in Laravel 11**
+
+```
+composer require laravel/passport
+php artisan migrate
+```
+
+Install passport this way: `php artisan install:api --passport`
+
+After this, `oauth_clients` table still remain empty. So you need to run these:
+
+```
+php artisan passport:client --personal
+
+ What should we name the personal access client? [Laravel Personal Access Client]:
+ > 
+
+   INFO  Personal access client created successfully.  
+
+  Client ID .................................................................................................................... 1  
+  Client secret ......................................................................... SeB3Z3cSjGDI0wpWqwlRjKAHaG0u1y8dOjbTgga5  
+
+php artisan passport:client --password
+
+ What should we name the password grant client? [Laravel Password Grant Client]:
+ > 
+
+ Which user provider should this client use to retrieve users? [users]:
+  [0] users
+ > 
+
+   INFO  Password grant client created successfully.  
+
+  Client ID .................................................................................................................... 2  
+  Client secret ......................................................................... DKf3NLRHwkneYV7fovCSLjmybsNwZJNzuLbGiRkA
+```
+
+If you use Password grant type, remember this in `App\Providers\AppServiceProvider.php`
+
+```php
+public function boot(): void
+{
+    Passport::enablePasswordGrant();
+}
+```
+
+https://laravel.com/docs/11.x/passport#password-grant-tokens
+
+![](/Illustrations/Development/laravel/passport.png)
+
 # JWT
 
 - Intro: https://github.com/atabegruslan/Others/blob/master/Security/auth.md#jwt

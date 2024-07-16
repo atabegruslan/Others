@@ -619,6 +619,27 @@ https://github.com/atabegruslan/Others/blob/master/Security/encode.md#encodings-
 - https://github.com/atabegruslan/Others/tree/master/Illustrations/Storage/techniques
 - Find out what happens under the hood: https://dev.mysql.com/blog-archive/mysql-explain-analyze/
 
+Temporarily disable foreign constraints
+
+MySQL
+
+```
+SET FOREIGN_KEY_CHECKS = 0;
+...
+SET FOREIGN_KEY_CHECKS = 1;
+```
+
+PGSQL
+```
+BEGIN;
+ALTER TABLE b DISABLE TRIGGER ALL;
+...
+ALTER TABLE b ENABLE TRIGGER ALL;
+COMMIT;
+```
+
+https://stackoverflow.com/questions/38112379/disable-postgresql-foreign-key-checks-for-migrations
+
 ## DB Platforms
 
 - https://www.quora.com/What-are-the-different-database-servers
