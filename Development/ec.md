@@ -26,10 +26,19 @@ Test cards: https://developer.paypal.com/tools/sandbox/card-testing
 
 See payment log: https://www.sandbox.paypal.com/mep/dashboard
 
+Fees
+
+- https://www.paypal.com/US/webapps/mpp/merchant-fees
+- https://www.paypal.com/vn/cshelp/topic/help_my_account_business/help_tax_information_business
+
 Help
 
 - https://developer.paypal.com/docs/support
-- https://www.paypal-community.com/mts
+- https://developer.paypal.com/support
+    - https://www.paypal-community.com
+        - https://www.paypal-support.com
+- https://www.paypal.com/us/cshelp/business
+- https://www.paypal.com/us/cshelp/contact-us
 
 ## Paypal's Venmo
 
