@@ -22,6 +22,12 @@ See "Payments" (left side) for the payment log
 
 ![](/Illustrations/Development/ec/paypal_sandbox_account_detail.png)
 
+API:
+
+Todo: copy over the confirmed correct sequence of calling REST APIs
+
+- https://stackoverflow.com/a/20436759
+
 Test cards: https://developer.paypal.com/tools/sandbox/card-testing
 
 See payment log: https://www.sandbox.paypal.com/mep/dashboard
@@ -85,6 +91,8 @@ Laravel integration:
 ## Google Pay & Apple Pay
 
 - https://www.youtube.com/watch?v=cHv8LqkbPHk
+- Paypal's ApplePay: https://developer.paypal.com/docs/checkout/apm/apple-pay
+- https://developer.apple.com/apple-pay/sandbox-testing
 
 Supported on both Stripe and Paypal
 
