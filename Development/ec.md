@@ -24,7 +24,123 @@ See "Payments" (left side) for the payment log
 
 API:
 
-Todo: copy over the confirmed correct sequence of calling REST APIs
+REST: https://developer.paypal.com/api/rest
+
+Base URL: https://api-m.sandbox.paypal.com
+
+Step 1 - Auth: 
+
+![](/Illustrations/Development/ec/paypal_rest_1_auth.png)
+
+Step 2 - Create Order (or Payment): https://developer.paypal.com/docs/api/orders/v2/#orders_create
+
+![](/Illustrations/Development/ec/paypal_rest_2_auth.png)
+
+Payload
+```
+{
+    "intent": "CAPTURE",
+    "purchase_units": [
+        {
+            "items": [
+                {
+                    "name": "T-Shirt",
+                    "description": "Green XL",
+                    "quantity": "1",
+                    "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "100.00"
+                    }
+                }
+            ],
+            "amount": {
+                "currency_code": "USD",
+                "value": "100.00",
+                "breakdown": {
+                    "item_total": {
+                        "currency_code": "USD",
+                        "value": "100.00"
+                    }
+                }
+            }
+        }
+    ],
+    "application_context": {
+        "return_url": "https://example.com/return",
+        "cancel_url": "https://example.com/cancel"
+    }
+}
+```
+
+Response
+```
+{
+    "id": "5XW25497LW098850V",
+    "intent": "CAPTURE",
+    "status": "CREATED",
+    "purchase_units": [
+        {
+            "reference_id": "default",
+            "amount": {
+                "currency_code": "USD",
+                "value": "100.00",
+                "breakdown": {
+                    "item_total": {
+                        "currency_code": "USD",
+                        "value": "100.00"
+                    }
+                }
+            },
+            "payee": {
+                "email_address": "sb-opxam783557@business.example.com",
+                "merchant_id": "YQU2LUQB75CXS"
+            },
+            "items": [
+                {
+                    "name": "T-Shirt",
+                    "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "100.00"
+                    },
+                    "quantity": "1",
+                    "description": "Green XL"
+                }
+            ]
+        }
+    ],
+    "create_time": "2024-07-24T12:28:52Z",
+    "links": [
+        {
+            "href": "https://api.sandbox.paypal.com/v2/checkout/orders/5XW25497LW098850V",
+            "rel": "self",
+            "method": "GET"
+        },
+        {
+            "href": "https://www.sandbox.paypal.com/checkoutnow?token=5XW25497LW098850V",
+            "rel": "approve",
+            "method": "GET"
+        },
+        {
+            "href": "https://api.sandbox.paypal.com/v2/checkout/orders/5XW25497LW098850V",
+            "rel": "update",
+            "method": "PATCH"
+        },
+        {
+            "href": "https://api.sandbox.paypal.com/v2/checkout/orders/5XW25497LW098850V/capture",
+            "rel": "capture",
+            "method": "POST"
+        }
+    ]
+}
+```
+
+Step 3 - Redirect, for customer to review and confirm their payment on PayPal's side 
+
+Step 4 - Capture: Customer approves the payment from payer to payee. https://developer.paypal.com/docs/api/orders/v2/#orders_capture
+
+In the context of PayPal, the term "CAPTURE" refers to the process of collecting payment from a customers account for a particular transaction. When a payment is authorized or approved, it is not immediately transferred to the merchant's account. Instead, the funds are put on hold within the customer's account. 
+
+During the capture process, the merchant initiates the transfer of funds from the customer's account to their account. This typically happens when the goods or services have been delivered or rendered. Capturing the funds completes the payment process and ensures that the merchant receives the payment for the transaction. 
 
 - https://stackoverflow.com/a/20436759
 
@@ -36,6 +152,12 @@ Fees
 
 - https://www.paypal.com/US/webapps/mpp/merchant-fees
 - https://www.paypal.com/vn/cshelp/topic/help_my_account_business/help_tax_information_business
+
+Force fails
+
+- https://developer.paypal.com/tools/sandbox/card-testing/#link-simulatecarderrorscenarios
+- https://www.paypal.com/us/cshelp/article/how-do-i-test-failed-transactions-in-the-paypal-sandbox-ts1259
+    - https://developer.paypal.com/tools/sandbox/negative-testing/request-headers/
 
 Help
 
