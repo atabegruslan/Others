@@ -1103,6 +1103,12 @@ Schema::create('sessions', function (Blueprint $table) {
 
 https://github.com/atabegruslan/Others/blob/master/Virtual/laravel_homestead.md
 
+# Storage of public images
+
+- https://stackoverflow.com/questions/43789804/laravel-public-url-for-storage-files
+
+![](/Illustrations/Development/laravel/filament_storage.png)
+
 # Storage to AWS S3
 
 - https://www.youtube.com/watch?v=xN-CF7dzeyM
