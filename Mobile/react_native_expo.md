@@ -61,6 +61,8 @@ Routers and navs
 
 Render HTML: https://meliorence.github.io/react-native-render-html/docs/intro
 
+Infinite Scroll: https://gist.github.com/atabegruslan/6964ffb347abedeab82db271bff52bcf
+
 Publish
 
 Pre publish

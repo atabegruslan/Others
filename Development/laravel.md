@@ -673,6 +673,12 @@ Route::get('/log', function () {
 
 https://www.youtube.com/watch?v=rXI03h4jbBg
 
+# Signup verification email
+
+`{domain}/verify-email/13/{sha1($email)}?expires=1723625264&signature=8f9e4716b90267802346b45c8a4bc3a52c42b5a977e3493e8675767bc0d55bd4`
+
+![](/Illustrations/Development/laravel/signup_verification_email.png)
+
 # Web Scraping
 
 https://gist.github.com/atabegruslan/b603476fbfa5a928ce92c0f9b49f29d7
