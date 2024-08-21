@@ -440,6 +440,16 @@ Fail response
 }
 ```
 
+JS SDK
+
+- https://developer.paypal.com/sdk/js
+- https://developer.paypal.com/sdk/js/configuration
+- 1/ Auth: https://developer.paypal.com/api/rest/authentication/#link-stepresult
+- 2/ Order: https://developer.paypal.com/sdk/js/reference/#createorder
+- Save used cards in vault: https://developer.paypal.com/docs/checkout/save-payment-methods/during-purchase/js-sdk/cards/
+- Credit card: https://developer.paypal.com/docs/checkout/advanced/integrate/#link-addpaypalbuttonsandcardfields
+- Styling buttons' CSS: https://developer.paypal.com/sdk/js/reference
+
 Test cards: https://developer.paypal.com/tools/sandbox/card-testing
 
 See payment log: https://www.sandbox.paypal.com/mep/dashboard
@@ -469,7 +479,6 @@ Help
 Intro
 
 - https://www.youtube.com/watch?v=itpIJ7ewn4E
-
 - https://www.youtube.com/watch?v=kTKNRrKADKc
 
 Docs
@@ -483,6 +492,31 @@ Eligibility
 
 - https://github.com/eileenmcnaughton/nz.co.fuzion.omnipaymultiprocessor/blob/master/docs/Paypal.md#venmo
 - https://developer.paypal.com/docs/checkout/pay-with-venmo/#link-eligibility
+
+![](/Illustrations/Development/ec/Paypal/account_prerequisites_1.png)
+
+![](/Illustrations/Development/ec/Paypal/account_prerequisites_2.png)
+
+## Google Pay & Apple Pay
+
+If paying from iPhone, it's like below:
+
+![](/Illustrations/Development/ec/applepay.mp4)
+
+If paying from computer, there will be a QR code for your iPhone to scan
+
+- https://www.youtube.com/watch?v=cHv8LqkbPHk
+- Applepay: https://www.youtube.com/watch?v=mt5FEvoEHEk
+- https://developer.apple.com/videos/play/tech-talks/111381
+- Paypal's ApplePay: 
+    - https://developer.paypal.com/docs/checkout/apm/apple-pay
+    - https://www.youtube.com/watch?v=E3gUASHQMrU
+    - https://github.com/rauljr7/ppcp_apms_apple_pay_tutorial/blob/main/script.js
+- https://developer.apple.com/apple-pay/sandbox-testing
+
+Supported on both Stripe and Paypal
+- https://docs.stripe.com/apple-pay
+- https://stripe.com/payments/apple-pay
 
 ## Bambora's ePay
 
@@ -505,17 +539,6 @@ Laravel integration:
 - https://github.com/Kyon147/laravel-shopify (`gnikyt`'s' & `osiset`'s' are obsolete) : https://github.com/Kyon147/laravel-shopify/wiki
 - https://github.com/signifly/laravel-shopify : https://laravel-news.com/laravel-shopify
 - `phpish/shopify-php-sdk` : https://medium.com/@maulanayusupp/integrated-laravel-with-shopify-a-beginners-guide-bb226c195d53
-
-## Google Pay & Apple Pay
-
-- https://www.youtube.com/watch?v=cHv8LqkbPHk
-- Paypal's ApplePay: https://developer.paypal.com/docs/checkout/apm/apple-pay
-- https://developer.apple.com/apple-pay/sandbox-testing
-
-Supported on both Stripe and Paypal
-
-- https://docs.stripe.com/apple-pay
-- https://stripe.com/payments/apple-pay
 
 ## Ali Pay & WeChat Pay
 
