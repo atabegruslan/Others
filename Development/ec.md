@@ -32,6 +32,66 @@ Step 1 - Auth:
 
 ![](/Illustrations/Development/ec/paypal_rest_1_auth.png)
 
+Types of responses
+
+Success:
+```
+{
+    "scope": "https://uri.paypal.com/services/checkout/one-click-with-merchant-issued-token https://uri.paypal.com/services/payments/futurepayments https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/vault/payment-tokens/read https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/services/wallet/mandates/write https://uri.paypal.com/services/vault/payment-tokens/readwrite https://uri.paypal.com/services/applications/webhooks https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid https://uri.paypal.com/services/disputes/read-seller Braintree:Vault https://uri.paypal.com/services/payments/refund https://uri.paypal.com/services/pricing/quote-exchange-rates/read https://uri.paypal.com/services/billing-agreements https://uri.paypal.com/services/wallet/mandates/read https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/shipping/trackers/readwrite https://uri.paypal.com/services/subscriptions",
+    "access_token": "A21AALbFc6pmaPdgjdHOCPCXaMnotgVGwGjmMrZ5lE8-kRZerFG-ORTJsCpzIyngpWu0uEEGAt5LLZAB0QKi5Gw3Zq9Jt1a_w",
+    "token_type": "Bearer",
+    "app_id": "APP-80W284485P519543T",
+    "expires_in": 32400,
+    "supported_authn_schemes": [
+        "email_password",
+        "remember_me"
+    ],
+    "nonce": "2024-08-16T07:56:05Zt3QXzXeCxIEfiptiPw0E5a7TmT1Mft5l5BOY9rICYfg",
+    "client_metadata": {
+        "name": "Appname",
+        "display_name": "Appname",
+        "logo_uri": "",
+        "scopes": [
+            "https://uri.paypal.com/services/payments/futurepayments",
+            "https://uri.paypal.com/services/checkout/one-click-with-merchant-issued-token",
+            "https://uri.paypal.com/services/invoicing",
+            "https://uri.paypal.com/services/vault/payment-tokens/read",
+            "https://uri.paypal.com/services/payments/basic",
+            "https://uri.paypal.com/services/disputes/read-buyer",
+            "https://uri.paypal.com/services/payments/realtimepayment",
+            "https://api.paypal.com/v1/vault/credit-card",
+            "Braintree:Vault",
+            "https://api.paypal.com/v1/payments/.*",
+            "https://uri.paypal.com/services/wallet/mandates/write",
+            "https://uri.paypal.com/services/vault/payment-tokens/readwrite",
+            "https://uri.paypal.com/services/applications/webhooks",
+            "https://uri.paypal.com/services/payments/payment/authcapture",
+            "https://uri.paypal.com/services/disputes/update-seller",
+            "openid",
+            "https://uri.paypal.com/services/disputes/read-seller",
+            "https://uri.paypal.com/services/payments/refund",
+            "https://uri.paypal.com/web/experience/incontextxo",
+            "https://uri.paypal.com/services/pricing/quote-exchange-rates/read",
+            "https://uri.paypal.com/services/billing-agreements",
+            "https://uri.paypal.com/services/wallet/mandates/read",
+            "https://uri.paypal.com/payments/payouts",
+            "https://api.paypal.com/v1/vault/credit-card/.*",
+            "https://uri.paypal.com/services/shipping/trackers/readwrite",
+            "https://uri.paypal.com/services/subscriptions"
+        ],
+        "ui_type": "NEW"
+    }
+}
+```
+
+Failures:
+```
+{
+    "error": "invalid_client",
+    "error_description": "Client Authentication failed"
+}
+```
+
 Step 2 - Create Order (or Payment): https://developer.paypal.com/docs/api/orders/v2/#orders_create
 
 ![](/Illustrations/Development/ec/paypal_rest_2_auth.png)
@@ -72,7 +132,9 @@ Payload
 }
 ```
 
-Response
+Responses
+
+Success:
 ```
 {
     "id": "5XW25497LW098850V",
@@ -134,6 +196,35 @@ Response
 }
 ```
 
+Failures:
+
+```
+array:3 [
+  "name" => "AUTHENTICATION_FAILURE"
+  "message" => "Authentication failed due to invalid authentication credentials or a missing Authorization header."
+  "links" => array:1 [▼
+    0 => array:2 [▼
+      "href" => "https://developer.paypal.com/docs/api/overview/#error"
+      "rel" => "information_link"
+    ]
+  ]
+]
+```
+
+```
+{
+   "error":"invalid_token",
+   "error_description":"Token signature verification failed"
+}
+```
+
+```
+{
+    "error": "invalid_token",
+    "error_description": "Access Token not found in cache"
+}
+```
+
 Step 3 - Redirect, for customer to review and confirm their payment on PayPal's side 
 
 Step 4 - Capture: Customer approves the payment from payer to payee. https://developer.paypal.com/docs/api/orders/v2/#orders_capture
@@ -143,6 +234,211 @@ In the context of PayPal, the term "CAPTURE" refers to the process of collecting
 During the capture process, the merchant initiates the transfer of funds from the customer's account to their account. This typically happens when the goods or services have been delivered or rendered. Capturing the funds completes the payment process and ensures that the merchant receives the payment for the transaction. 
 
 - https://stackoverflow.com/a/20436759
+
+Responses:
+
+Success:
+```
+{
+   "id":"2PR99067LX431202H",
+   "links":[
+      [
+         "Object"
+      ]
+   ],
+   "payer":{
+      "address":[
+         "Object"
+      ],
+      "email_address":"sb-sg0ld782482@personal.example.com",
+      "name":[
+         "Object"
+      ],
+      "payer_id":"WD2K39ARGH7EL"
+   },
+   "payment_source":{
+      "paypal":[
+         "Object"
+      ]
+   },
+   "purchase_units":[
+      [
+         "Object"
+      ]
+   ],
+   "status":"COMPLETED"
+}
+
+array:6 [
+  "id" => "4ES87444HL7053000"
+  "status" => "COMPLETED"
+  "payment_source" => array:1 [▼
+    "paypal" => array:5 [▼
+      "email_address" => "sb-ti7bx31580669@personal.example.com"
+      "account_id" => "RSC8ZQ9JQRJXG"
+      "account_status" => "VERIFIED"
+      "name" => array:2 [▼
+        "given_name" => "John"
+        "surname" => "Doe"
+      ]
+      "address" => array:1 [▼
+        "country_code" => "US"
+      ]
+    ]
+  ]
+  "purchase_units" => array:1 [▼
+    0 => array:3 [▼
+      "reference_id" => "default"
+      "shipping" => array:2 [▼
+        "name" => array:1 [▼
+          "full_name" => "John Doe"
+        ]
+        "address" => array:5 [▼
+          "address_line_1" => "1 Main St"
+          "admin_area_2" => "San Jose"
+          "admin_area_1" => "CA"
+          "postal_code" => "95131"
+          "country_code" => "US"
+        ]
+      ]
+      "payments" => array:1 [▼
+        "captures" => array:1 [▼
+          0 => array:9 [▼
+            "id" => "29F20523UX105592H"
+            "status" => "COMPLETED"
+            "amount" => array:2 [▶]
+            "final_capture" => true
+            "seller_protection" => array:2 [▶]
+            "seller_receivable_breakdown" => array:3 [▶]
+            "links" => array:3 [▶]
+            "create_time" => "2024-08-13T09:34:41Z"
+            "update_time" => "2024-08-13T09:34:41Z"
+          ]
+        ]
+      ]
+    ]
+  ]
+  "payer" => array:4 [▼
+    "name" => array:2 [▼
+      "given_name" => "John"
+      "surname" => "Doe"
+    ]
+    "email_address" => "sb-ti7bx31580669@personal.example.com"
+    "payer_id" => "RSC8ZQ9JQRJXG"
+    "address" => array:1 [▼
+      "country_code" => "US"
+    ]
+  ]
+  "links" => array:1 [▼
+    0 => array:3 [▼
+      "href" => "https://api.sandbox.paypal.com/v2/checkout/orders/4ES87444HL7053000"
+      "rel" => "self"
+      "method" => "GET"
+    ]
+  ]
+]
+```
+
+Failures:
+
+```
+array:5 [
+  "name" => "INVALID_REQUEST"
+  "message" => "Request is not well-formed, syntactically incorrect, or violates schema."
+  "debug_id" => "f95357509c89e"
+  "details" => array:1 [▼
+    0 => array:4 [▼
+      "field" => "/"
+      "location" => "body"
+      "issue" => "MALFORMED_REQUEST_JSON"
+      "description" => "The request JSON is not well formed."
+    ]
+  ]
+  "links" => array:1 [▼
+    0 => array:3 [▼
+      "href" => "https://developer.paypal.com/docs/api/orders/v2/#error-MALFORMED_REQUEST_JSON"
+      "rel" => "information_link"
+      "encType" => "application/json"
+    ]
+  ]
+]
+```
+
+```
+{
+   "debug_id":"dcaee54c782d4",
+   "details":[
+      "Array"
+   ],
+   "links":[
+      "Array"
+   ],
+   "message":"The requested action could not be performed, semantically incorrect, or failed business validation.",
+   "name":"UNPROCESSABLE_ENTITY"
+}
+```
+
+Step 5 - (auto, JS SDK, credit card) POST /v2/checkout/orders/6BL93065U7701963D/confirm-payment-source
+
+Positive response
+```
+{
+    "id": "6BL93065U7701963D",
+    "status": "APPROVED",
+    "payment_source": {
+        "card": {
+            "last_digits": "2373",
+            "expiry": "2029-07",
+            "brand": "VISA",
+            "available_networks": [
+                "VISA"
+            ],
+            "type": "CREDIT",
+            "bin_details": {
+                "bin": "403203",
+                "issuing_bank": "Baxter Credit Union",
+                "bin_country_code": "US"
+            }
+        }
+    },
+    "links": [
+        {
+            "href": "https://api.sandbox.paypal.com/v2/checkout/orders/6BL93065U7701963D",
+            "rel": "self",
+            "method": "GET"
+        },
+        {
+            "href": "https://api.sandbox.paypal.com/v2/checkout/orders/6BL93065U7701963D/capture",
+            "rel": "capture",
+            "method": "POST"
+        }
+    ]
+}
+```
+
+Fail response
+```
+{
+    "name": "UNPROCESSABLE_ENTITY",
+    "details": [
+        {
+            "field": "/payment_source/card/number",
+            "location": "body",
+            "issue": "VALIDATION_ERROR",
+            "description": "Invalid card number"
+        }
+    ],
+    "message": "The requested action could not be performed, semantically incorrect, or failed business validation.",
+    "debug_id": "f519443ba968c",
+    "links": [
+        {
+            "href": "https://developer.paypal.com/docs/api/orders/v2/#error-VALIDATION_ERROR",
+            "rel": "information_link",
+            "method": "GET"
+        }
+    ]
+}
+```
 
 Test cards: https://developer.paypal.com/tools/sandbox/card-testing
 

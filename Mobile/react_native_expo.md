@@ -5,7 +5,7 @@ Tutorials
 Starting:  
 Install node    
 https://docs.expo.dev/more/create-expo/#--template    
-`npx create-expo-app@latest testb --template blank`  
+`npx create-expo-app@latest projectName --template blank`  
 https://stackoverflow.com/questions/58675179/error-emfile-too-many-open-files-react-native-cli/62437140#62437140  
 `npx expo start --clear # Better than npm start` https://github.com/expo/expo/issues/24523#issuecomment-1871372714   
 Download Expo Go to phone  

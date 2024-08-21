@@ -1498,6 +1498,10 @@ Methods:
 
 - https://laravel-news.com/openai-for-laravel
 
+# Laravel's system wide try-catch 
+
+https://github.com/jimrubenstein/laravel-framework/blob/master/src/Illuminate/Foundation/Http/Kernel.php#L111-L130
+
 # Misc
 
 - https://www.grepper.com/answers/155245/laravel+call+controller+method+from+view
