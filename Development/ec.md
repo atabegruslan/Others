@@ -225,6 +225,11 @@ array:3 [
 }
 ```
 
+The returned Order ID is short lived (~2 hours). During that time you can retrive order information using it: https://developer.paypal.com/docs/api/orders/v2/#orders_get
+
+In the long term, the order ID will expire and you will not be able to get order details. If a transaction was completed, you must use the transaction ID with the transaction search API to get that information.
+https://developer.paypal.com/docs/api/transaction-search/v1/
+
 Step 3 - Redirect, for customer to review and confirm their payment on PayPal's side 
 
 Step 4 - Capture: Customer approves the payment from payer to payee. https://developer.paypal.com/docs/api/orders/v2/#orders_capture
@@ -449,6 +454,155 @@ JS SDK
 - Save used cards in vault: https://developer.paypal.com/docs/checkout/save-payment-methods/during-purchase/js-sdk/cards/
 - Credit card: https://developer.paypal.com/docs/checkout/advanced/integrate/#link-addpaypalbuttonsandcardfields
 - Styling buttons' CSS: https://developer.paypal.com/sdk/js/reference
+- `onApprove(data)`
+
+Paypal
+```
+billingToken: null
+facilitatorAccessToken: "A21AAKM3Aoqv1cBYVpHg9-8i33elGM7bxCd97Yr3ZdgoXiD1eYl05g2lVTWov_DRYga0qEbGGFm50mEuQW0BhgBUpIRo-S_Yg"
+orderID: "6SF99533Y2354682T"
+payerID: "RSC8ZQ9JQRJXG"
+paymentID: "6SF99533Y2354682T"
+paymentSource: "paypal"
+```
+
+Credit Card
+```
+orderID: "6BL93065U7701963D"
+```
+
+- `onError(error)`
+
+```
+clientId: "AZ0JkHcFBaa1dkhd2rO58YiN1zahwbfd8jc7_sfQF_1-2Bal3KCDFaWFkzpX5z5SG9OlwmlGKn4vFHYZ"
+csnwCorrelationId: "f47553443456f"
+env: "sandbox"
+err: "Error: /v2/checkout/orders/09E684306S227361C/confirm-payment-source returned status 422 (Corr ID: f519443ba968c).\n\n{\"name\":\"UNPROCESSABLE_ENTITY\",\"details\":[{\"field\":\"/payment_source/card/number\",\"location\":\"body\",\"issue\":\"VALIDATION_ERROR\",\"description\":\"Invalid card number\"}]..."
+loadedInFrame: "non_paypal"
+merchantId: []
+referrer: "localhost:8000"
+sessionId: "uid_89118d75a6_mde6mzc6mzu"
+timestamp: "1724204670147"
+uid: "uid_89118d75a6_mde6mzc6mzu"
+userAction: "commit"
+version: "5.0.456"
+```
+
+- 3/ Capture (done in `onApprove(data)`)
+
+Success response:
+```
+{
+    "id": "67606836DE7840901",
+    "status": "COMPLETED",
+    "payment_source": {
+        "card": {
+            "name": "Aaa Bbb",
+            "last_digits": "1881",
+            "expiry": "2024-10",
+            "brand": "VISA",
+            "type": "UNKNOWN",
+            "attributes": {
+                "vault": {
+                    "id": "8g8048225v9124622",
+                    "status": "VAULTED",
+                    "customer": {
+                        "id": "yzNVpsiOPE"
+                    },
+                    "links": [
+                        {
+                            "href": "https:\/\/api.sandbox.paypal.com\/v3\/vault\/payment-tokens\/8g8048225v9124622",
+                            "rel": "self",
+                            "method": "GET"
+                        },
+                        {
+                            "href": "https:\/\/api.sandbox.paypal.com\/v3\/vault\/payment-tokens\/8g8048225v9124622",
+                            "rel": "delete",
+                            "method": "DELETE"
+                        },
+                        {
+                            "href": "https:\/\/api.sandbox.paypal.com\/v2\/checkout\/orders\/67606836DE7840901",
+                            "rel": "up",
+                            "method": "GET"
+                        }
+                    ]
+                }
+            },
+            "bin_details": []
+        }
+    },
+    "purchase_units": [
+        {
+            "reference_id": "default",
+            "payments": {
+                "captures": [
+                    {
+                        "id": "9SM43437VR644225Y",
+                        "status": "COMPLETED",
+                        "amount": {
+                            "currency_code": "USD",
+                            "value": "57.00"
+                        },
+                        "final_capture": true,
+                        "seller_protection": {
+                            "status": "NOT_ELIGIBLE"
+                        },
+                        "seller_receivable_breakdown": {
+                            "gross_amount": {
+                                "currency_code": "USD",
+                                "value": "57.00"
+                            },
+                            "paypal_fee": {
+                                "currency_code": "USD",
+                                "value": "1.97"
+                            },
+                            "net_amount": {
+                                "currency_code": "USD",
+                                "value": "55.03"
+                            }
+                        },
+                        "links": [
+                            {
+                                "href": "https:\/\/api.sandbox.paypal.com\/v2\/payments\/captures\/9SM43437VR644225Y",
+                                "rel": "self",
+                                "method": "GET"
+                            },
+                            {
+                                "href": "https:\/\/api.sandbox.paypal.com\/v2\/payments\/captures\/9SM43437VR644225Y\/refund",
+                                "rel": "refund",
+                                "method": "POST"
+                            },
+                            {
+                                "href": "https:\/\/api.sandbox.paypal.com\/v2\/checkout\/orders\/67606836DE7840901",
+                                "rel": "up",
+                                "method": "GET"
+                            }
+                        ],
+                        "create_time": "2024-08-22T05:10:48Z",
+                        "update_time": "2024-08-22T05:10:48Z",
+                        "network_transaction_reference": {
+                            "id": "022880997781778",
+                            "network": "VISA"
+                        },
+                        "processor_response": {
+                            "avs_code": "A",
+                            "cvv_code": "M",
+                            "response_code": "0000"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "links": [
+        {
+            "href": "https:\/\/api.sandbox.paypal.com\/v2\/checkout\/orders\/67606836DE7840901",
+            "rel": "self",
+            "method": "GET"
+        }
+    ]
+}
+```
 
 Test cards: https://developer.paypal.com/tools/sandbox/card-testing
 
@@ -499,9 +653,7 @@ Eligibility
 
 ## Google Pay & Apple Pay
 
-If paying from iPhone, it's like below:
-
-![](/Illustrations/Development/ec/applepay.mp4)
+If paying from iPhone, it's like: https://github.com/atabegruslan/Others/raw/master/Illustrations/Development/ec/applepay.mp4
 
 If paying from computer, there will be a QR code for your iPhone to scan
 

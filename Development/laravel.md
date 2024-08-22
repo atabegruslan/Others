@@ -112,7 +112,35 @@ Better dependency management
 
 - https://github.com/atabegruslan/Laravel_CRUD_API/tree/master?tab=readme-ov-file#events-hooks
 
+Inbuilt events which you can listen to: https://laravel.com/api/11.x/Illuminate/Auth/Events/Login.html
+
+```php
+namespace App\Listeners;
+
+use Illuminate\Auth\Events\Login;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
+
+class LoginListener
+{
+    public function handle(Login $event) { ... }
+```
+
 Usage: eg: broadcast events thru a websocket server: https://github.com/Ruslan-Aliyev/laravel-websockets
+
+# Observers
+
+Under the hood observers also listen to events
+
+`php artisan make:observer UserObserver --model=UserName`
+
+Remember to register it first in `App\Providers\AppServiceProvider`
+```php
+public function boot()
+{
+    User::observe(UserObserver::class);
+}
+```
 
 # Job
 
