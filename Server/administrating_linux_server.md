@@ -44,3 +44,9 @@ scp local_file user@remote_host:remote_file
 scp -i key.pem local_file user@remote_host:remote_file
 # upload: specify port
 scp -P 2222 local_file user@remote_host:remote_file
+
+# Finding out about OS
+
+1/ `cat /etc/os-release`
+2/ `lsb_release -a`
+3/ `hostnamectl`

@@ -59,6 +59,42 @@ Routers and navs
   - https://www.youtube.com/watch?v=3p9LtOUg5fw
 - https://reactnavigation.org/docs/drawer-based-navigation
 
+Avoid this problem ("`RNCSafeAreaProvider` was not found in the `UIManager` Error") when using Expo Drawer Nav ( https://docs.expo.dev/router/advanced/drawer )
+
+- https://stackoverflow.com/a/70891254
+- https://github.com/software-mansion/react-native-reanimated/issues/4736#issuecomment-1639967526
+- `package.json`
+```
+{
+  "name": "drawers",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-navigation/drawer": "^6.7.2",
+    "expo": "~51.0.28",
+    "expo-router": "^3.5.23",
+    "expo-status-bar": "~1.12.1",
+    "react": "18.2.0",
+    "react-native": "0.74.5",
+    "react-native-gesture-handler": "^2.18.1",
+    "react-native-reanimated": "3.10.1",
+    "react-native-safe-area-context": "^4.10.9",
+    "react-native-screens": "^3.34.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+}
+```
+
 Render HTML: https://meliorence.github.io/react-native-render-html/docs/intro
 
 Infinite Scroll: https://gist.github.com/atabegruslan/6964ffb347abedeab82db271bff52bcf

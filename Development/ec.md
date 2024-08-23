@@ -642,6 +642,11 @@ Docs
 - https://venmo.com/docs/overview
 - https://venmo.com/developers
 
+Account
+
+- https://venmo.com/gettingstarted/createapp
+- https://account.venmo.com
+
 Eligibility
 
 - https://github.com/eileenmcnaughton/nz.co.fuzion.omnipaymultiprocessor/blob/master/docs/Paypal.md#venmo
@@ -653,7 +658,9 @@ Eligibility
 
 ## Google Pay & Apple Pay
 
-If paying from iPhone, it's like: https://github.com/atabegruslan/Others/raw/master/Illustrations/Development/ec/applepay.mp4
+If paying from iPhone in a EC website, it's like: https://github.com/atabegruslan/Others/raw/master/Illustrations/Development/ec/applepay.mp4
+
+If paying at a physical supermarket: https://vt.tiktok.com/ZGe3XFrJd/
 
 If paying from computer, there will be a QR code for your iPhone to scan
 
