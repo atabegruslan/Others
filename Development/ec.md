@@ -212,12 +212,34 @@ array:3 [
 ```
 
 ```
+array:5 [
+  "name" => "INVALID_REQUEST"
+  "details" => array:1 [
+    0 => array:2 [
+      "issue" => "PAYPAL_REQUEST_ID_REQUIRED"
+      "description" => "A PayPal-Request-Id is required if you are trying to process payment for an Order. Please specify a PayPal-Request-Id or Create the Order without a 'payment_source' specified."
+    ]
+  ]
+  "message" => "Request is not well-formed, syntactically incorrect, or violates schema."
+  "debug_id" => "f84351255676d"
+  "links" => array:1 [
+    0 => array:3 [
+      "href" => "https://developer.paypal.com/docs/api/orders/v2/#error-PAYPAL_REQUEST_ID_REQUIRED"
+      "rel" => "information_link"
+      "method" => "GET"
+    ]
+  ]
+]
+```
+
+```
 {
    "error":"invalid_token",
    "error_description":"Token signature verification failed"
 }
 ```
 
+Bearer Token Expired:
 ```
 {
     "error": "invalid_token",
@@ -383,6 +405,27 @@ array:5 [
 }
 ```
 
+```
+{
+    "name": "UNPROCESSABLE_ENTITY",
+    "details": [
+        {
+            "issue": "ORDER_ALREADY_CAPTURED",
+            "description": "Order already captured.If 'intent=CAPTURE' only one capture per order is allowed."
+        }
+    ],
+    "message": "The requested action could not be performed, semantically incorrect, or failed business validation.",
+    "debug_id": "f4093615f4375",
+    "links": [
+        {
+            "href": "https://developer.paypal.com/docs/api/orders/v2/#error-ORDER_ALREADY_CAPTURED",
+            "rel": "information_link",
+            "method": "GET"
+        }
+    ]
+}
+```
+
 Step 5 - (auto, JS SDK, credit card) POST /v2/checkout/orders/6BL93065U7701963D/confirm-payment-source
 
 Positive response
@@ -449,11 +492,11 @@ JS SDK
 
 - https://developer.paypal.com/sdk/js
 - https://developer.paypal.com/sdk/js/configuration
+- https://developer.paypal.com/studio/checkout/standard/integrate
 - 1/ Auth: https://developer.paypal.com/api/rest/authentication/#link-stepresult
 - 2/ Order: https://developer.paypal.com/sdk/js/reference/#createorder
 - Save used cards in vault: https://developer.paypal.com/docs/checkout/save-payment-methods/during-purchase/js-sdk/cards/
 - Credit card: https://developer.paypal.com/docs/checkout/advanced/integrate/#link-addpaypalbuttonsandcardfields
-- Styling buttons' CSS: https://developer.paypal.com/sdk/js/reference
 - `onApprove(data)`
 
 Paypal
@@ -604,6 +647,116 @@ Success response:
 }
 ```
 
+Vault - Saved Payment Methods
+
+Credit cards
+
+Save cards in Vault: https://developer.paypal.com/docs/checkout/save-payment-methods/purchase-later/payment-tokens-api/cards
+
+Save during order:
+
+First time:
+
+```
+{
+    "intent": "CAPTURE",
+    "purchase_units": [
+        { ...
+        }
+    ],
+    "payment_source": {
+        "card": {
+            // "name": "Firstname Lastname",
+            // "billing_address": {
+            // },
+            "attributes": {
+                "verification" : {
+                    "method": "SCA_ALWAYS"
+                },
+                "vault": {
+                    "store_in_vault": "ON_SUCCESS"
+                }
+            }
+        }
+    }
+}
+```
+
+2+ time:
+```
+{
+    "intent": "CAPTURE",
+    "purchase_units": [
+        {
+        }
+    ],
+    "payment_source": {
+        "card": {
+            // "name": "Firstname Lastname",
+            // "billing_address": {
+            // },
+            "attributes": {
+                "customer" : {
+                    "id": "LLjCvrsDkR"
+                },
+                "vault": {
+                    "store_in_vault": "ON_SUCCESS"
+                }
+            }
+        }
+    }
+}
+```
+
+Then you need to capture the payment.
+
+The response contains the customer ID and the saved card's ID.
+
+Retrieve all your saved cards' ID using customer ID: `{{base_url}}/v3/vault/payment-tokens?customer_id={customerId}`
+
+Pay with saved card: https://developer.paypal.com/docs/checkout/save-payment-methods/purchase-later/payment-tokens-api/cards/#link-usesavedpaymenttoken
+
+```
+{
+    "intent": "CAPTURE",
+    "purchase_units": [
+        {...
+        }
+    ],
+      "payment_source": {
+          "card": {
+              "vault_id":"26s98413kp959840m"
+          }          
+      }
+}
+```
+
+No need to capture here
+
+CSS / Styling
+
+- Paypal: https://developer.paypal.com/sdk/js/reference
+- Credit Card: https://developer.paypal.com/docs/checkout/advanced/customize/card-field-style
+- Apple Pay Button:
+
+```
+<style>
+    /* Apply styles to the container */
+    #applepay-container {
+        /* Add any desired styles to the container */
+    }
+    
+    /* Apply styles to the button */
+    apple-pay-button[type="plain"] {
+        /* Add your desired styles to the button */
+    }
+</style>
+
+<div id="applepay-container">
+    <apple-pay-button id="applepay_button" buttonstyle="black" type="plain" locale="en"></apple-pay-button>
+</div>
+```
+
 Test cards: https://developer.paypal.com/tools/sandbox/card-testing
 
 See payment log: https://www.sandbox.paypal.com/mep/dashboard
@@ -625,6 +778,7 @@ Help
 - https://developer.paypal.com/support
     - https://www.paypal-community.com
         - https://www.paypal-support.com
+        - https://www.paypal-support.com/s
 - https://www.paypal.com/us/cshelp/business
 - https://www.paypal.com/us/cshelp/contact-us
 

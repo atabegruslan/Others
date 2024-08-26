@@ -203,3 +203,21 @@ Update - iOS
 Docs
 - https://reactnative.dev/docs/activityindicator
 - https://reactnavigation.org/docs/deep-linking
+
+Support
+
+Google Play Developer support 
+
+https://support.google.com/googleplay/android-developer/gethelp?visit_id=638130374458737855-1460335542&rd=1&sjid=5078581807697071668-AP# 
+
+googleplay-developer-support@google.com  
+
+Apple   
+
+https://developer.apple.com
+
+https://appstoreconnect.apple.com 
+
+Login at: https://idmsa.apple.com/appleauth/auth/signin 
+  
+Apple support https://developer.apple.com/contact/topic/select 
