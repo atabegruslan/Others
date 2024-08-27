@@ -64,3 +64,9 @@ mysql -u root
 ```
 
 So now the login is: `wpadmin` / `gdEgdszrgra`
+
+---
+
+## See also
+
+https://code.tutsplus.com/download-and-install-wordpress-via-the-shell-over-ssh--wp-24403a

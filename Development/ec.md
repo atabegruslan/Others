@@ -12,6 +12,8 @@ See "Payments" (left side) for the payment log
 
 ## Paypal
 
+### Preliminaries
+
 - SignUp to Paypal (Developer or not): https://www.paypal.com/en/webapps/mpp/country-worldwide , https://www.paypal.com/vn/signin . Using your real email and password (Not your sandbox accounts)
 
 - Auto-generate sandbox Paypal accounts: https://developer.paypal.com/developer/accounts 
@@ -22,22 +24,22 @@ See "Payments" (left side) for the payment log
 
 ![](/Illustrations/Development/ec/paypal_sandbox_account_detail.png)
 
-API:
+### REST API
 
-REST: https://developer.paypal.com/api/rest
+https://developer.paypal.com/api/rest
 
-Base URL: https://api-m.sandbox.paypal.com
+**Step 1 - Auth**
 
-Step 1 - Auth: 
+https://developer.paypal.com/api/rest/authentication
 
 ![](/Illustrations/Development/ec/paypal_rest_1_auth.png)
 
-Types of responses
+**Responses**
 
-Success:
+Success
 ```
 {
-    "scope": "https://uri.paypal.com/services/checkout/one-click-with-merchant-issued-token https://uri.paypal.com/services/payments/futurepayments https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/vault/payment-tokens/read https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/services/wallet/mandates/write https://uri.paypal.com/services/vault/payment-tokens/readwrite https://uri.paypal.com/services/applications/webhooks https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid https://uri.paypal.com/services/disputes/read-seller Braintree:Vault https://uri.paypal.com/services/payments/refund https://uri.paypal.com/services/pricing/quote-exchange-rates/read https://uri.paypal.com/services/billing-agreements https://uri.paypal.com/services/wallet/mandates/read https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/shipping/trackers/readwrite https://uri.paypal.com/services/subscriptions",
+    "scope": "https://uri.paypal.com/services/checkout/one-click-with-merchant-issued-token https://uri.paypal.com/services/payments/futurepayments ...",
     "access_token": "A21AALbFc6pmaPdgjdHOCPCXaMnotgVGwGjmMrZ5lE8-kRZerFG-ORTJsCpzIyngpWu0uEEGAt5LLZAB0QKi5Gw3Zq9Jt1a_w",
     "token_type": "Bearer",
     "app_id": "APP-80W284485P519543T",
@@ -54,37 +56,14 @@ Success:
         "scopes": [
             "https://uri.paypal.com/services/payments/futurepayments",
             "https://uri.paypal.com/services/checkout/one-click-with-merchant-issued-token",
-            "https://uri.paypal.com/services/invoicing",
-            "https://uri.paypal.com/services/vault/payment-tokens/read",
-            "https://uri.paypal.com/services/payments/basic",
-            "https://uri.paypal.com/services/disputes/read-buyer",
-            "https://uri.paypal.com/services/payments/realtimepayment",
-            "https://api.paypal.com/v1/vault/credit-card",
-            "Braintree:Vault",
-            "https://api.paypal.com/v1/payments/.*",
-            "https://uri.paypal.com/services/wallet/mandates/write",
-            "https://uri.paypal.com/services/vault/payment-tokens/readwrite",
-            "https://uri.paypal.com/services/applications/webhooks",
-            "https://uri.paypal.com/services/payments/payment/authcapture",
-            "https://uri.paypal.com/services/disputes/update-seller",
-            "openid",
-            "https://uri.paypal.com/services/disputes/read-seller",
-            "https://uri.paypal.com/services/payments/refund",
-            "https://uri.paypal.com/web/experience/incontextxo",
-            "https://uri.paypal.com/services/pricing/quote-exchange-rates/read",
-            "https://uri.paypal.com/services/billing-agreements",
-            "https://uri.paypal.com/services/wallet/mandates/read",
-            "https://uri.paypal.com/payments/payouts",
-            "https://api.paypal.com/v1/vault/credit-card/.*",
-            "https://uri.paypal.com/services/shipping/trackers/readwrite",
-            "https://uri.paypal.com/services/subscriptions"
+            ...
         ],
         "ui_type": "NEW"
     }
 }
 ```
 
-Failures:
+Failure
 ```
 {
     "error": "invalid_client",
@@ -92,11 +71,13 @@ Failures:
 }
 ```
 
-Step 2 - Create Order (or Payment): https://developer.paypal.com/docs/api/orders/v2/#orders_create
+**Step 2 - Create Order (or Payment)**
+
+https://developer.paypal.com/docs/api/orders/v2/#orders_create
 
 ![](/Illustrations/Development/ec/paypal_rest_2_auth.png)
 
-Payload
+**Payload**
 ```
 {
     "intent": "CAPTURE",
@@ -132,9 +113,12 @@ Payload
 }
 ```
 
-Responses
+PS: Notice the usage of the return URLs. An alternative to it is Instant Payment Notification https://developer.paypal.com/api/nvp-soap/ipn  
+Instead of redirecting back, Paypal silently gives back the result information.  
 
-Success:
+**Responses**
+
+Success
 ```
 {
     "id": "5XW25497LW098850V",
@@ -196,8 +180,7 @@ Success:
 }
 ```
 
-Failures:
-
+**Failure**
 ```
 array:3 [
   "name" => "AUTHENTICATION_FAILURE"
@@ -239,7 +222,7 @@ array:5 [
 }
 ```
 
-Bearer Token Expired:
+Bearer Token Expired
 ```
 {
     "error": "invalid_token",
@@ -252,9 +235,13 @@ The returned Order ID is short lived (~2 hours). During that time you can retriv
 In the long term, the order ID will expire and you will not be able to get order details. If a transaction was completed, you must use the transaction ID with the transaction search API to get that information.
 https://developer.paypal.com/docs/api/transaction-search/v1/
 
-Step 3 - Redirect, for customer to review and confirm their payment on PayPal's side 
+**Step 3 - Redirect**
 
-Step 4 - Capture: Customer approves the payment from payer to payee. https://developer.paypal.com/docs/api/orders/v2/#orders_capture
+For customer to review and confirm their payment on PayPal's side 
+
+**Step 4 - Capture**
+
+Customer approves the payment from payer to payee. https://developer.paypal.com/docs/api/orders/v2/#orders_capture
 
 In the context of PayPal, the term "CAPTURE" refers to the process of collecting payment from a customers account for a particular transaction. When a payment is authorized or approved, it is not immediately transferred to the merchant's account. Instead, the funds are put on hold within the customer's account. 
 
@@ -262,9 +249,9 @@ During the capture process, the merchant initiates the transfer of funds from th
 
 - https://stackoverflow.com/a/20436759
 
-Responses:
+**Response**
 
-Success:
+Success
 ```
 {
    "id":"2PR99067LX431202H",
@@ -366,8 +353,7 @@ array:6 [
 ]
 ```
 
-Failures:
-
+Failure
 ```
 array:5 [
   "name" => "INVALID_REQUEST"
@@ -426,80 +412,26 @@ array:5 [
 }
 ```
 
-Step 5 - (auto, JS SDK, credit card) POST /v2/checkout/orders/6BL93065U7701963D/confirm-payment-source
-
-Positive response
-```
-{
-    "id": "6BL93065U7701963D",
-    "status": "APPROVED",
-    "payment_source": {
-        "card": {
-            "last_digits": "2373",
-            "expiry": "2029-07",
-            "brand": "VISA",
-            "available_networks": [
-                "VISA"
-            ],
-            "type": "CREDIT",
-            "bin_details": {
-                "bin": "403203",
-                "issuing_bank": "Baxter Credit Union",
-                "bin_country_code": "US"
-            }
-        }
-    },
-    "links": [
-        {
-            "href": "https://api.sandbox.paypal.com/v2/checkout/orders/6BL93065U7701963D",
-            "rel": "self",
-            "method": "GET"
-        },
-        {
-            "href": "https://api.sandbox.paypal.com/v2/checkout/orders/6BL93065U7701963D/capture",
-            "rel": "capture",
-            "method": "POST"
-        }
-    ]
-}
-```
-
-Fail response
-```
-{
-    "name": "UNPROCESSABLE_ENTITY",
-    "details": [
-        {
-            "field": "/payment_source/card/number",
-            "location": "body",
-            "issue": "VALIDATION_ERROR",
-            "description": "Invalid card number"
-        }
-    ],
-    "message": "The requested action could not be performed, semantically incorrect, or failed business validation.",
-    "debug_id": "f519443ba968c",
-    "links": [
-        {
-            "href": "https://developer.paypal.com/docs/api/orders/v2/#error-VALIDATION_ERROR",
-            "rel": "information_link",
-            "method": "GET"
-        }
-    ]
-}
-```
-
-JS SDK
+### JS SDK
 
 - https://developer.paypal.com/sdk/js
 - https://developer.paypal.com/sdk/js/configuration
 - https://developer.paypal.com/studio/checkout/standard/integrate
-- 1/ Auth: https://developer.paypal.com/api/rest/authentication/#link-stepresult
-- 2/ Order: https://developer.paypal.com/sdk/js/reference/#createorder
-- Save used cards in vault: https://developer.paypal.com/docs/checkout/save-payment-methods/during-purchase/js-sdk/cards/
-- Credit card: https://developer.paypal.com/docs/checkout/advanced/integrate/#link-addpaypalbuttonsandcardfields
-- `onApprove(data)`
+- https://developer.paypal.com/docs/checkout/advanced/integrate/#link-addpaypalbuttonsandcardfields
 
-Paypal
+**Step 1 - Auth**
+
+**Step 2 - Order**
+
+**Step 2a - `createOrder(data, links)`**
+
+Checkout Paypal order should be done in here.  
+
+https://developer.paypal.com/sdk/js/reference/#createorder
+
+**Step 2b - `onApprove(data, actions)`**
+
+The **response** (`data`) when using Paypal
 ```
 billingToken: null
 facilitatorAccessToken: "A21AAKM3Aoqv1cBYVpHg9-8i33elGM7bxCd97Yr3ZdgoXiD1eYl05g2lVTWov_DRYga0qEbGGFm50mEuQW0BhgBUpIRo-S_Yg"
@@ -509,13 +441,14 @@ paymentID: "6SF99533Y2354682T"
 paymentSource: "paypal"
 ```
 
-Credit Card
+The **response** (`data`) when using Credit Card
 ```
 orderID: "6BL93065U7701963D"
 ```
 
-- `onError(error)`
+**Step 2c - `onError(error)`**
 
+The **response** (`error`)
 ```
 clientId: "AZ0JkHcFBaa1dkhd2rO58YiN1zahwbfd8jc7_sfQF_1-2Bal3KCDFaWFkzpX5z5SG9OlwmlGKn4vFHYZ"
 csnwCorrelationId: "f47553443456f"
@@ -531,9 +464,13 @@ userAction: "commit"
 version: "5.0.456"
 ```
 
-- 3/ Capture (done in `onApprove(data)`)
+**Step 3 - Capture** 
 
-Success response:
+Should be done in `onApprove(data)`
+
+**Response**
+
+Success
 ```
 {
     "id": "67606836DE7840901",
@@ -647,16 +584,82 @@ Success response:
 }
 ```
 
-Vault - Saved Payment Methods
+**Step 4 (auto) - Confirm Payment Source**  (for payment with credit card)
 
-Credit cards
+`POST /v2/checkout/orders/6BL93065U7701963D/confirm-payment-source`
 
-Save cards in Vault: https://developer.paypal.com/docs/checkout/save-payment-methods/purchase-later/payment-tokens-api/cards
+**Response** 
 
-Save during order:
+Success
+```
+{
+    "id": "6BL93065U7701963D",
+    "status": "APPROVED",
+    "payment_source": {
+        "card": {
+            "last_digits": "2373",
+            "expiry": "2029-07",
+            "brand": "VISA",
+            "available_networks": [
+                "VISA"
+            ],
+            "type": "CREDIT",
+            "bin_details": {
+                "bin": "403203",
+                "issuing_bank": "Baxter Credit Union",
+                "bin_country_code": "US"
+            }
+        }
+    },
+    "links": [
+        {
+            "href": "https://api.sandbox.paypal.com/v2/checkout/orders/6BL93065U7701963D",
+            "rel": "self",
+            "method": "GET"
+        },
+        {
+            "href": "https://api.sandbox.paypal.com/v2/checkout/orders/6BL93065U7701963D/capture",
+            "rel": "capture",
+            "method": "POST"
+        }
+    ]
+}
+```
 
-First time:
+**Failure**
+```
+{
+    "name": "UNPROCESSABLE_ENTITY",
+    "details": [
+        {
+            "field": "/payment_source/card/number",
+            "location": "body",
+            "issue": "VALIDATION_ERROR",
+            "description": "Invalid card number"
+        }
+    ],
+    "message": "The requested action could not be performed, semantically incorrect, or failed business validation.",
+    "debug_id": "f519443ba968c",
+    "links": [
+        {
+            "href": "https://developer.paypal.com/docs/api/orders/v2/#error-VALIDATION_ERROR",
+            "rel": "information_link",
+            "method": "GET"
+        }
+    ]
+}
+```
 
+#### Vault - For Saving Payment Methods
+
+Save credit cards in Vault: 
+
+- https://developer.paypal.com/docs/checkout/save-payment-methods/during-purchase/js-sdk/cards
+- https://developer.paypal.com/docs/checkout/save-payment-methods/purchase-later/payment-tokens-api/cards
+
+**Step 1 - Save during order**
+
+**First timer's order payload**
 ```
 {
     "intent": "CAPTURE",
@@ -682,7 +685,7 @@ First time:
 }
 ```
 
-2+ time:
+**Returnee's order payload**
 ```
 {
     "intent": "CAPTURE",
@@ -708,14 +711,19 @@ First time:
 }
 ```
 
-Then you need to capture the payment.
+**Step 2 - Capture the payment**
 
 The response contains the customer ID and the saved card's ID.
 
-Retrieve all your saved cards' ID using customer ID: `{{base_url}}/v3/vault/payment-tokens?customer_id={customerId}`
+**Step 3 - Retrieve saved card**
 
-Pay with saved card: https://developer.paypal.com/docs/checkout/save-payment-methods/purchase-later/payment-tokens-api/cards/#link-usesavedpaymenttoken
+Retrieve all your saved cards' ID using customer ID: `GET /v3/vault/payment-tokens?customer_id={customerId}`
 
+**Step 4 - Pay with saved card**
+
+https://developer.paypal.com/docs/checkout/save-payment-methods/purchase-later/payment-tokens-api/cards/#link-usesavedpaymenttoken
+
+**Returnee's order payload**
 ```
 {
     "intent": "CAPTURE",
@@ -723,22 +731,139 @@ Pay with saved card: https://developer.paypal.com/docs/checkout/save-payment-met
         {...
         }
     ],
-      "payment_source": {
-          "card": {
-              "vault_id":"26s98413kp959840m"
-          }          
-      }
+    "payment_source": {
+        "card": {
+            "vault_id":"26s98413kp959840m"
+        }          
+    }
 }
 ```
 
-No need to capture here
+PS: No need to capture here
 
-CSS / Styling
+### Omnipay library for Paypal
+
+Checkout order response
+```
+Array (
+    [id] => PAYID-M2IK4BI6R537860XT1277453 
+    [intent] => sale 
+    [state] => approved 
+    [cart] => 4W444739J44028549 
+    [payer] => Array (
+        [payment_method] => paypal 
+        [status] => VERIFIED 
+        [payer_info] => Array ( 
+            [email] => sb-sg0ld782482@personal.example.com 
+            [first_name] => John 
+            [last_name] => Doe 
+            [payer_id] => WD2K39ARGH7EL 
+            [shipping_address] => Array ( 
+                [recipient_name] => John Doe 
+                [line1] => 1 Main St 
+                [city] => San Jose 
+                [state] => CA 
+                [postal_code] => 95131 
+                [country_code] => US 
+            ) 
+            [country_code] => US 
+        ) 
+    ) 
+    [transactions] => Array ( 
+        [0] => Array ( 
+            [amount] => Array ( 
+                [total] => 11.00 
+                [currency] => USD 
+                [details] => Array ( 
+                    [subtotal] => 11.00 
+                    [shipping] => 0.00 
+                    [insurance] => 0.00 
+                    [handling_fee] => 0.00 
+                    [shipping_discount] => 0.00 
+                    [discount] => 0.00 
+                ) 
+            ) 
+            [payee] => Array ( 
+                [merchant_id] => YQU2LUQB75CXS 
+                [email] => sb-opxam783557@business.example.com 
+            ) 
+            [item_list] => Array ( 
+                [shipping_address] => Array ( 
+                    [recipient_name] => John Doe 
+                    [line1] => 1 Main St 
+                    [city] => San Jose 
+                    [state] => CA 
+                    [postal_code] => 95131 
+                    [country_code] => US 
+                ) 
+            ) 
+            [related_resources] => Array ( 
+                [0] => Array ( 
+                    [sale] => Array ( 
+                        [id] => 1A307792V3848154J 
+                        [state] => completed 
+                        [amount] => Array ( 
+                            [total] => 11.00 
+                            [currency] => USD 
+                            [details] => Array ( 
+                                [subtotal] => 11.00 
+                                [shipping] => 0.00 
+                                [insurance] => 0.00 
+                                [handling_fee] => 0.00 
+                                [shipping_discount] => 0.00 
+                                [discount] => 0.00 
+                            ) 
+                        ) 
+                        [payment_mode] => INSTANT_TRANSFER 
+                        [protection_eligibility] => ELIGIBLE 
+                        [protection_eligibility_type] => ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE 
+                        [transaction_fee] => Array ( 
+                            [value] => 0.87 
+                            [currency] => USD 
+                        ) 
+                        [parent_payment] => PAYID-M2IK4BI6R537860XT1277453 
+                        [create_time] => 2024-07-12T04:16:28Z 
+                        [update_time] => 2024-07-12T04:16:28Z 
+                        [links] => Array (
+                            [0] => Array ( 
+                                [href] => https://api.sandbox.paypal.com/v1/payments/sale/1A307792V3848154J 
+                                [rel] => self 
+                                [method] => GET 
+                            ) 
+                            [1] => Array ( 
+                                [href] => https://api.sandbox.paypal.com/v1/payments/sale/1A307792V3848154J/refund 
+                                [rel] => refund 
+                                [method] => POST 
+                            ) 
+                            [2] => Array ( 
+                                [href] => https://api.sandbox.paypal.com/v1/payments/payment/PAYID-M2IK4BI6R537860XT1277453 
+                                [rel] => parent_payment 
+                                [method] => GET 
+                            ) 
+                        ) 
+                    ) 
+                ) 
+            ) 
+        ) 
+    ) 
+    [failed_transactions] => Array ( ) 
+    [create_time] => 2024-07-12T04:16:05Z 
+    [update_time] => 2024-07-12T04:16:28Z 
+    [links] => Array ( 
+        [0] => Array ( 
+            [href] => https://api.sandbox.paypal.com/v1/payments/payment/PAYID-M2IK4BI6R537860XT1277453 
+            [rel] => self 
+            [method] => GET 
+        ) 
+    ) 
+) 
+```
+
+### CSS / Styling
 
 - Paypal: https://developer.paypal.com/sdk/js/reference
 - Credit Card: https://developer.paypal.com/docs/checkout/advanced/customize/card-field-style
 - Apple Pay Button:
-
 ```
 <style>
     /* Apply styles to the container */
@@ -757,23 +882,24 @@ CSS / Styling
 </div>
 ```
 
+### Tools
+
 Test cards: https://developer.paypal.com/tools/sandbox/card-testing
 
-See payment log: https://www.sandbox.paypal.com/mep/dashboard
+Seller see payment log: https://www.sandbox.paypal.com/mep/dashboard
 
-Fees
+Seller's settings: https://www.paypal.com/businessmanage/account/accountAccess
 
+Fees:
 - https://www.paypal.com/US/webapps/mpp/merchant-fees
 - https://www.paypal.com/vn/cshelp/topic/help_my_account_business/help_tax_information_business
 
-Force fails
-
+Force fails:
 - https://developer.paypal.com/tools/sandbox/card-testing/#link-simulatecarderrorscenarios
 - https://www.paypal.com/us/cshelp/article/how-do-i-test-failed-transactions-in-the-paypal-sandbox-ts1259
-    - https://developer.paypal.com/tools/sandbox/negative-testing/request-headers/
+    - https://developer.paypal.com/tools/sandbox/negative-testing/request-headers
 
-Help
-
+Help:
 - https://developer.paypal.com/docs/support
 - https://developer.paypal.com/support
     - https://www.paypal-community.com
@@ -784,24 +910,24 @@ Help
 
 ## Paypal's Venmo
 
-Intro
+### Intro
 
 - https://www.youtube.com/watch?v=itpIJ7ewn4E
 - https://www.youtube.com/watch?v=kTKNRrKADKc
 
-Docs
+### Docs
 
 - https://developer.paypal.com/docs/checkout/pay-with-venmo/integrate
 - https://venmo.com/gettingstarted/apipayment
 - https://venmo.com/docs/overview
 - https://venmo.com/developers
 
-Account
+### Account
 
 - https://venmo.com/gettingstarted/createapp
 - https://account.venmo.com
 
-Eligibility
+### Eligibility
 
 - https://github.com/eileenmcnaughton/nz.co.fuzion.omnipaymultiprocessor/blob/master/docs/Paypal.md#venmo
 - https://developer.paypal.com/docs/checkout/pay-with-venmo/#link-eligibility
