@@ -25,3 +25,14 @@ Something you need to do before having Docker
 - https://www.namehero.com/blog/understanding-the-key-differences-of-vmware-vs-hyper-v
 
 > If you prioritize industry support, robust management tools, and a wide range of features, VMware and its ESXi offering is the suitable choice. On the other hand, if you have a Windows-based environment, prefer seamless integration with Microsoft technologies, and cost-effectiveness, Hyper-V can be a viable option.
+
+## Accessing from Windows host
+
+```
+wsl sudo zmap -p 80 171.67.70.0/23
+wsl --echo "1234" `| sudo -S zmap -p 80 171.67.70.0/23
+```
+
+Reset guest Ubuntu password
+
+https://www.youtube.com/watch?v=Bsl4UAfHAvs

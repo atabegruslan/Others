@@ -282,7 +282,9 @@ Success
    ],
    "status":"COMPLETED"
 }
+```
 
+```
 array:6 [
   "id" => "4ES87444HL7053000"
   "status" => "COMPLETED"
@@ -424,6 +426,9 @@ array:5 [
 **Step 2 - Order**
 
 **Step 2a - `createOrder(data, links)`**
+
+- `data`: `{paymentSource: 'paypal'}`
+- `links`: `{"order":{},"payment":null}`
 
 Checkout Paypal order should be done in here.  
 
@@ -858,6 +863,14 @@ Array (
     ) 
 ) 
 ```
+
+### Pay later
+
+- Pay in 4
+
+- Pay monthly
+
+### Split pay
 
 ### CSS / Styling
 

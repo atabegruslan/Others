@@ -1,0 +1,25 @@
+<!-- The text field -->
+<input type="text" value="xxxxxx" id="code" disabled />
+
+<!-- The button used to copy the text -->
+<button onclick="clipboard()">Copy</button>
+
+<script>
+function clipboard() 
+{
+  // Get the text field
+  var code = document.getElementById("code");
+
+  // Select the text field
+  code.select();
+  code.setSelectionRange(0, 99999); // For mobile devices
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(code.value);
+
+  // Alert the copied text
+  alert(code.value);
+}
+</script>
+
+<!-- https://www.w3schools.com/howto/howto_js_copy_clipboard.asp -->
