@@ -215,6 +215,10 @@ PHP: `$clean = iconv('UTF-8', 'US-ASCII//TRANSLIT', $dirty);`
 - Clean diacritics: https://coderwall.com/p/a6koxq/how-to-remove-diacritics-in-sql-server
 - Diacritics insensitive search: https://dba.stackexchange.com/questions/190969/ignore-accents-in-where
 
+## Convert Unicode literals to local text
+
+https://stackoverflow.com/questions/2045058/converting-these-types-of-unicode-to-utf8-in-php/7546249#7546249
+
 ## Case insensitive search by BINARY
 
 - https://www.w3schools.com/Sql/func_mysql_binary.asp

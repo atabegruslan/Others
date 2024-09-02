@@ -896,6 +896,37 @@ https://laravel.com/docs/9.x/eloquent-mutators
 
 https://github.com/academico-sis/academico/blob/pro/app/Traits/PriceTrait.php#L7
 
+# Fonts
+
+## Google fonts
+
+Eg: https://fonts.google.com/specimen/Inter?query=inter
+
+https://stackoverflow.com/questions/56783985/how-to-use-custom-fonts-in-laravels-blade
+
+### Laravel
+
+```
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+.inter-normal {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.whatever {
+    font-family: inter;
+}
+```
+
+## International
+
+https://github.com/atabegruslan/Others/blob/master/Security/encode.md#load-multi-lingual-fonts-for-barryvdhlaravel-dompdf
+
 # Permissions terminology
 
 - `spatie/laravel-permission`: https://github.com/atabegruslan/Laravel_CRUD_API/tree/master?tab=readme-ov-file#permissions-spatie-library
@@ -912,6 +943,8 @@ Then there are "weirder" terms like:
 - Group of permissions = policy
 
 ![](/Illustrations/Development/laravel/laravel_policy.png)
+
+![](/Illustrations/Development/laravel/gates_policies_roles_permissions.png)
 
 # Security
 
