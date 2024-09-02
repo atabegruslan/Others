@@ -970,6 +970,28 @@ Supported on both Stripe and Paypal
 - https://docs.stripe.com/apple-pay
 - https://stripe.com/payments/apple-pay
 
+### Inner workings
+
+![](/Illustrations/Development/ec/apple_and_google_pay.png)
+
+- https://www.rambus.com/blogs/what-is-a-token-service-provider
+- DAN and DPAN are Payment Tokens https://en.wikipedia.org/wiki/Token_money
+- Google and Samsung Pay needs NFC on device https://en.wikipedia.org/wiki/Near-field_communication
+
+### Test Credit card numbers for Apple Pay
+
+![](/Illustrations/Development/ec/applepay_test_card_0.png)
+
+![](/Illustrations/Development/ec/applepay_test_card_1.png)
+
+![](/Illustrations/Development/ec/applepay_test_card_2.png)
+
+![](/Illustrations/Development/ec/applepay_test_card_3.png)
+
+![](/Illustrations/Development/ec/applepay_test_card_4.png)
+
+![](/Illustrations/Development/ec/applepay_test_card_5.png)
+
 ## Bambora's ePay
 
 ![](/Illustrations/Development/ec/bambora_epay.png)
