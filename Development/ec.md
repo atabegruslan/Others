@@ -951,26 +951,21 @@ Help:
 
 ## Google Pay & Apple Pay
 
-If paying from iPhone in a EC website, it's like: https://github.com/atabegruslan/Others/raw/master/Illustrations/Development/ec/applepay.mp4
+### How Apple Pay operates
 
-If paying at a physical supermarket: https://vt.tiktok.com/ZGe3XFrJd/
+**If paying at a physical supermarket**: https://vt.tiktok.com/ZGe3XFrJd
 
-If paying from computer, there will be a QR code for your iPhone to scan
+**If paying from computer**, there will be a QR code for your iPhone to scan
 
-- https://www.youtube.com/watch?v=cHv8LqkbPHk
-- Applepay: https://www.youtube.com/watch?v=mt5FEvoEHEk
-- https://developer.apple.com/videos/play/tech-talks/111381
-- Paypal's ApplePay: 
-    - https://developer.paypal.com/docs/checkout/apm/apple-pay
-    - https://www.youtube.com/watch?v=E3gUASHQMrU
-    - https://github.com/rauljr7/ppcp_apms_apple_pay_tutorial/blob/main/script.js
-- https://developer.apple.com/apple-pay/sandbox-testing
+**If paying from iPhone in a eCommerce website**, it's like: https://github.com/atabegruslan/Others/raw/master/Illustrations/Development/ec/applepay.mp4
 
-Supported on both Stripe and Paypal
-- https://docs.stripe.com/apple-pay
-- https://stripe.com/payments/apple-pay
+https://github.com/rauljr7/ppcp_apms_apple_pay_tutorial/blob/main/script.js : `handle_applepay_clicked` > `ap_validate`
+
+![](/Illustrations/Development/ec/applepay_in_action_mobile.png)
 
 ### Inner workings
+
+- https://www.youtube.com/watch?v=cHv8LqkbPHk
 
 ![](/Illustrations/Development/ec/apple_and_google_pay.png)
 
@@ -978,7 +973,18 @@ Supported on both Stripe and Paypal
 - DAN and DPAN are Payment Tokens https://en.wikipedia.org/wiki/Token_money
 - Google and Samsung Pay needs NFC on device https://en.wikipedia.org/wiki/Near-field_communication
 
+### Integration
+
+- Applepay: https://www.youtube.com/watch?v=mt5FEvoEHEk
+- https://developer.apple.com/videos/play/tech-talks/111381
+- Paypal's ApplePay: 
+    - https://developer.paypal.com/docs/checkout/apm/apple-pay
+    - https://www.youtube.com/watch?v=E3gUASHQMrU
+    - https://github.com/rauljr7/ppcp_apms_apple_pay_tutorial
+
 ### Test Credit card numbers for Apple Pay
+
+- https://developer.apple.com/apple-pay/sandbox-testing
 
 ![](/Illustrations/Development/ec/applepay_test_card_0.png)
 
@@ -990,7 +996,11 @@ Supported on both Stripe and Paypal
 
 ![](/Illustrations/Development/ec/applepay_test_card_4.png)
 
-![](/Illustrations/Development/ec/applepay_test_card_5.png)
+### Others
+
+Supported on both Stripe and Paypal
+- https://docs.stripe.com/apple-pay
+- https://stripe.com/payments/apple-pay
 
 ## Bambora's ePay
 
