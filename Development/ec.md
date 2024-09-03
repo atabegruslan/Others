@@ -917,7 +917,8 @@ Help:
 - https://developer.paypal.com/support
     - https://www.paypal-community.com
         - https://www.paypal-support.com
-        - https://www.paypal-support.com/s
+        - **https://www.paypal-support.com/s**
+        - **merchanttechsupport@paypal.com**
 - https://www.paypal.com/us/cshelp/business
 - https://www.paypal.com/us/cshelp/contact-us
 
@@ -995,6 +996,16 @@ https://github.com/rauljr7/ppcp_apms_apple_pay_tutorial/blob/main/script.js : `h
 ![](/Illustrations/Development/ec/applepay_test_card_3.png)
 
 ![](/Illustrations/Development/ec/applepay_test_card_4.png)
+
+### Support
+
+Apple
+
+- **https://developer.apple.com/support/technical**
+- **https://developer.apple.com/contact/topic/select**
+- **https://developer.apple.com/contact/topic/SC1102/subtopic/30018/solution/select**
+- **https://developer.apple.com/contact/topic/SC1102/subtopic/30018/solution/CONTACT.EML.GEN/details**
+- **asia.dev@apple.com**
 
 ### Others
 
