@@ -1,10 +1,16 @@
-# JS Templating
-
-https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/js/js_templating.html
-
 # `<object>`
 
 Generic way to embed media. https://www.geeksforgeeks.org/html-object-tag/
+
+# Embed PDF
+
+https://stackoverflow.com/questions/291813/recommended-way-to-embed-pdf-in-html
+
+# Image zoom view
+
+Tool: https://github.com/openseadragon/openseadragon 
+
+Result: https://www.raremaps.com/gallery/detail/84631/medieval-mappa-mundi-apographon-descriptionis-orbis-ter-anonymous
 
 # `<noscript>`
 
@@ -143,7 +149,7 @@ https://github.com/Ruslan-Aliyev/compass_sprites
 
 ## Jade/Pug
 
-- https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/templating/jade/
+- https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/templating/jade
 - https://github.com/Ruslan-Aliyev/ExpressJS-Google-SignIn/tree/master/views
 
 ## Smarty
@@ -152,8 +158,13 @@ https://github.com/Ruslan-Aliyev/compass_sprites
 
 # Web worker
 
-- https://blog.logrocket.com/web-workers-react-typescript/
+- https://blog.logrocket.com/web-workers-react-typescript
 - EG: https://github.com/atabegruslan/Laravel_CRUD_API#3rd-party-notifications---webpush
+- All types of workers: https://github.com/atabegruslan/Others/blob/master/Development/comparisons.md#workers
+
+# Performance
+
+![](/Illustrations/Development/fe_performance.png)
 
 # CSS
 
@@ -171,7 +182,7 @@ CSS files are render-blocking resources: they must be loaded and processed befor
 - If neither async or defer is present: The script is downloaded and executed immediately, blocking parsing until the script is completed
 
 
-https://web.dev/defer-non-critical-css/
+https://web.dev/defer-non-critical-css
 
 ## Font-size, accessability
 

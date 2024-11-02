@@ -5,12 +5,9 @@
 - https://www.youtube.com/playlist?list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK
 - https://www.youtube.com/playlist?list=PL9ooVrP1hQOH3SvcgkC4Qv2cyCebvs0Ik
 
----
-
-## Misc
+# Misc
 
 - https://ostechnix.com/how-to-enable-timestamp-in-bash-history-in-linux/
-
 
 Other Useful commands
 
@@ -50,3 +47,10 @@ scp -P 2222 local_file user@remote_host:remote_file
 1/ `cat /etc/os-release`
 2/ `lsb_release -a`
 3/ `hostnamectl`
+
+# Prevent server crash from too many requests
+
+- scale up, scale out
+- bad request
+- load balance
+- async

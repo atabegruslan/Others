@@ -199,6 +199,35 @@ Example of DateTime usage:
 	- https://www.php.net/manual/en/ref.bc.php
 	- https://sodocumentation.net/php/topic/8550/bc-math--binary-calculator-
 
+## Encrypting passwords
+
+```php
+function encrypt($password, $encryptionKey)
+{
+    $iv    = openssl_random_pseudo_bytes(openssl_cipher_iv_length("AES-256-CBC"));
+    $crypt = openssl_encrypt($password, "AES-256-CBC", $encryptionKey, OPENSSL_RAW_DATA, $iv);
+
+    return base64_encode($iv . $crypt);
+}
+
+function decrypt($password, $encryptionKey)
+{
+    $decodedPassword = base64_decode($password);
+
+    $ivlen = openssl_cipher_iv_length("AES-256-CBC");
+    $iv    = substr($decodedPassword, 0, $ivlen);
+    $crypt = substr($decodedPassword, $ivlen);
+
+    return openssl_decrypt($crypt, "AES-256-CBC", $encryptionKey, OPENSSL_RAW_DATA, $iv);
+}
+
+$encryptionKey is the secret in the config file
+```
+
+- https://www.php.net/manual/en/function.openssl-cipher-iv-length.php
+- https://www.php.net/manual/en/function.openssl-random-pseudo-bytes.php
+- https://www.php.net/manual/en/function.openssl-encrypt.php
+
 ## Progress bar
 
 - https://snipplr.com/view/29548
@@ -449,12 +478,19 @@ https://stackoverflow.com/questions/59807938/the-confusion-with-jit-compilation-
 
 A transpiler converts codes that are at similar levels of abstraction. Eg: ES6 code to ES5 code.
 
+## JS Templating
+
+https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/js/js_templating.html
+
+Not to be confused with Modules: https://www.w3schools.com/js/js_modules.asp
+
 # Node.js & NPM
 
 ## Modules
 
 - BE: Node default is CJS (Common JS, like `require()` & `module.exports`)
 - FE: ES2015 made its module system, called ESM (ES Modules, like `import` & `export`)
+- https://www.youtube.com/watch?v=mK54Cn4ceac
 - Node14+ can support ESM. 
   - To use ESM in Node, either have `type:module` in `package.json` or use `.jsm` extension for module files 
   - https://stackoverflow.com/questions/43622337/using-import-fs-from-fs/43622412#43622412
@@ -481,7 +517,10 @@ Other related articles:
 
 ## Bundlers
 
-https://www.youtube.com/watch?v=5IG4UmULyoA
+- https://www.youtube.com/watch?v=5IG4UmULyoA
+- https://www.youtube.com/watch?v=5IG4UmULyoA
+- https://www.snowpack.dev
+- https://rollupjs.org
 
 ### WebPack
 
@@ -648,6 +687,15 @@ PM2:
 - https://blog.logrocket.com/migrating-prettier-rome/
 - https://www.freecodecamp.org/news/using-prettier-and-jslint/
 - https://blog.bitsrc.io/best-practices-with-react-hooks-69d7e4af69a7
+
+# Yarn
+
+Yarn is faster: https://waverleysoftware.com/blog/yarn-vs-npm
+
+# Version Managers
+
+- NVM
+- N https://www.npmjs.com/package/n
 
 # Others
 

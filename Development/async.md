@@ -132,6 +132,14 @@ Some Websocket libraries are built atop those async technologies
 - Echo
 - Soketi
 
+# SSE
+
+![](/Illustrations/Development/sse_vs_ws.png)
+
+- https://www.youtube.com/watch?v=1cFyfT0m3bA
+- https://www.youtube.com/watch?v=4HlNv1qpZFY
+- https://www.youtube.com/watch?v=6QnTNKOJk5A
+
 ---
 
 # Chat

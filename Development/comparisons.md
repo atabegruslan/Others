@@ -179,6 +179,7 @@ https://github.com/atabegruslan/Others/blob/master/Development/async.md
 - https://stackoverflow.com/questions/60268604/whats-the-difference-between-web-workers-and-worker-threads
 - https://dev.to/bharat5604/web-worker-service-worker-and-worklets-a-comprehensive-guide-1f64
 - https://blog.logrocket.com/complete-guide-threads-node-js
+- Eg of Web Worker in Laravel and JS: https://github.com/atabegruslan/Laravel_CRUD_API#3rd-party-notifications---webpush
 
 ## Dependency Management
 

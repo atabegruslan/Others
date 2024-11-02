@@ -1015,7 +1015,7 @@ Supported on both Stripe and Paypal
 
 ## Bambora's ePay
 
-![](/Illustrations/Development/ec/bambora_epay.png)
+Bambora company vendors the ePay payment processing solution.
 
 - ePay: https://www.youtube.com/watch?v=mKHw_-ISV9w 
 - https://en.wikipedia.org/wiki/Euronet_Worldwide

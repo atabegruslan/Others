@@ -70,6 +70,8 @@ For conversion between class <-> functional components, here's how: https://jsfi
 - v17 -> v18: https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html
 - v18 -> v17: https://dev.to/lowla/create-react-app-with-a-previous-version-of-react-4g03
 
+As of 2023/2024: Use Vite, dont use RCA, because RCA havent been maintained in ages.
+
 # More Theory
 
 ## Lifecycle events & Hooks
@@ -345,7 +347,13 @@ const Home = () => {
 ![](/Illustrations/Development/react/react-query.png)
 
 - Tanstack `useQuery`: https://www.youtube.com/watch?v=AlkDbnbv7dk
-- SWR: https://swr.vercel.app/
+
+https://www.npmjs.com/package/react-query has now became https://tanstack.com/query/latest/docs/framework/react/quick-start
+
+Another example of `tanstack/react-query` & Form Submit: https://gist.github.com/atabegruslan/78b782f3cd39bcad6f8caa7dda32fd8f
+
+- SWR: https://swr.vercel.app
+
 - The new React 19's `use` hook
 
 ![](/Illustrations/Development/react/react_use_for_fetch.png)

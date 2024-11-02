@@ -339,12 +339,14 @@ alias edit-hosts="sudo gedit /etc/hosts";
 
 You would want to add eg: `export PATH="$PATH:/some/addition"` into `.bash_profile` instead of `.bashrc`.
 
-https://hackprogramming.com/2-ways-to-permanently-set-path-variable-in-ubuntu/
+https://hackprogramming.com/2-ways-to-permanently-set-path-variable-in-ubuntu
 
 ```
 export PATH=$PATH:/some/addition/bin
 source ~/.profile
 ```
+
+See also Mac's: https://github.com/atabegruslan/Others/blob/master/Development/setup_developer_mac_computer.md#path
 
 ### Ubuntu's 'control panel' 
 
