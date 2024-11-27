@@ -67,6 +67,16 @@ References
 - https://niteco.com/articles/from-expo-to-react-native
 - https://stackoverflow.com/questions/69060280/react-native-convert-an-expo-bare-project-to-a-pure-react-native-app
 
+## Bare vs Expo
+
+Bare means without using Expo nor Metro bundler (nor any other frameworks) to manage it for you. You create the native app and configure everything yourself.
+
+Back in the days, Expo wasn't fully stable and had some drawbacks in terms of using native Code and modules but today most projects can be run in Expo really well.
+
+https://docs.expo.dev/workflow/prebuild is used to adapt from Expo to bare. But not fully bare.
+
+You can create and run an Expo app on Expo Go on your phone and emulator. But when you start working with native stuff you'll need a dev build
+
 ## Local app compilation
 
 To build your project locally you can use compile commands from Expo CLI which generates the android and ios directories:
@@ -136,9 +146,36 @@ References
 
 - https://www.youtube.com/watch?v=SgoI-fRiFTM
 
+## Audio
+
+- https://docs.expo.dev/versions/latest/sdk/audio
+- https://docs.expo.dev/versions/latest/sdk/audio-av/
+- https://github.com/expo/expo/discussions/18869#discussioncomment-8404583
+
+At its most bare-basic
+```js
+import { Audio } from 'expo-av';
+
+async function playSound() {
+  const { sound } = await Audio.Sound.createAsync( require('../assets/audio/xxx.wav') );
+  await sound.playAsync();
+}
+
+<Button title="Play Sound" onPress={playSound} />
+```
+
+## Camera
+
+- https://gist.github.com/atabegruslan/0ee8047d4fbfce85f15711208a9cfb69
+
 ## Forms
 
 - https://stackoverflow.com/a/61447938
+
+## Keyboard Avoidance
+
+- https://www.youtube.com/watch?v=jhyuk68YdWA
+- https://www.npmjs.com/package/react-native-keyboard-aware-scroll-view
 
 ## OS specific frontend styling
 
@@ -208,14 +245,19 @@ How to solve this problem ("`RNCSafeAreaProvider` was not found in the `UIManage
 
 - https://github.com/Shopify/flash-list
 - https://gist.github.com/atabegruslan/e1b124673144da40ce32d777478bed6d
+- https://shopify.github.io/flash-list/docs/known-issues
 
 ## Payments
 
-- https://www.revenuecat.com/docs/getting-started/installation/reactnative
+- https://medium.com/@subtain.techling/subscription-in-react-native-a-comprehensive-guide-75fa1ec34f95
 - Apple store in app payment: https://developer.apple.com/in-app-purchase
-- https://developer.apple.com/app-store/subscriptions
+  - https://developer.apple.com/app-store/subscriptions
 - Google play in app payment
 - https://docs.expo.dev/guides/in-app-purchases
+  - https://www.revenuecat.com/blog/engineering/expo-in-app-purchase-tutorial
+  - https://www.revenuecat.com/docs/getting-started/installation/reactnative
+    - Apple's Store Kit 2: https://developer.apple.com/storekit
+    - Google Play Billing: https://developer.android.com/google/play/billing/integrate
 
 ## Firebase
 
@@ -273,14 +315,14 @@ Advice: Use 'npx expo install --check' to review and upgrade your dependencies.
 ```
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.adhg.try2.oscarsurfaces",
+      "bundleIdentifier": "com.yyy.xxx",
       "buildNumber": "1",
       "config": {
         "usesNonExemptEncryption": false
       }
     },
     "android": {
-      "package": "com.adhg.try2.oscarsurfaces",
+      "package": "com.yyy.xxx",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
@@ -325,6 +367,10 @@ If not, then just `eas build --platform android`, manually download build from e
 - https://www.youtube.com/watch?v=LE4Mgkrf7Sk&t=1654s
 - https://www.youtube.com/watch?v=cdUVbpT-Vks&t=710s
 
+### Versions
+
+- ![](/Illustrations/Mobile/RN_Expo/versions_in_react_native.png)
+
 ### Docs
 
 - https://reactnative.dev/docs/activityindicator
@@ -353,3 +399,17 @@ Apple support https://developer.apple.com/contact/topic/select
 # Theory
 
 - https://developers.facebook.com/blog/post/2021/11/01/eli5-metro-javascript-bundler-react-native
+
+---
+
+# Platform Specific
+
+## Android
+
+Dealing with multiple gradles
+
+- ![](/Illustrations/Mobile/Gradle/multiple_gradles.png)
+
+## iOS
+
+**Pod**: In iOS, a pod is a third-party library or framework that is integrated into a project using CocoaPods (CocoaPods is a dependency manager)

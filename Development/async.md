@@ -146,11 +146,20 @@ Some Websocket libraries are built atop those async technologies
 
 Chat normally relies on Websockets
 
+WS
+- https://www.youtube.com/watch?v=1BfCnjr_Vjg
+Socket IO
+- https://socket.io/docs/v4
+- https://socket.io/docs/v4/client-socket-instance
+
+Examples
 - PHP, Ratchet: https://github.com/Ruslan-Aliyev/chat-php-ratchet
 - Laravel Websockets: https://medium.com/@lfoster49203/building-real-time-applications-with-laravel-and-websockets-1f0e4465ef3a
 - Laravel Chatify: https://www.youtube.com/watch?v=9tj7sz-JF3Q
 - Node, WebSocket: https://github.com/Ruslan-Aliyev/chat-NodeJS-WebSocket
 - Node, socket.io: https://github.com/Ruslan-Aliyev/chat-NodeJS-SocketIo
+- React, socket.io: https://github.com/Ruslan-Aliyev/chat-ReactJS-SocketIo
+- Strapi v4, socket.io: https://github.com/Ruslan-Aliyev/chat-Strapi-SocketIo
 - Java: https://github.com/Ruslan-Aliyev/chat-java
 - Express, React, socket.io: https://www.freecodecamp.org/news/build-a-realtime-chat-app-with-react-express-socketio-and-harperdb
 - Zendesk: https://developer.zendesk.com/documentation/apps/build-an-app/build-your-first-chat-app/part-1-laying-the-groundwork

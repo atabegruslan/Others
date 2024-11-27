@@ -13,12 +13,12 @@ Centos is used
 
 Generate and add your local SSH public key into server's `authorized_keys` file
 
-To clear up any confusion between `authorized_keys` and `known hosts`, imagine this setup:
+To clear up any confusion between `authorized_keys` and `known_hosts`, imagine this setup:
 
 Your localhost -> your server -> Github
 
 You add your localhost's SSH key into your server's `authorized_keys`, so that it will allows you to SSH in.     
-When you give your server's SSH key to Github, in order to pull from Github via SSH, then an entry got Github will be added into your server's `known hosts`. https://stackoverflow.com/questions/33243393/what-is-actually-in-known-hosts     
+When you give your server's SSH key to Github, in order to pull from Github via SSH, then an entry got Github will be added into your server's `known_hosts`. https://stackoverflow.com/questions/33243393/what-is-actually-in-known-hosts     
 
 Difference between SSH vs Deploy keys: https://stackoverflow.com/questions/39659302/difference-between-account-ssh-key-vs-deployment-ssh-key/39659393#39659393
 
