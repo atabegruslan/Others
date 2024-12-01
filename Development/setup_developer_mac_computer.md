@@ -26,24 +26,37 @@ Choose Login items tab.
 Check startup programs you want to remove.  
 Press the “–” sign below.  
 
----
+# Homebrew
 
+```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo >> /Users/rus/.zprofile
     echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/rus/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
+```
 
+# Git
+
+```
 brew update
 brew install git
+```
 
+## Github SSH
+
+```
 ssh-keygen -t rsa -b 4096 -C "ruslanaliyev1849@gmail.com"
 eval "$(ssh-agent -s)"
 pbcopy < /Users/rus/.ssh/id_rsa.pub
+```
 
+# Node
 
+`brew install node@20`
 
-brew install node@20
+## Notes
 
+```
 node@20 is keg-only, which means it was not symlinked into /opt/homebrew,
 because this is an alternate version of another formula.
 
@@ -53,16 +66,35 @@ If you need to have node@20 first in your PATH, run:
 For compilers to find node@20 you may need to set:
   export LDFLAGS="-L/opt/homebrew/opt/node@20/lib"
   export CPPFLAGS="-I/opt/homebrew/opt/node@20/include"
+```
 
-Then open new terminal 
+## Then open new terminal 
+
+```
 node -v
 npm -v
+```
 
+# Yarn
 
+`npm install --global yarn`
+
+## Notes
+
+```
+# if yarn is installed, but not linked
+brew link yarn
+```
+
+# Java
 
 https://stackoverflow.com/questions/69875335/macos-how-to-install-java-17
-brew install openjdk@17 
 
+`brew install openjdk@17`
+
+## Notes
+
+```
 For the system Java wrappers to find this JDK, symlink it with
   sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
 
@@ -74,40 +106,13 @@ If you need to have openjdk@17 first in your PATH, run:
 
 For compilers to find openjdk@17 you may need to set:
   export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
+```
 
+## Then open new terminal 
 
+```
 java -version
 openjdk version "17.0.13" 2024-10-15
 OpenJDK Runtime Environment Homebrew (build 17.0.13+0)
 OpenJDK 64-Bit Server VM Homebrew (build 17.0.13+0, mixed mode, sharing)
-
-
-
-npm install --global yarn
-
-# if yarn is installed, but not linked
-brew link yarn
-
-
-
-
-
-
-
-
-
-rus@Russ-Air quizlingo % yarn android
-yarn run v1.22.22
-$ expo run:android --variant debug
-› Building app...
-Downloading https://services.gradle.org/distributions/gradle-8.8-all.zip
-
-
-
-https://docs.expo.dev/eas-update/getting-started/ 
-npm install --global eas-cli
-
-
-
-https://developer.apple.com/download/all/
-
+```

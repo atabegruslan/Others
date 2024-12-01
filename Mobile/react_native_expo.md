@@ -233,6 +233,10 @@ How to solve this problem ("`RNCSafeAreaProvider` was not found in the `UIManage
 }
 ```
 
+## Tabs
+
+https://gist.github.com/atabegruslan/07fc9e556141b7a5e27c7ed7bf8a96c0
+
 ## Render HTML
 
 - https://meliorence.github.io/react-native-render-html/docs/intro
@@ -409,6 +413,8 @@ Apple support https://developer.apple.com/contact/topic/select
 Dealing with multiple gradles
 
 - ![](/Illustrations/Mobile/Gradle/multiple_gradles.png)
+
+https://stackoverflow.com/a/26254725
 
 ## iOS
 
