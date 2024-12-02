@@ -100,7 +100,7 @@ PS: Sometimes the cert file can be called by other names, eg: `chained.crt`
 
 ---
 
-# Ububtu, Nginx
+# Ubuntu, Nginx
 
 ## First - Install Nginx
 
@@ -280,6 +280,18 @@ DNS.1       = localhost
 
 PS: These need to be put inside `C:\xampp\apache\{any-folder-name}\`
 
+# By CertBot & `LetsEncrypt`
+
+- https://letsencrypt.org/getting-started
+- Example: https://github.com/atabegruslan/Others/edit/master/Server/nginx_laravel.md
+
+# By `mkcert`
+
+- https://www.npmjs.com/package/mkcert
+- https://www.youtube.com/watch?v=g42yNO_dxWQ&t=2136s
+    - https://github.com/robertbunch/webrtc-starter/blob/main/taskList.md#setup-https
+- https://www.youtube.com/watch?v=I-jULfZRejU
+
 ---
 
 # Make a certificate
@@ -289,6 +301,5 @@ There are many ways to get a certificate. Different organizations have their own
 Here are some common ways:
 
 - https://blog.short.io/ssl-certificate
-- https://letsencrypt.org/getting-started
 - https://www.youtube.com/watch?v=b35Dcz91ItE&t=890s
 - https://www.youtube.com/watch?v=2SzgmTIuHRU&t=94s
