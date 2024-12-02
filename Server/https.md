@@ -283,7 +283,7 @@ PS: These need to be put inside `C:\xampp\apache\{any-folder-name}\`
 # By CertBot & `LetsEncrypt`
 
 - https://letsencrypt.org/getting-started
-- Example: https://github.com/atabegruslan/Others/edit/master/Server/nginx_laravel.md
+- Example: https://github.com/atabegruslan/Others/blob/master/Server/nginx_laravel.md#get-ssh-via-letsencrypt
 
 # By `mkcert`
 
@@ -291,6 +291,42 @@ PS: These need to be put inside `C:\xampp\apache\{any-folder-name}\`
 - https://www.youtube.com/watch?v=g42yNO_dxWQ&t=2136s
     - https://github.com/robertbunch/webrtc-starter/blob/main/taskList.md#setup-https
 - https://www.youtube.com/watch?v=I-jULfZRejU
+
+Run:   
+```
+npm install mkcert -g
+mkcert create-ca
+mkcert create-cert
+```
+
+These gets generated:   
+```
+ca.crt
+ca.key
+cert.crt
+cert.key
+```
+
+Have a `server.js` like below and a `index.html` all in the same folder.
+```js
+const fs = require('fs');
+const https = require('https')
+const express = require('express');
+const app = express();
+const socketio = require('socket.io');
+app.use(express.static(__dirname))
+
+const key = fs.readFileSync('cert.key');
+const cert = fs.readFileSync('cert.crt');
+const expressServer = https.createServer({key, cert}, app);
+const io = socketio(expressServer,{
+    cors: {
+        origin: '*',
+        methods: ["GET", "POST"]
+    }
+});
+expressServer.listen(8181);
+```
 
 ---
 

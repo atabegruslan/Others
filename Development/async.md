@@ -146,13 +146,17 @@ Some Websocket libraries are built atop those async technologies
 
 Chat normally relies on Websockets
 
-WS
+Websockets
+
 - https://www.youtube.com/watch?v=1BfCnjr_Vjg
+
 Socket IO
+
 - https://socket.io/docs/v4
 - https://socket.io/docs/v4/client-socket-instance
 
 Check Socket IO with Postman
+
 - https://github.com/atabegruslan/Others/blob/master/Development/socketio_postman.md
 
 Examples
@@ -174,6 +178,35 @@ Ones that don't rely on Websockets
 
 - PHP, AJAX: https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/another_php_ajax_chat_app_tutorial.txt
 - RabbitMQ & PHP: https://github.com/Ruslan-Aliyev/chat-php-rabbitmq
+
+## WebRTC
+
+![](/Illustrations/Development/webrtc_theory.png)
+
+Basic WebRTC (intrinsic to every modern web browser)
+
+- https://www.youtube.com/watch?v=g42yNO_dxWQ
+    - https://github.com/robertbunch/webrtc-starter
+- https://www.youtube.com/watch?v=WmR9IMUD_CY
+    - https://github.com/fireship-io/webrtc-firebase-demo
+- https://www.youtube.com/watch?v=SsN4gl_wV_8&list=PLsOU6EOcj51fvJK7Z5sb5qM57NU8vYhTy
+
+Using a library wrapping around WebRTC
+
+- Using the `simple-peer` library: 
+    - https://www.youtube.com/watch?v=BpN6ZwFjbCY
+        - https://github.com/coding-with-chaim/react-video-chat
+- Other libraries: https://www.quora.com/Which-is-the-best-WebRTC-JavaScript-library-PeerJS-or-EasyRTC
+
+Using a WebRTC platform
+
+- Using the Daily Co platform: 
+    - https://www.youtube.com/watch?v=EukhMNNosXw
+        - https://github.com/michaelkitas/Dailyco-Video-Chat
+    - https://docs.daily.co/reference/daily-js
+- Other platforms: https://www.zegocloud.com/blog/webrtc-api
+
+Comparing pure WebRTC to a WebRTC platform: https://www.videosdk.live/webrtc-vs-daily
 
 ---
 
