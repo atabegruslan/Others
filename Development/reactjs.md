@@ -115,6 +115,15 @@ Common pitfalls:
 - https://www.youtube.com/watch?v=QQYeipc_cik
 - https://www.youtube.com/watch?v=-yIsQPp31L0
 
+Make it run only once (strict mode)
+
+- https://www.youtube.com/watch?v=81faZzp18NM
+- https://stackoverflow.com/a/60619061
+- https://www.geeksforgeeks.org/how-to-fix-react-useeffect-running-twice
+- https://www.reddit.com/r/reactjs/comments/f647zr/calling_a_debounced_function_from_useeffect_what/?rdt=49933
+- https://stackoverflow.com/a/61887599
+- https://www.geeksforgeeks.org/lodash-_-debounce-method/
+
 #### `useMemo`
 
 Cache the result of expensive computations and won't recompute unless change

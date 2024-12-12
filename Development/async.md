@@ -146,20 +146,46 @@ Some Websocket libraries are built atop those async technologies
 
 Chat normally relies on Websockets
 
-Websockets
+**Websockets**
 
 - https://www.youtube.com/watch?v=1BfCnjr_Vjg
 
-Socket IO
+**Socket IO**
 
 - https://socket.io/docs/v4
 - https://socket.io/docs/v4/client-socket-instance
 
-Check Socket IO with Postman
+**Check Socket IO with Postman**
 
 - https://github.com/atabegruslan/Others/blob/master/Development/socketio_postman.md
 
-Examples
+**Socket IO with Auth**
+
+Backend
+
+```
+const socketIo = require("socket.io")(server);
+socketIo.on("connection", (socket) => {
+    // Here you have 
+    //      socket.handshake.query      POSTMAN params
+    //      socket.handshake.headers    POSTMAN headers
+    //      socket.handshake.auth       Not supported in POSTMAN yet, but can via code. https://stackoverflow.com/a/70975533
+```
+
+Frontend
+
+```
+const socket = io.connect('https://{domain}',{
+    auth: {
+        username, password
+    }
+})
+```
+
+https://viblo.asia/p/authentication-cho-socketio-maGK78n9Zj2
+
+**Examples**
+
 - PHP, Ratchet: https://github.com/Ruslan-Aliyev/chat-php-ratchet
 - Laravel Websockets: https://medium.com/@lfoster49203/building-real-time-applications-with-laravel-and-websockets-1f0e4465ef3a
 - Laravel Chatify: https://www.youtube.com/watch?v=9tj7sz-JF3Q
@@ -174,7 +200,7 @@ Examples
 - Zendesk: https://developer.zendesk.com/documentation/apps/build-an-app/build-your-first-chat-app/part-1-laying-the-groundwork
 	- https://en.wikipedia.org/wiki/Zendesk
 
-Ones that don't rely on Websockets
+**Ones that don't rely on Websockets**
 
 - PHP, AJAX: https://github.com/atabegruslan/Others/blob/master/Illustrations/Development/another_php_ajax_chat_app_tutorial.txt
 - RabbitMQ & PHP: https://github.com/Ruslan-Aliyev/chat-php-rabbitmq
@@ -191,6 +217,8 @@ Basic WebRTC (intrinsic to every modern web browser)
     - https://github.com/fireship-io/webrtc-firebase-demo
 - https://www.youtube.com/watch?v=SsN4gl_wV_8&list=PLsOU6EOcj51fvJK7Z5sb5qM57NU8vYhTy
 
+- WebRTC & RN: https://www.youtube.com/watch?v=r-IlbcKoSRg
+
 Using a library wrapping around WebRTC
 
 - Using the `simple-peer` library: 
@@ -201,12 +229,24 @@ Using a library wrapping around WebRTC
 Using a WebRTC platform
 
 - Using the Daily Co platform: 
+    - Simplest HTML example: https://gist.github.com/atabegruslan/05b22b00ac2fc3cb3428fc3549d41b54
     - https://www.youtube.com/watch?v=EukhMNNosXw
         - https://github.com/michaelkitas/Dailyco-Video-Chat
     - https://docs.daily.co/reference/daily-js
 - Other platforms: https://www.zegocloud.com/blog/webrtc-api
 
 Comparing pure WebRTC to a WebRTC platform: https://www.videosdk.live/webrtc-vs-daily
+
+### Free STUN servers
+
+- stun.l.google.com: 19302
+- stun1.l.google.com: 19302
+- stun2.1.google.com: 19302
+- stun3.l.google.com: 19302
+- stun4.l.google.com: 19302
+- stun01.sipphone.com
+- stun.ekiga.net
+- stun.fwdnet.net
 
 ---
 

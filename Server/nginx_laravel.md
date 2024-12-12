@@ -30,7 +30,7 @@ https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal
 
 `snap list`
 
-## Get SSH via LetsEncrypt
+## Get https via LetsEncrypt
 
 ```
 sudo snap install --classic certbot
@@ -46,7 +46,7 @@ Key is saved at:         /etc/letsencrypt/live/some.domain.com/privkey.pem
 This certificate expires on 2024-10-29.
 ```
 
-### Let server's config file know about SSH
+### Let server's config file know about https
 
 `cat /etc/nginx/sites-enabled/default`
 

@@ -39,6 +39,14 @@ download `Expo Go` to your phone,
 run `npm run start` or `yarn start` (A.K.A.: `npx expo start`)       
 scan the QR code from within the Expo Go app.   
 
+`npx expo start` vs `npx expo run`
+
+`start` defaults to Expo Go.   
+If you press `a` or `i` after that, it will run in any attached simulators or devices.   
+
+`run` automatically runs prebuild under the hood.   
+It does everything in one command, eg: `npx expo run:android`   
+
 References
 - Earlier version of `Expo Go` (v50): https://expo.dev/go?sdkVersion=50&platform=android&device=true
 - Use Yarn over NPM because it's faster: https://waverleysoftware.com/blog/yarn-vs-npm
@@ -414,8 +422,19 @@ Dealing with multiple gradles
 
 - ![](/Illustrations/Mobile/Gradle/multiple_gradles.png)
 
-https://stackoverflow.com/a/26254725
+- https://stackoverflow.com/a/26254725
+- https://stackoverflow.com/a/34532235
+- https://stackoverflow.com/a/48155800
+- https://github.com/NativeScript/android/issues/553#issuecomment-295862685
+- https://www.simplilearn.com/tutorials/gradle-tutorial/gradle-installation
+- Common issues:
+  - https://github.com/facebook/react-native/issues/32858
+    - Solution: Downgrade to Java v17 https://service.uoregon.edu/TDClient/2030/Portal/KB/ArticleDet?ID=32227 , remove `node_modules` and run `yarn` again.
 
 ## iOS
 
 **Pod**: In iOS, a pod is a third-party library or framework that is integrated into a project using CocoaPods (CocoaPods is a dependency manager)
+
+Publish via xCode: https://www.codecademy.com/article/ios-how-to-push-your-app-to-app-store-connect
+
+Publish via CLI: `eas build -p ios`
