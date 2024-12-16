@@ -4,6 +4,36 @@
 - https://pm2.keymetrics.io/docs/usage/quick-start
 - https://docs-v4.strapi.io/dev-docs/deployment/process-manager#start-pm2-with-a-serverjs-file
 
+Run either via `server.js` or via `ecosystem.config.js`
+
+Typical `ecosystem.config.js`
+```
+module.exports = {
+  apps: [
+    {
+      name: 'strapi',
+      cwd: '/home/strapiuser/Strapi', // Path where Strapi is present
+      script: 'npm',
+      args: 'start',
+      env: {
+        NODE_ENV: 'production',
+        DATABASE_HOST: 'localhost', // database endpoint
+        DATABASE_PORT: '',
+        DATABASE_NAME: '', // DB name
+        DATABASE_USERNAME: '', // your username for psql
+        DATABASE_PASSWORD: '', // your password for psql
+      },
+    },
+  ],
+};
+```
+
+Restart: 
+
+`pm2 list`
+
+`pm2 restart {number}`
+
 # Nginx proxy setup
 
 ```
@@ -69,6 +99,13 @@ server {
     return 404; # managed by Certbot
 }
 ```
+
+Check config file: `nginx -t`
+
+Older server OSs: `service nginx restart`
+
+Newer server OSs: `systemctl restart nginx`
+
 
 ---
 
