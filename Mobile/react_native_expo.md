@@ -19,6 +19,7 @@ Eg: You can start a project like this:
 `npx create-expo-app@latest projectName --template blank` 
 
 References
+- https://docs.expo.dev/get-started/create-a-project/
 - https://docs.expo.dev/more/create-expo/#--template    
 - A common problem and solution: https://stackoverflow.com/questions/58675179/error-emfile-too-many-open-files-react-native-cli/62437140#62437140  
 
@@ -112,7 +113,8 @@ Android Emulator typically needs 16GB RAM & 16GB disk space. Though 8GB of RAM c
 
 References
 - Common iOS emulator problem: https://github.com/expo/expo/issues/21727#issuecomment-1471621054  
-- If you have an older version of Mac, then you'll probably need an older version of `xCode`. See this for reference: https://developer.apple.com/support/xcode    
+- If you have an older version of Mac, then you'll probably need an older version of `xCode`: https://developer.apple.com/download/all/ . Also see this for reference: https://developer.apple.com/support/xcode    
+- As of 2024, xCode 16 is buggy: https://www.reddit.com/r/iOSProgramming/comments/1flfm36/xcode_16_is_buggy_a_tragic_tale_of_regret_and/?rdt=39591
 
 # Common things
 
@@ -278,6 +280,11 @@ https://gist.github.com/atabegruslan/07fc9e556141b7a5e27c7ed7bf8a96c0
 
 ## Publish
 
+**EAS**
+
+- https://docs.expo.dev/eas-update/getting-started/  
+  - `npm install --global eas-cli`
+
 ### Pre-publish
 
 ```
@@ -309,7 +316,41 @@ Advice: Use 'npx expo install --check' to review and upgrade your dependencies.
 
 - ![](/Illustrations/Mobile/RN_Expo/android_publish_test.png)
 
+#### To Firebase
+
+- https://medium.com/one-thing-i-learned-today/perfect-guide-for-releasing-your-react-native-ios-and-android-app-using-firebase-app-distribution-7107f98ca122
+
+To publish: Drag & Drop the build file (eg: `.apk`) into Firebase, like any online dropbox.
+
+![](/Illustrations/Mobile/apk_to_firebase.png)
+
 ### Test publish - iOS
+
+**Different ways:** https://developer.apple.com/help/app-store-connect/manage-builds/upload-builds 
+
+- `eas build --platform ios [--profile preview2]` and `eas submit -p ios --latest` with EAS (expo.dev): https://www.notjust.dev/blog/2022-03-29-how-to-publish-expo-react-native-app-to-apple-app-store
+- Archive, and then upload with xCode: https://www.codecademy.com/article/ios-how-to-push-your-app-to-app-store-connect
+- In CLI, build `.xacrhive` files (`eas build -p ios [--profile preview2] [--local]`), and then upload with xCode (xCode > organizer window > click upload to testflight): https://developer.apple.com/documentation/xcode/distributing-your-app-for-beta-testing-and-releases
+- `xcrun altool`: https://help.apple.com/asc/appsaltool
+- Transporter app: Need to get it from Apple App Store 
+  - Even though it's free, you still need an Apple ID associated with an payment method.
+    - If you don't have an Apple ID associated with an payment method; Then ask someone with an Apple ID associated with an payment method, ask them to download it and send it to you as `.zip`, then you unzip it and drag it into the `Applications` folder. Then you'll be prompted to login with your Apple ID, here you can login with your own Apple ID.
+
+If you encounter this issue below, you need to agree to Apple's latest contract (2024).   
+https://stackoverflow.com/questions/78680844/ios-you-do-not-have-required-contracts-to-perform-an-operation     
+https://forums.developer.apple.com/forums/thread/710906    
+
+![](/Illustrations/Mobile/ios_transporter_upload_contract_error.png)
+
+Before agreeing
+
+![](/Illustrations/Mobile/apple_2024_before_agree_new_contract.png)
+
+After agreeing
+
+![](/Illustrations/Mobile/apple_2024_after_agree_new_contract.png)
+
+**References:**
 
 - https://cic.ubc.ca/2023/08/28/how-to-publish-an-ios-app-to-testflight
 - https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview
@@ -410,6 +451,9 @@ Apple support https://developer.apple.com/contact/topic/select
 
 # Theory
 
+**Metro;** The JavaScript bundler for React Native:
+
+- https://github.com/facebook/metro
 - https://developers.facebook.com/blog/post/2021/11/01/eli5-metro-javascript-bundler-react-native
 
 ---
@@ -421,6 +465,15 @@ Apple support https://developer.apple.com/contact/topic/select
 Dealing with multiple gradles
 
 - ![](/Illustrations/Mobile/Gradle/multiple_gradles.png)
+
+When you run `npx expo run:android`, you can also see:
+
+```
+yarn run v1.22.22
+$ expo run:android --variant debug
+› Building app...
+Downloading https://services.gradle.org/distributions/gradle-8.8-all.zip
+```
 
 - https://stackoverflow.com/a/26254725
 - https://stackoverflow.com/a/34532235
@@ -435,6 +488,6 @@ Dealing with multiple gradles
 
 **Pod**: In iOS, a pod is a third-party library or framework that is integrated into a project using CocoaPods (CocoaPods is a dependency manager)
 
-Publish via xCode: https://www.codecademy.com/article/ios-how-to-push-your-app-to-app-store-connect
-
-Publish via CLI: `eas build -p ios`
+To reinstall all CocoaPods afresh: `rm -rf node_modules; rm -rf ios/build; rm -rf ios/Pods; rm -rf ios/Podfile.lock; yarn; yarn podinstall`.   
+Or just delete `ios/build` and `ios/Pods` folders, then run `npx expo run:ios` again.   
+Or alternatively: `cd ios`, then `pod repo update`, then `pod install`.   

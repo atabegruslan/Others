@@ -233,6 +233,7 @@ Using a WebRTC platform
     - https://www.youtube.com/watch?v=EukhMNNosXw
         - https://github.com/michaelkitas/Dailyco-Video-Chat
     - https://docs.daily.co/reference/daily-js
+    - https://www.daily.co/company/contact/support
 - Other platforms: https://www.zegocloud.com/blog/webrtc-api
 
 Comparing pure WebRTC to a WebRTC platform: https://www.videosdk.live/webrtc-vs-daily
