@@ -460,6 +460,26 @@ Apple support https://developer.apple.com/contact/topic/select
 
 # Platform Specific
 
+## AV
+
+Android emulator control output volume
+
+![](/Illustrations/Mobile/android_emulator_control_output_volume.png)
+
+Android emulator control input microphone - Method 1
+
+![](/Illustrations/Mobile/android_emulator_control_input_mic_1a.png)
+
+![](/Illustrations/Mobile/android_emulator_control_input_mic_1b.png)
+
+Android emulator control input microphone - Method 2
+
+![](/Illustrations/Mobile/mac_control_input_mic_2.png)
+
+Android emulator control input microphone - Method 3
+
+![](/Illustrations/Mobile/mac_control_input_mic_3.png)
+
 ## Android
 
 Dealing with multiple gradles
