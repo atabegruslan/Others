@@ -453,7 +453,7 @@ Apple support https://developer.apple.com/contact/topic/select
 
 # Platform Specific
 
-## AV
+## Audio
 
 Android emulator control output volume
 
@@ -469,9 +469,15 @@ Android emulator control input microphone - Method 2
 
 ![](/Illustrations/Mobile/android_emulator_control_input_mic_2.png)
 
+iOS simulator control output volume
+
+![](/Illustrations/Mobile/ios_simulator_control_output_volume.png)
+
 iOS simulator control input microphone
 
-![](/Illustrations/Mobile/ios_simulator_control_input_microphone.png)
+![](/Illustrations/Mobile/ios_simulator_control_input_microphone_1.png)
+
+![](/Illustrations/Mobile/ios_simulator_control_input_microphone_2.png)
 
 https://stackoverflow.com/questions/3195739/turn-off-sound-in-iphone-simulator
 
