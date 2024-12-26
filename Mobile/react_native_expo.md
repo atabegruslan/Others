@@ -273,11 +273,6 @@ https://gist.github.com/atabegruslan/07fc9e556141b7a5e27c7ed7bf8a96c0
     - Apple's Store Kit 2: https://developer.apple.com/storekit
     - Google Play Billing: https://developer.android.com/google/play/billing/integrate
 
-## Firebase
-
-- https://30dayscoding.com/blog/adding-firebase-hosting-to-react-native-apps
-- https://medium.com/one-thing-i-learned-today/perfect-guide-for-releasing-your-react-native-ios-and-android-app-using-firebase-app-distribution-7107f98ca122
-
 ## Publish
 
 **EAS**
@@ -315,14 +310,6 @@ Advice: Use 'npx expo install --check' to review and upgrade your dependencies.
 - https://www.youtube.com/watch?v=oBWBDaqNuws&t=1354s
 
 - ![](/Illustrations/Mobile/RN_Expo/android_publish_test.png)
-
-#### To Firebase
-
-- https://medium.com/one-thing-i-learned-today/perfect-guide-for-releasing-your-react-native-ios-and-android-app-using-firebase-app-distribution-7107f98ca122
-
-To publish: Drag & Drop the build file (eg: `.apk`) into Firebase, like any online dropbox.
-
-![](/Illustrations/Mobile/apk_to_firebase.png)
 
 ### Test publish - iOS
 
@@ -424,6 +411,8 @@ If not, then just `eas build --platform android`, manually download build from e
 
 - ![](/Illustrations/Mobile/RN_Expo/versions_in_react_native.png)
 
+Don't forget to update remote version too https://docs.expo.dev/build-reference/app-versions
+
 ### Docs
 
 - https://reactnative.dev/docs/activityindicator
@@ -472,13 +461,27 @@ Android emulator control input microphone - Method 1
 
 ![](/Illustrations/Mobile/android_emulator_control_input_mic_1b.png)
 
-Android emulator control input microphone - Method 2
+iOS simulator control input microphone
+
+![](/Illustrations/Mobile/ios_simulator_control_input_microphone.png)
+
+Mac control input microphone - Method 1
+
+![](/Illustrations/Mobile/mac_control_input_mic_1.png)
+
+Mac control input microphone - Method 2
 
 ![](/Illustrations/Mobile/mac_control_input_mic_2.png)
 
-Android emulator control input microphone - Method 3
+## Start afresh
 
-![](/Illustrations/Mobile/mac_control_input_mic_3.png)
+Android emulator
+
+![](/Illustrations/Mobile/android_emulator_start_afresh.png)
+
+iOS simulator - just delete the app and reinstall
+
+![](/Illustrations/Mobile/ios_simulator_start_afresh.png)
 
 ## Android
 
@@ -511,3 +514,28 @@ Downloading https://services.gradle.org/distributions/gradle-8.8-all.zip
 To reinstall all CocoaPods afresh: `rm -rf node_modules; rm -rf ios/build; rm -rf ios/Pods; rm -rf ios/Podfile.lock; yarn; yarn podinstall`.   
 Or just delete `ios/build` and `ios/Pods` folders, then run `npx expo run:ios` again.   
 Or alternatively: `cd ios`, then `pod repo update`, then `pod install`.   
+
+iOS simulator use simulator's keyboard instead of Mac's keyboard
+
+![](/Illustrations/Mobile/ios_simulator_use_simulators_keyboard.png)
+
+## Firebase
+
+Sometimes its faster to distribute builds among other developers during development phase
+
+- https://30dayscoding.com/blog/adding-firebase-hosting-to-react-native-apps
+- https://medium.com/one-thing-i-learned-today/perfect-guide-for-releasing-your-react-native-ios-and-android-app-using-firebase-app-distribution-7107f98ca122
+
+Upload
+
+- https://medium.com/one-thing-i-learned-today/perfect-guide-for-releasing-your-react-native-ios-and-android-app-using-firebase-app-distribution-7107f98ca122
+
+Drag & Drop the build file (eg: `.apk`) into Firebase, like any online dropbox.
+
+![](/Illustrations/Mobile/apk_to_firebase.png)
+
+Invite others
+
+https://www.youtube.com/watch?v=V3z97mWuvmA&t=180s
+
+![](/Illustrations/Mobile/firebase_invite.png)
