@@ -104,6 +104,26 @@ Only use state if:
 - Does not need to be rendered
 - Value isn't a derived value. (Derived value is eg: Formatted date from date)
 
+**Common mistakes:**
+
+![](/Illustrations/Development/react/react_setState_1.png)
+
+![](/Illustrations/Development/react/react_setState_2.png)
+
+So do this instead:
+
+```js
+const [muted, setMuted] = useState(false);
+
+const clickHandlerFunction = () => {
+    console.log('muted before', muted);
+    setMuted(!muted);
+}
+useEffect(() => {
+    console.log('muted after', muted);
+}, [muted])
+```
+
 #### `useEffect`
 
 Don't overuse this. Stay away from `useEffect` by: 
