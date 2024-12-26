@@ -349,6 +349,10 @@ After agreeing
 
 - ![](/Illustrations/Mobile/RN_Expo/ios_publish_test_external_link.png)
 
+### Local builds
+
+https://docs.expo.dev/build-reference/local-builds
+
 ### Update
 
 `app.json`
@@ -461,15 +465,19 @@ Android emulator control input microphone - Method 1
 
 ![](/Illustrations/Mobile/android_emulator_control_input_mic_1b.png)
 
+Android emulator control input microphone - Method 2
+
+![](/Illustrations/Mobile/android_emulator_control_input_mic_2.png)
+
 iOS simulator control input microphone
 
 ![](/Illustrations/Mobile/ios_simulator_control_input_microphone.png)
 
-Mac control input microphone - Method 1
+https://stackoverflow.com/questions/3195739/turn-off-sound-in-iphone-simulator
+
+Mac control input microphone
 
 ![](/Illustrations/Mobile/mac_control_input_mic_1.png)
-
-Mac control input microphone - Method 2
 
 ![](/Illustrations/Mobile/mac_control_input_mic_2.png)
 
