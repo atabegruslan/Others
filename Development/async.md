@@ -209,35 +209,6 @@ https://viblo.asia/p/authentication-cho-socketio-maGK78n9Zj2
 
 ![](/Illustrations/Development/webrtc_theory.png)
 
-Basic WebRTC (intrinsic to every modern web browser)
-
-- https://www.youtube.com/watch?v=g42yNO_dxWQ
-    - https://github.com/robertbunch/webrtc-starter
-- https://www.youtube.com/watch?v=WmR9IMUD_CY
-    - https://github.com/fireship-io/webrtc-firebase-demo
-- https://www.youtube.com/watch?v=SsN4gl_wV_8&list=PLsOU6EOcj51fvJK7Z5sb5qM57NU8vYhTy
-
-- WebRTC & RN: https://www.youtube.com/watch?v=r-IlbcKoSRg
-
-Using a library wrapping around WebRTC
-
-- Using the `simple-peer` library: 
-    - https://www.youtube.com/watch?v=BpN6ZwFjbCY
-        - https://github.com/coding-with-chaim/react-video-chat
-- Other libraries: https://www.quora.com/Which-is-the-best-WebRTC-JavaScript-library-PeerJS-or-EasyRTC
-
-Using a WebRTC platform
-
-- Using the Daily Co platform: 
-    - Simplest HTML example: https://gist.github.com/atabegruslan/05b22b00ac2fc3cb3428fc3549d41b54
-    - https://www.youtube.com/watch?v=EukhMNNosXw
-        - https://github.com/michaelkitas/Dailyco-Video-Chat
-    - https://docs.daily.co/reference/daily-js
-    - https://www.daily.co/company/contact/support
-- Other platforms: https://www.zegocloud.com/blog/webrtc-api
-
-Comparing pure WebRTC to a WebRTC platform: https://www.videosdk.live/webrtc-vs-daily
-
 ### Free STUN servers
 
 - stun.l.google.com: 19302
@@ -249,7 +220,100 @@ Comparing pure WebRTC to a WebRTC platform: https://www.videosdk.live/webrtc-vs-
 - stun.ekiga.net
 - stun.fwdnet.net
 
----
+### Basic WebRTC (intrinsic to every modern web browser)
+
+- https://www.youtube.com/watch?v=g42yNO_dxWQ
+    - https://github.com/robertbunch/webrtc-starter
+- https://www.youtube.com/watch?v=WmR9IMUD_CY
+    - https://github.com/fireship-io/webrtc-firebase-demo
+- https://www.youtube.com/watch?v=SsN4gl_wV_8&list=PLsOU6EOcj51fvJK7Z5sb5qM57NU8vYhTy
+
+### Using a library wrapping around WebRTC
+
+- Using the `simple-peer` library: 
+    - https://www.youtube.com/watch?v=BpN6ZwFjbCY
+        - https://github.com/coding-with-chaim/react-video-chat
+- Other libraries: https://www.quora.com/Which-is-the-best-WebRTC-JavaScript-library-PeerJS-or-EasyRTC
+
+- WebRTC & React Native: 
+    - https://www.youtube.com/watch?v=r-IlbcKoSRg
+    - https://github.com/react-native-webrtc/react-native-webrtc
+        - https://unpkg.com/browse/@livekit/react-native-webrtc@125.0.4
+        - https://unpkg.com/browse/react-native-webrtc@1.69.0
+
+### Using a WebRTC platform
+
+- Using the Daily Co platform: https://www.daily.co
+    - https://dashboard.daily.co
+- Other platforms: https://www.zegocloud.com/blog/webrtc-api
+
+Comparing pure WebRTC to a WebRTC platform: https://www.videosdk.live/webrtc-vs-daily
+
+### Daily Co
+- Tutorials:
+    - https://docs.daily.co/guides/products/client-sdk#demo-apps-and-tutorials
+    - https://github.com/daily-demos
+        - https://docs.daily.co/guides/products/audio-only
+    - https://www.youtube.com/watch?v=EukhMNNosXw
+        - https://github.com/michaelkitas/Dailyco-Video-Chat
+- Support:
+    - https://www.daily.co/company/contact/support
+- Common problems:
+    - Cant use Expo Go
+        - https://stackoverflow.com/questions/78806644/cant-use-webrtc-on-expo-go
+        - https://www.daily.co/blog/deploying-webrtc-on-an-expo-react-native-app-2
+
+#### HTML & JS:
+- Requires:
+    - `<script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>`
+- Simplest HTML example: https://gist.github.com/atabegruslan/05b22b00ac2fc3cb3428fc3549d41b54
+- Documentations: 
+    - https://docs.daily.co/reference/daily-js
+        - https://docs.daily.co/reference/daily-js/daily-call-client/properties
+        - https://docs.daily.co/reference/daily-js/instance-methods
+            - https://docs.daily.co/reference/daily-js/instance-methods/set-local-audio
+- Tutorials:
+    - https://github.com/daily-demos/daily-samples-js/tree/main/samples/client-sdk/getting-started-daily-js
+- Common problems:
+    - https://stackoverflow.com/questions/30014090/uncaught-typeerror-cannot-read-property-appendchild-of-null/58824439#58824439
+
+#### NodeJS:
+- Requires:
+    - `@daily-co/daily-js`
+- Documentations:
+    - https://www.npmjs.com/package/@daily-co/daily-js/v/0.9.4-beta.1
+- Tutorials:
+    - https://www.daily.co/blog/deploy-a-daily-co-backend-node-js-server-instantly
+- Common problems:
+    - https://github.com/daily-co/daily-js/?tab=readme-ov-file#strictmode-false-will-no-longer-allow-multiple-call-instances
+
+#### ReactJS
+- Requires:
+    - `"@daily-co/daily-js": "^0.73.0",`
+    - `"@daily-co/daily-react": "^0.22.0",`
+        - https://www.npmjs.com/package/@daily-co/daily-react
+        - https://docs.daily.co/reference/daily-react
+- Tutorials:
+    - https://dev.to/trydaily/build-a-video-chat-app-in-minutes-with-react-and-daily-js-481c
+    - https://github.com/kimberleehowley/daily-demos/blob/master/react-demo/src/index.js
+    - https://www.daily.co/blog/building-a-custom-video-chat-app-with-react
+- Common problems:
+    - https://docs.daily.co/reference/daily-react/use-call-frame
+
+#### React Native
+- Requires:
+    - `"@config-plugins/react-native-webrtc": "^8.0.0",`        
+    - `"@daily-co/config-plugin-rn-daily-js": "^0.0.5",`        
+    - `"@daily-co/react-native-daily-js": "^0.70.0",`          
+        - https://docs.daily.co/reference/rn-daily-js 
+        - https://docs.daily.co/reference/rn-daily-js/daily-call-client/properties
+    - `"@daily-co/react-native-webrtc": "118.0.3-daily.2",`  
+- Tutorials:
+    - https://github.com/daily-demos/daily-expo-demo    
+
+#### Non Coding
+- Tutorials:
+    - https://medium.com/geekculture/easiest-way-to-add-daily-co-video-call-support-to-your-react-app-19ad97441df3
 
 # Make asynchronous work
 
