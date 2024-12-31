@@ -440,7 +440,7 @@ And don't forget to update:
   - `CFBundleVersion` corresponds to `app.json`'s iOS `buildNumber`
   - `CFBundleShortVersionString` corresponds to `app.json`'s `version`
 
-### Docs
+### Others
 
 - https://reactnative.dev/docs/activityindicator
 - https://reactnavigation.org/docs/deep-linking
