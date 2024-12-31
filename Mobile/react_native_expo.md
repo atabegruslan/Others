@@ -311,6 +311,10 @@ Advice: Use 'npx expo install --check' to review and upgrade your dependencies.
 
 - ![](/Illustrations/Mobile/RN_Expo/android_publish_test.png)
 
+Google Play Console don't accept `.apk` anymore
+
+![](/Illustrations/Mobile/google_play_console_dont_accept_apk_anymore.png)
+
 ### Test publish - iOS
 
 **Different ways:** https://developer.apple.com/help/app-store-connect/manage-builds/upload-builds 
@@ -336,6 +340,13 @@ Before agreeing
 After agreeing
 
 ![](/Illustrations/Mobile/apple_2024_after_agree_new_contract.png)
+
+**Once you publish a build to App Store Connect's TestFlight:**
+
+- Give info such as Privacy and Contact Info and Screenshots,
+- Select a build (ie: version) from TestFlight,
+- Submit for Review
+- Invite Users and add Internal Testers
 
 **References:**
 
@@ -415,7 +426,19 @@ If not, then just `eas build --platform android`, manually download build from e
 
 - ![](/Illustrations/Mobile/RN_Expo/versions_in_react_native.png)
 
-Don't forget to update remote version too https://docs.expo.dev/build-reference/app-versions
+Don't forget to update remote version too https://docs.expo.dev/build-reference/app-versions/#remote-version-source
+
+So:   
+`eas build:version:set` to set Android `versionCode` and iOS `buildNumber`, and chose remote. `eas.json` will be updated.   
+`eas build:version:sync`   
+
+And don't forget to update:
+- `android/app/build.gradle`'s `versionCode` and `versionName`
+  - `versionCode` corresponds to `app.json`'s Android `versionCode`
+  - `versionName` corresponds to `app.json`'s `version`
+- `ios/quizlingo/Info.plist`'s `CFBundleVersion` and `CFBundleShortVersionString`:
+  - `CFBundleVersion` corresponds to `app.json`'s iOS `buildNumber`
+  - `CFBundleShortVersionString` corresponds to `app.json`'s `version`
 
 ### Docs
 
@@ -529,9 +552,21 @@ To reinstall all CocoaPods afresh: `rm -rf node_modules; rm -rf ios/build; rm -r
 Or just delete `ios/build` and `ios/Pods` folders, then run `npx expo run:ios` again.   
 Or alternatively: `cd ios`, then `pod repo update`, then `pod install`.   
 
-iOS simulator use simulator's keyboard instead of Mac's keyboard
+### iOS simulator use simulator's keyboard instead of Mac's keyboard
 
 ![](/Illustrations/Mobile/ios_simulator_use_simulators_keyboard.png)
+
+### Screenshot
+
+![](/Illustrations/Mobile/ios_simulator_screenshot.png)
+
+### Run many Simulators
+
+![](/Illustrations/Mobile/create_and_run_on_many_ios_simulators_1.png)
+
+![](/Illustrations/Mobile/create_and_run_on_many_ios_simulators_2.png)
+
+![](/Illustrations/Mobile/create_and_run_on_many_ios_simulators_3.png)
 
 ## Firebase
 
