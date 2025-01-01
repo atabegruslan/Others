@@ -512,13 +512,29 @@ Mac control input microphone
 
 ## Start afresh
 
-Android emulator
+### Android
+
+Clear the emulator.
 
 ![](/Illustrations/Mobile/android_emulator_start_afresh.png)
 
-iOS simulator - just delete the app and reinstall
+Open the `android` folder in Android Studio. Go to `File` > `Invalidate Caches`.
+
+Or just delete app in emulator.
+
+### iOS
+
+Delete app in simulator.
 
 ![](/Illustrations/Mobile/ios_simulator_start_afresh.png)
+
+Reinstall all CocoaPods afresh: `rm -rf node_modules; rm -rf ios/build; rm -rf ios/Pods; rm -rf ios/Podfile.lock; yarn; yarn podinstall`.
+
+Update Pods `cd ios`, then `pod repo update`, then `pod install`.
+
+Or simple delete these folders: `ios/build` and `ios/Pods`.
+
+**PS: A Pod is** a third-party library or framework that is integrated into a project using CocoaPods (CocoaPods is a dependency manager)
 
 ## Android
 
@@ -545,12 +561,6 @@ Downloading https://services.gradle.org/distributions/gradle-8.8-all.zip
     - Solution: Downgrade to Java v17 https://service.uoregon.edu/TDClient/2030/Portal/KB/ArticleDet?ID=32227 , remove `node_modules` and run `yarn` again.
 
 ## iOS
-
-**Pod**: In iOS, a pod is a third-party library or framework that is integrated into a project using CocoaPods (CocoaPods is a dependency manager)
-
-To reinstall all CocoaPods afresh: `rm -rf node_modules; rm -rf ios/build; rm -rf ios/Pods; rm -rf ios/Podfile.lock; yarn; yarn podinstall`.   
-Or just delete `ios/build` and `ios/Pods` folders, then run `npx expo run:ios` again.   
-Or alternatively: `cd ios`, then `pod repo update`, then `pod install`.   
 
 ### iOS simulator use simulator's keyboard instead of Mac's keyboard
 
